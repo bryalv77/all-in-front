@@ -1,0 +1,153 @@
+import UserPlaylistService from 'src/modules/userPlaylist/userPlaylistService';
+import selectors from 'src/modules/userPlaylist/list/userPlaylistListSelectors';
+import { i18n } from 'src/i18n';
+import exporterFields from 'src/modules/userPlaylist/list/userPlaylistListExporterFields';
+import Errors from 'src/modules/shared/error/errors';
+import Exporter from 'src/modules/shared/exporter/exporter';
+
+const prefix = 'USERPLAYLIST_LIST';
+
+const userPlaylistListActions = {
+  FETCH_STARTED: `${prefix}_FETCH_STARTED`,
+  FETCH_SUCCESS: `${prefix}_FETCH_SUCCESS`,
+  FETCH_ERROR: `${prefix}_FETCH_ERROR`,
+
+  RESETED: `${prefix}_RESETED`,
+  TOGGLE_ONE_SELECTED: `${prefix}_TOGGLE_ONE_SELECTED`,
+  TOGGLE_ALL_SELECTED: `${prefix}_TOGGLE_ALL_SELECTED`,
+  CLEAR_ALL_SELECTED: `${prefix}_CLEAR_ALL_SELECTED`,
+
+  PAGINATION_CHANGED: `${prefix}_PAGINATION_CHANGED`,
+  SORTER_CHANGED: `${prefix}_SORTER_CHANGED`,
+
+  EXPORT_STARTED: `${prefix}_EXPORT_STARTED`,
+  EXPORT_SUCCESS: `${prefix}_EXPORT_SUCCESS`,
+  EXPORT_ERROR: `${prefix}_EXPORT_ERROR`,
+
+  doClearAllSelected() {
+    return {
+      type: userPlaylistListActions.CLEAR_ALL_SELECTED,
+    };
+  },
+
+  doToggleAllSelected() {
+    return {
+      type: userPlaylistListActions.TOGGLE_ALL_SELECTED,
+    };
+  },
+
+  doToggleOneSelected(id) {
+    return {
+      type: userPlaylistListActions.TOGGLE_ONE_SELECTED,
+      payload: id,
+    };
+  },
+
+  doReset: () => async (dispatch) => {
+    dispatch({
+      type: userPlaylistListActions.RESETED,
+    });
+
+    dispatch(userPlaylistListActions.doFetch());
+  },
+
+  doExport: () => async (dispatch, getState) => {
+    try {
+      if (!exporterFields || !exporterFields.length) {
+        throw new Error('exporterFields is required');
+      }
+
+      dispatch({
+        type: userPlaylistListActions.EXPORT_STARTED,
+      });
+
+      const filter = selectors.selectFilter(getState());
+      const response = await UserPlaylistService.list(
+        filter,
+        selectors.selectOrderBy(getState()),
+        null,
+        null,
+      );
+
+      new Exporter(
+        exporterFields,
+        i18n('entities.userPlaylist.exporterFileName'),
+      ).transformAndExportAsExcelFile(response.rows);
+
+      dispatch({
+        type: userPlaylistListActions.EXPORT_SUCCESS,
+      });
+    } catch (error) {
+      Errors.handle(error);
+
+      dispatch({
+        type: userPlaylistListActions.EXPORT_ERROR,
+      });
+    }
+  },
+
+  doChangePagination: (pagination) => async (
+    dispatch,
+    getState,
+  ) => {
+    dispatch({
+      type: userPlaylistListActions.PAGINATION_CHANGED,
+      payload: pagination,
+    });
+
+    dispatch(userPlaylistListActions.doFetchCurrentFilter());
+  },
+
+  doChangeSort: (sorter) => async (dispatch, getState) => {
+    dispatch({
+      type: userPlaylistListActions.SORTER_CHANGED,
+      payload: sorter,
+    });
+
+    dispatch(userPlaylistListActions.doFetchCurrentFilter());
+  },
+
+  doFetchCurrentFilter: () => async (
+    dispatch,
+    getState,
+  ) => {
+    const filter = selectors.selectFilter(getState());
+    const rawFilter = selectors.selectRawFilter(getState());
+    dispatch(userPlaylistListActions.doFetch(filter, rawFilter, true));
+  },
+
+  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
+    dispatch,
+    getState,
+  ) => {
+    try {
+      dispatch({
+        type: userPlaylistListActions.FETCH_STARTED,
+        payload: { filter, rawFilter, keepPagination },
+      });
+
+      const response = await UserPlaylistService.list(
+        filter,
+        selectors.selectOrderBy(getState()),
+        selectors.selectLimit(getState()),
+        selectors.selectOffset(getState()),
+      );
+
+      dispatch({
+        type: userPlaylistListActions.FETCH_SUCCESS,
+        payload: {
+          rows: response.rows,
+          count: response.count,
+        },
+      });
+    } catch (error) {
+      Errors.handle(error);
+
+      dispatch({
+        type: userPlaylistListActions.FETCH_ERROR,
+      });
+    }
+  },
+};
+
+export default userPlaylistListActions;

@@ -1,0 +1,104 @@
+import TaskTagsService from 'src/modules/taskTags/taskTagsService';
+import Errors from 'src/modules/shared/error/errors';
+import Message from 'src/view/shared/message';
+import { getHistory } from 'src/modules/store';
+import { i18n } from 'src/i18n';
+
+const prefix = 'TASKTAGS_FORM';
+
+const taskTagsFormActions = {
+  INIT_STARTED: `${prefix}_INIT_STARTED`,
+  INIT_SUCCESS: `${prefix}_INIT_SUCCESS`,
+  INIT_ERROR: `${prefix}_INIT_ERROR`,
+
+  CREATE_STARTED: `${prefix}_CREATE_STARTED`,
+  CREATE_SUCCESS: `${prefix}_CREATE_SUCCESS`,
+  CREATE_ERROR: `${prefix}_CREATE_ERROR`,
+
+  UPDATE_STARTED: `${prefix}_UPDATE_STARTED`,
+  UPDATE_SUCCESS: `${prefix}_UPDATE_SUCCESS`,
+  UPDATE_ERROR: `${prefix}_UPDATE_ERROR`,
+
+  doInit: (id) => async (dispatch) => {
+    try {
+      dispatch({
+        type: taskTagsFormActions.INIT_STARTED,
+      });
+
+      let record = {};
+
+      const isEdit = Boolean(id);
+
+      if (isEdit) {
+        record = await TaskTagsService.find(id);
+      }
+
+      dispatch({
+        type: taskTagsFormActions.INIT_SUCCESS,
+        payload: record,
+      });
+    } catch (error) {
+      Errors.handle(error);
+
+      dispatch({
+        type: taskTagsFormActions.INIT_ERROR,
+      });
+
+      getHistory().push('/task-tags');
+    }
+  },
+
+  doCreate: (values) => async (dispatch) => {
+    try {
+      dispatch({
+        type: taskTagsFormActions.CREATE_STARTED,
+      });
+
+      await TaskTagsService.create(values);
+
+      dispatch({
+        type: taskTagsFormActions.CREATE_SUCCESS,
+      });
+
+      Message.success(
+        i18n('entities.taskTags.create.success'),
+      );
+
+      getHistory().push('/task-tags');
+    } catch (error) {
+      Errors.handle(error);
+
+      dispatch({
+        type: taskTagsFormActions.CREATE_ERROR,
+      });
+    }
+  },
+
+  doUpdate: (id, values) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: taskTagsFormActions.UPDATE_STARTED,
+      });
+
+      await TaskTagsService.update(id, values);
+
+      dispatch({
+        type: taskTagsFormActions.UPDATE_SUCCESS,
+      });
+
+      Message.success(
+        i18n('entities.taskTags.update.success'),
+      );
+
+      getHistory().push('/task-tags');
+    } catch (error) {
+      Errors.handle(error);
+
+      dispatch({
+        type: taskTagsFormActions.UPDATE_ERROR,
+      });
+    }
+  },
+};
+
+export default taskTagsFormActions;
