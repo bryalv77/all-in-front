@@ -1,9 +1,9 @@
-import listActions from 'src/modules/orderDetail/list/orderDetailListActions';
-import OrderDetailService from 'src/modules/orderDetail/orderDetailService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/orderDetail/list/orderDetailListActions';
+import OrderDetailService from '../../../modules/orderDetail/orderDetailService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'ORDERDETAIL_DESTROY';
 

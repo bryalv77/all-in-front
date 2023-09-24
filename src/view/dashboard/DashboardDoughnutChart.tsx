@@ -1,6 +1,6 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 
 const data = {
   labels: [

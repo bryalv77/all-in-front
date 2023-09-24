@@ -7,16 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
-import BusinessCategoryAutocompleteFormItem from 'src/view/businessCategory/autocomplete/BusinessCategoryAutocompleteFormItem';
-import AddressAutocompleteFormItem from 'src/view/address/autocomplete/AddressAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
+import BusinessCategoryAutocompleteFormItem from '../../../view/businessCategory/autocomplete/BusinessCategoryAutocompleteFormItem';
+import AddressAutocompleteFormItem from '../../../view/address/autocomplete/AddressAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -90,18 +90,26 @@ function BusinessForm(props) {
           <InputFormItem
             name="name"
             label={i18n('entities.business.fields.name')}
-          placeholder={i18n('entities.business.placeholders.name')}
-          hint={i18n('entities.business.hints.name')}
+            placeholder={i18n(
+              'entities.business.placeholders.name',
+            )}
+            hint={i18n('entities.business.hints.name')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.business.fields.description')}
-          placeholder={i18n('entities.business.placeholders.description')}
-          hint={i18n('entities.business.hints.description')}  
+            label={i18n(
+              'entities.business.fields.description',
+            )}
+            placeholder={i18n(
+              'entities.business.placeholders.description',
+            )}
+            hint={i18n(
+              'entities.business.hints.description',
+            )}
             required={false}
           />
         </div>
@@ -112,35 +120,43 @@ function BusinessForm(props) {
             required={false}
             storage={Storage.values.businessLogo}
             max={undefined}
-          hint={i18n('entities.business.hints.logo')}
+            hint={i18n('entities.business.hints.logo')}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <BusinessCategoryAutocompleteFormItem  
+          <BusinessCategoryAutocompleteFormItem
             name="category"
-            label={i18n('entities.business.fields.category')}
-          placeholder={i18n('entities.business.placeholders.category')}
-          hint={i18n('entities.business.hints.category')}
+            label={i18n(
+              'entities.business.fields.category',
+            )}
+            placeholder={i18n(
+              'entities.business.placeholders.category',
+            )}
+            hint={i18n('entities.business.hints.category')}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <AddressAutocompleteFormItem  
+          <AddressAutocompleteFormItem
             name="address"
             label={i18n('entities.business.fields.address')}
-          placeholder={i18n('entities.business.placeholders.address')}
-          hint={i18n('entities.business.hints.address')}
+            placeholder={i18n(
+              'entities.business.placeholders.address',
+            )}
+            hint={i18n('entities.business.hints.address')}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="owner"
             label={i18n('entities.business.fields.owner')}
-          placeholder={i18n('entities.business.placeholders.owner')}
-          hint={i18n('entities.business.hints.owner')}
+            placeholder={i18n(
+              'entities.business.placeholders.owner',
+            )}
+            hint={i18n('entities.business.hints.owner')}
             required={false}
             showCreate={!props.modal}
             mode="multiple"
@@ -150,7 +166,7 @@ function BusinessForm(props) {
           <SwitchFormItem
             name="active"
             label={i18n('entities.business.fields.active')}
-          hint={i18n('entities.business.hints.active')}
+            hint={i18n('entities.business.hints.active')}
           />
         </div>
 

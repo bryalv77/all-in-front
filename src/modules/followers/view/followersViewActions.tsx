@@ -1,6 +1,6 @@
-import FollowersService from 'src/modules/followers/followersService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import FollowersService from '../../../modules/followers/followersService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'FOLLOWERS_VIEW';
 

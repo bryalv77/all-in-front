@@ -1,4 +1,4 @@
-import actions from 'src/modules/paymentMethods/destroy/paymentMethodsDestroyActions';
+import actions from '../../../modules/paymentMethods/destroy/paymentMethodsDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

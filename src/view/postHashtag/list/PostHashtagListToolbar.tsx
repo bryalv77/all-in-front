@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import postHashtagSelectors from 'src/modules/postHashtag/postHashtagSelectors';
-import destroyActions from 'src/modules/postHashtag/destroy/postHashtagDestroyActions';
-import destroySelectors from 'src/modules/postHashtag/destroy/postHashtagDestroySelectors';
-import actions from 'src/modules/postHashtag/list/postHashtagListActions';
-import selectors from 'src/modules/postHashtag/list/postHashtagListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import postHashtagSelectors from '../../../modules/postHashtag/postHashtagSelectors';
+import destroyActions from '../../../modules/postHashtag/destroy/postHashtagDestroyActions';
+import destroySelectors from '../../../modules/postHashtag/destroy/postHashtagDestroySelectors';
+import actions from '../../../modules/postHashtag/list/postHashtagListActions';
+import selectors from '../../../modules/postHashtag/list/postHashtagListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function PostHashtagToolbar(props) {
   const [

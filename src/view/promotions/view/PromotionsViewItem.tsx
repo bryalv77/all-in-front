@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/promotions/promotionsSelectors';
+import selectors from '../../../modules/promotions/promotionsSelectors';
 
 function PromotionsViewItem(props) {
   const hasPermissionToRead = useSelector(

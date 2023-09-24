@@ -1,4 +1,4 @@
-import actions from 'src/modules/country/view/countryViewActions';
+import actions from '../../../modules/country/view/countryViewActions';
 
 const initialData = {
   loading: false,

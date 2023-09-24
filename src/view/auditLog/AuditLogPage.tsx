@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import AuditLogFilter from 'src/view/auditLog/AuditLogFilter';
-import AuditLogTable from 'src/view/auditLog/AuditLogTable';
-import AuditLogToolbar from 'src/view/auditLog/AuditLogToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import AuditLogFilter from '../../../view/auditLog/AuditLogFilter';
+import AuditLogTable from '../../../view/auditLog/AuditLogTable';
+import AuditLogToolbar from '../../../view/auditLog/AuditLogToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function AuditLogPage(props) {
   return (

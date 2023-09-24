@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import FormErrors from 'src/view/shared/form/formErrors';
+import FormErrors from '../../../view/shared/form/formErrors';
 import { useFormContext } from 'react-hook-form';
 import { v4 as uuid } from 'uuid';
 
@@ -58,7 +58,8 @@ export function CheckboxFormItem(props) {
           checked={watch(name) || false}
           onChange={(e) => {
             setValue(name, Boolean(e.target.checked), {
-              shouldValidate: true, shouldDirty: true,
+              shouldValidate: true,
+              shouldDirty: true,
             });
             props.onChange &&
               props.onChange(e.target.checked);

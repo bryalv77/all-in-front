@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/promotions/importer/promotionsImporterActions';
-import fields from 'src/modules/promotions/importer/promotionsImporterFields';
-import selectors from 'src/modules/promotions/importer/promotionsImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/promotions/importer/promotionsImporterActions';
+import fields from '../../../modules/promotions/importer/promotionsImporterFields';
+import selectors from '../../../modules/promotions/importer/promotionsImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function PromotionsImportPage() {
   const Importer = importerHoc(

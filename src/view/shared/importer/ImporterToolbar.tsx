@@ -9,8 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 export default (
   selectors,
@@ -20,10 +20,8 @@ export default (
 ) => {
   function ImporterToolbar() {
     const dispatch = useDispatch();
-    const [
-      resetConfirmVisible,
-      setResetConfirmVisible,
-    ] = useState(false);
+    const [resetConfirmVisible, setResetConfirmVisible] =
+      useState(false);
     const [
       discardConfirmVisible,
       setDiscardConfirmVisible,

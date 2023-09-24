@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import ArtistListFilter from 'src/view/artist/list/ArtistListFilter';
-import ArtistListTable from 'src/view/artist/list/ArtistListTable';
-import ArtistListToolbar from 'src/view/artist/list/ArtistListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import ArtistListFilter from '../../../view/artist/list/ArtistListFilter';
+import ArtistListTable from '../../../view/artist/list/ArtistListTable';
+import ArtistListToolbar from '../../../view/artist/list/ArtistListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ArtistListPage(props) {
   return (

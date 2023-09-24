@@ -7,11 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -65,18 +65,22 @@ function BankForm(props) {
           <InputFormItem
             name="fintonicId"
             label={i18n('entities.bank.fields.fintonicId')}
-          placeholder={i18n('entities.bank.placeholders.fintonicId')}
-          hint={i18n('entities.bank.hints.fintonicId')}
+            placeholder={i18n(
+              'entities.bank.placeholders.fintonicId',
+            )}
+            hint={i18n('entities.bank.hints.fintonicId')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="name"
             label={i18n('entities.bank.fields.name')}
-          placeholder={i18n('entities.bank.placeholders.name')}
-          hint={i18n('entities.bank.hints.name')}
+            placeholder={i18n(
+              'entities.bank.placeholders.name',
+            )}
+            hint={i18n('entities.bank.hints.name')}
             required={false}
           />
         </div>
@@ -87,7 +91,7 @@ function BankForm(props) {
             required={false}
             storage={Storage.values.bankLogo}
             max={undefined}
-          hint={i18n('entities.bank.hints.logo')}
+            hint={i18n('entities.bank.hints.logo')}
           />
         </div>
 

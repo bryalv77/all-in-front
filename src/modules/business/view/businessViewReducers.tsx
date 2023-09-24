@@ -1,4 +1,4 @@
-import actions from 'src/modules/business/view/businessViewActions';
+import actions from '../../../modules/business/view/businessViewActions';
 
 const initialData = {
   loading: false,

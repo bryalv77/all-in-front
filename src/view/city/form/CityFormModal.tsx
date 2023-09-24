@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import CityForm from 'src/view/city/form/CityForm';
-import CityService from 'src/modules/city/cityService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import CityForm from '../../../view/city/form/CityForm';
+import CityService from '../../../modules/city/cityService';
 
 function CityFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

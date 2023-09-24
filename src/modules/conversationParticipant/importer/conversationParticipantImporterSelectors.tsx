@@ -1,7 +1,6 @@
-import importerSelectors from 'src/modules/shared/importer/importerSelectors';
+import importerSelectors from '../../../modules/shared/importer/importerSelectors';
 
-const conversationParticipantImporterSelectors = importerSelectors(
-  'conversationParticipant.importer',
-);
+const conversationParticipantImporterSelectors =
+  importerSelectors('conversationParticipant.importer');
 
 export default conversationParticipantImporterSelectors;

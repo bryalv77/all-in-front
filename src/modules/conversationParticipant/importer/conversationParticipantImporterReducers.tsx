@@ -1,4 +1,4 @@
-import importerReducers from 'src/modules/shared/importer/importerReducers';
-import actions from 'src/modules/conversationParticipant/importer/conversationParticipantImporterActions';
+import importerReducers from '../../../modules/shared/importer/importerReducers';
+import actions from '../../../modules/conversationParticipant/importer/conversationParticipantImporterActions';
 
 export default importerReducers(actions);

@@ -1,6 +1,6 @@
-import OrderService from 'src/modules/order/orderService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import OrderService from '../../../modules/order/orderService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'ORDER_VIEW';
 

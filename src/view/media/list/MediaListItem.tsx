@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/media/mediaSelectors';
+import selectors from '../../../modules/media/mediaSelectors';
 
 function MediaListItem(props) {
   const hasPermissionToRead = useSelector(

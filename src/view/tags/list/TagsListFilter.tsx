@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/tags/list/tagsListActions';
-import selectors from 'src/modules/tags/list/tagsListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/tags/list/tagsListActions';
+import selectors from '../../../modules/tags/list/tagsListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
 const emptyValues = {
   name: null,
   userId: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -40,7 +40,7 @@ const previewRenders = {
     label: i18n('entities.tags.fields.userId'),
     render: filterRenders.relationToOne(),
   },
-}
+};
 
 function TagsListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +61,12 @@ function TagsListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -101,11 +106,11 @@ function TagsListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.tags.fields.name')}      
+                label={i18n('entities.tags.fields.name')}
               />
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.tags.fields.userId')}        
+                label={i18n('entities.tags.fields.userId')}
               />
             </div>
 

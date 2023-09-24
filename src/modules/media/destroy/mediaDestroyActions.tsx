@@ -1,9 +1,9 @@
-import listActions from 'src/modules/media/list/mediaListActions';
-import MediaService from 'src/modules/media/mediaService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/media/list/mediaListActions';
+import MediaService from '../../../modules/media/mediaService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'MEDIA_DESTROY';
 

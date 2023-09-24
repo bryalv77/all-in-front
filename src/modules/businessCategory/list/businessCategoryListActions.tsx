@@ -1,9 +1,9 @@
-import BusinessCategoryService from 'src/modules/businessCategory/businessCategoryService';
-import selectors from 'src/modules/businessCategory/list/businessCategoryListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/businessCategory/list/businessCategoryListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import BusinessCategoryService from '../../../modules/businessCategory/businessCategoryService';
+import selectors from '../../../modules/businessCategory/list/businessCategoryListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/businessCategory/list/businessCategoryListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'BUSINESSCATEGORY_LIST';
 
@@ -86,17 +86,17 @@ const businessCategoryListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: businessCategoryListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: businessCategoryListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(businessCategoryListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        businessCategoryListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +104,57 @@ const businessCategoryListActions = {
       payload: sorter,
     });
 
-    dispatch(businessCategoryListActions.doFetchCurrentFilter());
+    dispatch(
+      businessCategoryListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(businessCategoryListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: businessCategoryListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await BusinessCategoryService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        businessCategoryListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: businessCategoryListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: businessCategoryListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: businessCategoryListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await BusinessCategoryService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: businessCategoryListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: businessCategoryListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default businessCategoryListActions;

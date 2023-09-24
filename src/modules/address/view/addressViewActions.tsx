@@ -1,6 +1,6 @@
-import AddressService from 'src/modules/address/addressService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import AddressService from '../../../modules/address/addressService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'ADDRESS_VIEW';
 

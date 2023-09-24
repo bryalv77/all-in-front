@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import BusinessListFilter from 'src/view/business/list/BusinessListFilter';
-import BusinessListTable from 'src/view/business/list/BusinessListTable';
-import BusinessListToolbar from 'src/view/business/list/BusinessListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import BusinessListFilter from '../../../view/business/list/BusinessListFilter';
+import BusinessListTable from '../../../view/business/list/BusinessListTable';
+import BusinessListToolbar from '../../../view/business/list/BusinessListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function BusinessListPage(props) {
   return (

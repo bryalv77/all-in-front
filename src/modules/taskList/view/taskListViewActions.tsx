@@ -1,6 +1,6 @@
-import TaskListService from 'src/modules/taskList/taskListService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import TaskListService from '../../../modules/taskList/taskListService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'TASKLIST_VIEW';
 

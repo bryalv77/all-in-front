@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import TasksService from 'src/modules/tasks/tasksService';
-import TasksFormModal from 'src/view/tasks/form/TasksFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import TasksService from '../../../modules/tasks/tasksService';
+import TasksFormModal from '../../../view/tasks/form/TasksFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/tasks/tasksSelectors';
+import selectors from '../../../modules/tasks/tasksSelectors';
 
 function TasksAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,12 +27,16 @@ function TasksAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();

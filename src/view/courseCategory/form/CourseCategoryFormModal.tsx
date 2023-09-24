@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import CourseCategoryForm from 'src/view/courseCategory/form/CourseCategoryForm';
-import CourseCategoryService from 'src/modules/courseCategory/courseCategoryService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import CourseCategoryForm from '../../../view/courseCategory/form/CourseCategoryForm';
+import CourseCategoryService from '../../../modules/courseCategory/courseCategoryService';
 
 function CourseCategoryFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);
@@ -13,7 +13,9 @@ function CourseCategoryFormModal(props) {
   const doSubmit = async (_, data) => {
     try {
       setSaveLoading(true);
-      const { id } = await CourseCategoryService.create(data);
+      const { id } = await CourseCategoryService.create(
+        data,
+      );
       const record = await CourseCategoryService.find(id);
       props.onSuccess(record);
     } catch (error) {

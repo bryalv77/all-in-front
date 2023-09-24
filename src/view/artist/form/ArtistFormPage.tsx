@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/artist/form/artistFormActions';
-import selectors from 'src/modules/artist/form/artistFormSelectors';
-import { getHistory } from 'src/modules/store';
-import ArtistForm from 'src/view/artist/form/ArtistForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/artist/form/artistFormActions';
+import selectors from '../../../modules/artist/form/artistFormSelectors';
+import { getHistory } from '../../../modules/store';
+import ArtistForm from '../../../view/artist/form/ArtistForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function ArtistFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

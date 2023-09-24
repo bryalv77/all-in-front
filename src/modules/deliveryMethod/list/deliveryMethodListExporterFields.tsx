@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -17,11 +17,15 @@ export default [
   },
   {
     name: 'vehicleInfo',
-    label: i18n('entities.deliveryMethod.fields.vehicleInfo'),
+    label: i18n(
+      'entities.deliveryMethod.fields.vehicleInfo',
+    ),
   },
   {
     name: 'additionalInfo',
-    label: i18n('entities.deliveryMethod.fields.additionalInfo'),
+    label: i18n(
+      'entities.deliveryMethod.fields.additionalInfo',
+    ),
   },
   {
     name: 'active',

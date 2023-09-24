@@ -1,6 +1,9 @@
 import React from 'react';
-import { getLanguages, getLanguageCode } from 'src/i18n';
-import actions from 'src/modules/layout/layoutActions';
+import {
+  getLanguages,
+  getLanguageCode,
+} from '../../../i18n';
+import actions from '../../../modules/layout/layoutActions';
 
 function I18nSelect(props) {
   const doChangeLanguage = (language) => {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import ImagesViewItem from 'src/view/shared/view/ImagesViewItem';
-import ArtistViewItem from 'src/view/artist/view/ArtistViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import ImagesViewItem from '../../../view/shared/view/ImagesViewItem';
+import ArtistViewItem from '../../../view/artist/view/ArtistViewItem';
 
 function AlbumView(props) {
   const { record, loading } = props;

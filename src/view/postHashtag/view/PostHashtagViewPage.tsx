@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/postHashtag/view/postHashtagViewActions';
-import selectors from 'src/modules/postHashtag/view/postHashtagViewSelectors';
-import PostHashtagView from 'src/view/postHashtag/view/PostHashtagView';
-import PostHashtagViewToolbar from 'src/view/postHashtag/view/PostHashtagViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/postHashtag/view/postHashtagViewActions';
+import selectors from '../../../modules/postHashtag/view/postHashtagViewSelectors';
+import PostHashtagView from '../../../view/postHashtag/view/PostHashtagView';
+import PostHashtagViewToolbar from '../../../view/postHashtag/view/PostHashtagViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PostHashtagPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function PostHashtagPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.postHashtag.menu'), '/post-hashtag'],
+          [
+            i18n('entities.postHashtag.menu'),
+            '/post-hashtag',
+          ],
           [i18n('entities.postHashtag.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function PostHashtagPage() {
 
         <PostHashtagViewToolbar match={match} />
 
-        <PostHashtagView loading={loading} record={record} />
+        <PostHashtagView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

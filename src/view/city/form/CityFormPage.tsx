@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/city/form/cityFormActions';
-import selectors from 'src/modules/city/form/cityFormSelectors';
-import { getHistory } from 'src/modules/store';
-import CityForm from 'src/view/city/form/CityForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/city/form/cityFormActions';
+import selectors from '../../../modules/city/form/cityFormSelectors';
+import { getHistory } from '../../../modules/store';
+import CityForm from '../../../view/city/form/CityForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function CityFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

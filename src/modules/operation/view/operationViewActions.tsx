@@ -1,6 +1,6 @@
-import OperationService from 'src/modules/operation/operationService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import OperationService from '../../../modules/operation/operationService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'OPERATION_VIEW';
 

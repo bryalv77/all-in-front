@@ -1,9 +1,9 @@
-import OperationService from 'src/modules/operation/operationService';
-import selectors from 'src/modules/operation/list/operationListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/operation/list/operationListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import OperationService from '../../../modules/operation/operationService';
+import selectors from '../../../modules/operation/list/operationListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/operation/list/operationListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'OPERATION_LIST';
 
@@ -86,17 +86,15 @@ const operationListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: operationListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: operationListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(operationListActions.doFetchCurrentFilter());
-  },
+      dispatch(operationListActions.doFetchCurrentFilter());
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -107,47 +105,52 @@ const operationListActions = {
     dispatch(operationListActions.doFetchCurrentFilter());
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(operationListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: operationListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await OperationService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        operationListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: operationListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: operationListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: operationListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await OperationService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: operationListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: operationListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default operationListActions;

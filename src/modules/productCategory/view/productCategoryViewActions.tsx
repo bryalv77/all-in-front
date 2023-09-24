@@ -1,6 +1,6 @@
-import ProductCategoryService from 'src/modules/productCategory/productCategoryService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import ProductCategoryService from '../../../modules/productCategory/productCategoryService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'PRODUCTCATEGORY_VIEW';
 

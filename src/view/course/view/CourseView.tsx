@@ -1,8 +1,8 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import TeacherViewItem from 'src/view/teacher/view/TeacherViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import TeacherViewItem from '../../../view/teacher/view/TeacherViewItem';
 
 function CourseView(props) {
   const { record, loading } = props;
@@ -54,7 +54,9 @@ function CourseView(props) {
       />
 
       <TextViewItem
-        label={i18n('entities.course.fields.additionalInfo')}
+        label={i18n(
+          'entities.course.fields.additionalInfo',
+        )}
         value={record.additionalInfo}
       />
 

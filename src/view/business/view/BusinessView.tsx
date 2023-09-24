@@ -1,11 +1,11 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import UserViewItem from 'src/view/user/view/UserViewItem';
-import ImagesViewItem from 'src/view/shared/view/ImagesViewItem';
-import BusinessCategoryViewItem from 'src/view/businessCategory/view/BusinessCategoryViewItem';
-import AddressViewItem from 'src/view/address/view/AddressViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import UserViewItem from '../../../view/user/view/UserViewItem';
+import ImagesViewItem from '../../../view/shared/view/ImagesViewItem';
+import BusinessCategoryViewItem from '../../../view/businessCategory/view/BusinessCategoryViewItem';
+import AddressViewItem from '../../../view/address/view/AddressViewItem';
 
 function BusinessView(props) {
   const { record, loading } = props;

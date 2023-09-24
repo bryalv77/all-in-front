@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/like/importer/likeImporterActions';
-import fields from 'src/modules/like/importer/likeImporterFields';
-import selectors from 'src/modules/like/importer/likeImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/like/importer/likeImporterActions';
+import fields from '../../../modules/like/importer/likeImporterFields';
+import selectors from '../../../modules/like/importer/likeImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function LikeImportPage() {
   const Importer = importerHoc(

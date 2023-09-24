@@ -1,6 +1,6 @@
-import UserPlaylistService from 'src/modules/userPlaylist/userPlaylistService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import UserPlaylistService from '../../../modules/userPlaylist/userPlaylistService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'USERPLAYLIST_VIEW';
 

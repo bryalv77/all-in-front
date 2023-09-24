@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import FollowersListFilter from 'src/view/followers/list/FollowersListFilter';
-import FollowersListTable from 'src/view/followers/list/FollowersListTable';
-import FollowersListToolbar from 'src/view/followers/list/FollowersListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import FollowersListFilter from '../../../view/followers/list/FollowersListFilter';
+import FollowersListTable from '../../../view/followers/list/FollowersListTable';
+import FollowersListToolbar from '../../../view/followers/list/FollowersListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function FollowersListPage(props) {
   return (

@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import taskListSelectors from 'src/modules/taskList/taskListSelectors';
-import destroyActions from 'src/modules/taskList/destroy/taskListDestroyActions';
-import destroySelectors from 'src/modules/taskList/destroy/taskListDestroySelectors';
-import actions from 'src/modules/taskList/list/taskListListActions';
-import selectors from 'src/modules/taskList/list/taskListListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
+import { i18n } from '../../../i18n';
+import taskListSelectors from '../../../modules/taskList/taskListSelectors';
+import destroyActions from '../../../modules/taskList/destroy/taskListDestroyActions';
+import destroySelectors from '../../../modules/taskList/destroy/taskListDestroySelectors';
+import actions from '../../../modules/taskList/list/taskListListActions';
+import selectors from '../../../modules/taskList/list/taskListListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
 
 function TaskListListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,20 +107,20 @@ function TaskListListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.taskList.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.taskList.fields.userId',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n(
+                  'entities.taskList.fields.name',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.taskList.fields.userId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -161,7 +159,9 @@ function TaskListListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <UserListItem value={row.userId} />
                   </td>

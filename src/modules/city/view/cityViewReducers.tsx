@@ -1,4 +1,4 @@
-import actions from 'src/modules/city/view/cityViewActions';
+import actions from '../../../modules/city/view/cityViewActions';
 
 const initialData = {
   loading: false,

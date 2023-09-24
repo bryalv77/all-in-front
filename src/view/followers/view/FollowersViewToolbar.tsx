@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import followersSelectors from 'src/modules/followers/followersSelectors';
-import destroyActions from 'src/modules/followers/destroy/followersDestroyActions';
-import destroySelectors from 'src/modules/followers/destroy/followersDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import followersSelectors from '../../../modules/followers/followersSelectors';
+import destroyActions from '../../../modules/followers/destroy/followersDestroyActions';
+import destroySelectors from '../../../modules/followers/destroy/followersDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function FollowersViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

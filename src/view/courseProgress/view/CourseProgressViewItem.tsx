@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/courseProgress/courseProgressSelectors';
+import selectors from '../../../modules/courseProgress/courseProgressSelectors';
 
 function CourseProgressViewItem(props) {
   const hasPermissionToRead = useSelector(

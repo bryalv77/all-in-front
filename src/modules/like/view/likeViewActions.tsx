@@ -1,6 +1,6 @@
-import LikeService from 'src/modules/like/likeService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import LikeService from '../../../modules/like/likeService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'LIKE_VIEW';
 

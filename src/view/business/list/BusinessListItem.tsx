@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/business/businessSelectors';
+import selectors from '../../../modules/business/businessSelectors';
 
 function BusinessListItem(props) {
   const hasPermissionToRead = useSelector(

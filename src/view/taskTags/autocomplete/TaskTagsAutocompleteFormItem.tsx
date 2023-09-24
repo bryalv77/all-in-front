@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import TaskTagsService from 'src/modules/taskTags/taskTagsService';
-import TaskTagsFormModal from 'src/view/taskTags/form/TaskTagsFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import TaskTagsService from '../../../modules/taskTags/taskTagsService';
+import TaskTagsFormModal from '../../../view/taskTags/form/TaskTagsFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/taskTags/taskTagsSelectors';
+import selectors from '../../../modules/taskTags/taskTagsSelectors';
 
 function TaskTagsAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,12 +27,16 @@ function TaskTagsAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();

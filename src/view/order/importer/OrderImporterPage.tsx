@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/order/importer/orderImporterActions';
-import fields from 'src/modules/order/importer/orderImporterFields';
-import selectors from 'src/modules/order/importer/orderImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/order/importer/orderImporterActions';
+import fields from '../../../modules/order/importer/orderImporterFields';
+import selectors from '../../../modules/order/importer/orderImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function OrderImportPage() {
   const Importer = importerHoc(

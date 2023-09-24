@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import taskTagsSelectors from 'src/modules/taskTags/taskTagsSelectors';
-import destroyActions from 'src/modules/taskTags/destroy/taskTagsDestroyActions';
-import destroySelectors from 'src/modules/taskTags/destroy/taskTagsDestroySelectors';
-import actions from 'src/modules/taskTags/list/taskTagsListActions';
-import selectors from 'src/modules/taskTags/list/taskTagsListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import taskTagsSelectors from '../../../modules/taskTags/taskTagsSelectors';
+import destroyActions from '../../../modules/taskTags/destroy/taskTagsDestroyActions';
+import destroySelectors from '../../../modules/taskTags/destroy/taskTagsDestroySelectors';
+import actions from '../../../modules/taskTags/list/taskTagsListActions';
+import selectors from '../../../modules/taskTags/list/taskTagsListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function TaskTagsToolbar(props) {
   const [

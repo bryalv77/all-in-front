@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/courseComment/courseCommentSelectors';
+import selectors from '../../../modules/courseComment/courseCommentSelectors';
 
 function CourseCommentListItem(props) {
   const hasPermissionToRead = useSelector(

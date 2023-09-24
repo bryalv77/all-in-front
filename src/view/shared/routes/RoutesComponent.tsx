@@ -1,16 +1,16 @@
-import authSelectors from 'src/modules/auth/authSelectors';
-import layoutSelectors from 'src/modules/layout/layoutSelectors';
+import authSelectors from '../../../modules/auth/authSelectors';
+import layoutSelectors from '../../../modules/layout/layoutSelectors';
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import EmailUnverifiedRoute from 'src/view/shared/routes/EmailUnverifiedRoute';
-import PrivateRoute from 'src/view/shared/routes/PrivateRoute';
-import PublicRoute from 'src/view/shared/routes/PublicRoute';
-import CustomLoadable from 'src/view/shared/CustomLoadable';
-import ProgressBar from 'src/view/shared/ProgressBar';
-import routes from 'src/view/routes';
-import EmptyTenantRoute from 'src/view/shared/routes/EmptyTenantRoute';
-import EmptyPermissionsRoute from 'src/view/shared/routes/EmptyPermissionsRoute';
+import EmailUnverifiedRoute from './EmailUnverifiedRoute';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+import CustomLoadable from '../CustomLoadable';
+import ProgressBar from '../ProgressBar';
+import routes from '../../routes';
+import EmptyTenantRoute from './EmptyTenantRoute';
+import EmptyPermissionsRoute from './EmptyPermissionsRoute';
 
 function RoutesComponent(props) {
   const isInitialMount = useRef(true);

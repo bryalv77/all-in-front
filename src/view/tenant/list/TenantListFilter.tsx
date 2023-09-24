@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import actions from 'src/modules/tenant/list/tenantListActions';
+import actions from '../../../modules/tenant/list/tenantListActions';
 
 function TenantListFilter(props) {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
-import list from 'src/modules/hashtag/list/hashtagListReducers';
-import form from 'src/modules/hashtag/form/hashtagFormReducers';
-import view from 'src/modules/hashtag/view/hashtagViewReducers';
-import destroy from 'src/modules/hashtag/destroy/hashtagDestroyReducers';
-import importerReducer from 'src/modules/hashtag/importer/hashtagImporterReducers';
+import list from '../../../modules/hashtag/list/hashtagListReducers';
+import form from '../../../modules/hashtag/form/hashtagFormReducers';
+import view from '../../../modules/hashtag/view/hashtagViewReducers';
+import destroy from '../../../modules/hashtag/destroy/hashtagDestroyReducers';
+import importerReducer from '../../../modules/hashtag/importer/hashtagImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

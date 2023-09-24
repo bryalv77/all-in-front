@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import statuses from 'src/modules/shared/importer/importerStatuses';
+import statuses from '../../../modules/shared/importer/importerStatuses';
 import _get from 'lodash/get';
 
 export default (rawPath) => {

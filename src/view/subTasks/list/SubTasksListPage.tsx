@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import SubTasksListFilter from 'src/view/subTasks/list/SubTasksListFilter';
-import SubTasksListTable from 'src/view/subTasks/list/SubTasksListTable';
-import SubTasksListToolbar from 'src/view/subTasks/list/SubTasksListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import SubTasksListFilter from '../../../view/subTasks/list/SubTasksListFilter';
+import SubTasksListTable from '../../../view/subTasks/list/SubTasksListTable';
+import SubTasksListToolbar from '../../../view/subTasks/list/SubTasksListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function SubTasksListPage(props) {
   return (

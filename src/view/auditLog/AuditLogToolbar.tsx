@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/auditLog/auditLogActions';
-import selectors from 'src/modules/auditLog/auditLogSelectors';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/auditLog/auditLogActions';
+import selectors from '../../../modules/auditLog/auditLogSelectors';
 
 function AuditLogToolbar(props) {
   const loading = useSelector(selectors.selectLoading);

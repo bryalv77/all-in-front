@@ -1,4 +1,4 @@
-import statuses from 'src/modules/shared/importer/importerStatuses';
+import statuses from '../../../modules/shared/importer/importerStatuses';
 
 const INITIAL_PAGE_SIZE = 10;
 

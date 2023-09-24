@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import DeliveryMethodForm from 'src/view/deliveryMethod/form/DeliveryMethodForm';
-import DeliveryMethodService from 'src/modules/deliveryMethod/deliveryMethodService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import DeliveryMethodForm from '../../../view/deliveryMethod/form/DeliveryMethodForm';
+import DeliveryMethodService from '../../../modules/deliveryMethod/deliveryMethodService';
 
 function DeliveryMethodFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);
@@ -13,7 +13,9 @@ function DeliveryMethodFormModal(props) {
   const doSubmit = async (_, data) => {
     try {
       setSaveLoading(true);
-      const { id } = await DeliveryMethodService.create(data);
+      const { id } = await DeliveryMethodService.create(
+        data,
+      );
       const record = await DeliveryMethodService.find(id);
       props.onSuccess(record);
     } catch (error) {

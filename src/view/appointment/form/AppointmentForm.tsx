@@ -7,15 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import appointmentEnumerators from 'src/modules/appointment/appointmentEnumerators';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import appointmentEnumerators from '../../../modules/appointment/appointmentEnumerators';
 import moment from 'moment';
-import DatePickerFormItem from 'src/view/shared/form/items/DatePickerFormItem';
-import CustomerAutocompleteFormItem from 'src/view/customer/autocomplete/CustomerAutocompleteFormItem';
-import ServiceAutocompleteFormItem from 'src/view/service/autocomplete/ServiceAutocompleteFormItem';
-import AvailabilityTimeslotAutocompleteFormItem from 'src/view/availabilityTimeslot/autocomplete/AvailabilityTimeslotAutocompleteFormItem';
+import DatePickerFormItem from '../../../view/shared/form/items/DatePickerFormItem';
+import CustomerAutocompleteFormItem from '../../../view/customer/autocomplete/CustomerAutocompleteFormItem';
+import ServiceAutocompleteFormItem from '../../../view/service/autocomplete/ServiceAutocompleteFormItem';
+import AvailabilityTimeslotAutocompleteFormItem from '../../../view/availabilityTimeslot/autocomplete/AvailabilityTimeslotAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -38,13 +38,13 @@ const schema = yup.object().shape({
   appointmentStatus: yupFormSchemas.enumerator(
     i18n('entities.appointment.fields.appointmentStatus'),
     {
-      "options": appointmentEnumerators.appointmentStatus
+      options: appointmentEnumerators.appointmentStatus,
     },
   ),
   paymentStatus: yupFormSchemas.enumerator(
     i18n('entities.appointment.fields.paymentStatus'),
     {
-      "options": appointmentEnumerators.paymentStatus
+      options: appointmentEnumerators.paymentStatus,
     },
   ),
 });
@@ -59,7 +59,9 @@ function AppointmentForm(props) {
       customer: record.customer,
       serviceId: record.serviceId,
       timeslotId: record.timeslotId,
-      appointmentDate: record.appointmentDate ? moment(record.appointmentDate).toDate() : null,
+      appointmentDate: record.appointmentDate
+        ? moment(record.appointmentDate).toDate()
+        : null,
       appointmentStatus: record.appointmentStatus,
       paymentStatus: record.paymentStatus,
     };
@@ -85,31 +87,49 @@ function AppointmentForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <CustomerAutocompleteFormItem  
+          <CustomerAutocompleteFormItem
             name="customer"
-            label={i18n('entities.appointment.fields.customer')}
-          placeholder={i18n('entities.appointment.placeholders.customer')}
-          hint={i18n('entities.appointment.hints.customer')}
+            label={i18n(
+              'entities.appointment.fields.customer',
+            )}
+            placeholder={i18n(
+              'entities.appointment.placeholders.customer',
+            )}
+            hint={i18n(
+              'entities.appointment.hints.customer',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <ServiceAutocompleteFormItem  
+          <ServiceAutocompleteFormItem
             name="serviceId"
-            label={i18n('entities.appointment.fields.serviceId')}
-          placeholder={i18n('entities.appointment.placeholders.serviceId')}
-          hint={i18n('entities.appointment.hints.serviceId')}
+            label={i18n(
+              'entities.appointment.fields.serviceId',
+            )}
+            placeholder={i18n(
+              'entities.appointment.placeholders.serviceId',
+            )}
+            hint={i18n(
+              'entities.appointment.hints.serviceId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <AvailabilityTimeslotAutocompleteFormItem  
+          <AvailabilityTimeslotAutocompleteFormItem
             name="timeslotId"
-            label={i18n('entities.appointment.fields.timeslotId')}
-          placeholder={i18n('entities.appointment.placeholders.timeslotId')}
-          hint={i18n('entities.appointment.hints.timeslotId')}
+            label={i18n(
+              'entities.appointment.fields.timeslotId',
+            )}
+            placeholder={i18n(
+              'entities.appointment.placeholders.timeslotId',
+            )}
+            hint={i18n(
+              'entities.appointment.hints.timeslotId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -117,9 +137,15 @@ function AppointmentForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <DatePickerFormItem
             name="appointmentDate"
-            label={i18n('entities.appointment.fields.appointmentDate')}
-          placeholder={i18n('entities.appointment.placeholders.appointmentDate')}
-          hint={i18n('entities.appointment.hints.appointmentDate')}
+            label={i18n(
+              'entities.appointment.fields.appointmentDate',
+            )}
+            placeholder={i18n(
+              'entities.appointment.placeholders.appointmentDate',
+            )}
+            hint={i18n(
+              'entities.appointment.hints.appointmentDate',
+            )}
             required={false}
             showTimeInput
           />
@@ -127,9 +153,15 @@ function AppointmentForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <SelectFormItem
             name="appointmentStatus"
-            label={i18n('entities.appointment.fields.appointmentStatus')}
-          placeholder={i18n('entities.appointment.placeholders.appointmentStatus')}
-          hint={i18n('entities.appointment.hints.appointmentStatus')}
+            label={i18n(
+              'entities.appointment.fields.appointmentStatus',
+            )}
+            placeholder={i18n(
+              'entities.appointment.placeholders.appointmentStatus',
+            )}
+            hint={i18n(
+              'entities.appointment.hints.appointmentStatus',
+            )}
             options={appointmentEnumerators.appointmentStatus.map(
               (value) => ({
                 value,
@@ -144,9 +176,15 @@ function AppointmentForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <SelectFormItem
             name="paymentStatus"
-            label={i18n('entities.appointment.fields.paymentStatus')}
-          placeholder={i18n('entities.appointment.placeholders.paymentStatus')}
-          hint={i18n('entities.appointment.hints.paymentStatus')}
+            label={i18n(
+              'entities.appointment.fields.paymentStatus',
+            )}
+            placeholder={i18n(
+              'entities.appointment.placeholders.paymentStatus',
+            )}
+            hint={i18n(
+              'entities.appointment.hints.paymentStatus',
+            )}
             options={appointmentEnumerators.paymentStatus.map(
               (value) => ({
                 value,

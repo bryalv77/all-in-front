@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import ServiceListFilter from 'src/view/service/list/ServiceListFilter';
-import ServiceListTable from 'src/view/service/list/ServiceListTable';
-import ServiceListToolbar from 'src/view/service/list/ServiceListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import ServiceListFilter from '../../../view/service/list/ServiceListFilter';
+import ServiceListTable from '../../../view/service/list/ServiceListTable';
+import ServiceListToolbar from '../../../view/service/list/ServiceListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ServiceListPage(props) {
   return (

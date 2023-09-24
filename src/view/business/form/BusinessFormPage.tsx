@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/business/form/businessFormActions';
-import selectors from 'src/modules/business/form/businessFormSelectors';
-import { getHistory } from 'src/modules/store';
-import BusinessForm from 'src/view/business/form/BusinessForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/business/form/businessFormActions';
+import selectors from '../../../modules/business/form/businessFormSelectors';
+import { getHistory } from '../../../modules/store';
+import BusinessForm from '../../../view/business/form/BusinessForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function BusinessFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

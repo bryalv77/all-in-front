@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/playlistSong/form/playlistSongFormActions';
-import selectors from 'src/modules/playlistSong/form/playlistSongFormSelectors';
-import { getHistory } from 'src/modules/store';
-import PlaylistSongForm from 'src/view/playlistSong/form/PlaylistSongForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/playlistSong/form/playlistSongFormActions';
+import selectors from '../../../modules/playlistSong/form/playlistSongFormSelectors';
+import { getHistory } from '../../../modules/store';
+import PlaylistSongForm from '../../../view/playlistSong/form/PlaylistSongForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function PlaylistSongFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function PlaylistSongFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.playlistSong.menu'), '/playlist-song'],
+          [
+            i18n('entities.playlistSong.menu'),
+            '/playlist-song',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function PlaylistSongFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/playlist-song')}
+            onCancel={() =>
+              getHistory().push('/playlist-song')
+            }
           />
         )}
       </div>

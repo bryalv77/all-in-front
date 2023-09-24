@@ -1,8 +1,8 @@
-import list from 'src/modules/order/list/orderListReducers';
-import form from 'src/modules/order/form/orderFormReducers';
-import view from 'src/modules/order/view/orderViewReducers';
-import destroy from 'src/modules/order/destroy/orderDestroyReducers';
-import importerReducer from 'src/modules/order/importer/orderImporterReducers';
+import list from '../../../modules/order/list/orderListReducers';
+import form from '../../../modules/order/form/orderFormReducers';
+import view from '../../../modules/order/view/orderViewReducers';
+import destroy from '../../../modules/order/destroy/orderDestroyReducers';
+import importerReducer from '../../../modules/order/importer/orderImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

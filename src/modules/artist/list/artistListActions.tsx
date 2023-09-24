@@ -1,9 +1,9 @@
-import ArtistService from 'src/modules/artist/artistService';
-import selectors from 'src/modules/artist/list/artistListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/artist/list/artistListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import ArtistService from '../../../modules/artist/artistService';
+import selectors from '../../../modules/artist/list/artistListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/artist/list/artistListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'ARTIST_LIST';
 
@@ -86,17 +86,15 @@ const artistListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: artistListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: artistListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(artistListActions.doFetchCurrentFilter());
-  },
+      dispatch(artistListActions.doFetchCurrentFilter());
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -107,47 +105,48 @@ const artistListActions = {
     dispatch(artistListActions.doFetchCurrentFilter());
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(artistListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: artistListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await ArtistService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        artistListActions.doFetch(filter, rawFilter, true),
+      );
+    },
 
-      dispatch({
-        type: artistListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: artistListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: artistListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await ArtistService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: artistListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: artistListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default artistListActions;

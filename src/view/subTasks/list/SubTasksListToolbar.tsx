@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import subTasksSelectors from 'src/modules/subTasks/subTasksSelectors';
-import destroyActions from 'src/modules/subTasks/destroy/subTasksDestroyActions';
-import destroySelectors from 'src/modules/subTasks/destroy/subTasksDestroySelectors';
-import actions from 'src/modules/subTasks/list/subTasksListActions';
-import selectors from 'src/modules/subTasks/list/subTasksListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import subTasksSelectors from '../../../modules/subTasks/subTasksSelectors';
+import destroyActions from '../../../modules/subTasks/destroy/subTasksDestroyActions';
+import destroySelectors from '../../../modules/subTasks/destroy/subTasksDestroySelectors';
+import actions from '../../../modules/subTasks/list/subTasksListActions';
+import selectors from '../../../modules/subTasks/list/subTasksListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function SubTasksToolbar(props) {
   const [

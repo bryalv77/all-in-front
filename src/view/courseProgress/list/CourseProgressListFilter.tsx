@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseProgress/list/courseProgressListActions';
-import selectors from 'src/modules/courseProgress/list/courseProgressListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseProgress/list/courseProgressListActions';
+import selectors from '../../../modules/courseProgress/list/courseProgressListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import StudentAutocompleteFormItem from 'src/view/student/autocomplete/StudentAutocompleteFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import LessonAutocompleteFormItem from 'src/view/lesson/autocomplete/LessonAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import StudentAutocompleteFormItem from '../../../view/student/autocomplete/StudentAutocompleteFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import LessonAutocompleteFormItem from '../../../view/lesson/autocomplete/LessonAutocompleteFormItem';
 
 const schema = yup.object().shape({
   studentId: yupFilterSchemas.relationToOne(
@@ -27,7 +27,9 @@ const schema = yup.object().shape({
     i18n('entities.courseProgress.fields.courseId'),
   ),
   progressPercentageRange: yupFilterSchemas.decimalRange(
-    i18n('entities.courseProgress.fields.progressPercentageRange'),
+    i18n(
+      'entities.courseProgress.fields.progressPercentageRange',
+    ),
   ),
   currentLesson: yupFilterSchemas.relationToOne(
     i18n('entities.courseProgress.fields.currentLesson'),
@@ -39,26 +41,30 @@ const emptyValues = {
   courseId: null,
   progressPercentageRange: [],
   currentLesson: null,
-}
+};
 
 const previewRenders = {
   studentId: {
-      label: i18n('entities.courseProgress.fields.studentId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.courseProgress.fields.studentId'),
+    render: filterRenders.relationToOne(),
+  },
   courseId: {
-      label: i18n('entities.courseProgress.fields.courseId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.courseProgress.fields.courseId'),
+    render: filterRenders.relationToOne(),
+  },
   progressPercentageRange: {
-    label: i18n('entities.courseProgress.fields.progressPercentageRange'),
+    label: i18n(
+      'entities.courseProgress.fields.progressPercentageRange',
+    ),
     render: filterRenders.decimalRange(),
   },
   currentLesson: {
-      label: i18n('entities.courseProgress.fields.currentLesson'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n(
+      'entities.courseProgress.fields.currentLesson',
+    ),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function CourseProgressListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -79,7 +85,12 @@ function CourseProgressListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -117,21 +128,29 @@ function CourseProgressListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <StudentAutocompleteFormItem  
+              <StudentAutocompleteFormItem
                 name="studentId"
-                label={i18n('entities.courseProgress.fields.studentId')}        
+                label={i18n(
+                  'entities.courseProgress.fields.studentId',
+                )}
               />
-              <CourseAutocompleteFormItem  
+              <CourseAutocompleteFormItem
                 name="courseId"
-                label={i18n('entities.courseProgress.fields.courseId')}        
+                label={i18n(
+                  'entities.courseProgress.fields.courseId',
+                )}
               />
               <InputRangeFormItem
                 name="progressPercentageRange"
-                label={i18n('entities.courseProgress.fields.progressPercentageRange')}      
+                label={i18n(
+                  'entities.courseProgress.fields.progressPercentageRange',
+                )}
               />
-              <LessonAutocompleteFormItem  
+              <LessonAutocompleteFormItem
                 name="currentLesson"
-                label={i18n('entities.courseProgress.fields.currentLesson')}        
+                label={i18n(
+                  'entities.courseProgress.fields.currentLesson',
+                )}
               />
             </div>
 

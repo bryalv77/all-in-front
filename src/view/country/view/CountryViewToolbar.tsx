@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import countrySelectors from 'src/modules/country/countrySelectors';
-import destroyActions from 'src/modules/country/destroy/countryDestroyActions';
-import destroySelectors from 'src/modules/country/destroy/countryDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import countrySelectors from '../../../modules/country/countrySelectors';
+import destroyActions from '../../../modules/country/destroy/countryDestroyActions';
+import destroySelectors from '../../../modules/country/destroy/countryDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CountryViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

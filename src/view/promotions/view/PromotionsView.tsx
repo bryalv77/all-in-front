@@ -1,8 +1,8 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import ProductViewItem from 'src/view/product/view/ProductViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import ProductViewItem from '../../../view/product/view/ProductViewItem';
 
 function PromotionsView(props) {
   const { record, loading } = props;

@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import businessSelectors from 'src/modules/business/businessSelectors';
-import destroyActions from 'src/modules/business/destroy/businessDestroyActions';
-import destroySelectors from 'src/modules/business/destroy/businessDestroySelectors';
-import actions from 'src/modules/business/list/businessListActions';
-import selectors from 'src/modules/business/list/businessListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import businessSelectors from '../../../modules/business/businessSelectors';
+import destroyActions from '../../../modules/business/destroy/businessDestroyActions';
+import destroySelectors from '../../../modules/business/destroy/businessDestroySelectors';
+import actions from '../../../modules/business/list/businessListActions';
+import selectors from '../../../modules/business/list/businessListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function BusinessToolbar(props) {
   const [

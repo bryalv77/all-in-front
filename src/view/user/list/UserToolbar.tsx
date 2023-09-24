@@ -10,11 +10,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import actions from 'src/modules/user/list/userListActions';
-import selectors from 'src/modules/user/list/userListSelectors';
-import userSelectors from 'src/modules/user/userSelectors';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import actions from '../../../modules/user/list/userListActions';
+import selectors from '../../../modules/user/list/userListSelectors';
+import userSelectors from '../../../modules/user/userSelectors';
 
 function UserToolbar(props) {
   const dispatch = useDispatch();

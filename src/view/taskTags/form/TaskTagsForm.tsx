@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import TasksAutocompleteFormItem from 'src/view/tasks/autocomplete/TasksAutocompleteFormItem';
-import TagsAutocompleteFormItem from 'src/view/tags/autocomplete/TagsAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import TasksAutocompleteFormItem from '../../../view/tasks/autocomplete/TasksAutocompleteFormItem';
+import TagsAutocompleteFormItem from '../../../view/tags/autocomplete/TagsAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -56,21 +56,25 @@ function TaskTagsForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <TasksAutocompleteFormItem  
+          <TasksAutocompleteFormItem
             name="taskId"
             label={i18n('entities.taskTags.fields.taskId')}
-          placeholder={i18n('entities.taskTags.placeholders.taskId')}
-          hint={i18n('entities.taskTags.hints.taskId')}
+            placeholder={i18n(
+              'entities.taskTags.placeholders.taskId',
+            )}
+            hint={i18n('entities.taskTags.hints.taskId')}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <TagsAutocompleteFormItem  
+          <TagsAutocompleteFormItem
             name="tagId"
             label={i18n('entities.taskTags.fields.tagId')}
-          placeholder={i18n('entities.taskTags.placeholders.tagId')}
-          hint={i18n('entities.taskTags.hints.tagId')}
+            placeholder={i18n(
+              'entities.taskTags.placeholders.tagId',
+            )}
+            hint={i18n('entities.taskTags.hints.tagId')}
             required={false}
             showCreate={!props.modal}
           />

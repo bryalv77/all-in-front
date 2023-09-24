@@ -2,10 +2,10 @@ import queryString from 'query-string';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/auth/authActions';
-import selectors from 'src/modules/auth/authSelectors';
-import { getHistory } from 'src/modules/store';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/auth/authActions';
+import selectors from '../../../modules/auth/authSelectors';
+import { getHistory } from '../../../modules/store';
 
 function VerifyEmailPage() {
   const dispatch = useDispatch();

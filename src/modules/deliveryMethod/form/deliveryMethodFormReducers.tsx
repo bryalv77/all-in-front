@@ -1,4 +1,4 @@
-import actions from 'src/modules/deliveryMethod/form/deliveryMethodFormActions';
+import actions from '../../../modules/deliveryMethod/form/deliveryMethodFormActions';
 
 const initialData = {
   initLoading: false,

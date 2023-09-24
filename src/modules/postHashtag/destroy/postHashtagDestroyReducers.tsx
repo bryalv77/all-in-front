@@ -1,4 +1,4 @@
-import actions from 'src/modules/postHashtag/destroy/postHashtagDestroyActions';
+import actions from '../../../modules/postHashtag/destroy/postHashtagDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

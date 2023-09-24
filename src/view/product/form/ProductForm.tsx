@@ -7,46 +7,46 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import InputNumberFormItem from 'src/view/shared/form/items/InputNumberFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
-import ProductCategoryAutocompleteFormItem from 'src/view/productCategory/autocomplete/ProductCategoryAutocompleteFormItem';
-import BrandAutocompleteFormItem from 'src/view/brand/autocomplete/BrandAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import InputNumberFormItem from '../../../view/shared/form/items/InputNumberFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
+import ProductCategoryAutocompleteFormItem from '../../../view/productCategory/autocomplete/ProductCategoryAutocompleteFormItem';
+import BrandAutocompleteFormItem from '../../../view/brand/autocomplete/BrandAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
   name: yupFormSchemas.string(
     i18n('entities.product.fields.name'),
     {
-      "required": true,
-      "min": 2,
-      "max": 255
+      required: true,
+      min: 2,
+      max: 255,
     },
   ),
   description: yupFormSchemas.string(
     i18n('entities.product.fields.description'),
     {
-      "max": 21845
+      max: 21845,
     },
   ),
   unitPrice: yupFormSchemas.decimal(
     i18n('entities.product.fields.unitPrice'),
     {
-      "required": true,
-      "scale": 2,
-      "min": 0.01,
-      "max": 99999
+      required: true,
+      scale: 2,
+      min: 0.01,
+      max: 99999,
     },
   ),
   photos: yupFormSchemas.images(
     i18n('entities.product.fields.photos'),
     {
-      "max": 3
+      max: 3,
     },
   ),
   category: yupFormSchemas.relationToOne(
@@ -109,20 +109,24 @@ function ProductForm(props) {
             name="name"
             label={i18n('entities.product.fields.name')}
             required={true}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.product.fields.description')}  
+            label={i18n(
+              'entities.product.fields.description',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="unitPrice"
-            label={i18n('entities.product.fields.unitPrice')}  
+            label={i18n(
+              'entities.product.fields.unitPrice',
+            )}
             required={true}
           />
         </div>
@@ -136,11 +140,13 @@ function ProductForm(props) {
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <ProductCategoryAutocompleteFormItem  
+          <ProductCategoryAutocompleteFormItem
             name="category"
             label={i18n('entities.product.fields.category')}
-          placeholder={i18n('entities.product.placeholders.category')}
-          hint={i18n('entities.product.hints.category')}
+            placeholder={i18n(
+              'entities.product.placeholders.category',
+            )}
+            hint={i18n('entities.product.hints.category')}
             required={false}
             showCreate={!props.modal}
           />
@@ -149,13 +155,15 @@ function ProductForm(props) {
           <InputNumberFormItem
             name="stock"
             label={i18n('entities.product.fields.stock')}
-          placeholder={i18n('entities.product.placeholders.stock')}
-          hint={i18n('entities.product.hints.stock')}  
+            placeholder={i18n(
+              'entities.product.placeholders.stock',
+            )}
+            hint={i18n('entities.product.hints.stock')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <BrandAutocompleteFormItem  
+          <BrandAutocompleteFormItem
             name="brandId"
             label={i18n('entities.product.fields.brandId')}
             required={false}
@@ -166,7 +174,7 @@ function ProductForm(props) {
           <SwitchFormItem
             name="active"
             label={i18n('entities.product.fields.active')}
-          hint={i18n('entities.product.hints.active')}
+            hint={i18n('entities.product.hints.active')}
           />
         </div>
 

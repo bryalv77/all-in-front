@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseProgress/importer/courseProgressImporterActions';
-import fields from 'src/modules/courseProgress/importer/courseProgressImporterFields';
-import selectors from 'src/modules/courseProgress/importer/courseProgressImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseProgress/importer/courseProgressImporterActions';
+import fields from '../../../modules/courseProgress/importer/courseProgressImporterFields';
+import selectors from '../../../modules/courseProgress/importer/courseProgressImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function CourseProgressImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function CourseProgressImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseProgress.menu'), '/course-progress'],
+          [
+            i18n('entities.courseProgress.menu'),
+            '/course-progress',
+          ],
           [i18n('entities.courseProgress.importer.title')],
         ]}
       />

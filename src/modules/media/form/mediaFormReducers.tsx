@@ -1,4 +1,4 @@
-import actions from 'src/modules/media/form/mediaFormActions';
+import actions from '../../../modules/media/form/mediaFormActions';
 
 const initialData = {
   initLoading: false,

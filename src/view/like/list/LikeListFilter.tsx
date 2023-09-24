@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/like/list/likeListActions';
-import selectors from 'src/modules/like/list/likeListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/like/list/likeListActions';
+import selectors from '../../../modules/like/list/likeListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import PostsAutocompleteFormItem from 'src/view/posts/autocomplete/PostsAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import PostsAutocompleteFormItem from '../../../view/posts/autocomplete/PostsAutocompleteFormItem';
 
 const schema = yup.object().shape({
   userId: yupFilterSchemas.relationToOne(
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
 const emptyValues = {
   userId: null,
   postId: null,
-}
+};
 
 const previewRenders = {
   userId: {
@@ -37,10 +37,10 @@ const previewRenders = {
     render: filterRenders.relationToOne(),
   },
   postId: {
-      label: i18n('entities.like.fields.postId'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.like.fields.postId'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function LikeListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +61,12 @@ function LikeListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -99,13 +104,13 @@ function LikeListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.like.fields.userId')}        
+                label={i18n('entities.like.fields.userId')}
               />
-              <PostsAutocompleteFormItem  
+              <PostsAutocompleteFormItem
                 name="postId"
-                label={i18n('entities.like.fields.postId')}        
+                label={i18n('entities.like.fields.postId')}
               />
             </div>
 

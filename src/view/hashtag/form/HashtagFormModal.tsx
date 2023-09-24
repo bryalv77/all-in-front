@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import HashtagForm from 'src/view/hashtag/form/HashtagForm';
-import HashtagService from 'src/modules/hashtag/hashtagService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import HashtagForm from '../../../view/hashtag/form/HashtagForm';
+import HashtagService from '../../../modules/hashtag/hashtagService';
 
 function HashtagFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

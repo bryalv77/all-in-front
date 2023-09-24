@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/tags/view/tagsViewActions';
-import selectors from 'src/modules/tags/view/tagsViewSelectors';
-import TagsView from 'src/view/tags/view/TagsView';
-import TagsViewToolbar from 'src/view/tags/view/TagsViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/tags/view/tagsViewActions';
+import selectors from '../../../modules/tags/view/tagsViewSelectors';
+import TagsView from '../../../view/tags/view/TagsView';
+import TagsViewToolbar from '../../../view/tags/view/TagsViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function TagsPage() {
   const dispatch = useDispatch();

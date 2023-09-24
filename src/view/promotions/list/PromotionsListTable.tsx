@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import promotionsSelectors from 'src/modules/promotions/promotionsSelectors';
-import destroyActions from 'src/modules/promotions/destroy/promotionsDestroyActions';
-import destroySelectors from 'src/modules/promotions/destroy/promotionsDestroySelectors';
-import actions from 'src/modules/promotions/list/promotionsListActions';
-import selectors from 'src/modules/promotions/list/promotionsListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ProductListItem from 'src/view/product/list/ProductListItem';
+import { i18n } from '../../../i18n';
+import promotionsSelectors from '../../../modules/promotions/promotionsSelectors';
+import destroyActions from '../../../modules/promotions/destroy/promotionsDestroyActions';
+import destroySelectors from '../../../modules/promotions/destroy/promotionsDestroySelectors';
+import actions from '../../../modules/promotions/list/promotionsListActions';
+import selectors from '../../../modules/promotions/list/promotionsListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ProductListItem from '../../../view/product/list/ProductListItem';
 
 function PromotionsListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,48 +107,48 @@ function PromotionsListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'code'}
-                  label={i18n(
-                    'entities.promotions.fields.code',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'discount'}
-                  label={i18n(
-                    'entities.promotions.fields.discount',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'startDate'}
-                  label={i18n(
-                    'entities.promotions.fields.startDate',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'endDate'}
-                  label={i18n(
-                    'entities.promotions.fields.endDate',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.promotions.fields.productId',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'code'}
+                label={i18n(
+                  'entities.promotions.fields.code',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'discount'}
+                label={i18n(
+                  'entities.promotions.fields.discount',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'startDate'}
+                label={i18n(
+                  'entities.promotions.fields.startDate',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'endDate'}
+                label={i18n(
+                  'entities.promotions.fields.endDate',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.promotions.fields.productId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -189,14 +187,25 @@ function PromotionsListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.code}</td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.code}
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.discount}
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.startDate}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.endDate}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <ProductListItem value={row.productId} />
+                    {row.startDate}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.endDate}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <ProductListItem
+                      value={row.productId}
+                    />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

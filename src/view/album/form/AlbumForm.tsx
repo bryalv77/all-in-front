@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputNumberFormItem from 'src/view/shared/form/items/InputNumberFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
-import ArtistAutocompleteFormItem from 'src/view/artist/autocomplete/ArtistAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputNumberFormItem from '../../../view/shared/form/items/InputNumberFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
+import ArtistAutocompleteFormItem from '../../../view/artist/autocomplete/ArtistAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -72,18 +72,22 @@ function AlbumForm(props) {
           <InputFormItem
             name="title"
             label={i18n('entities.album.fields.title')}
-          placeholder={i18n('entities.album.placeholders.title')}
-          hint={i18n('entities.album.hints.title')}
+            placeholder={i18n(
+              'entities.album.placeholders.title',
+            )}
+            hint={i18n('entities.album.hints.title')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <ArtistAutocompleteFormItem  
+          <ArtistAutocompleteFormItem
             name="artistId"
             label={i18n('entities.album.fields.artistId')}
-          placeholder={i18n('entities.album.placeholders.artistId')}
-          hint={i18n('entities.album.hints.artistId')}
+            placeholder={i18n(
+              'entities.album.placeholders.artistId',
+            )}
+            hint={i18n('entities.album.hints.artistId')}
             required={false}
             showCreate={!props.modal}
           />
@@ -91,7 +95,7 @@ function AlbumForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputNumberFormItem
             name="year"
-            label={i18n('entities.album.fields.year')}  
+            label={i18n('entities.album.fields.year')}
             required={false}
           />
         </div>
@@ -102,7 +106,7 @@ function AlbumForm(props) {
             required={false}
             storage={Storage.values.albumCover}
             max={undefined}
-          hint={i18n('entities.album.hints.cover')}
+            hint={i18n('entities.album.hints.cover')}
           />
         </div>
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import TagsListFilter from 'src/view/tags/list/TagsListFilter';
-import TagsListTable from 'src/view/tags/list/TagsListTable';
-import TagsListToolbar from 'src/view/tags/list/TagsListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import TagsListFilter from '../../../view/tags/list/TagsListFilter';
+import TagsListTable from '../../../view/tags/list/TagsListTable';
+import TagsListToolbar from '../../../view/tags/list/TagsListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function TagsListPage(props) {
   return (

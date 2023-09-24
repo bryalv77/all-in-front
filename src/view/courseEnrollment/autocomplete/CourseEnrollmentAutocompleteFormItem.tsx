@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import CourseEnrollmentService from 'src/modules/courseEnrollment/courseEnrollmentService';
-import CourseEnrollmentFormModal from 'src/view/courseEnrollment/form/CourseEnrollmentFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import CourseEnrollmentService from '../../../modules/courseEnrollment/courseEnrollmentService';
+import CourseEnrollmentFormModal from '../../../view/courseEnrollment/form/CourseEnrollmentFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/courseEnrollment/courseEnrollmentSelectors';
+import selectors from '../../../modules/courseEnrollment/courseEnrollmentSelectors';
 
 function CourseEnrollmentAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function CourseEnrollmentAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return CourseEnrollmentService.listAutocomplete(value, limit);
+    return CourseEnrollmentService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

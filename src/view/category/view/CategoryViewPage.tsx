@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/category/view/categoryViewActions';
-import selectors from 'src/modules/category/view/categoryViewSelectors';
-import CategoryView from 'src/view/category/view/CategoryView';
-import CategoryViewToolbar from 'src/view/category/view/CategoryViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/category/view/categoryViewActions';
+import selectors from '../../../modules/category/view/categoryViewSelectors';
+import CategoryView from '../../../view/category/view/CategoryView';
+import CategoryViewToolbar from '../../../view/category/view/CategoryViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CategoryPage() {
   const dispatch = useDispatch();

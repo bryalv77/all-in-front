@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import subTasksEnumerators from 'src/modules/subTasks/subTasksEnumerators';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import subTasksEnumerators from '../../../modules/subTasks/subTasksEnumerators';
 
 export default [
   {
@@ -16,7 +17,7 @@ export default [
     schema: schemas.enumerator(
       i18n('entities.subTasks.fields.status'),
       {
-        "options": subTasksEnumerators.status
+        options: subTasksEnumerators.status,
       },
     ),
   },

@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import operationSelectors from 'src/modules/operation/operationSelectors';
-import destroyActions from 'src/modules/operation/destroy/operationDestroyActions';
-import destroySelectors from 'src/modules/operation/destroy/operationDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import operationSelectors from '../../../modules/operation/operationSelectors';
+import destroyActions from '../../../modules/operation/destroy/operationDestroyActions';
+import destroySelectors from '../../../modules/operation/destroy/operationDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function OperationViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
-import authSelectors from 'src/modules/auth/authSelectors';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import actions from 'src/modules/tenant/form/tenantFormActions';
-import selectors from 'src/modules/tenant/form/tenantFormSelectors';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
+import { i18n } from '../../../i18n';
+import authSelectors from '../../../modules/auth/authSelectors';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import actions from '../../../modules/tenant/form/tenantFormActions';
+import selectors from '../../../modules/tenant/form/tenantFormSelectors';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
 import * as yup from 'yup';
-import config from 'src/config';
+import config from '../../../config';
 import { urlfy } from '../shared/urlfy';
-import { tenantSubdomain } from 'src/modules/tenant/tenantSubdomain';
+import { tenantSubdomain } from '../../../modules/tenant/tenantSubdomain';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const schemaWithUrl = yup.object().shape({

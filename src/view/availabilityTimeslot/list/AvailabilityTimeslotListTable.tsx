@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import availabilityTimeslotSelectors from 'src/modules/availabilityTimeslot/availabilityTimeslotSelectors';
-import destroyActions from 'src/modules/availabilityTimeslot/destroy/availabilityTimeslotDestroyActions';
-import destroySelectors from 'src/modules/availabilityTimeslot/destroy/availabilityTimeslotDestroySelectors';
-import actions from 'src/modules/availabilityTimeslot/list/availabilityTimeslotListActions';
-import selectors from 'src/modules/availabilityTimeslot/list/availabilityTimeslotListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
+import { i18n } from '../../../i18n';
+import availabilityTimeslotSelectors from '../../../modules/availabilityTimeslot/availabilityTimeslotSelectors';
+import destroyActions from '../../../modules/availabilityTimeslot/destroy/availabilityTimeslotDestroyActions';
+import destroySelectors from '../../../modules/availabilityTimeslot/destroy/availabilityTimeslotDestroySelectors';
+import actions from '../../../modules/availabilityTimeslot/list/availabilityTimeslotListActions';
+import selectors from '../../../modules/availabilityTimeslot/list/availabilityTimeslotListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
 import moment from 'moment';
-import BusinessListItem from 'src/view/business/list/BusinessListItem';
+import BusinessListItem from '../../../view/business/list/BusinessListItem';
 
 function AvailabilityTimeslotListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,48 +108,48 @@ function AvailabilityTimeslotListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.availabilityTimeslot.fields.businessId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'dayOfTheWeek'}
-                  label={i18n(
-                    'entities.availabilityTimeslot.fields.dayOfTheWeek',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'startTime'}
-                  label={i18n(
-                    'entities.availabilityTimeslot.fields.startTime',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'endTime'}
-                  label={i18n(
-                    'entities.availabilityTimeslot.fields.endTime',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'capacity'}
-                  label={i18n(
-                    'entities.availabilityTimeslot.fields.capacity',
-                  )}
-                  align="right"
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.businessId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'dayOfTheWeek'}
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.dayOfTheWeek',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'startTime'}
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.startTime',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'endTime'}
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.endTime',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'capacity'}
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.capacity',
+                )}
+                align="right"
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -191,9 +189,13 @@ function AvailabilityTimeslotListTable(props) {
                     />
                   </th>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <BusinessListItem value={row.businessId} />
+                    <BusinessListItem
+                      value={row.businessId}
+                    />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.dayOfTheWeek}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.dayOfTheWeek}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.startTime
                       ? moment(row.startTime).format(
@@ -208,7 +210,12 @@ function AvailabilityTimeslotListTable(props) {
                         )
                       : null}
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.capacity}</td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
+                    {row.capacity}
+                  </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"
                     align="right"

@@ -1,4 +1,4 @@
-import actions from 'src/modules/promotions/form/promotionsFormActions';
+import actions from '../../../modules/promotions/form/promotionsFormActions';
 
 const initialData = {
   initLoading: false,

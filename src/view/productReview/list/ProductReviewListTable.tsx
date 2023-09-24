@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import productReviewSelectors from 'src/modules/productReview/productReviewSelectors';
-import destroyActions from 'src/modules/productReview/destroy/productReviewDestroyActions';
-import destroySelectors from 'src/modules/productReview/destroy/productReviewDestroySelectors';
-import actions from 'src/modules/productReview/list/productReviewListActions';
-import selectors from 'src/modules/productReview/list/productReviewListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ProductListItem from 'src/view/product/list/ProductListItem';
-import CustomerListItem from 'src/view/customer/list/CustomerListItem';
+import { i18n } from '../../../i18n';
+import productReviewSelectors from '../../../modules/productReview/productReviewSelectors';
+import destroyActions from '../../../modules/productReview/destroy/productReviewDestroyActions';
+import destroySelectors from '../../../modules/productReview/destroy/productReviewDestroySelectors';
+import actions from '../../../modules/productReview/list/productReviewListActions';
+import selectors from '../../../modules/productReview/list/productReviewListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ProductListItem from '../../../view/product/list/ProductListItem';
+import CustomerListItem from '../../../view/customer/list/CustomerListItem';
 
 function ProductReviewListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,35 +108,35 @@ function ProductReviewListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'comment'}
-                  label={i18n(
-                    'entities.productReview.fields.comment',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.productReview.fields.productId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.productReview.fields.customerId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'rating'}
-                  label={i18n(
-                    'entities.productReview.fields.rating',
-                  )}
-                  align="right"
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'comment'}
+                label={i18n(
+                  'entities.productReview.fields.comment',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.productReview.fields.productId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.productReview.fields.customerId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'rating'}
+                label={i18n(
+                  'entities.productReview.fields.rating',
+                )}
+                align="right"
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -177,14 +175,23 @@ function ProductReviewListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.comment}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <ProductListItem value={row.productId} />
+                    {row.comment}
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <CustomerListItem value={row.customerId} />
+                    <ProductListItem
+                      value={row.productId}
+                    />
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <CustomerListItem
+                      value={row.customerId}
+                    />
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.rating}
                   </td>
                   <td

@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import ProductCategoryForm from 'src/view/productCategory/form/ProductCategoryForm';
-import ProductCategoryService from 'src/modules/productCategory/productCategoryService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import ProductCategoryForm from '../../../view/productCategory/form/ProductCategoryForm';
+import ProductCategoryService from '../../../modules/productCategory/productCategoryService';
 
 function ProductCategoryFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);
@@ -13,7 +13,9 @@ function ProductCategoryFormModal(props) {
   const doSubmit = async (_, data) => {
     try {
       setSaveLoading(true);
-      const { id } = await ProductCategoryService.create(data);
+      const { id } = await ProductCategoryService.create(
+        data,
+      );
       const record = await ProductCategoryService.find(id);
       props.onSuccess(record);
     } catch (error) {

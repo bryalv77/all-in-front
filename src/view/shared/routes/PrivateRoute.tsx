@@ -1,13 +1,13 @@
-import PermissionChecker from 'src/modules/auth/permissionChecker';
+import PermissionChecker from '../../../modules/auth/permissionChecker';
 import React from 'react';
 import {
   Redirect,
   Route,
   useLocation,
 } from 'react-router-dom';
-import Layout from 'src/view/layout/Layout';
-import config from 'src/config';
-import { tenantSubdomain } from 'src/modules/tenant/tenantSubdomain';
+import Layout from '../../../view/layout/Layout';
+import config from '../../../config';
+import { tenantSubdomain } from '../../../modules/tenant/tenantSubdomain';
 
 function PrivateRoute({
   component: Component,

@@ -1,8 +1,8 @@
-import list from 'src/modules/followers/list/followersListReducers';
-import form from 'src/modules/followers/form/followersFormReducers';
-import view from 'src/modules/followers/view/followersViewReducers';
-import destroy from 'src/modules/followers/destroy/followersDestroyReducers';
-import importerReducer from 'src/modules/followers/importer/followersImporterReducers';
+import list from '../../../modules/followers/list/followersListReducers';
+import form from '../../../modules/followers/form/followersFormReducers';
+import view from '../../../modules/followers/view/followersViewReducers';
+import destroy from '../../../modules/followers/destroy/followersDestroyReducers';
+import importerReducer from '../../../modules/followers/importer/followersImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

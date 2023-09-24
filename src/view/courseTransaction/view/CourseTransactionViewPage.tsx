@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseTransaction/view/courseTransactionViewActions';
-import selectors from 'src/modules/courseTransaction/view/courseTransactionViewSelectors';
-import CourseTransactionView from 'src/view/courseTransaction/view/CourseTransactionView';
-import CourseTransactionViewToolbar from 'src/view/courseTransaction/view/CourseTransactionViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseTransaction/view/courseTransactionViewActions';
+import selectors from '../../../modules/courseTransaction/view/courseTransactionViewSelectors';
+import CourseTransactionView from '../../../view/courseTransaction/view/CourseTransactionView';
+import CourseTransactionViewToolbar from '../../../view/courseTransaction/view/CourseTransactionViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CourseTransactionPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function CourseTransactionPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseTransaction.menu'), '/course-transaction'],
+          [
+            i18n('entities.courseTransaction.menu'),
+            '/course-transaction',
+          ],
           [i18n('entities.courseTransaction.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function CourseTransactionPage() {
 
         <CourseTransactionViewToolbar match={match} />
 
-        <CourseTransactionView loading={loading} record={record} />
+        <CourseTransactionView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

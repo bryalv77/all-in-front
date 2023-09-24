@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/deliveryMethod/view/deliveryMethodViewActions';
-import selectors from 'src/modules/deliveryMethod/view/deliveryMethodViewSelectors';
-import DeliveryMethodView from 'src/view/deliveryMethod/view/DeliveryMethodView';
-import DeliveryMethodViewToolbar from 'src/view/deliveryMethod/view/DeliveryMethodViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/deliveryMethod/view/deliveryMethodViewActions';
+import selectors from '../../../modules/deliveryMethod/view/deliveryMethodViewSelectors';
+import DeliveryMethodView from '../../../view/deliveryMethod/view/DeliveryMethodView';
+import DeliveryMethodViewToolbar from '../../../view/deliveryMethod/view/DeliveryMethodViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function DeliveryMethodPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function DeliveryMethodPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.deliveryMethod.menu'), '/delivery-method'],
+          [
+            i18n('entities.deliveryMethod.menu'),
+            '/delivery-method',
+          ],
           [i18n('entities.deliveryMethod.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function DeliveryMethodPage() {
 
         <DeliveryMethodViewToolbar match={match} />
 
-        <DeliveryMethodView loading={loading} record={record} />
+        <DeliveryMethodView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

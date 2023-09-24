@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import CityListFilter from 'src/view/city/list/CityListFilter';
-import CityListTable from 'src/view/city/list/CityListTable';
-import CityListToolbar from 'src/view/city/list/CityListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import CityListFilter from '../../../view/city/list/CityListFilter';
+import CityListTable from '../../../view/city/list/CityListTable';
+import CityListToolbar from '../../../view/city/list/CityListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CityListPage(props) {
   return (

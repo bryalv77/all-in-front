@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -8,27 +8,37 @@ export default [
   },
   {
     name: 'courseId',
-    label: i18n('entities.courseEnrollment.fields.courseId'),
+    label: i18n(
+      'entities.courseEnrollment.fields.courseId',
+    ),
     render: exporterRenders.relationToOne(),
   },
   {
     name: 'studentId',
-    label: i18n('entities.courseEnrollment.fields.studentId'),
+    label: i18n(
+      'entities.courseEnrollment.fields.studentId',
+    ),
     render: exporterRenders.relationToOne(),
   },
   {
     name: 'enrollmentDate',
-    label: i18n('entities.courseEnrollment.fields.enrollmentDate'),
+    label: i18n(
+      'entities.courseEnrollment.fields.enrollmentDate',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'createdAt',
-    label: i18n('entities.courseEnrollment.fields.createdAt'),
+    label: i18n(
+      'entities.courseEnrollment.fields.createdAt',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'updatedAt',
-    label: i18n('entities.courseEnrollment.fields.updatedAt'),
+    label: i18n(
+      'entities.courseEnrollment.fields.updatedAt',
+    ),
     render: exporterRenders.datetime(),
   },
 ];

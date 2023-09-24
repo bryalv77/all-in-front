@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/media/importer/mediaImporterSelectors';
-import MediaService from 'src/modules/media/mediaService';
-import fields from 'src/modules/media/importer/mediaImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/media/importer/mediaImporterSelectors';
+import MediaService from '../../../modules/media/mediaService';
+import fields from '../../../modules/media/importer/mediaImporterFields';
+import { i18n } from '../../../i18n';
 
 const mediaImporterActions = importerActions(
   'MEDIA_IMPORTER',

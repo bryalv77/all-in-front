@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import CustomerService from 'src/modules/customer/customerService';
-import CustomerFormModal from 'src/view/customer/form/CustomerFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import CustomerService from '../../../modules/customer/customerService';
+import CustomerFormModal from '../../../view/customer/form/CustomerFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/customer/customerSelectors';
+import selectors from '../../../modules/customer/customerSelectors';
 
 function CustomerAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,12 +27,16 @@ function CustomerAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import FilesUploader from 'src/view/shared/uploaders/FilesUploader';
+import FilesUploader from '../../../view/shared/uploaders/FilesUploader';
 import truncate from 'lodash/truncate';
 
 function FilesListView(props) {

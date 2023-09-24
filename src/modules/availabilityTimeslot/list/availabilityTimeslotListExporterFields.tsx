@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -8,35 +8,49 @@ export default [
   },
   {
     name: 'businessId',
-    label: i18n('entities.availabilityTimeslot.fields.businessId'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.businessId',
+    ),
     render: exporterRenders.relationToOne(),
   },
   {
     name: 'dayOfTheWeek',
-    label: i18n('entities.availabilityTimeslot.fields.dayOfTheWeek'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.dayOfTheWeek',
+    ),
   },
   {
     name: 'startTime',
-    label: i18n('entities.availabilityTimeslot.fields.startTime'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.startTime',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'endTime',
-    label: i18n('entities.availabilityTimeslot.fields.endTime'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.endTime',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'capacity',
-    label: i18n('entities.availabilityTimeslot.fields.capacity'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.capacity',
+    ),
   },
   {
     name: 'createdAt',
-    label: i18n('entities.availabilityTimeslot.fields.createdAt'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.createdAt',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'updatedAt',
-    label: i18n('entities.availabilityTimeslot.fields.updatedAt'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.updatedAt',
+    ),
     render: exporterRenders.datetime(),
   },
 ];

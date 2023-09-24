@@ -1,8 +1,8 @@
-import list from 'src/modules/artist/list/artistListReducers';
-import form from 'src/modules/artist/form/artistFormReducers';
-import view from 'src/modules/artist/view/artistViewReducers';
-import destroy from 'src/modules/artist/destroy/artistDestroyReducers';
-import importerReducer from 'src/modules/artist/importer/artistImporterReducers';
+import list from '../../../modules/artist/list/artistListReducers';
+import form from '../../../modules/artist/form/artistFormReducers';
+import view from '../../../modules/artist/view/artistViewReducers';
+import destroy from '../../../modules/artist/destroy/artistDestroyReducers';
+import importerReducer from '../../../modules/artist/importer/artistImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

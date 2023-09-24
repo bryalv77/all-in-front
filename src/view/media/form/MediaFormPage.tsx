@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/media/form/mediaFormActions';
-import selectors from 'src/modules/media/form/mediaFormSelectors';
-import { getHistory } from 'src/modules/store';
-import MediaForm from 'src/view/media/form/MediaForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/media/form/mediaFormActions';
+import selectors from '../../../modules/media/form/mediaFormSelectors';
+import { getHistory } from '../../../modules/store';
+import MediaForm from '../../../view/media/form/MediaForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function MediaFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

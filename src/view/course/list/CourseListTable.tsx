@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import courseSelectors from 'src/modules/course/courseSelectors';
-import destroyActions from 'src/modules/course/destroy/courseDestroyActions';
-import destroySelectors from 'src/modules/course/destroy/courseDestroySelectors';
-import actions from 'src/modules/course/list/courseListActions';
-import selectors from 'src/modules/course/list/courseListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import TeacherListItem from 'src/view/teacher/list/TeacherListItem';
+import { i18n } from '../../../i18n';
+import courseSelectors from '../../../modules/course/courseSelectors';
+import destroyActions from '../../../modules/course/destroy/courseDestroyActions';
+import destroySelectors from '../../../modules/course/destroy/courseDestroySelectors';
+import actions from '../../../modules/course/list/courseListActions';
+import selectors from '../../../modules/course/list/courseListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import TeacherListItem from '../../../view/teacher/list/TeacherListItem';
 
 function CourseListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,94 +107,88 @@ function CourseListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.course.fields.teacherId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'title'}
-                  label={i18n(
-                    'entities.course.fields.title',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.course.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'price'}
-                  label={i18n(
-                    'entities.course.fields.price',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'hoursDuration'}
-                  label={i18n(
-                    'entities.course.fields.hoursDuration',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'startDate'}
-                  label={i18n(
-                    'entities.course.fields.startDate',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'endDate'}
-                  label={i18n(
-                    'entities.course.fields.endDate',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'level'}
-                  label={i18n(
-                    'entities.course.fields.level',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'additionalInfo'}
-                  label={i18n(
-                    'entities.course.fields.additionalInfo',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'active'}
-                  label={i18n(
-                    'entities.course.fields.active',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.course.fields.teacherId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'title'}
+                label={i18n('entities.course.fields.title')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.course.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'price'}
+                label={i18n('entities.course.fields.price')}
+                align="right"
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'hoursDuration'}
+                label={i18n(
+                  'entities.course.fields.hoursDuration',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'startDate'}
+                label={i18n(
+                  'entities.course.fields.startDate',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'endDate'}
+                label={i18n(
+                  'entities.course.fields.endDate',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'level'}
+                label={i18n('entities.course.fields.level')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'additionalInfo'}
+                label={i18n(
+                  'entities.course.fields.additionalInfo',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'active'}
+                label={i18n(
+                  'entities.course.fields.active',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -236,20 +228,40 @@ function CourseListTable(props) {
                     />
                   </th>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <TeacherListItem value={row.teacherId} />
+                    <TeacherListItem
+                      value={row.teacherId}
+                    />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.title}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.description}</td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.title}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.description}
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.price}
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.hoursDuration}
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.startDate}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.endDate}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.level}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.additionalInfo}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.startDate}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.endDate}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.level}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.additionalInfo}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.active
                       ? i18n('common.yes')

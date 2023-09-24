@@ -8,13 +8,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/auth/authActions';
-import selectors from 'src/modules/auth/authSelectors';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/auth/authActions';
+import selectors from '../../../modules/auth/authSelectors';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({

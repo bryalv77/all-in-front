@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/deliveryMethod/importer/deliveryMethodImporterActions';
-import fields from 'src/modules/deliveryMethod/importer/deliveryMethodImporterFields';
-import selectors from 'src/modules/deliveryMethod/importer/deliveryMethodImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/deliveryMethod/importer/deliveryMethodImporterActions';
+import fields from '../../../modules/deliveryMethod/importer/deliveryMethodImporterFields';
+import selectors from '../../../modules/deliveryMethod/importer/deliveryMethodImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function DeliveryMethodImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function DeliveryMethodImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.deliveryMethod.menu'), '/delivery-method'],
+          [
+            i18n('entities.deliveryMethod.menu'),
+            '/delivery-method',
+          ],
           [i18n('entities.deliveryMethod.importer.title')],
         ]}
       />

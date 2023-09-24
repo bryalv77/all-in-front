@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -13,27 +13,37 @@ export default [
   },
   {
     name: 'transactionDate',
-    label: i18n('entities.courseTransaction.fields.transactionDate'),
+    label: i18n(
+      'entities.courseTransaction.fields.transactionDate',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'courseId',
-    label: i18n('entities.courseTransaction.fields.courseId'),
+    label: i18n(
+      'entities.courseTransaction.fields.courseId',
+    ),
     render: exporterRenders.relationToOne(),
   },
   {
     name: 'studentId',
-    label: i18n('entities.courseTransaction.fields.studentId'),
+    label: i18n(
+      'entities.courseTransaction.fields.studentId',
+    ),
     render: exporterRenders.relationToOne(),
   },
   {
     name: 'createdAt',
-    label: i18n('entities.courseTransaction.fields.createdAt'),
+    label: i18n(
+      'entities.courseTransaction.fields.createdAt',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'updatedAt',
-    label: i18n('entities.courseTransaction.fields.updatedAt'),
+    label: i18n(
+      'entities.courseTransaction.fields.updatedAt',
+    ),
     render: exporterRenders.datetime(),
   },
 ];

@@ -1,4 +1,4 @@
-import actions from 'src/modules/courseComment/view/courseCommentViewActions';
+import actions from '../../../modules/courseComment/view/courseCommentViewActions';
 
 const initialData = {
   loading: false,

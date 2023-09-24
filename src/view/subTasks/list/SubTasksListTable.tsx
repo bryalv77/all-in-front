@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import subTasksSelectors from 'src/modules/subTasks/subTasksSelectors';
-import destroyActions from 'src/modules/subTasks/destroy/subTasksDestroyActions';
-import destroySelectors from 'src/modules/subTasks/destroy/subTasksDestroySelectors';
-import actions from 'src/modules/subTasks/list/subTasksListActions';
-import selectors from 'src/modules/subTasks/list/subTasksListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import TasksListItem from 'src/view/tasks/list/TasksListItem';
+import { i18n } from '../../../i18n';
+import subTasksSelectors from '../../../modules/subTasks/subTasksSelectors';
+import destroyActions from '../../../modules/subTasks/destroy/subTasksDestroyActions';
+import destroySelectors from '../../../modules/subTasks/destroy/subTasksDestroySelectors';
+import actions from '../../../modules/subTasks/list/subTasksListActions';
+import selectors from '../../../modules/subTasks/list/subTasksListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import TasksListItem from '../../../view/tasks/list/TasksListItem';
 
 function SubTasksListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,29 +107,29 @@ function SubTasksListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.subTasks.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'status'}
-                  label={i18n(
-                    'entities.subTasks.fields.status',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.subTasks.fields.taskId',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.subTasks.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'status'}
+                label={i18n(
+                  'entities.subTasks.fields.status',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.subTasks.fields.taskId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -170,7 +168,9 @@ function SubTasksListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.description}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.description}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.status
                       ? i18n(

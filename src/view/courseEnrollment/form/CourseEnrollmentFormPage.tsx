@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseEnrollment/form/courseEnrollmentFormActions';
-import selectors from 'src/modules/courseEnrollment/form/courseEnrollmentFormSelectors';
-import { getHistory } from 'src/modules/store';
-import CourseEnrollmentForm from 'src/view/courseEnrollment/form/CourseEnrollmentForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseEnrollment/form/courseEnrollmentFormActions';
+import selectors from '../../../modules/courseEnrollment/form/courseEnrollmentFormSelectors';
+import { getHistory } from '../../../modules/store';
+import CourseEnrollmentForm from '../../../view/courseEnrollment/form/CourseEnrollmentForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function CourseEnrollmentFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function CourseEnrollmentFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseEnrollment.menu'), '/course-enrollment'],
+          [
+            i18n('entities.courseEnrollment.menu'),
+            '/course-enrollment',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function CourseEnrollmentFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/course-enrollment')}
+            onCancel={() =>
+              getHistory().push('/course-enrollment')
+            }
           />
         )}
       </div>

@@ -1,4 +1,4 @@
-import actions from 'src/modules/followers/destroy/followersDestroyActions';
+import actions from '../../../modules/followers/destroy/followersDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

@@ -2,21 +2,21 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseEnrollment/list/courseEnrollmentListActions';
-import selectors from 'src/modules/courseEnrollment/list/courseEnrollmentListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseEnrollment/list/courseEnrollmentListActions';
+import selectors from '../../../modules/courseEnrollment/list/courseEnrollmentListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import StudentAutocompleteFormItem from 'src/view/student/autocomplete/StudentAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import StudentAutocompleteFormItem from '../../../view/student/autocomplete/StudentAutocompleteFormItem';
 
 const schema = yup.object().shape({
   courseId: yupFilterSchemas.relationToOne(
@@ -26,7 +26,9 @@ const schema = yup.object().shape({
     i18n('entities.courseEnrollment.fields.studentId'),
   ),
   enrollmentDateRange: yupFilterSchemas.datetimeRange(
-    i18n('entities.courseEnrollment.fields.enrollmentDateRange'),
+    i18n(
+      'entities.courseEnrollment.fields.enrollmentDateRange',
+    ),
   ),
 });
 
@@ -34,22 +36,28 @@ const emptyValues = {
   courseId: null,
   studentId: null,
   enrollmentDateRange: [],
-}
+};
 
 const previewRenders = {
   courseId: {
-      label: i18n('entities.courseEnrollment.fields.courseId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n(
+      'entities.courseEnrollment.fields.courseId',
+    ),
+    render: filterRenders.relationToOne(),
+  },
   studentId: {
-      label: i18n('entities.courseEnrollment.fields.studentId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n(
+      'entities.courseEnrollment.fields.studentId',
+    ),
+    render: filterRenders.relationToOne(),
+  },
   enrollmentDateRange: {
-    label: i18n('entities.courseEnrollment.fields.enrollmentDateRange'),
+    label: i18n(
+      'entities.courseEnrollment.fields.enrollmentDateRange',
+    ),
     render: filterRenders.datetimeRange(),
   },
-}
+};
 
 function CourseEnrollmentListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -70,7 +78,12 @@ function CourseEnrollmentListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -108,17 +121,23 @@ function CourseEnrollmentListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <CourseAutocompleteFormItem  
+              <CourseAutocompleteFormItem
                 name="courseId"
-                label={i18n('entities.courseEnrollment.fields.courseId')}        
+                label={i18n(
+                  'entities.courseEnrollment.fields.courseId',
+                )}
               />
-              <StudentAutocompleteFormItem  
+              <StudentAutocompleteFormItem
                 name="studentId"
-                label={i18n('entities.courseEnrollment.fields.studentId')}        
+                label={i18n(
+                  'entities.courseEnrollment.fields.studentId',
+                )}
               />
               <DatePickerRangeFormItem
                 name="enrollmentDateRange"
-                label={i18n('entities.courseEnrollment.fields.enrollmentDateRange')}    
+                label={i18n(
+                  'entities.courseEnrollment.fields.enrollmentDateRange',
+                )}
                 showTimeInput
               />
             </div>

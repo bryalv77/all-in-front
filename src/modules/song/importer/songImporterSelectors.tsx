@@ -1,7 +1,6 @@
-import importerSelectors from 'src/modules/shared/importer/importerSelectors';
+import importerSelectors from '../../../modules/shared/importer/importerSelectors';
 
-const songImporterSelectors = importerSelectors(
-  'song.importer',
-);
+const songImporterSelectors =
+  importerSelectors('song.importer');
 
 export default songImporterSelectors;

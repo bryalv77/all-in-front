@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import bankSelectors from 'src/modules/bank/bankSelectors';
-import destroyActions from 'src/modules/bank/destroy/bankDestroyActions';
-import destroySelectors from 'src/modules/bank/destroy/bankDestroySelectors';
-import actions from 'src/modules/bank/list/bankListActions';
-import selectors from 'src/modules/bank/list/bankListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import bankSelectors from '../../../modules/bank/bankSelectors';
+import destroyActions from '../../../modules/bank/destroy/bankDestroyActions';
+import destroySelectors from '../../../modules/bank/destroy/bankDestroySelectors';
+import actions from '../../../modules/bank/list/bankListActions';
+import selectors from '../../../modules/bank/list/bankListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function BankToolbar(props) {
   const [

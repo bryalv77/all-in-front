@@ -1,4 +1,4 @@
-import actions from 'src/modules/productCategory/destroy/productCategoryDestroyActions';
+import actions from '../../../modules/productCategory/destroy/productCategoryDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

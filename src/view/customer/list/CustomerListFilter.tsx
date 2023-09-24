@@ -2,23 +2,23 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/customer/list/customerListActions';
-import selectors from 'src/modules/customer/list/customerListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/customer/list/customerListActions';
+import selectors from '../../../modules/customer/list/customerListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import customerEnumerators from 'src/modules/customer/customerEnumerators';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import customerEnumerators from '../../../modules/customer/customerEnumerators';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -40,7 +40,7 @@ const emptyValues = {
   birthdateRange: [],
   gender: null,
   userId: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -53,13 +53,15 @@ const previewRenders = {
   },
   gender: {
     label: i18n('entities.customer.fields.gender'),
-    render: filterRenders.enumerator('entities.customer.enumerators.gender',),
+    render: filterRenders.enumerator(
+      'entities.customer.enumerators.gender',
+    ),
   },
   userId: {
     label: i18n('entities.customer.fields.userId'),
     render: filterRenders.relationToOne(),
   },
-}
+};
 
 function CustomerListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -80,7 +82,12 @@ function CustomerListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -120,27 +127,35 @@ function CustomerListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.customer.fields.name')}      
+                label={i18n(
+                  'entities.customer.fields.name',
+                )}
               />
               <DatePickerRangeFormItem
                 name="birthdateRange"
-                label={i18n('entities.customer.fields.birthdateRange')}    
+                label={i18n(
+                  'entities.customer.fields.birthdateRange',
+                )}
               />
               <SelectFormItem
-                  name="gender"
-                  label={i18n('entities.customer.fields.gender')}
-                  options={customerEnumerators.gender.map(
-                    (value) => ({
-                      value,
-                      label: i18n(
-                        `entities.customer.enumerators.gender.${value}`,
-                      ),
-                    }),
-                  )}
-                />
-              <UserAutocompleteFormItem  
+                name="gender"
+                label={i18n(
+                  'entities.customer.fields.gender',
+                )}
+                options={customerEnumerators.gender.map(
+                  (value) => ({
+                    value,
+                    label: i18n(
+                      `entities.customer.enumerators.gender.${value}`,
+                    ),
+                  }),
+                )}
+              />
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.customer.fields.userId')}        
+                label={i18n(
+                  'entities.customer.fields.userId',
+                )}
               />
             </div>
 

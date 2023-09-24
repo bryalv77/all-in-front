@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { i18n, init as i18nInit } from 'src/i18n';
+import { i18n, init as i18nInit } from './i18n';
 import { AuthToken } from './modules/auth/authToken';
 import TenantService from './modules/tenant/tenantService';
 import SettingsService from './modules/settings/settingsService';
-import AuthService from 'src/modules/auth/authService';
+import AuthService from './modules/auth/authService';
 import './index.css';
 
-(async function () {
+(async function() {
   const isSocialOnboardRequested = AuthService.isSocialOnboardRequested();
   AuthToken.applyFromLocationUrlIfExists();
   await TenantService.fetchAndApply();

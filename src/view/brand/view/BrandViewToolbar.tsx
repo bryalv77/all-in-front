@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import brandSelectors from 'src/modules/brand/brandSelectors';
-import destroyActions from 'src/modules/brand/destroy/brandDestroyActions';
-import destroySelectors from 'src/modules/brand/destroy/brandDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import brandSelectors from '../../../modules/brand/brandSelectors';
+import destroyActions from '../../../modules/brand/destroy/brandDestroyActions';
+import destroySelectors from '../../../modules/brand/destroy/brandDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function BrandViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

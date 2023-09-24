@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import PromotionsForm from 'src/view/promotions/form/PromotionsForm';
-import PromotionsService from 'src/modules/promotions/promotionsService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import PromotionsForm from '../../../view/promotions/form/PromotionsForm';
+import PromotionsService from '../../../modules/promotions/promotionsService';
 
 function PromotionsFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

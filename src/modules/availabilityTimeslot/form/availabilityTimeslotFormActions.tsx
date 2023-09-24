@@ -1,8 +1,8 @@
-import AvailabilityTimeslotService from 'src/modules/availabilityTimeslot/availabilityTimeslotService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import AvailabilityTimeslotService from '../../../modules/availabilityTimeslot/availabilityTimeslotService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'AVAILABILITYTIMESLOT_FORM';
 
@@ -61,7 +61,9 @@ const availabilityTimeslotFormActions = {
       });
 
       Message.success(
-        i18n('entities.availabilityTimeslot.create.success'),
+        i18n(
+          'entities.availabilityTimeslot.create.success',
+        ),
       );
 
       getHistory().push('/availability-timeslot');
@@ -87,7 +89,9 @@ const availabilityTimeslotFormActions = {
       });
 
       Message.success(
-        i18n('entities.availabilityTimeslot.update.success'),
+        i18n(
+          'entities.availabilityTimeslot.update.success',
+        ),
       );
 
       getHistory().push('/availability-timeslot');

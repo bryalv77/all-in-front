@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
-import BusinessAutocompleteFormItem from 'src/view/business/autocomplete/BusinessAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
+import BusinessAutocompleteFormItem from '../../../view/business/autocomplete/BusinessAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -88,10 +88,12 @@ function ServiceForm(props) {
           <InputFormItem
             name="name"
             label={i18n('entities.service.fields.name')}
-          placeholder={i18n('entities.service.placeholders.name')}
-          hint={i18n('entities.service.hints.name')}
+            placeholder={i18n(
+              'entities.service.placeholders.name',
+            )}
+            hint={i18n('entities.service.hints.name')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
@@ -101,24 +103,36 @@ function ServiceForm(props) {
             required={false}
             storage={Storage.values.servicePhoto}
             max={undefined}
-          hint={i18n('entities.service.hints.photo')}
+            hint={i18n('entities.service.hints.photo')}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.service.fields.description')}
-          placeholder={i18n('entities.service.placeholders.description')}
-          hint={i18n('entities.service.hints.description')}  
+            label={i18n(
+              'entities.service.fields.description',
+            )}
+            placeholder={i18n(
+              'entities.service.placeholders.description',
+            )}
+            hint={i18n(
+              'entities.service.hints.description',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="hoursDuration"
-            label={i18n('entities.service.fields.hoursDuration')}
-          placeholder={i18n('entities.service.placeholders.hoursDuration')}
-          hint={i18n('entities.service.hints.hoursDuration')}  
+            label={i18n(
+              'entities.service.fields.hoursDuration',
+            )}
+            placeholder={i18n(
+              'entities.service.placeholders.hoursDuration',
+            )}
+            hint={i18n(
+              'entities.service.hints.hoursDuration',
+            )}
             required={false}
           />
         </div>
@@ -126,17 +140,23 @@ function ServiceForm(props) {
           <InputFormItem
             name="price"
             label={i18n('entities.service.fields.price')}
-          placeholder={i18n('entities.service.placeholders.price')}
-          hint={i18n('entities.service.hints.price')}  
+            placeholder={i18n(
+              'entities.service.placeholders.price',
+            )}
+            hint={i18n('entities.service.hints.price')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <BusinessAutocompleteFormItem  
+          <BusinessAutocompleteFormItem
             name="businessId"
-            label={i18n('entities.service.fields.businessId')}
-          placeholder={i18n('entities.service.placeholders.businessId')}
-          hint={i18n('entities.service.hints.businessId')}
+            label={i18n(
+              'entities.service.fields.businessId',
+            )}
+            placeholder={i18n(
+              'entities.service.placeholders.businessId',
+            )}
+            hint={i18n('entities.service.hints.businessId')}
             required={false}
             showCreate={!props.modal}
           />
@@ -145,7 +165,7 @@ function ServiceForm(props) {
           <SwitchFormItem
             name="active"
             label={i18n('entities.service.fields.active')}
-          hint={i18n('entities.service.hints.active')}
+            hint={i18n('entities.service.hints.active')}
           />
         </div>
 

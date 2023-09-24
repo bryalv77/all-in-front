@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/conversationParticipant/form/conversationParticipantFormActions';
-import selectors from 'src/modules/conversationParticipant/form/conversationParticipantFormSelectors';
-import { getHistory } from 'src/modules/store';
-import ConversationParticipantForm from 'src/view/conversationParticipant/form/ConversationParticipantForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/conversationParticipant/form/conversationParticipantFormActions';
+import selectors from '../../../modules/conversationParticipant/form/conversationParticipantFormSelectors';
+import { getHistory } from '../../../modules/store';
+import ConversationParticipantForm from '../../../view/conversationParticipant/form/ConversationParticipantForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function ConversationParticipantFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function ConversationParticipantFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.conversationParticipant.menu'), '/conversation-participant'],
+          [
+            i18n('entities.conversationParticipant.menu'),
+            '/conversation-participant',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function ConversationParticipantFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/conversation-participant')}
+            onCancel={() =>
+              getHistory().push('/conversation-participant')
+            }
           />
         )}
       </div>

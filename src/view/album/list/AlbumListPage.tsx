@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import AlbumListFilter from 'src/view/album/list/AlbumListFilter';
-import AlbumListTable from 'src/view/album/list/AlbumListTable';
-import AlbumListToolbar from 'src/view/album/list/AlbumListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import AlbumListFilter from '../../../view/album/list/AlbumListFilter';
+import AlbumListTable from '../../../view/album/list/AlbumListTable';
+import AlbumListToolbar from '../../../view/album/list/AlbumListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function AlbumListPage(props) {
   return (

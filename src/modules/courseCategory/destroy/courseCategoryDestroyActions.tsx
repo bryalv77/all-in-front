@@ -1,9 +1,9 @@
-import listActions from 'src/modules/courseCategory/list/courseCategoryListActions';
-import CourseCategoryService from 'src/modules/courseCategory/courseCategoryService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/courseCategory/list/courseCategoryListActions';
+import CourseCategoryService from '../../../modules/courseCategory/courseCategoryService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'COURSECATEGORY_DESTROY';
 

@@ -1,4 +1,4 @@
-import actions from 'src/modules/productCategory/view/productCategoryViewActions';
+import actions from '../../../modules/productCategory/view/productCategoryViewActions';
 
 const initialData = {
   loading: false,

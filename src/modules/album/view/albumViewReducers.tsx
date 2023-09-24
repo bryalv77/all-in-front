@@ -1,4 +1,4 @@
-import actions from 'src/modules/album/view/albumViewActions';
+import actions from '../../../modules/album/view/albumViewActions';
 
 const initialData = {
   loading: false,

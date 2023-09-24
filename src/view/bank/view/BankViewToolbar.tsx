@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import bankSelectors from 'src/modules/bank/bankSelectors';
-import destroyActions from 'src/modules/bank/destroy/bankDestroyActions';
-import destroySelectors from 'src/modules/bank/destroy/bankDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import bankSelectors from '../../../modules/bank/bankSelectors';
+import destroyActions from '../../../modules/bank/destroy/bankDestroyActions';
+import destroySelectors from '../../../modules/bank/destroy/bankDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function BankViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

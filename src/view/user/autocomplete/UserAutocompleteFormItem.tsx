@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import UserService from 'src/modules/user/userService';
-import UserNewFormModal from 'src/view/user/new/UserNewFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import UserService from '../../../modules/user/userService';
+import UserNewFormModal from '../../../view/user/new/UserNewFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/user/userSelectors';
+import selectors from '../../../modules/user/userSelectors';
 
 function UserAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -18,12 +18,16 @@ function UserAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     setModalVisible(false);

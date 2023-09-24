@@ -1,4 +1,4 @@
-import actions from 'src/modules/deliveryMethod/view/deliveryMethodViewActions';
+import actions from '../../../modules/deliveryMethod/view/deliveryMethodViewActions';
 
 const initialData = {
   loading: false,

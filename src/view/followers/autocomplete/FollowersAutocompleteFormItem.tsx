@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import FollowersService from 'src/modules/followers/followersService';
-import FollowersFormModal from 'src/view/followers/form/FollowersFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import FollowersService from '../../../modules/followers/followersService';
+import FollowersFormModal from '../../../view/followers/form/FollowersFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/followers/followersSelectors';
+import selectors from '../../../modules/followers/followersSelectors';
 
 function FollowersAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,12 +27,16 @@ function FollowersAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();

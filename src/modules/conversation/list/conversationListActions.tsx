@@ -1,9 +1,9 @@
-import ConversationService from 'src/modules/conversation/conversationService';
-import selectors from 'src/modules/conversation/list/conversationListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/conversation/list/conversationListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import ConversationService from '../../../modules/conversation/conversationService';
+import selectors from '../../../modules/conversation/list/conversationListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/conversation/list/conversationListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'CONVERSATION_LIST';
 
@@ -86,17 +86,17 @@ const conversationListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: conversationListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: conversationListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(conversationListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        conversationListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +104,57 @@ const conversationListActions = {
       payload: sorter,
     });
 
-    dispatch(conversationListActions.doFetchCurrentFilter());
+    dispatch(
+      conversationListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(conversationListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: conversationListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await ConversationService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        conversationListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: conversationListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: conversationListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: conversationListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await ConversationService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: conversationListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: conversationListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default conversationListActions;

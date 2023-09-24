@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import UserViewItem from 'src/view/user/view/UserViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import UserViewItem from '../../../view/user/view/UserViewItem';
 import moment from 'moment';
-import FilesViewItem from 'src/view/shared/view/FilesViewItem';
+import FilesViewItem from '../../../view/shared/view/FilesViewItem';
 
 function PostsView(props) {
   const { record, loading } = props;
@@ -20,19 +20,17 @@ function PostsView(props) {
         value={record.content}
       />
 
-      {record.postDate && <TextViewItem
-        label={i18n(
-          'entities.posts.fields.postDate',
-        )}
-        value={moment(record.postDate).format(
-          'YYYY-MM-DD HH:mm',
-        )}
-      />}
+      {record.postDate && (
+        <TextViewItem
+          label={i18n('entities.posts.fields.postDate')}
+          value={moment(record.postDate).format(
+            'YYYY-MM-DD HH:mm',
+          )}
+        />
+      )}
 
       <FilesViewItem
-        label={i18n(
-          'entities.posts.fields.media',
-        )}
+        label={i18n('entities.posts.fields.media')}
         value={record.media}
       />
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import RCPagination from 'rc-pagination';
 import React from 'react';
-import { getLanguage, i18n } from 'src/i18n';
+import { getLanguage, i18n } from '../../../i18n';
 
 const Pagination = (props) => {
   const onChange = (current, pageSize) => {

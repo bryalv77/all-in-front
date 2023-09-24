@@ -1,9 +1,9 @@
-import listActions from 'src/modules/deliveryMethod/list/deliveryMethodListActions';
-import DeliveryMethodService from 'src/modules/deliveryMethod/deliveryMethodService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/deliveryMethod/list/deliveryMethodListActions';
+import DeliveryMethodService from '../../../modules/deliveryMethod/deliveryMethodService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'DELIVERYMETHOD_DESTROY';
 

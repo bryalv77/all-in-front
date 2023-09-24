@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import ProductViewItem from 'src/view/product/view/ProductViewItem';
-import CustomerViewItem from 'src/view/customer/view/CustomerViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import ProductViewItem from '../../../view/product/view/ProductViewItem';
+import CustomerViewItem from '../../../view/customer/view/CustomerViewItem';
 
 function ProductReviewView(props) {
   const { record, loading } = props;
@@ -15,17 +15,23 @@ function ProductReviewView(props) {
   return (
     <div>
       <TextViewItem
-        label={i18n('entities.productReview.fields.comment')}
+        label={i18n(
+          'entities.productReview.fields.comment',
+        )}
         value={record.comment}
       />
 
       <ProductViewItem
-        label={i18n('entities.productReview.fields.productId')}
+        label={i18n(
+          'entities.productReview.fields.productId',
+        )}
         value={record.productId}
       />
 
       <CustomerViewItem
-        label={i18n('entities.productReview.fields.customerId')}
+        label={i18n(
+          'entities.productReview.fields.customerId',
+        )}
         value={record.customerId}
       />
 

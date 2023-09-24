@@ -7,26 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import businessSelectors from 'src/modules/business/businessSelectors';
-import destroyActions from 'src/modules/business/destroy/businessDestroyActions';
-import destroySelectors from 'src/modules/business/destroy/businessDestroySelectors';
-import actions from 'src/modules/business/list/businessListActions';
-import selectors from 'src/modules/business/list/businessListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
-import BusinessCategoryListItem from 'src/view/businessCategory/list/BusinessCategoryListItem';
-import AddressListItem from 'src/view/address/list/AddressListItem';
+import { i18n } from '../../../i18n';
+import businessSelectors from '../../../modules/business/businessSelectors';
+import destroyActions from '../../../modules/business/destroy/businessDestroyActions';
+import destroySelectors from '../../../modules/business/destroy/businessDestroySelectors';
+import actions from '../../../modules/business/list/businessListActions';
+import selectors from '../../../modules/business/list/businessListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
+import BusinessCategoryListItem from '../../../view/businessCategory/list/BusinessCategoryListItem';
+import AddressListItem from '../../../view/address/list/AddressListItem';
 
 function BusinessListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -112,53 +110,53 @@ function BusinessListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.business.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.business.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.business.fields.logo',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.business.fields.category',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.business.fields.address',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.business.fields.owner',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'active'}
-                  label={i18n(
-                    'entities.business.fields.active',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n(
+                  'entities.business.fields.name',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.business.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.business.fields.logo',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.business.fields.category',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.business.fields.address',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.business.fields.owner',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'active'}
+                label={i18n(
+                  'entities.business.fields.active',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -197,13 +195,19 @@ function BusinessListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.description}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.description}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ImagesListView value={row.logo} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <BusinessCategoryListItem value={row.category} />
+                    <BusinessCategoryListItem
+                      value={row.category}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <AddressListItem value={row.address} />

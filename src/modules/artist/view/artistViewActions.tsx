@@ -1,6 +1,6 @@
-import ArtistService from 'src/modules/artist/artistService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import ArtistService from '../../../modules/artist/artistService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'ARTIST_VIEW';
 

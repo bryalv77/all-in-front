@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import CourseEnrollmentForm from 'src/view/courseEnrollment/form/CourseEnrollmentForm';
-import CourseEnrollmentService from 'src/modules/courseEnrollment/courseEnrollmentService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import CourseEnrollmentForm from '../../../view/courseEnrollment/form/CourseEnrollmentForm';
+import CourseEnrollmentService from '../../../modules/courseEnrollment/courseEnrollmentService';
 
 function CourseEnrollmentFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);
@@ -13,7 +13,9 @@ function CourseEnrollmentFormModal(props) {
   const doSubmit = async (_, data) => {
     try {
       setSaveLoading(true);
-      const { id } = await CourseEnrollmentService.create(data);
+      const { id } = await CourseEnrollmentService.create(
+        data,
+      );
       const record = await CourseEnrollmentService.find(id);
       props.onSuccess(record);
     } catch (error) {
@@ -37,7 +39,9 @@ function CourseEnrollmentFormModal(props) {
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="flex items-start justify-between p-5 rounded-t">
               <div className="text-lg font-semibold">
-                {i18n('entities.courseEnrollment.new.title')}
+                {i18n(
+                  'entities.courseEnrollment.new.title',
+                )}
               </div>
               <button
                 type="button"

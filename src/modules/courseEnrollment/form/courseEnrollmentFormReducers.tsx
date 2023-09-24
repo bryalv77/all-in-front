@@ -1,4 +1,4 @@
-import actions from 'src/modules/courseEnrollment/form/courseEnrollmentFormActions';
+import actions from '../../../modules/courseEnrollment/form/courseEnrollmentFormActions';
 
 const initialData = {
   initLoading: false,

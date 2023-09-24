@@ -1,9 +1,9 @@
-import AddressService from 'src/modules/address/addressService';
-import selectors from 'src/modules/address/list/addressListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/address/list/addressListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import AddressService from '../../../modules/address/addressService';
+import selectors from '../../../modules/address/list/addressListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/address/list/addressListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'ADDRESS_LIST';
 
@@ -86,17 +86,15 @@ const addressListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: addressListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: addressListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(addressListActions.doFetchCurrentFilter());
-  },
+      dispatch(addressListActions.doFetchCurrentFilter());
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -107,47 +105,48 @@ const addressListActions = {
     dispatch(addressListActions.doFetchCurrentFilter());
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(addressListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: addressListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await AddressService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        addressListActions.doFetch(filter, rawFilter, true),
+      );
+    },
 
-      dispatch({
-        type: addressListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: addressListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: addressListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await AddressService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: addressListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: addressListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default addressListActions;

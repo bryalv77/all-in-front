@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import ConversationService from 'src/modules/conversation/conversationService';
-import ConversationFormModal from 'src/view/conversation/form/ConversationFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import ConversationService from '../../../modules/conversation/conversationService';
+import ConversationFormModal from '../../../view/conversation/form/ConversationFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/conversation/conversationSelectors';
+import selectors from '../../../modules/conversation/conversationSelectors';
 
 function ConversationAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function ConversationAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return ConversationService.listAutocomplete(value, limit);
+    return ConversationService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

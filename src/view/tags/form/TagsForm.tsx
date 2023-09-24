@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -59,18 +59,22 @@ function TagsForm(props) {
           <InputFormItem
             name="name"
             label={i18n('entities.tags.fields.name')}
-          placeholder={i18n('entities.tags.placeholders.name')}
-          hint={i18n('entities.tags.hints.name')}
+            placeholder={i18n(
+              'entities.tags.placeholders.name',
+            )}
+            hint={i18n('entities.tags.hints.name')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
             label={i18n('entities.tags.fields.userId')}
-          placeholder={i18n('entities.tags.placeholders.userId')}
-          hint={i18n('entities.tags.hints.userId')}
+            placeholder={i18n(
+              'entities.tags.placeholders.userId',
+            )}
+            hint={i18n('entities.tags.hints.userId')}
             required={false}
             showCreate={!props.modal}
           />

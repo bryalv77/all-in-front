@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/taskList/view/taskListViewActions';
-import selectors from 'src/modules/taskList/view/taskListViewSelectors';
-import TaskListView from 'src/view/taskList/view/TaskListView';
-import TaskListViewToolbar from 'src/view/taskList/view/TaskListViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/taskList/view/taskListViewActions';
+import selectors from '../../../modules/taskList/view/taskListViewSelectors';
+import TaskListView from '../../../view/taskList/view/TaskListView';
+import TaskListViewToolbar from '../../../view/taskList/view/TaskListViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function TaskListPage() {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
-import ExporterSchema from 'src/modules/shared/exporter/exporterSchema';
-import { Excel } from 'src/modules/shared/excel/excel';
+import ExporterSchema from '../../../modules/shared/exporter/exporterSchema';
+import { Excel } from '../../../modules/shared/excel/excel';
 import mapKeys from 'lodash/mapKeys';
 
 export default class Exporter {

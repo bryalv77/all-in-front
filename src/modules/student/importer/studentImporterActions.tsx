@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/student/importer/studentImporterSelectors';
-import StudentService from 'src/modules/student/studentService';
-import fields from 'src/modules/student/importer/studentImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/student/importer/studentImporterSelectors';
+import StudentService from '../../../modules/student/studentService';
+import fields from '../../../modules/student/importer/studentImporterFields';
+import { i18n } from '../../../i18n';
 
 const studentImporterActions = importerActions(
   'STUDENT_IMPORTER',

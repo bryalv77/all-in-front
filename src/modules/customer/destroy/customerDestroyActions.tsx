@@ -1,9 +1,9 @@
-import listActions from 'src/modules/customer/list/customerListActions';
-import CustomerService from 'src/modules/customer/customerService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/customer/list/customerListActions';
+import CustomerService from '../../../modules/customer/customerService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'CUSTOMER_DESTROY';
 

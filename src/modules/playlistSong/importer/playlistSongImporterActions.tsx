@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/playlistSong/importer/playlistSongImporterSelectors';
-import PlaylistSongService from 'src/modules/playlistSong/playlistSongService';
-import fields from 'src/modules/playlistSong/importer/playlistSongImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/playlistSong/importer/playlistSongImporterSelectors';
+import PlaylistSongService from '../../../modules/playlistSong/playlistSongService';
+import fields from '../../../modules/playlistSong/importer/playlistSongImporterFields';
+import { i18n } from '../../../i18n';
 
 const playlistSongImporterActions = importerActions(
   'PLAYLISTSONG_IMPORTER',

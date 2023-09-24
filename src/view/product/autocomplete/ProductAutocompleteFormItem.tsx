@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import ProductService from 'src/modules/product/productService';
-import ProductFormModal from 'src/view/product/form/ProductFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import ProductService from '../../../modules/product/productService';
+import ProductFormModal from '../../../view/product/form/ProductFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/product/productSelectors';
+import selectors from '../../../modules/product/productSelectors';
 
 function ProductAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,12 +27,16 @@ function ProductAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();

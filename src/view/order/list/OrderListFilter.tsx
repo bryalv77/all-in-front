@@ -2,23 +2,23 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/order/list/orderListActions';
-import selectors from 'src/modules/order/list/orderListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/order/list/orderListActions';
+import selectors from '../../../modules/order/list/orderListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import orderEnumerators from 'src/modules/order/orderEnumerators';
-import CustomerAutocompleteFormItem from 'src/view/customer/autocomplete/CustomerAutocompleteFormItem';
-import DeliveryMethodAutocompleteFormItem from 'src/view/deliveryMethod/autocomplete/DeliveryMethodAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import orderEnumerators from '../../../modules/order/orderEnumerators';
+import CustomerAutocompleteFormItem from '../../../view/customer/autocomplete/CustomerAutocompleteFormItem';
+import DeliveryMethodAutocompleteFormItem from '../../../view/deliveryMethod/autocomplete/DeliveryMethodAutocompleteFormItem';
 
 const schema = yup.object().shape({
   customer: yupFilterSchemas.relationToOne(
@@ -44,16 +44,18 @@ const emptyValues = {
   shippingPriceRange: [],
   totalRange: [],
   deliver: null,
-}
+};
 
 const previewRenders = {
   customer: {
-      label: i18n('entities.order.fields.customer'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.order.fields.customer'),
+    render: filterRenders.relationToOne(),
+  },
   status: {
     label: i18n('entities.order.fields.status'),
-    render: filterRenders.enumerator('entities.order.enumerators.status',),
+    render: filterRenders.enumerator(
+      'entities.order.enumerators.status',
+    ),
   },
   shippingPriceRange: {
     label: i18n('entities.order.fields.shippingPriceRange'),
@@ -64,10 +66,10 @@ const previewRenders = {
     render: filterRenders.decimalRange(),
   },
   deliver: {
-      label: i18n('entities.order.fields.deliver'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.order.fields.deliver'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function OrderListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -88,7 +90,12 @@ function OrderListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -126,33 +133,41 @@ function OrderListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <CustomerAutocompleteFormItem  
+              <CustomerAutocompleteFormItem
                 name="customer"
-                label={i18n('entities.order.fields.customer')}        
+                label={i18n(
+                  'entities.order.fields.customer',
+                )}
               />
               <SelectFormItem
-                  name="status"
-                  label={i18n('entities.order.fields.status')}
-                  options={orderEnumerators.status.map(
-                    (value) => ({
-                      value,
-                      label: i18n(
-                        `entities.order.enumerators.status.${value}`,
-                      ),
-                    }),
-                  )}
-                />
+                name="status"
+                label={i18n('entities.order.fields.status')}
+                options={orderEnumerators.status.map(
+                  (value) => ({
+                    value,
+                    label: i18n(
+                      `entities.order.enumerators.status.${value}`,
+                    ),
+                  }),
+                )}
+              />
               <InputRangeFormItem
                 name="shippingPriceRange"
-                label={i18n('entities.order.fields.shippingPriceRange')}      
+                label={i18n(
+                  'entities.order.fields.shippingPriceRange',
+                )}
               />
               <InputRangeFormItem
                 name="totalRange"
-                label={i18n('entities.order.fields.totalRange')}      
+                label={i18n(
+                  'entities.order.fields.totalRange',
+                )}
               />
-              <DeliveryMethodAutocompleteFormItem  
+              <DeliveryMethodAutocompleteFormItem
                 name="deliver"
-                label={i18n('entities.order.fields.deliver')}        
+                label={i18n(
+                  'entities.order.fields.deliver',
+                )}
               />
             </div>
 

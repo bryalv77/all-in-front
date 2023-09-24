@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import UserViewItem from 'src/view/user/view/UserViewItem';
-import FilesViewItem from 'src/view/shared/view/FilesViewItem';
-import ConversationViewItem from 'src/view/conversation/view/ConversationViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import UserViewItem from '../../../view/user/view/UserViewItem';
+import FilesViewItem from '../../../view/shared/view/FilesViewItem';
+import ConversationViewItem from '../../../view/conversation/view/ConversationViewItem';
 
 function MessageView(props) {
   const { record, loading } = props;
@@ -31,14 +31,14 @@ function MessageView(props) {
       />
 
       <FilesViewItem
-        label={i18n(
-          'entities.message.fields.media',
-        )}
+        label={i18n('entities.message.fields.media')}
         value={record.media}
       />
 
       <ConversationViewItem
-        label={i18n('entities.message.fields.conversationId')}
+        label={i18n(
+          'entities.message.fields.conversationId',
+        )}
         value={record.conversationId}
       />
 

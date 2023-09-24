@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import moment from 'moment';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import moment from 'moment';
 
 export default [
   {
@@ -17,7 +18,10 @@ export default [
       i18n('entities.posts.fields.postDate'),
       {},
     ),
-   render: (value) => value && value instanceof Date ? moment(value).format('YYYY-MM-DD HH:mm') : value,
+    render: (value) =>
+      value && value instanceof Date
+        ? moment(value).format('YYYY-MM-DD HH:mm')
+        : value,
   },
   {
     name: 'media',

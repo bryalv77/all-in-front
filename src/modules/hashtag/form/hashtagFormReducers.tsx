@@ -1,4 +1,4 @@
-import actions from 'src/modules/hashtag/form/hashtagFormActions';
+import actions from '../../../modules/hashtag/form/hashtagFormActions';
 
 const initialData = {
   initLoading: false,

@@ -1,9 +1,9 @@
-import PaymentMethodsService from 'src/modules/paymentMethods/paymentMethodsService';
-import selectors from 'src/modules/paymentMethods/list/paymentMethodsListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/paymentMethods/list/paymentMethodsListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import PaymentMethodsService from '../../../modules/paymentMethods/paymentMethodsService';
+import selectors from '../../../modules/paymentMethods/list/paymentMethodsListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/paymentMethods/list/paymentMethodsListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'PAYMENTMETHODS_LIST';
 
@@ -86,17 +86,17 @@ const paymentMethodsListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: paymentMethodsListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: paymentMethodsListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(paymentMethodsListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        paymentMethodsListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +104,57 @@ const paymentMethodsListActions = {
       payload: sorter,
     });
 
-    dispatch(paymentMethodsListActions.doFetchCurrentFilter());
+    dispatch(
+      paymentMethodsListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(paymentMethodsListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: paymentMethodsListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await PaymentMethodsService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        paymentMethodsListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: paymentMethodsListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: paymentMethodsListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: paymentMethodsListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await PaymentMethodsService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: paymentMethodsListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: paymentMethodsListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default paymentMethodsListActions;

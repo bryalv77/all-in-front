@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import moment from 'moment';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import moment from 'moment';
 
 export default [
   {
@@ -12,16 +13,25 @@ export default [
   },
   {
     name: 'transactionDate',
-    label: i18n('entities.courseTransaction.fields.transactionDate'),
+    label: i18n(
+      'entities.courseTransaction.fields.transactionDate',
+    ),
     schema: schemas.datetime(
-      i18n('entities.courseTransaction.fields.transactionDate'),
+      i18n(
+        'entities.courseTransaction.fields.transactionDate',
+      ),
       {},
     ),
-   render: (value) => value && value instanceof Date ? moment(value).format('YYYY-MM-DD HH:mm') : value,
+    render: (value) =>
+      value && value instanceof Date
+        ? moment(value).format('YYYY-MM-DD HH:mm')
+        : value,
   },
   {
     name: 'courseId',
-    label: i18n('entities.courseTransaction.fields.courseId'),
+    label: i18n(
+      'entities.courseTransaction.fields.courseId',
+    ),
     schema: schemas.relationToOne(
       i18n('entities.courseTransaction.fields.courseId'),
       {},
@@ -29,7 +39,9 @@ export default [
   },
   {
     name: 'studentId',
-    label: i18n('entities.courseTransaction.fields.studentId'),
+    label: i18n(
+      'entities.courseTransaction.fields.studentId',
+    ),
     schema: schemas.relationToOne(
       i18n('entities.courseTransaction.fields.studentId'),
       {},

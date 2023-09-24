@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import PaymentMethodsForm from 'src/view/paymentMethods/form/PaymentMethodsForm';
-import PaymentMethodsService from 'src/modules/paymentMethods/paymentMethodsService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import PaymentMethodsForm from '../../../view/paymentMethods/form/PaymentMethodsForm';
+import PaymentMethodsService from '../../../modules/paymentMethods/paymentMethodsService';
 
 function PaymentMethodsFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);
@@ -13,7 +13,9 @@ function PaymentMethodsFormModal(props) {
   const doSubmit = async (_, data) => {
     try {
       setSaveLoading(true);
-      const { id } = await PaymentMethodsService.create(data);
+      const { id } = await PaymentMethodsService.create(
+        data,
+      );
       const record = await PaymentMethodsService.find(id);
       props.onSuccess(record);
     } catch (error) {

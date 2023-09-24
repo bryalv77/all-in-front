@@ -1,8 +1,8 @@
-import list from 'src/modules/courseComment/list/courseCommentListReducers';
-import form from 'src/modules/courseComment/form/courseCommentFormReducers';
-import view from 'src/modules/courseComment/view/courseCommentViewReducers';
-import destroy from 'src/modules/courseComment/destroy/courseCommentDestroyReducers';
-import importerReducer from 'src/modules/courseComment/importer/courseCommentImporterReducers';
+import list from '../../../modules/courseComment/list/courseCommentListReducers';
+import form from '../../../modules/courseComment/form/courseCommentFormReducers';
+import view from '../../../modules/courseComment/view/courseCommentViewReducers';
+import destroy from '../../../modules/courseComment/destroy/courseCommentDestroyReducers';
+import importerReducer from '../../../modules/courseComment/importer/courseCommentImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

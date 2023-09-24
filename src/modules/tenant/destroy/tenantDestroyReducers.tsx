@@ -1,4 +1,4 @@
-import actions from 'src/modules/tenant/destroy/tenantDestroyActions';
+import actions from '../../../modules/tenant/destroy/tenantDestroyActions';
 
 const initialData = {
   loading: false,

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from 'src/view/shared/form/formErrors';
+import FormErrors from '../../../view/shared/form/formErrors';
 import { useSelector } from 'react-redux';
-import layoutSelectors from 'src/modules/layout/layoutSelectors';
-import selectControlStyles from 'src/view/shared/form/items/selectControlStyles';
+import layoutSelectors from '../../../modules/layout/layoutSelectors';
+import selectControlStyles from '../../../view/shared/form/items/selectControlStyles';
 import { v4 as uuid } from 'uuid';
 
 function SelectFormItem(props) {
@@ -92,7 +92,10 @@ function SelectFormItem(props) {
 
   const handleSelectMultiple = (values) => {
     if (!values) {
-      setValue(name, [], { shouldValidate: true, shouldDirty: true });
+      setValue(name, [], {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
       props.onChange && props.onChange([]);
       return;
     }
@@ -101,18 +104,27 @@ function SelectFormItem(props) {
       .map((data) => (data ? data.value : data))
       .filter((value) => value != null);
 
-    setValue(name, newValue, { shouldValidate: true, shouldDirty: true });
+    setValue(name, newValue, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
     props.onChange && props.onChange(newValue);
   };
 
   const handleSelectOne = (data) => {
     if (!data) {
-      setValue(name, null, { shouldValidate: true, shouldDirty: true });
+      setValue(name, null, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
       props.onChange && props.onChange(null);
       return;
     }
 
-    setValue(name, data.value, { shouldValidate: true, shouldDirty: true });
+    setValue(name, data.value, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
     props.onChange && props.onChange(data.value);
   };
 

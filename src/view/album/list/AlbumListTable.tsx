@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import albumSelectors from 'src/modules/album/albumSelectors';
-import destroyActions from 'src/modules/album/destroy/albumDestroyActions';
-import destroySelectors from 'src/modules/album/destroy/albumDestroySelectors';
-import actions from 'src/modules/album/list/albumListActions';
-import selectors from 'src/modules/album/list/albumListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
-import ArtistListItem from 'src/view/artist/list/ArtistListItem';
+import { i18n } from '../../../i18n';
+import albumSelectors from '../../../modules/album/albumSelectors';
+import destroyActions from '../../../modules/album/destroy/albumDestroyActions';
+import destroySelectors from '../../../modules/album/destroy/albumDestroySelectors';
+import actions from '../../../modules/album/list/albumListActions';
+import selectors from '../../../modules/album/list/albumListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
+import ArtistListItem from '../../../view/artist/list/ArtistListItem';
 
 function AlbumListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,35 +108,29 @@ function AlbumListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'title'}
-                  label={i18n(
-                    'entities.album.fields.title',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.album.fields.artistId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'year'}
-                  label={i18n(
-                    'entities.album.fields.year',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.album.fields.cover',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'title'}
+                label={i18n('entities.album.fields.title')}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.album.fields.artistId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'year'}
+                label={i18n('entities.album.fields.year')}
+                align="right"
+              />
+              <TableColumnHeader
+                label={i18n('entities.album.fields.cover')}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -177,11 +169,18 @@ function AlbumListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.title}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.title}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ArtistListItem value={row.artistId} />
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.year}</td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
+                    {row.year}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ImagesListView value={row.cover} />
                   </td>

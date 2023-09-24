@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/order/view/orderViewActions';
-import selectors from 'src/modules/order/view/orderViewSelectors';
-import OrderView from 'src/view/order/view/OrderView';
-import OrderViewToolbar from 'src/view/order/view/OrderViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/order/view/orderViewActions';
+import selectors from '../../../modules/order/view/orderViewSelectors';
+import OrderView from '../../../view/order/view/OrderView';
+import OrderViewToolbar from '../../../view/order/view/OrderViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function OrderPage() {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingComponent from 'src/view/shared/LoadingComponent';
+import LoadingComponent from '../../../view/shared/LoadingComponent';
 
 export default function CustomLoadable(opts) {
   const LazyComponent = React.lazy(opts.loader);

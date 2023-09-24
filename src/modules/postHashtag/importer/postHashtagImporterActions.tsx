@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/postHashtag/importer/postHashtagImporterSelectors';
-import PostHashtagService from 'src/modules/postHashtag/postHashtagService';
-import fields from 'src/modules/postHashtag/importer/postHashtagImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/postHashtag/importer/postHashtagImporterSelectors';
+import PostHashtagService from '../../../modules/postHashtag/postHashtagService';
+import fields from '../../../modules/postHashtag/importer/postHashtagImporterFields';
+import { i18n } from '../../../i18n';
 
 const postHashtagImporterActions = importerActions(
   'POSTHASHTAG_IMPORTER',

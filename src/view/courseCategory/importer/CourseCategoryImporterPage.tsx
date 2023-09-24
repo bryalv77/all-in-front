@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseCategory/importer/courseCategoryImporterActions';
-import fields from 'src/modules/courseCategory/importer/courseCategoryImporterFields';
-import selectors from 'src/modules/courseCategory/importer/courseCategoryImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseCategory/importer/courseCategoryImporterActions';
+import fields from '../../../modules/courseCategory/importer/courseCategoryImporterFields';
+import selectors from '../../../modules/courseCategory/importer/courseCategoryImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function CourseCategoryImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function CourseCategoryImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseCategory.menu'), '/course-category'],
+          [
+            i18n('entities.courseCategory.menu'),
+            '/course-category',
+          ],
           [i18n('entities.courseCategory.importer.title')],
         ]}
       />

@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import PostsListFilter from 'src/view/posts/list/PostsListFilter';
-import PostsListTable from 'src/view/posts/list/PostsListTable';
-import PostsListToolbar from 'src/view/posts/list/PostsListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import PostsListFilter from '../../../view/posts/list/PostsListFilter';
+import PostsListTable from '../../../view/posts/list/PostsListTable';
+import PostsListToolbar from '../../../view/posts/list/PostsListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PostsListPage(props) {
   return (

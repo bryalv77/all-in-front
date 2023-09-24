@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/bank/view/bankViewActions';
-import selectors from 'src/modules/bank/view/bankViewSelectors';
-import BankView from 'src/view/bank/view/BankView';
-import BankViewToolbar from 'src/view/bank/view/BankViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/bank/view/bankViewActions';
+import selectors from '../../../modules/bank/view/bankViewSelectors';
+import BankView from '../../../view/bank/view/BankView';
+import BankViewToolbar from '../../../view/bank/view/BankViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function BankPage() {
   const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import actions from 'src/modules/song/destroy/songDestroyActions';
+import actions from '../../../modules/song/destroy/songDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

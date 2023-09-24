@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/taskTags/importer/taskTagsImporterSelectors';
-import TaskTagsService from 'src/modules/taskTags/taskTagsService';
-import fields from 'src/modules/taskTags/importer/taskTagsImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/taskTags/importer/taskTagsImporterSelectors';
+import TaskTagsService from '../../../modules/taskTags/taskTagsService';
+import fields from '../../../modules/taskTags/importer/taskTagsImporterFields';
+import { i18n } from '../../../i18n';
 
 const taskTagsImporterActions = importerActions(
   'TASKTAGS_IMPORTER',

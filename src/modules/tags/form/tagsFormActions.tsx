@@ -1,8 +1,8 @@
-import TagsService from 'src/modules/tags/tagsService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import TagsService from '../../../modules/tags/tagsService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'TAGS_FORM';
 
@@ -60,9 +60,7 @@ const tagsFormActions = {
         type: tagsFormActions.CREATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.tags.create.success'),
-      );
+      Message.success(i18n('entities.tags.create.success'));
 
       getHistory().push('/tags');
     } catch (error) {
@@ -86,9 +84,7 @@ const tagsFormActions = {
         type: tagsFormActions.UPDATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.tags.update.success'),
-      );
+      Message.success(i18n('entities.tags.update.success'));
 
       getHistory().push('/tags');
     } catch (error) {

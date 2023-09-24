@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/productReview/importer/productReviewImporterActions';
-import fields from 'src/modules/productReview/importer/productReviewImporterFields';
-import selectors from 'src/modules/productReview/importer/productReviewImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/productReview/importer/productReviewImporterActions';
+import fields from '../../../modules/productReview/importer/productReviewImporterFields';
+import selectors from '../../../modules/productReview/importer/productReviewImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function ProductReviewImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function ProductReviewImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.productReview.menu'), '/product-review'],
+          [
+            i18n('entities.productReview.menu'),
+            '/product-review',
+          ],
           [i18n('entities.productReview.importer.title')],
         ]}
       />

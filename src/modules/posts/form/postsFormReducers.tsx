@@ -1,4 +1,4 @@
-import actions from 'src/modules/posts/form/postsFormActions';
+import actions from '../../../modules/posts/form/postsFormActions';
 
 const initialData = {
   initLoading: false,

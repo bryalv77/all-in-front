@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import StudentListFilter from 'src/view/student/list/StudentListFilter';
-import StudentListTable from 'src/view/student/list/StudentListTable';
-import StudentListToolbar from 'src/view/student/list/StudentListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import StudentListFilter from '../../../view/student/list/StudentListFilter';
+import StudentListTable from '../../../view/student/list/StudentListTable';
+import StudentListToolbar from '../../../view/student/list/StudentListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function StudentListPage(props) {
   return (

@@ -1,6 +1,6 @@
-import PostsService from 'src/modules/posts/postsService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import PostsService from '../../../modules/posts/postsService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'POSTS_VIEW';
 

@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -66,10 +66,12 @@ function TeacherForm(props) {
           <InputFormItem
             name="name"
             label={i18n('entities.teacher.fields.name')}
-          placeholder={i18n('entities.teacher.placeholders.name')}
-          hint={i18n('entities.teacher.hints.name')}
+            placeholder={i18n(
+              'entities.teacher.placeholders.name',
+            )}
+            hint={i18n('entities.teacher.hints.name')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
@@ -79,15 +81,17 @@ function TeacherForm(props) {
             required={false}
             storage={Storage.values.teacherPhoto}
             max={undefined}
-          hint={i18n('entities.teacher.hints.photo')}
+            hint={i18n('entities.teacher.hints.photo')}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
             label={i18n('entities.teacher.fields.userId')}
-          placeholder={i18n('entities.teacher.placeholders.userId')}
-          hint={i18n('entities.teacher.hints.userId')}
+            placeholder={i18n(
+              'entities.teacher.placeholders.userId',
+            )}
+            hint={i18n('entities.teacher.hints.userId')}
             required={false}
             showCreate={!props.modal}
           />

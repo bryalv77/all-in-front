@@ -2,11 +2,11 @@ import { ConnectedRouter } from 'connected-react-router';
 import {
   configureStore,
   getHistory,
-} from 'src/modules/store';
+} from './modules/store';
 import React from 'react';
 import { Provider, useSelector } from 'react-redux';
-import RoutesComponent from 'src/view/shared/routes/RoutesComponent';
-import layoutSelectors from 'src/modules/layout/layoutSelectors';
+import RoutesComponent from './view/shared/routes/RoutesComponent';
+import layoutSelectors from './modules/layout/layoutSelectors';
 
 const store = configureStore();
 

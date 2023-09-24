@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import courseCategorySelectors from 'src/modules/courseCategory/courseCategorySelectors';
-import destroyActions from 'src/modules/courseCategory/destroy/courseCategoryDestroyActions';
-import destroySelectors from 'src/modules/courseCategory/destroy/courseCategoryDestroySelectors';
-import actions from 'src/modules/courseCategory/list/courseCategoryListActions';
-import selectors from 'src/modules/courseCategory/list/courseCategoryListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import courseCategorySelectors from '../../../modules/courseCategory/courseCategorySelectors';
+import destroyActions from '../../../modules/courseCategory/destroy/courseCategoryDestroyActions';
+import destroySelectors from '../../../modules/courseCategory/destroy/courseCategoryDestroySelectors';
+import actions from '../../../modules/courseCategory/list/courseCategoryListActions';
+import selectors from '../../../modules/courseCategory/list/courseCategoryListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CourseCategoryToolbar(props) {
   const [

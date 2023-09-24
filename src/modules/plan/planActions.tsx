@@ -1,5 +1,5 @@
-import config from 'src/config';
-import Errors from 'src/modules/shared/error/errors';
+import config from '../../../config';
+import Errors from '../../../modules/shared/error/errors';
 import PlanService from './planService';
 
 const prefix = 'PLAN';
@@ -19,9 +19,8 @@ const planActions = {
         type: planActions.CHECKOUT_STARTED,
       });
 
-      const sessionId = await PlanService.fetchCheckoutSessionId(
-        plan,
-      );
+      const sessionId =
+        await PlanService.fetchCheckoutSessionId(plan);
 
       const stripe = (window as any).Stripe(
         config.stripePublishableKey,

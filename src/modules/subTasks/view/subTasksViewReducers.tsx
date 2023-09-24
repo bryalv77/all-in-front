@@ -1,4 +1,4 @@
-import actions from 'src/modules/subTasks/view/subTasksViewActions';
+import actions from '../../../modules/subTasks/view/subTasksViewActions';
 
 const initialData = {
   loading: false,

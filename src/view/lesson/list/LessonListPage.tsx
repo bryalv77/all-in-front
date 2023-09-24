@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import LessonListFilter from 'src/view/lesson/list/LessonListFilter';
-import LessonListTable from 'src/view/lesson/list/LessonListTable';
-import LessonListToolbar from 'src/view/lesson/list/LessonListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import LessonListFilter from '../../../view/lesson/list/LessonListFilter';
+import LessonListTable from '../../../view/lesson/list/LessonListTable';
+import LessonListToolbar from '../../../view/lesson/list/LessonListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function LessonListPage(props) {
   return (

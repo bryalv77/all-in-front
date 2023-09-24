@@ -2,21 +2,21 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/song/list/songListActions';
-import selectors from 'src/modules/song/list/songListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/song/list/songListActions';
+import selectors from '../../../modules/song/list/songListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import ArtistAutocompleteFormItem from 'src/view/artist/autocomplete/ArtistAutocompleteFormItem';
-import AlbumAutocompleteFormItem from 'src/view/album/autocomplete/AlbumAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import ArtistAutocompleteFormItem from '../../../view/artist/autocomplete/ArtistAutocompleteFormItem';
+import AlbumAutocompleteFormItem from '../../../view/album/autocomplete/AlbumAutocompleteFormItem';
 
 const schema = yup.object().shape({
   title: yupFilterSchemas.string(
@@ -46,7 +46,7 @@ const emptyValues = {
   duration: null,
   genre: null,
   externalUrl: null,
-}
+};
 
 const previewRenders = {
   title: {
@@ -54,13 +54,13 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   artistId: {
-      label: i18n('entities.song.fields.artistId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.song.fields.artistId'),
+    render: filterRenders.relationToOne(),
+  },
   albumId: {
-      label: i18n('entities.song.fields.albumId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.song.fields.albumId'),
+    render: filterRenders.relationToOne(),
+  },
   duration: {
     label: i18n('entities.song.fields.duration'),
     render: filterRenders.generic(),
@@ -73,7 +73,7 @@ const previewRenders = {
     label: i18n('entities.song.fields.externalUrl'),
     render: filterRenders.generic(),
   },
-}
+};
 
 function SongListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -94,7 +94,12 @@ function SongListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -134,27 +139,33 @@ function SongListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="title"
-                label={i18n('entities.song.fields.title')}      
+                label={i18n('entities.song.fields.title')}
               />
-              <ArtistAutocompleteFormItem  
+              <ArtistAutocompleteFormItem
                 name="artistId"
-                label={i18n('entities.song.fields.artistId')}        
+                label={i18n(
+                  'entities.song.fields.artistId',
+                )}
               />
-              <AlbumAutocompleteFormItem  
+              <AlbumAutocompleteFormItem
                 name="albumId"
-                label={i18n('entities.song.fields.albumId')}        
+                label={i18n('entities.song.fields.albumId')}
               />
               <InputFormItem
                 name="duration"
-                label={i18n('entities.song.fields.duration')}      
+                label={i18n(
+                  'entities.song.fields.duration',
+                )}
               />
               <InputFormItem
                 name="genre"
-                label={i18n('entities.song.fields.genre')}      
+                label={i18n('entities.song.fields.genre')}
               />
               <InputFormItem
                 name="externalUrl"
-                label={i18n('entities.song.fields.externalUrl')}      
+                label={i18n(
+                  'entities.song.fields.externalUrl',
+                )}
               />
             </div>
 

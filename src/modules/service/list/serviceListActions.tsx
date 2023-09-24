@@ -1,9 +1,9 @@
-import ServiceService from 'src/modules/service/serviceService';
-import selectors from 'src/modules/service/list/serviceListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/service/list/serviceListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import ServiceService from '../../../modules/service/serviceService';
+import selectors from '../../../modules/service/list/serviceListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/service/list/serviceListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'SERVICE_LIST';
 
@@ -86,17 +86,15 @@ const serviceListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: serviceListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: serviceListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(serviceListActions.doFetchCurrentFilter());
-  },
+      dispatch(serviceListActions.doFetchCurrentFilter());
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -107,47 +105,48 @@ const serviceListActions = {
     dispatch(serviceListActions.doFetchCurrentFilter());
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(serviceListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: serviceListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await ServiceService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        serviceListActions.doFetch(filter, rawFilter, true),
+      );
+    },
 
-      dispatch({
-        type: serviceListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: serviceListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: serviceListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await ServiceService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: serviceListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: serviceListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default serviceListActions;

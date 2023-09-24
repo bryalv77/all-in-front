@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -12,7 +12,9 @@ export default [
   },
   {
     name: 'parentCategory',
-    label: i18n('entities.productCategory.fields.parentCategory'),
+    label: i18n(
+      'entities.productCategory.fields.parentCategory',
+    ),
     render: exporterRenders.relationToOne(),
   },
   {
@@ -22,12 +24,16 @@ export default [
   },
   {
     name: 'createdAt',
-    label: i18n('entities.productCategory.fields.createdAt'),
+    label: i18n(
+      'entities.productCategory.fields.createdAt',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'updatedAt',
-    label: i18n('entities.productCategory.fields.updatedAt'),
+    label: i18n(
+      'entities.productCategory.fields.updatedAt',
+    ),
     render: exporterRenders.datetime(),
   },
 ];

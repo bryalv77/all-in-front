@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
 import moment from 'moment';
-import DatePickerFormItem from 'src/view/shared/form/items/DatePickerFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import StudentAutocompleteFormItem from 'src/view/student/autocomplete/StudentAutocompleteFormItem';
+import DatePickerFormItem from '../../../view/shared/form/items/DatePickerFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import StudentAutocompleteFormItem from '../../../view/student/autocomplete/StudentAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -22,7 +22,9 @@ const schema = yup.object().shape({
     {},
   ),
   transactionDate: yupFormSchemas.datetime(
-    i18n('entities.courseTransaction.fields.transactionDate'),
+    i18n(
+      'entities.courseTransaction.fields.transactionDate',
+    ),
     {},
   ),
   courseId: yupFormSchemas.relationToOne(
@@ -43,7 +45,9 @@ function CourseTransactionForm(props) {
 
     return {
       amount: record.amount,
-      transactionDate: record.transactionDate ? moment(record.transactionDate).toDate() : null,
+      transactionDate: record.transactionDate
+        ? moment(record.transactionDate).toDate()
+        : null,
       courseId: record.courseId,
       studentId: record.studentId,
     };
@@ -71,39 +75,63 @@ function CourseTransactionForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <InputFormItem
             name="amount"
-            label={i18n('entities.courseTransaction.fields.amount')}
-          placeholder={i18n('entities.courseTransaction.placeholders.amount')}
-          hint={i18n('entities.courseTransaction.hints.amount')}  
+            label={i18n(
+              'entities.courseTransaction.fields.amount',
+            )}
+            placeholder={i18n(
+              'entities.courseTransaction.placeholders.amount',
+            )}
+            hint={i18n(
+              'entities.courseTransaction.hints.amount',
+            )}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <DatePickerFormItem
             name="transactionDate"
-            label={i18n('entities.courseTransaction.fields.transactionDate')}
-          placeholder={i18n('entities.courseTransaction.placeholders.transactionDate')}
-          hint={i18n('entities.courseTransaction.hints.transactionDate')}
+            label={i18n(
+              'entities.courseTransaction.fields.transactionDate',
+            )}
+            placeholder={i18n(
+              'entities.courseTransaction.placeholders.transactionDate',
+            )}
+            hint={i18n(
+              'entities.courseTransaction.hints.transactionDate',
+            )}
             required={false}
             showTimeInput
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <CourseAutocompleteFormItem  
+          <CourseAutocompleteFormItem
             name="courseId"
-            label={i18n('entities.courseTransaction.fields.courseId')}
-          placeholder={i18n('entities.courseTransaction.placeholders.courseId')}
-          hint={i18n('entities.courseTransaction.hints.courseId')}
+            label={i18n(
+              'entities.courseTransaction.fields.courseId',
+            )}
+            placeholder={i18n(
+              'entities.courseTransaction.placeholders.courseId',
+            )}
+            hint={i18n(
+              'entities.courseTransaction.hints.courseId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <StudentAutocompleteFormItem  
+          <StudentAutocompleteFormItem
             name="studentId"
-            label={i18n('entities.courseTransaction.fields.studentId')}
-          placeholder={i18n('entities.courseTransaction.placeholders.studentId')}
-          hint={i18n('entities.courseTransaction.hints.studentId')}
+            label={i18n(
+              'entities.courseTransaction.fields.studentId',
+            )}
+            placeholder={i18n(
+              'entities.courseTransaction.placeholders.studentId',
+            )}
+            hint={i18n(
+              'entities.courseTransaction.hints.studentId',
+            )}
             required={false}
             showCreate={!props.modal}
           />

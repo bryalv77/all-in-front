@@ -1,4 +1,4 @@
-import actions from 'src/modules/tenant/list/tenantListActions';
+import actions from '../../../modules/tenant/list/tenantListActions';
 
 const INITIAL_PAGE_SIZE = 10;
 

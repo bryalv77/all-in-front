@@ -1,7 +1,7 @@
-import authAxios from 'src/modules/shared/axios/authAxios';
+import authAxios from '../../../modules/shared/axios/authAxios';
 import { tenantSubdomain } from './tenantSubdomain';
 import AuthCurrentTenant from '../auth/authCurrentTenant';
-import config from 'src/config';
+import config from '../../../config';
 import SettingsService from '../settings/settingsService';
 
 export default class TenantService {

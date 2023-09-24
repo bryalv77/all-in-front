@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import deliveryMethodSelectors from 'src/modules/deliveryMethod/deliveryMethodSelectors';
-import destroyActions from 'src/modules/deliveryMethod/destroy/deliveryMethodDestroyActions';
-import destroySelectors from 'src/modules/deliveryMethod/destroy/deliveryMethodDestroySelectors';
-import actions from 'src/modules/deliveryMethod/list/deliveryMethodListActions';
-import selectors from 'src/modules/deliveryMethod/list/deliveryMethodListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
+import { i18n } from '../../../i18n';
+import deliveryMethodSelectors from '../../../modules/deliveryMethod/deliveryMethodSelectors';
+import destroyActions from '../../../modules/deliveryMethod/destroy/deliveryMethodDestroyActions';
+import destroySelectors from '../../../modules/deliveryMethod/destroy/deliveryMethodDestroySelectors';
+import actions from '../../../modules/deliveryMethod/list/deliveryMethodListActions';
+import selectors from '../../../modules/deliveryMethod/list/deliveryMethodListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
 
 function DeliveryMethodListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,47 +107,47 @@ function DeliveryMethodListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.deliveryMethod.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.deliveryMethod.fields.userId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'vehicleInfo'}
-                  label={i18n(
-                    'entities.deliveryMethod.fields.vehicleInfo',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'additionalInfo'}
-                  label={i18n(
-                    'entities.deliveryMethod.fields.additionalInfo',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'active'}
-                  label={i18n(
-                    'entities.deliveryMethod.fields.active',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n(
+                  'entities.deliveryMethod.fields.name',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.deliveryMethod.fields.userId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'vehicleInfo'}
+                label={i18n(
+                  'entities.deliveryMethod.fields.vehicleInfo',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'additionalInfo'}
+                label={i18n(
+                  'entities.deliveryMethod.fields.additionalInfo',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'active'}
+                label={i18n(
+                  'entities.deliveryMethod.fields.active',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -188,12 +186,18 @@ function DeliveryMethodListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <UserListItem value={row.userId} />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.vehicleInfo}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.additionalInfo}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.vehicleInfo}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.additionalInfo}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.active
                       ? i18n('common.yes')

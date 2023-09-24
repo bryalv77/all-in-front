@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import productReviewSelectors from 'src/modules/productReview/productReviewSelectors';
-import destroyActions from 'src/modules/productReview/destroy/productReviewDestroyActions';
-import destroySelectors from 'src/modules/productReview/destroy/productReviewDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import productReviewSelectors from '../../../modules/productReview/productReviewSelectors';
+import destroyActions from '../../../modules/productReview/destroy/productReviewDestroyActions';
+import destroySelectors from '../../../modules/productReview/destroy/productReviewDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function ProductReviewViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

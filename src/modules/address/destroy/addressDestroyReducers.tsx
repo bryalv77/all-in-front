@@ -1,4 +1,4 @@
-import actions from 'src/modules/address/destroy/addressDestroyActions';
+import actions from '../../../modules/address/destroy/addressDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

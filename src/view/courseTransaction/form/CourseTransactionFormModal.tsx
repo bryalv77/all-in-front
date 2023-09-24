@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import CourseTransactionForm from 'src/view/courseTransaction/form/CourseTransactionForm';
-import CourseTransactionService from 'src/modules/courseTransaction/courseTransactionService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import CourseTransactionForm from '../../../view/courseTransaction/form/CourseTransactionForm';
+import CourseTransactionService from '../../../modules/courseTransaction/courseTransactionService';
 
 function CourseTransactionFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);
@@ -13,8 +13,12 @@ function CourseTransactionFormModal(props) {
   const doSubmit = async (_, data) => {
     try {
       setSaveLoading(true);
-      const { id } = await CourseTransactionService.create(data);
-      const record = await CourseTransactionService.find(id);
+      const { id } = await CourseTransactionService.create(
+        data,
+      );
+      const record = await CourseTransactionService.find(
+        id,
+      );
       props.onSuccess(record);
     } catch (error) {
       Errors.handle(error);
@@ -37,7 +41,9 @@ function CourseTransactionFormModal(props) {
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="flex items-start justify-between p-5 rounded-t">
               <div className="text-lg font-semibold">
-                {i18n('entities.courseTransaction.new.title')}
+                {i18n(
+                  'entities.courseTransaction.new.title',
+                )}
               </div>
               <button
                 type="button"

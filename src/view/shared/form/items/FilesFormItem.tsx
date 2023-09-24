@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import FilesUploader from 'src/view/shared/uploaders/FilesUploader';
+import FilesUploader from '../../../view/shared/uploaders/FilesUploader';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from 'src/view/shared/form/formErrors';
+import FormErrors from '../../../view/shared/form/formErrors';
 
 function FilesFormItem(props) {
   const {
@@ -54,7 +54,10 @@ function FilesFormItem(props) {
         formats={formats}
         value={watch(name)}
         onChange={(value) => {
-          setValue(name, value, { shouldValidate: true, shouldDirty: true });
+          setValue(name, value, {
+            shouldValidate: true,
+            shouldDirty: true,
+          });
           props.onChange && props.onChange(value);
         }}
         max={max}

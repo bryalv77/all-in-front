@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import ProductReviewService from 'src/modules/productReview/productReviewService';
-import ProductReviewFormModal from 'src/view/productReview/form/ProductReviewFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import ProductReviewService from '../../../modules/productReview/productReviewService';
+import ProductReviewFormModal from '../../../view/productReview/form/ProductReviewFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/productReview/productReviewSelectors';
+import selectors from '../../../modules/productReview/productReviewSelectors';
 
 function ProductReviewAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function ProductReviewAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return ProductReviewService.listAutocomplete(value, limit);
+    return ProductReviewService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

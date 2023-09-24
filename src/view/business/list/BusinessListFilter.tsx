@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/business/list/businessListActions';
-import selectors from 'src/modules/business/list/businessListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/business/list/businessListActions';
+import selectors from '../../../modules/business/list/businessListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import BusinessCategoryAutocompleteFormItem from 'src/view/businessCategory/autocomplete/BusinessCategoryAutocompleteFormItem';
-import AddressAutocompleteFormItem from 'src/view/address/autocomplete/AddressAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import BusinessCategoryAutocompleteFormItem from '../../../view/businessCategory/autocomplete/BusinessCategoryAutocompleteFormItem';
+import AddressAutocompleteFormItem from '../../../view/address/autocomplete/AddressAutocompleteFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -43,7 +43,7 @@ const emptyValues = {
   category: null,
   address: null,
   active: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -55,18 +55,18 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   category: {
-      label: i18n('entities.business.fields.category'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.business.fields.category'),
+    render: filterRenders.relationToOne(),
+  },
   address: {
-      label: i18n('entities.business.fields.address'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.business.fields.address'),
+    render: filterRenders.relationToOne(),
+  },
   active: {
     label: i18n('entities.business.fields.active'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function BusinessListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -87,7 +87,12 @@ function BusinessListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -127,23 +132,33 @@ function BusinessListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.business.fields.name')}      
+                label={i18n(
+                  'entities.business.fields.name',
+                )}
               />
               <InputFormItem
                 name="description"
-                label={i18n('entities.business.fields.description')}      
+                label={i18n(
+                  'entities.business.fields.description',
+                )}
               />
-              <BusinessCategoryAutocompleteFormItem  
+              <BusinessCategoryAutocompleteFormItem
                 name="category"
-                label={i18n('entities.business.fields.category')}        
+                label={i18n(
+                  'entities.business.fields.category',
+                )}
               />
-              <AddressAutocompleteFormItem  
+              <AddressAutocompleteFormItem
                 name="address"
-                label={i18n('entities.business.fields.address')}        
+                label={i18n(
+                  'entities.business.fields.address',
+                )}
               />
               <SelectFormItem
                 name="active"
-                label={i18n('entities.business.fields.active')}
+                label={i18n(
+                  'entities.business.fields.active',
+                )}
                 options={[
                   {
                     value: true,

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/album/albumSelectors';
+import selectors from '../../../modules/album/albumSelectors';
 
 function AlbumListItem(props) {
   const hasPermissionToRead = useSelector(

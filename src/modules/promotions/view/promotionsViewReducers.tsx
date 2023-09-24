@@ -1,4 +1,4 @@
-import actions from 'src/modules/promotions/view/promotionsViewActions';
+import actions from '../../../modules/promotions/view/promotionsViewActions';
 
 const initialData = {
   loading: false,

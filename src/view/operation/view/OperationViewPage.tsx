@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/operation/view/operationViewActions';
-import selectors from 'src/modules/operation/view/operationViewSelectors';
-import OperationView from 'src/view/operation/view/OperationView';
-import OperationViewToolbar from 'src/view/operation/view/OperationViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/operation/view/operationViewActions';
+import selectors from '../../../modules/operation/view/operationViewSelectors';
+import OperationView from '../../../view/operation/view/OperationView';
+import OperationViewToolbar from '../../../view/operation/view/OperationViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function OperationPage() {
   const dispatch = useDispatch();

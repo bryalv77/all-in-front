@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import productReviewSelectors from 'src/modules/productReview/productReviewSelectors';
-import destroyActions from 'src/modules/productReview/destroy/productReviewDestroyActions';
-import destroySelectors from 'src/modules/productReview/destroy/productReviewDestroySelectors';
-import actions from 'src/modules/productReview/list/productReviewListActions';
-import selectors from 'src/modules/productReview/list/productReviewListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import productReviewSelectors from '../../../modules/productReview/productReviewSelectors';
+import destroyActions from '../../../modules/productReview/destroy/productReviewDestroyActions';
+import destroySelectors from '../../../modules/productReview/destroy/productReviewDestroySelectors';
+import actions from '../../../modules/productReview/list/productReviewListActions';
+import selectors from '../../../modules/productReview/list/productReviewListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function ProductReviewToolbar(props) {
   const [

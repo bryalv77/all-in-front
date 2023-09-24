@@ -1,8 +1,8 @@
-import ConversationService from 'src/modules/conversation/conversationService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import ConversationService from '../../../modules/conversation/conversationService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'CONVERSATION_FORM';
 

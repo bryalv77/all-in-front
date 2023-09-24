@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/address/form/addressFormActions';
-import selectors from 'src/modules/address/form/addressFormSelectors';
-import { getHistory } from 'src/modules/store';
-import AddressForm from 'src/view/address/form/AddressForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/address/form/addressFormActions';
+import selectors from '../../../modules/address/form/addressFormSelectors';
+import { getHistory } from '../../../modules/store';
+import AddressForm from '../../../view/address/form/AddressForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function AddressFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

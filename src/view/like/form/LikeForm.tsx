@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import PostsAutocompleteFormItem from 'src/view/posts/autocomplete/PostsAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import PostsAutocompleteFormItem from '../../../view/posts/autocomplete/PostsAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -56,21 +56,25 @@ function LikeForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
             label={i18n('entities.like.fields.userId')}
-          placeholder={i18n('entities.like.placeholders.userId')}
-          hint={i18n('entities.like.hints.userId')}
+            placeholder={i18n(
+              'entities.like.placeholders.userId',
+            )}
+            hint={i18n('entities.like.hints.userId')}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <PostsAutocompleteFormItem  
+          <PostsAutocompleteFormItem
             name="postId"
             label={i18n('entities.like.fields.postId')}
-          placeholder={i18n('entities.like.placeholders.postId')}
-          hint={i18n('entities.like.hints.postId')}
+            placeholder={i18n(
+              'entities.like.placeholders.postId',
+            )}
+            hint={i18n('entities.like.hints.postId')}
             required={false}
             showCreate={!props.modal}
           />

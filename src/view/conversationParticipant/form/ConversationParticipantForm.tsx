@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import ConversationAutocompleteFormItem from 'src/view/conversation/autocomplete/ConversationAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import ConversationAutocompleteFormItem from '../../../view/conversation/autocomplete/ConversationAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -19,7 +19,9 @@ const schema = yup.object().shape({
     {},
   ),
   conversationId: yupFormSchemas.relationToOne(
-    i18n('entities.conversationParticipant.fields.conversationId'),
+    i18n(
+      'entities.conversationParticipant.fields.conversationId',
+    ),
     {},
   ),
 });
@@ -56,21 +58,33 @@ function ConversationParticipantForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
-            label={i18n('entities.conversationParticipant.fields.userId')}
-          placeholder={i18n('entities.conversationParticipant.placeholders.userId')}
-          hint={i18n('entities.conversationParticipant.hints.userId')}
+            label={i18n(
+              'entities.conversationParticipant.fields.userId',
+            )}
+            placeholder={i18n(
+              'entities.conversationParticipant.placeholders.userId',
+            )}
+            hint={i18n(
+              'entities.conversationParticipant.hints.userId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <ConversationAutocompleteFormItem  
+          <ConversationAutocompleteFormItem
             name="conversationId"
-            label={i18n('entities.conversationParticipant.fields.conversationId')}
-          placeholder={i18n('entities.conversationParticipant.placeholders.conversationId')}
-          hint={i18n('entities.conversationParticipant.hints.conversationId')}
+            label={i18n(
+              'entities.conversationParticipant.fields.conversationId',
+            )}
+            placeholder={i18n(
+              'entities.conversationParticipant.placeholders.conversationId',
+            )}
+            hint={i18n(
+              'entities.conversationParticipant.hints.conversationId',
+            )}
             required={false}
             showCreate={!props.modal}
           />

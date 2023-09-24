@@ -1,4 +1,4 @@
-import actions from 'src/modules/artist/view/artistViewActions';
+import actions from '../../../modules/artist/view/artistViewActions';
 
 const initialData = {
   loading: false,

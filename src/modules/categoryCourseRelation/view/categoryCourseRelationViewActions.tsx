@@ -1,6 +1,6 @@
-import CategoryCourseRelationService from 'src/modules/categoryCourseRelation/categoryCourseRelationService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import CategoryCourseRelationService from '../../../modules/categoryCourseRelation/categoryCourseRelationService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'CATEGORYCOURSERELATION_VIEW';
 
@@ -15,7 +15,8 @@ const categoryCourseRelationViewActions = {
         type: categoryCourseRelationViewActions.FIND_STARTED,
       });
 
-      const record = await CategoryCourseRelationService.find(id);
+      const record =
+        await CategoryCourseRelationService.find(id);
 
       dispatch({
         type: categoryCourseRelationViewActions.FIND_SUCCESS,

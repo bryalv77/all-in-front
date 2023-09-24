@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/productCategory/productCategorySelectors';
+import selectors from '../../../modules/productCategory/productCategorySelectors';
 
 function ProductCategoryViewItem(props) {
   const hasPermissionToRead = useSelector(

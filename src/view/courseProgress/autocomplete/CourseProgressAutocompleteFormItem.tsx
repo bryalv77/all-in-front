@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import CourseProgressService from 'src/modules/courseProgress/courseProgressService';
-import CourseProgressFormModal from 'src/view/courseProgress/form/CourseProgressFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import CourseProgressService from '../../../modules/courseProgress/courseProgressService';
+import CourseProgressFormModal from '../../../view/courseProgress/form/CourseProgressFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/courseProgress/courseProgressSelectors';
+import selectors from '../../../modules/courseProgress/courseProgressSelectors';
 
 function CourseProgressAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function CourseProgressAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return CourseProgressService.listAutocomplete(value, limit);
+    return CourseProgressService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

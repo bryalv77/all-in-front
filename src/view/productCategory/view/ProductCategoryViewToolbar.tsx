@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import productCategorySelectors from 'src/modules/productCategory/productCategorySelectors';
-import destroyActions from 'src/modules/productCategory/destroy/productCategoryDestroyActions';
-import destroySelectors from 'src/modules/productCategory/destroy/productCategoryDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import productCategorySelectors from '../../../modules/productCategory/productCategorySelectors';
+import destroyActions from '../../../modules/productCategory/destroy/productCategoryDestroyActions';
+import destroySelectors from '../../../modules/productCategory/destroy/productCategoryDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function ProductCategoryViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

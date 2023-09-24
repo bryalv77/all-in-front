@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/postHashtag/importer/postHashtagImporterActions';
-import fields from 'src/modules/postHashtag/importer/postHashtagImporterFields';
-import selectors from 'src/modules/postHashtag/importer/postHashtagImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/postHashtag/importer/postHashtagImporterActions';
+import fields from '../../../modules/postHashtag/importer/postHashtagImporterFields';
+import selectors from '../../../modules/postHashtag/importer/postHashtagImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function PostHashtagImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function PostHashtagImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.postHashtag.menu'), '/post-hashtag'],
+          [
+            i18n('entities.postHashtag.menu'),
+            '/post-hashtag',
+          ],
           [i18n('entities.postHashtag.importer.title')],
         ]}
       />

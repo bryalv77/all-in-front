@@ -1,4 +1,4 @@
-import actions from 'src/modules/teacher/view/teacherViewActions';
+import actions from '../../../modules/teacher/view/teacherViewActions';
 
 const initialData = {
   loading: false,

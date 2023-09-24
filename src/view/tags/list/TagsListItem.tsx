@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/tags/tagsSelectors';
+import selectors from '../../../modules/tags/tagsSelectors';
 
 function TagsListItem(props) {
   const hasPermissionToRead = useSelector(

@@ -5,7 +5,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 
 export default function FilterPreview(props) {
   const { values, renders, onClick, onRemove } = props;

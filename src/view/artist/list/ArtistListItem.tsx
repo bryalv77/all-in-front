@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/artist/artistSelectors';
+import selectors from '../../../modules/artist/artistSelectors';
 
 function ArtistListItem(props) {
   const hasPermissionToRead = useSelector(

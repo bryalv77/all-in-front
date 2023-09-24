@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/bank/form/bankFormActions';
-import selectors from 'src/modules/bank/form/bankFormSelectors';
-import { getHistory } from 'src/modules/store';
-import BankForm from 'src/view/bank/form/BankForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/bank/form/bankFormActions';
+import selectors from '../../../modules/bank/form/bankFormSelectors';
+import { getHistory } from '../../../modules/store';
+import BankForm from '../../../view/bank/form/BankForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function BankFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

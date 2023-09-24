@@ -1,6 +1,6 @@
-import Importer from 'src/modules/shared/importer/importer';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
+import Importer from '../../../modules/shared/importer/importer';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
 import chunk from 'lodash/chunk';
 import md5 from 'md5';
 
@@ -63,40 +63,40 @@ export default (
       payload: pagination,
     }),
 
-    doChangeSort: (rows, sorter) => async (
-      dispatch,
-      getState,
-    ) => {
-      const { field, order } = sorter;
+    doChangeSort:
+      (rows, sorter) => async (dispatch, getState) => {
+        const { field, order } = sorter;
 
-      let sortFn = (a, b) =>
-        (String(a[field]) || '').localeCompare(
-          String(b[field]) || '',
-        );
+        let sortFn = (a, b) =>
+          (String(a[field]) || '').localeCompare(
+            String(b[field]) || '',
+          );
 
-      if (field === '_line') {
-        sortFn = (a, b) => a._line - b._line;
-      }
+        if (field === '_line') {
+          sortFn = (a, b) => a._line - b._line;
+        }
 
-      if (field === '_status') {
-        sortFn = (a, b) =>
-          (a._status || '').localeCompare(b._status || '');
-      }
+        if (field === '_status') {
+          sortFn = (a, b) =>
+            (a._status || '').localeCompare(
+              b._status || '',
+            );
+        }
 
-      let sortedRows = [...rows].sort(sortFn);
+        let sortedRows = [...rows].sort(sortFn);
 
-      if (order === 'descend') {
-        sortedRows = sortedRows.reverse();
-      }
+        if (order === 'descend') {
+          sortedRows = sortedRows.reverse();
+        }
 
-      dispatch({
-        type: actions.SORTER_CHANGED,
-        payload: {
-          sortedRows,
-          sorter,
-        },
-      });
-    },
+        dispatch({
+          type: actions.SORTER_CHANGED,
+          payload: {
+            sortedRows,
+            sorter,
+          },
+        });
+      },
 
     doReset: () => {
       return {

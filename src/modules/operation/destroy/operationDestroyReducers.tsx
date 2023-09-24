@@ -1,4 +1,4 @@
-import actions from 'src/modules/operation/destroy/operationDestroyActions';
+import actions from '../../../modules/operation/destroy/operationDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

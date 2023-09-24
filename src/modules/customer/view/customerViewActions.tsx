@@ -1,6 +1,6 @@
-import CustomerService from 'src/modules/customer/customerService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import CustomerService from '../../../modules/customer/customerService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'CUSTOMER_VIEW';
 

@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
-import AddressAutocompleteFormItem from 'src/view/address/autocomplete/AddressAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
+import AddressAutocompleteFormItem from '../../../view/address/autocomplete/AddressAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -78,18 +78,22 @@ function BrandForm(props) {
           <InputFormItem
             name="name"
             label={i18n('entities.brand.fields.name')}
-          placeholder={i18n('entities.brand.placeholders.name')}
-          hint={i18n('entities.brand.hints.name')}
+            placeholder={i18n(
+              'entities.brand.placeholders.name',
+            )}
+            hint={i18n('entities.brand.hints.name')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <AddressAutocompleteFormItem  
+          <AddressAutocompleteFormItem
             name="address"
             label={i18n('entities.brand.fields.address')}
-          placeholder={i18n('entities.brand.placeholders.address')}
-          hint={i18n('entities.brand.hints.address')}
+            placeholder={i18n(
+              'entities.brand.placeholders.address',
+            )}
+            hint={i18n('entities.brand.hints.address')}
             required={false}
             showCreate={!props.modal}
           />
@@ -97,9 +101,13 @@ function BrandForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.brand.fields.description')}
-          placeholder={i18n('entities.brand.placeholders.description')}
-          hint={i18n('entities.brand.hints.description')}  
+            label={i18n(
+              'entities.brand.fields.description',
+            )}
+            placeholder={i18n(
+              'entities.brand.placeholders.description',
+            )}
+            hint={i18n('entities.brand.hints.description')}
             required={false}
           />
         </div>
@@ -116,7 +124,7 @@ function BrandForm(props) {
           <SwitchFormItem
             name="active"
             label={i18n('entities.brand.fields.active')}
-          hint={i18n('entities.brand.hints.active')}
+            hint={i18n('entities.brand.hints.active')}
           />
         </div>
 

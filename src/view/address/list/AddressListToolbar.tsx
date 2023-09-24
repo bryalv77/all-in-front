@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import addressSelectors from 'src/modules/address/addressSelectors';
-import destroyActions from 'src/modules/address/destroy/addressDestroyActions';
-import destroySelectors from 'src/modules/address/destroy/addressDestroySelectors';
-import actions from 'src/modules/address/list/addressListActions';
-import selectors from 'src/modules/address/list/addressListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import addressSelectors from '../../../modules/address/addressSelectors';
+import destroyActions from '../../../modules/address/destroy/addressDestroyActions';
+import destroySelectors from '../../../modules/address/destroy/addressDestroySelectors';
+import actions from '../../../modules/address/list/addressListActions';
+import selectors from '../../../modules/address/list/addressListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function AddressToolbar(props) {
   const [

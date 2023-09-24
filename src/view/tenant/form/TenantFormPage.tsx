@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import actions from 'src/modules/tenant/form/tenantFormActions';
-import selectors from 'src/modules/tenant/form/tenantFormSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
-import TenantForm from 'src/view/tenant/form/TenantForm';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import actions from '../../../modules/tenant/form/tenantFormActions';
+import selectors from '../../../modules/tenant/form/tenantFormSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
+import TenantForm from '../../../view/tenant/form/TenantForm';
 
 function TenantFormPage() {
   const dispatch = useDispatch();

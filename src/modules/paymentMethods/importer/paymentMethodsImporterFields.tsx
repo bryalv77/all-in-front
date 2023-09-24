@@ -1,5 +1,5 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
 
 export default [
   {
@@ -12,7 +12,9 @@ export default [
   },
   {
     name: 'additionalInfo',
-    label: i18n('entities.paymentMethods.fields.additionalInfo'),
+    label: i18n(
+      'entities.paymentMethods.fields.additionalInfo',
+    ),
     schema: schemas.string(
       i18n('entities.paymentMethods.fields.additionalInfo'),
       {},

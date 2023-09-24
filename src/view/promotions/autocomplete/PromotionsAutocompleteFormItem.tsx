@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import PromotionsService from 'src/modules/promotions/promotionsService';
-import PromotionsFormModal from 'src/view/promotions/form/PromotionsFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import PromotionsService from '../../../modules/promotions/promotionsService';
+import PromotionsFormModal from '../../../view/promotions/form/PromotionsFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/promotions/promotionsSelectors';
+import selectors from '../../../modules/promotions/promotionsSelectors';
 
 function PromotionsAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,12 +27,16 @@ function PromotionsAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();

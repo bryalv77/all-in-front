@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/auditLog/auditLogActions';
-import selectors from 'src/modules/auditLog/auditLogSelectors';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/auditLog/auditLogActions';
+import selectors from '../../../modules/auditLog/auditLogSelectors';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';

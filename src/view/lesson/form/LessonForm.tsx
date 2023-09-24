@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
-import Storage from 'src/security/storage';
-import FilesFormItem from 'src/view/shared/form/items/FilesFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
+import Storage from '../../../security/storage';
+import FilesFormItem from '../../../view/shared/form/items/FilesFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -88,27 +88,37 @@ function LessonForm(props) {
           <InputFormItem
             name="title"
             label={i18n('entities.lesson.fields.title')}
-          placeholder={i18n('entities.lesson.placeholders.title')}
-          hint={i18n('entities.lesson.hints.title')}
+            placeholder={i18n(
+              'entities.lesson.placeholders.title',
+            )}
+            hint={i18n('entities.lesson.hints.title')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.lesson.fields.description')}
-          placeholder={i18n('entities.lesson.placeholders.description')}
-          hint={i18n('entities.lesson.hints.description')}  
+            label={i18n(
+              'entities.lesson.fields.description',
+            )}
+            placeholder={i18n(
+              'entities.lesson.placeholders.description',
+            )}
+            hint={i18n('entities.lesson.hints.description')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="externalUrl"
-            label={i18n('entities.lesson.fields.externalUrl')}
-          placeholder={i18n('entities.lesson.placeholders.externalUrl')}
-          hint={i18n('entities.lesson.hints.externalUrl')}
+            label={i18n(
+              'entities.lesson.fields.externalUrl',
+            )}
+            placeholder={i18n(
+              'entities.lesson.placeholders.externalUrl',
+            )}
+            hint={i18n('entities.lesson.hints.externalUrl')}
             required={false}
           />
         </div>
@@ -120,22 +130,26 @@ function LessonForm(props) {
             storage={Storage.values.lessonMedia}
             max={undefined}
             formats={undefined}
-          hint={i18n('entities.lesson.hints.media')}
+            hint={i18n('entities.lesson.hints.media')}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="hoursDuration"
-            label={i18n('entities.lesson.fields.hoursDuration')}  
+            label={i18n(
+              'entities.lesson.fields.hoursDuration',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <CourseAutocompleteFormItem  
+          <CourseAutocompleteFormItem
             name="courseId"
             label={i18n('entities.lesson.fields.courseId')}
-          placeholder={i18n('entities.lesson.placeholders.courseId')}
-          hint={i18n('entities.lesson.hints.courseId')}
+            placeholder={i18n(
+              'entities.lesson.placeholders.courseId',
+            )}
+            hint={i18n('entities.lesson.hints.courseId')}
             required={false}
             showCreate={!props.modal}
           />
@@ -144,7 +158,7 @@ function LessonForm(props) {
           <SwitchFormItem
             name="active"
             label={i18n('entities.lesson.fields.active')}
-          hint={i18n('entities.lesson.hints.active')}
+            hint={i18n('entities.lesson.hints.active')}
           />
         </div>
 

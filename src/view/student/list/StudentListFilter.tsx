@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/student/list/studentListActions';
-import selectors from 'src/modules/student/list/studentListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/student/list/studentListActions';
+import selectors from '../../../modules/student/list/studentListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
 
 const schema = yup.object().shape({
   userId: yupFilterSchemas.relationToOne(
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
 const emptyValues = {
   userId: null,
   name: null,
-}
+};
 
 const previewRenders = {
   userId: {
@@ -40,7 +40,7 @@ const previewRenders = {
     label: i18n('entities.student.fields.name'),
     render: filterRenders.generic(),
   },
-}
+};
 
 function StudentListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +61,12 @@ function StudentListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -99,13 +104,15 @@ function StudentListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.student.fields.userId')}        
+                label={i18n(
+                  'entities.student.fields.userId',
+                )}
               />
               <InputFormItem
                 name="name"
-                label={i18n('entities.student.fields.name')}      
+                label={i18n('entities.student.fields.name')}
               />
             </div>
 

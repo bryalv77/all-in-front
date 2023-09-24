@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
-import Storage from 'src/security/storage';
-import FilesFormItem from 'src/view/shared/form/items/FilesFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
+import Storage from '../../../security/storage';
+import FilesFormItem from '../../../view/shared/form/items/FilesFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -76,24 +76,28 @@ function MediaForm(props) {
             storage={Storage.values.mediaFile}
             max={undefined}
             formats={undefined}
-          hint={i18n('entities.media.hints.file')}
+            hint={i18n('entities.media.hints.file')}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="metadata"
             label={i18n('entities.media.fields.metadata')}
-          placeholder={i18n('entities.media.placeholders.metadata')}
-          hint={i18n('entities.media.hints.metadata')}  
+            placeholder={i18n(
+              'entities.media.placeholders.metadata',
+            )}
+            hint={i18n('entities.media.hints.metadata')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
             label={i18n('entities.media.fields.userId')}
-          placeholder={i18n('entities.media.placeholders.userId')}
-          hint={i18n('entities.media.hints.userId')}
+            placeholder={i18n(
+              'entities.media.placeholders.userId',
+            )}
+            hint={i18n('entities.media.hints.userId')}
             required={false}
             showCreate={!props.modal}
           />
@@ -102,7 +106,7 @@ function MediaForm(props) {
           <SwitchFormItem
             name="show"
             label={i18n('entities.media.fields.show')}
-          hint={i18n('entities.media.hints.show')}
+            hint={i18n('entities.media.hints.show')}
           />
         </div>
 

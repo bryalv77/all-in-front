@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
 import moment from 'moment';
-import DatePickerFormItem from 'src/view/shared/form/items/DatePickerFormItem';
-import Storage from 'src/security/storage';
-import FilesFormItem from 'src/view/shared/form/items/FilesFormItem';
+import DatePickerFormItem from '../../../view/shared/form/items/DatePickerFormItem';
+import Storage from '../../../security/storage';
+import FilesFormItem from '../../../view/shared/form/items/FilesFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -44,7 +44,9 @@ function PostsForm(props) {
 
     return {
       content: record.content,
-      postDate: record.postDate ? moment(record.postDate).toDate() : null,
+      postDate: record.postDate
+        ? moment(record.postDate).toDate()
+        : null,
       media: record.media || [],
       userId: record.userId,
     };
@@ -73,18 +75,22 @@ function PostsForm(props) {
           <InputFormItem
             name="content"
             label={i18n('entities.posts.fields.content')}
-          placeholder={i18n('entities.posts.placeholders.content')}
-          hint={i18n('entities.posts.hints.content')}
+            placeholder={i18n(
+              'entities.posts.placeholders.content',
+            )}
+            hint={i18n('entities.posts.hints.content')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <DatePickerFormItem
             name="postDate"
             label={i18n('entities.posts.fields.postDate')}
-          placeholder={i18n('entities.posts.placeholders.postDate')}
-          hint={i18n('entities.posts.hints.postDate')}
+            placeholder={i18n(
+              'entities.posts.placeholders.postDate',
+            )}
+            hint={i18n('entities.posts.hints.postDate')}
             required={false}
             showTimeInput
           />
@@ -97,15 +103,17 @@ function PostsForm(props) {
             storage={Storage.values.postsMedia}
             max={undefined}
             formats={undefined}
-          hint={i18n('entities.posts.hints.media')}
+            hint={i18n('entities.posts.hints.media')}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
             label={i18n('entities.posts.fields.userId')}
-          placeholder={i18n('entities.posts.placeholders.userId')}
-          hint={i18n('entities.posts.hints.userId')}
+            placeholder={i18n(
+              'entities.posts.placeholders.userId',
+            )}
+            hint={i18n('entities.posts.hints.userId')}
             required={false}
             showCreate={!props.modal}
           />

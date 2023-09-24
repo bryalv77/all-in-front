@@ -2,23 +2,23 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/message/list/messageListActions';
-import selectors from 'src/modules/message/list/messageListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/message/list/messageListActions';
+import selectors from '../../../modules/message/list/messageListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import messageEnumerators from 'src/modules/message/messageEnumerators';
-import ConversationAutocompleteFormItem from 'src/view/conversation/autocomplete/ConversationAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import messageEnumerators from '../../../modules/message/messageEnumerators';
+import ConversationAutocompleteFormItem from '../../../view/conversation/autocomplete/ConversationAutocompleteFormItem';
 
 const schema = yup.object().shape({
   senderId: yupFilterSchemas.relationToOne(
@@ -44,7 +44,7 @@ const emptyValues = {
   content: null,
   conversationId: null,
   status: null,
-}
+};
 
 const previewRenders = {
   senderId: {
@@ -60,14 +60,16 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   conversationId: {
-      label: i18n('entities.message.fields.conversationId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.message.fields.conversationId'),
+    render: filterRenders.relationToOne(),
+  },
   status: {
     label: i18n('entities.message.fields.status'),
-    render: filterRenders.enumerator('entities.message.enumerators.status',),
+    render: filterRenders.enumerator(
+      'entities.message.enumerators.status',
+    ),
   },
-}
+};
 
 function MessageListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -88,7 +90,12 @@ function MessageListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -126,34 +133,44 @@ function MessageListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="senderId"
-                label={i18n('entities.message.fields.senderId')}        
+                label={i18n(
+                  'entities.message.fields.senderId',
+                )}
               />
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="recipientId"
-                label={i18n('entities.message.fields.recipientId')}        
+                label={i18n(
+                  'entities.message.fields.recipientId',
+                )}
               />
               <InputFormItem
                 name="content"
-                label={i18n('entities.message.fields.content')}      
+                label={i18n(
+                  'entities.message.fields.content',
+                )}
               />
-              <ConversationAutocompleteFormItem  
+              <ConversationAutocompleteFormItem
                 name="conversationId"
-                label={i18n('entities.message.fields.conversationId')}        
+                label={i18n(
+                  'entities.message.fields.conversationId',
+                )}
               />
               <SelectFormItem
-                  name="status"
-                  label={i18n('entities.message.fields.status')}
-                  options={messageEnumerators.status.map(
-                    (value) => ({
-                      value,
-                      label: i18n(
-                        `entities.message.enumerators.status.${value}`,
-                      ),
-                    }),
-                  )}
-                />
+                name="status"
+                label={i18n(
+                  'entities.message.fields.status',
+                )}
+                options={messageEnumerators.status.map(
+                  (value) => ({
+                    value,
+                    label: i18n(
+                      `entities.message.enumerators.status.${value}`,
+                    ),
+                  }),
+                )}
+              />
             </div>
 
             <div className="px-4 py-2 text-right">

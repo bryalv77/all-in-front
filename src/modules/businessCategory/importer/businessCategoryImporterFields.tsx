@@ -1,5 +1,5 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
 
 export default [
   {
@@ -20,15 +20,21 @@ export default [
   },
   {
     name: 'parentBusinessType',
-    label: i18n('entities.businessCategory.fields.parentBusinessType'),
+    label: i18n(
+      'entities.businessCategory.fields.parentBusinessType',
+    ),
     schema: schemas.relationToOne(
-      i18n('entities.businessCategory.fields.parentBusinessType'),
+      i18n(
+        'entities.businessCategory.fields.parentBusinessType',
+      ),
       {},
     ),
   },
   {
     name: 'description',
-    label: i18n('entities.businessCategory.fields.description'),
+    label: i18n(
+      'entities.businessCategory.fields.description',
+    ),
     schema: schemas.string(
       i18n('entities.businessCategory.fields.description'),
       {},

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/order/form/orderFormActions';
-import selectors from 'src/modules/order/form/orderFormSelectors';
-import { getHistory } from 'src/modules/store';
-import OrderForm from 'src/view/order/form/OrderForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/order/form/orderFormActions';
+import selectors from '../../../modules/order/form/orderFormSelectors';
+import { getHistory } from '../../../modules/store';
+import OrderForm from '../../../view/order/form/OrderForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function OrderFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

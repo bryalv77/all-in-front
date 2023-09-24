@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/teacher/teacherSelectors';
+import selectors from '../../../modules/teacher/teacherSelectors';
 
 function TeacherListItem(props) {
   const hasPermissionToRead = useSelector(

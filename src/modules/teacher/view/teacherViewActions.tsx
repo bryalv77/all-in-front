@@ -1,6 +1,6 @@
-import TeacherService from 'src/modules/teacher/teacherService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import TeacherService from '../../../modules/teacher/teacherService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'TEACHER_VIEW';
 

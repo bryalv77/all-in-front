@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -23,16 +23,22 @@ export default [
   },
   {
     name: 'appointmentDate',
-    label: i18n('entities.appointment.fields.appointmentDate'),
+    label: i18n(
+      'entities.appointment.fields.appointmentDate',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'appointmentStatus',
-    label: i18n('entities.appointment.fields.appointmentStatus'),
+    label: i18n(
+      'entities.appointment.fields.appointmentStatus',
+    ),
   },
   {
     name: 'paymentStatus',
-    label: i18n('entities.appointment.fields.paymentStatus'),
+    label: i18n(
+      'entities.appointment.fields.paymentStatus',
+    ),
   },
   {
     name: 'createdAt',

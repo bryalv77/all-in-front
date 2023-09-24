@@ -2,23 +2,23 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/tasks/list/tasksListActions';
-import selectors from 'src/modules/tasks/list/tasksListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/tasks/list/tasksListActions';
+import selectors from '../../../modules/tasks/list/tasksListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import tasksEnumerators from 'src/modules/tasks/tasksEnumerators';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
-import TaskListAutocompleteFormItem from 'src/view/taskList/autocomplete/TaskListAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import tasksEnumerators from '../../../modules/tasks/tasksEnumerators';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
+import TaskListAutocompleteFormItem from '../../../view/taskList/autocomplete/TaskListAutocompleteFormItem';
 
 const schema = yup.object().shape({
   description: yupFilterSchemas.string(
@@ -40,7 +40,7 @@ const emptyValues = {
   dueDateRange: [],
   status: null,
   taskList: null,
-}
+};
 
 const previewRenders = {
   description: {
@@ -53,13 +53,15 @@ const previewRenders = {
   },
   status: {
     label: i18n('entities.tasks.fields.status'),
-    render: filterRenders.enumerator('entities.tasks.enumerators.status',),
+    render: filterRenders.enumerator(
+      'entities.tasks.enumerators.status',
+    ),
   },
   taskList: {
-      label: i18n('entities.tasks.fields.taskList'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.tasks.fields.taskList'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function TasksListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -80,7 +82,12 @@ function TasksListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -120,27 +127,33 @@ function TasksListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="description"
-                label={i18n('entities.tasks.fields.description')}      
+                label={i18n(
+                  'entities.tasks.fields.description',
+                )}
               />
               <DatePickerRangeFormItem
                 name="dueDateRange"
-                label={i18n('entities.tasks.fields.dueDateRange')}    
+                label={i18n(
+                  'entities.tasks.fields.dueDateRange',
+                )}
               />
               <SelectFormItem
-                  name="status"
-                  label={i18n('entities.tasks.fields.status')}
-                  options={tasksEnumerators.status.map(
-                    (value) => ({
-                      value,
-                      label: i18n(
-                        `entities.tasks.enumerators.status.${value}`,
-                      ),
-                    }),
-                  )}
-                />
-              <TaskListAutocompleteFormItem  
+                name="status"
+                label={i18n('entities.tasks.fields.status')}
+                options={tasksEnumerators.status.map(
+                  (value) => ({
+                    value,
+                    label: i18n(
+                      `entities.tasks.enumerators.status.${value}`,
+                    ),
+                  }),
+                )}
+              />
+              <TaskListAutocompleteFormItem
                 name="taskList"
-                label={i18n('entities.tasks.fields.taskList')}        
+                label={i18n(
+                  'entities.tasks.fields.taskList',
+                )}
               />
             </div>
 

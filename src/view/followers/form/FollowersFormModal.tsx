@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import FollowersForm from 'src/view/followers/form/FollowersForm';
-import FollowersService from 'src/modules/followers/followersService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import FollowersForm from '../../../view/followers/form/FollowersForm';
+import FollowersService from '../../../modules/followers/followersService';
 
 function FollowersFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

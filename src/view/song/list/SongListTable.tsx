@@ -7,25 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import songSelectors from 'src/modules/song/songSelectors';
-import destroyActions from 'src/modules/song/destroy/songDestroyActions';
-import destroySelectors from 'src/modules/song/destroy/songDestroySelectors';
-import actions from 'src/modules/song/list/songListActions';
-import selectors from 'src/modules/song/list/songListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import FilesListView from 'src/view/shared/table/FileListView';
-import ArtistListItem from 'src/view/artist/list/ArtistListItem';
-import AlbumListItem from 'src/view/album/list/AlbumListItem';
+import { i18n } from '../../../i18n';
+import songSelectors from '../../../modules/song/songSelectors';
+import destroyActions from '../../../modules/song/destroy/songDestroyActions';
+import destroySelectors from '../../../modules/song/destroy/songDestroySelectors';
+import actions from '../../../modules/song/list/songListActions';
+import selectors from '../../../modules/song/list/songListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import FilesListView from '../../../view/shared/table/FileListView';
+import ArtistListItem from '../../../view/artist/list/ArtistListItem';
+import AlbumListItem from '../../../view/album/list/AlbumListItem';
 
 function SongListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -111,57 +109,49 @@ function SongListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'title'}
-                  label={i18n(
-                    'entities.song.fields.title',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.song.fields.artistId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.song.fields.albumId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'duration'}
-                  label={i18n(
-                    'entities.song.fields.duration',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'genre'}
-                  label={i18n(
-                    'entities.song.fields.genre',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'externalUrl'}
-                  label={i18n(
-                    'entities.song.fields.externalUrl',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.song.fields.media',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'title'}
+                label={i18n('entities.song.fields.title')}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.song.fields.artistId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n('entities.song.fields.albumId')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'duration'}
+                label={i18n(
+                  'entities.song.fields.duration',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'genre'}
+                label={i18n('entities.song.fields.genre')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'externalUrl'}
+                label={i18n(
+                  'entities.song.fields.externalUrl',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n('entities.song.fields.media')}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -200,20 +190,26 @@ function SongListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.title}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.title}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ArtistListItem value={row.artistId} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <AlbumListItem value={row.albumId} />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.duration}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.genre}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.externalUrl}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <FilesListView
-                      value={row.media}
-                    />
+                    {row.duration}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.genre}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.externalUrl}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <FilesListView value={row.media} />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

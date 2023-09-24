@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import taskListSelectors from 'src/modules/taskList/taskListSelectors';
-import destroyActions from 'src/modules/taskList/destroy/taskListDestroyActions';
-import destroySelectors from 'src/modules/taskList/destroy/taskListDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import taskListSelectors from '../../../modules/taskList/taskListSelectors';
+import destroyActions from '../../../modules/taskList/destroy/taskListDestroyActions';
+import destroySelectors from '../../../modules/taskList/destroy/taskListDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function TaskListViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/posts/importer/postsImporterActions';
-import fields from 'src/modules/posts/importer/postsImporterFields';
-import selectors from 'src/modules/posts/importer/postsImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/posts/importer/postsImporterActions';
+import fields from '../../../modules/posts/importer/postsImporterFields';
+import selectors from '../../../modules/posts/importer/postsImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function PostsImportPage() {
   const Importer = importerHoc(

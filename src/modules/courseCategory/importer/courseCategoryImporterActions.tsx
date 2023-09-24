@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/courseCategory/importer/courseCategoryImporterSelectors';
-import CourseCategoryService from 'src/modules/courseCategory/courseCategoryService';
-import fields from 'src/modules/courseCategory/importer/courseCategoryImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/courseCategory/importer/courseCategoryImporterSelectors';
+import CourseCategoryService from '../../../modules/courseCategory/courseCategoryService';
+import fields from '../../../modules/courseCategory/importer/courseCategoryImporterFields';
+import { i18n } from '../../../i18n';
 
 const courseCategoryImporterActions = importerActions(
   'COURSECATEGORY_IMPORTER',

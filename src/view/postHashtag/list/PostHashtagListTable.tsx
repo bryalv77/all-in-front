@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import postHashtagSelectors from 'src/modules/postHashtag/postHashtagSelectors';
-import destroyActions from 'src/modules/postHashtag/destroy/postHashtagDestroyActions';
-import destroySelectors from 'src/modules/postHashtag/destroy/postHashtagDestroySelectors';
-import actions from 'src/modules/postHashtag/list/postHashtagListActions';
-import selectors from 'src/modules/postHashtag/list/postHashtagListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import PostsListItem from 'src/view/posts/list/PostsListItem';
-import HashtagListItem from 'src/view/hashtag/list/HashtagListItem';
+import { i18n } from '../../../i18n';
+import postHashtagSelectors from '../../../modules/postHashtag/postHashtagSelectors';
+import destroyActions from '../../../modules/postHashtag/destroy/postHashtagDestroyActions';
+import destroySelectors from '../../../modules/postHashtag/destroy/postHashtagDestroySelectors';
+import actions from '../../../modules/postHashtag/list/postHashtagListActions';
+import selectors from '../../../modules/postHashtag/list/postHashtagListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import PostsListItem from '../../../view/posts/list/PostsListItem';
+import HashtagListItem from '../../../view/hashtag/list/HashtagListItem';
 
 function PostHashtagListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,16 +108,16 @@ function PostHashtagListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.postHashtag.fields.postId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.postHashtag.fields.hashtagId',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.postHashtag.fields.postId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.postHashtag.fields.hashtagId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -162,7 +160,9 @@ function PostHashtagListTable(props) {
                     <PostsListItem value={row.postId} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <HashtagListItem value={row.hashtagId} />
+                    <HashtagListItem
+                      value={row.hashtagId}
+                    />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

@@ -1,4 +1,4 @@
-import actions from 'src/modules/tags/view/tagsViewActions';
+import actions from '../../../modules/tags/view/tagsViewActions';
 
 const initialData = {
   loading: false,

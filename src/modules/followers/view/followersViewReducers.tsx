@@ -1,4 +1,4 @@
-import actions from 'src/modules/followers/view/followersViewActions';
+import actions from '../../../modules/followers/view/followersViewActions';
 
 const initialData = {
   loading: false,

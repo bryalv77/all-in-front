@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import songSelectors from 'src/modules/song/songSelectors';
-import destroyActions from 'src/modules/song/destroy/songDestroyActions';
-import destroySelectors from 'src/modules/song/destroy/songDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import songSelectors from '../../../modules/song/songSelectors';
+import destroyActions from '../../../modules/song/destroy/songDestroyActions';
+import destroySelectors from '../../../modules/song/destroy/songDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function SongViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

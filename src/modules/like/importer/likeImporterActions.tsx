@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/like/importer/likeImporterSelectors';
-import LikeService from 'src/modules/like/likeService';
-import fields from 'src/modules/like/importer/likeImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/like/importer/likeImporterSelectors';
+import LikeService from '../../../modules/like/likeService';
+import fields from '../../../modules/like/importer/likeImporterFields';
+import { i18n } from '../../../i18n';
 
 const likeImporterActions = importerActions(
   'LIKE_IMPORTER',

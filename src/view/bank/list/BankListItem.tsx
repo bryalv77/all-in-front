@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/bank/bankSelectors';
+import selectors from '../../../modules/bank/bankSelectors';
 
 function BankListItem(props) {
   const hasPermissionToRead = useSelector(

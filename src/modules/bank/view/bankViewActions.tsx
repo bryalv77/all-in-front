@@ -1,6 +1,6 @@
-import BankService from 'src/modules/bank/bankService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import BankService from '../../../modules/bank/bankService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'BANK_VIEW';
 

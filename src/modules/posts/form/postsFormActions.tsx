@@ -1,8 +1,8 @@
-import PostsService from 'src/modules/posts/postsService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import PostsService from '../../../modules/posts/postsService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'POSTS_FORM';
 

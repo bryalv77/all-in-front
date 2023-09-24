@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/appointment/view/appointmentViewActions';
-import selectors from 'src/modules/appointment/view/appointmentViewSelectors';
-import AppointmentView from 'src/view/appointment/view/AppointmentView';
-import AppointmentViewToolbar from 'src/view/appointment/view/AppointmentViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/appointment/view/appointmentViewActions';
+import selectors from '../../../modules/appointment/view/appointmentViewSelectors';
+import AppointmentView from '../../../view/appointment/view/AppointmentView';
+import AppointmentViewToolbar from '../../../view/appointment/view/AppointmentViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function AppointmentPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function AppointmentPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.appointment.menu'), '/appointment'],
+          [
+            i18n('entities.appointment.menu'),
+            '/appointment',
+          ],
           [i18n('entities.appointment.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function AppointmentPage() {
 
         <AppointmentViewToolbar match={match} />
 
-        <AppointmentView loading={loading} record={record} />
+        <AppointmentView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

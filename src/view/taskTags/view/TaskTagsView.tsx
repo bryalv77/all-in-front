@@ -1,8 +1,8 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TasksViewItem from 'src/view/tasks/view/TasksViewItem';
-import TagsViewItem from 'src/view/tags/view/TagsViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TasksViewItem from '../../../view/tasks/view/TasksViewItem';
+import TagsViewItem from '../../../view/tags/view/TagsViewItem';
 
 function TaskTagsView(props) {
   const { record, loading } = props;

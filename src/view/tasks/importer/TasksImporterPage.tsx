@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/tasks/importer/tasksImporterActions';
-import fields from 'src/modules/tasks/importer/tasksImporterFields';
-import selectors from 'src/modules/tasks/importer/tasksImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/tasks/importer/tasksImporterActions';
+import fields from '../../../modules/tasks/importer/tasksImporterFields';
+import selectors from '../../../modules/tasks/importer/tasksImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function TasksImportPage() {
   const Importer = importerHoc(

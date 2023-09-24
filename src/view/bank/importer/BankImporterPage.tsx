@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/bank/importer/bankImporterActions';
-import fields from 'src/modules/bank/importer/bankImporterFields';
-import selectors from 'src/modules/bank/importer/bankImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/bank/importer/bankImporterActions';
+import fields from '../../../modules/bank/importer/bankImporterFields';
+import selectors from '../../../modules/bank/importer/bankImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function BankImportPage() {
   const Importer = importerHoc(

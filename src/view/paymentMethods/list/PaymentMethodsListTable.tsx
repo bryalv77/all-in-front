@@ -7,23 +7,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import paymentMethodsSelectors from 'src/modules/paymentMethods/paymentMethodsSelectors';
-import destroyActions from 'src/modules/paymentMethods/destroy/paymentMethodsDestroyActions';
-import destroySelectors from 'src/modules/paymentMethods/destroy/paymentMethodsDestroySelectors';
-import actions from 'src/modules/paymentMethods/list/paymentMethodsListActions';
-import selectors from 'src/modules/paymentMethods/list/paymentMethodsListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-
+import { i18n } from '../../../i18n';
+import paymentMethodsSelectors from '../../../modules/paymentMethods/paymentMethodsSelectors';
+import destroyActions from '../../../modules/paymentMethods/destroy/paymentMethodsDestroyActions';
+import destroySelectors from '../../../modules/paymentMethods/destroy/paymentMethodsDestroySelectors';
+import actions from '../../../modules/paymentMethods/list/paymentMethodsListActions';
+import selectors from '../../../modules/paymentMethods/list/paymentMethodsListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
 
 function PaymentMethodsListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,33 +106,33 @@ function PaymentMethodsListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.paymentMethods.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'additionalInfo'}
-                  label={i18n(
-                    'entities.paymentMethods.fields.additionalInfo',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'active'}
-                  label={i18n(
-                    'entities.paymentMethods.fields.active',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n(
+                  'entities.paymentMethods.fields.name',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'additionalInfo'}
+                label={i18n(
+                  'entities.paymentMethods.fields.additionalInfo',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'active'}
+                label={i18n(
+                  'entities.paymentMethods.fields.active',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -174,8 +171,12 @@ function PaymentMethodsListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.additionalInfo}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.additionalInfo}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.active
                       ? i18n('common.yes')

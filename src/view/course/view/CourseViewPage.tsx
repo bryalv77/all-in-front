@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/course/view/courseViewActions';
-import selectors from 'src/modules/course/view/courseViewSelectors';
-import CourseView from 'src/view/course/view/CourseView';
-import CourseViewToolbar from 'src/view/course/view/CourseViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/course/view/courseViewActions';
+import selectors from '../../../modules/course/view/courseViewSelectors';
+import CourseView from '../../../view/course/view/CourseView';
+import CourseViewToolbar from '../../../view/course/view/CourseViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CoursePage() {
   const dispatch = useDispatch();

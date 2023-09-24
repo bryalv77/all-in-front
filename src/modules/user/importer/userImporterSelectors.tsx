@@ -1,5 +1,6 @@
-import importerSelectors from 'src/modules/shared/importer/importerSelectors';
+import importerSelectors from '../../../modules/shared/importer/importerSelectors';
 
-const userImporterSelectors = importerSelectors('user.importer');
+const userImporterSelectors =
+  importerSelectors('user.importer');
 
 export default userImporterSelectors;

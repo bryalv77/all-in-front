@@ -7,25 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import addressSelectors from 'src/modules/address/addressSelectors';
-import destroyActions from 'src/modules/address/destroy/addressDestroyActions';
-import destroySelectors from 'src/modules/address/destroy/addressDestroySelectors';
-import actions from 'src/modules/address/list/addressListActions';
-import selectors from 'src/modules/address/list/addressListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import CustomerListItem from 'src/view/customer/list/CustomerListItem';
-import CityListItem from 'src/view/city/list/CityListItem';
-import BusinessListItem from 'src/view/business/list/BusinessListItem';
+import { i18n } from '../../../i18n';
+import addressSelectors from '../../../modules/address/addressSelectors';
+import destroyActions from '../../../modules/address/destroy/addressDestroyActions';
+import destroySelectors from '../../../modules/address/destroy/addressDestroySelectors';
+import actions from '../../../modules/address/list/addressListActions';
+import selectors from '../../../modules/address/list/addressListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import CustomerListItem from '../../../view/customer/list/CustomerListItem';
+import CityListItem from '../../../view/city/list/CityListItem';
+import BusinessListItem from '../../../view/business/list/BusinessListItem';
 
 function AddressListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -111,93 +109,91 @@ function AddressListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.address.fields.customer',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'addressName'}
-                  label={i18n(
-                    'entities.address.fields.addressName',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'firstLine'}
-                  label={i18n(
-                    'entities.address.fields.firstLine',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'secondLine'}
-                  label={i18n(
-                    'entities.address.fields.secondLine',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'zipCode'}
-                  label={i18n(
-                    'entities.address.fields.zipCode',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.address.fields.city',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'phone'}
-                  label={i18n(
-                    'entities.address.fields.phone',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.address.fields.business',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'coordinates'}
-                  label={i18n(
-                    'entities.address.fields.coordinates',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'urlMap'}
-                  label={i18n(
-                    'entities.address.fields.urlMap',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'preferred'}
-                  label={i18n(
-                    'entities.address.fields.preferred',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.address.fields.customer',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'addressName'}
+                label={i18n(
+                  'entities.address.fields.addressName',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'firstLine'}
+                label={i18n(
+                  'entities.address.fields.firstLine',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'secondLine'}
+                label={i18n(
+                  'entities.address.fields.secondLine',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'zipCode'}
+                label={i18n(
+                  'entities.address.fields.zipCode',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n('entities.address.fields.city')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'phone'}
+                label={i18n(
+                  'entities.address.fields.phone',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.address.fields.business',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'coordinates'}
+                label={i18n(
+                  'entities.address.fields.coordinates',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'urlMap'}
+                label={i18n(
+                  'entities.address.fields.urlMap',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'preferred'}
+                label={i18n(
+                  'entities.address.fields.preferred',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -237,21 +233,39 @@ function AddressListTable(props) {
                     />
                   </th>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <CustomerListItem value={row.customer} />
+                    <CustomerListItem
+                      value={row.customer}
+                    />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.addressName}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.firstLine}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.secondLine}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.zipCode}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.addressName}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.firstLine}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.secondLine}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.zipCode}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <CityListItem value={row.city} />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.phone}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <BusinessListItem value={row.business} />
+                    {row.phone}
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.coordinates}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.urlMap}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <BusinessListItem
+                      value={row.business}
+                    />
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.coordinates}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.urlMap}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.preferred
                       ? i18n('common.yes')

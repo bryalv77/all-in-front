@@ -1,4 +1,4 @@
-import Plans from 'src/security/plans';
+import Plans from '../../../security/plans';
 
 const plans = Plans.values;
 

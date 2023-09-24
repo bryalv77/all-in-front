@@ -1,4 +1,4 @@
-import actions from 'src/modules/artist/form/artistFormActions';
+import actions from '../../../modules/artist/form/artistFormActions';
 
 const initialData = {
   initLoading: false,

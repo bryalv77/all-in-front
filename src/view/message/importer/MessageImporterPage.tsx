@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/message/importer/messageImporterActions';
-import fields from 'src/modules/message/importer/messageImporterFields';
-import selectors from 'src/modules/message/importer/messageImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/message/importer/messageImporterActions';
+import fields from '../../../modules/message/importer/messageImporterFields';
+import selectors from '../../../modules/message/importer/messageImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function MessageImportPage() {
   const Importer = importerHoc(

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseCategory/form/courseCategoryFormActions';
-import selectors from 'src/modules/courseCategory/form/courseCategoryFormSelectors';
-import { getHistory } from 'src/modules/store';
-import CourseCategoryForm from 'src/view/courseCategory/form/CourseCategoryForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseCategory/form/courseCategoryFormActions';
+import selectors from '../../../modules/courseCategory/form/courseCategoryFormSelectors';
+import { getHistory } from '../../../modules/store';
+import CourseCategoryForm from '../../../view/courseCategory/form/CourseCategoryForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function CourseCategoryFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function CourseCategoryFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseCategory.menu'), '/course-category'],
+          [
+            i18n('entities.courseCategory.menu'),
+            '/course-category',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function CourseCategoryFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/course-category')}
+            onCancel={() =>
+              getHistory().push('/course-category')
+            }
           />
         )}
       </div>

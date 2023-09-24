@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/productCategory/view/productCategoryViewActions';
-import selectors from 'src/modules/productCategory/view/productCategoryViewSelectors';
-import ProductCategoryView from 'src/view/productCategory/view/ProductCategoryView';
-import ProductCategoryViewToolbar from 'src/view/productCategory/view/ProductCategoryViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/productCategory/view/productCategoryViewActions';
+import selectors from '../../../modules/productCategory/view/productCategoryViewSelectors';
+import ProductCategoryView from '../../../view/productCategory/view/ProductCategoryView';
+import ProductCategoryViewToolbar from '../../../view/productCategory/view/ProductCategoryViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ProductCategoryPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function ProductCategoryPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.productCategory.menu'), '/product-category'],
+          [
+            i18n('entities.productCategory.menu'),
+            '/product-category',
+          ],
           [i18n('entities.productCategory.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function ProductCategoryPage() {
 
         <ProductCategoryViewToolbar match={match} />
 
-        <ProductCategoryView loading={loading} record={record} />
+        <ProductCategoryView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

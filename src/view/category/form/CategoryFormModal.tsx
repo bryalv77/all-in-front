@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import CategoryForm from 'src/view/category/form/CategoryForm';
-import CategoryService from 'src/modules/category/categoryService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import CategoryForm from '../../../view/category/form/CategoryForm';
+import CategoryService from '../../../modules/category/categoryService';
 
 function CategoryFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

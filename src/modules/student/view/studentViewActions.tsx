@@ -1,6 +1,6 @@
-import StudentService from 'src/modules/student/studentService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import StudentService from '../../../modules/student/studentService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'STUDENT_VIEW';
 

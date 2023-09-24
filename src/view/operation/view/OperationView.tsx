@@ -1,11 +1,11 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import UserViewItem from 'src/view/user/view/UserViewItem';
-import FilesViewItem from 'src/view/shared/view/FilesViewItem';
-import CategoryViewItem from 'src/view/category/view/CategoryViewItem';
-import BankViewItem from 'src/view/bank/view/BankViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import UserViewItem from '../../../view/user/view/UserViewItem';
+import FilesViewItem from '../../../view/shared/view/FilesViewItem';
+import CategoryViewItem from '../../../view/category/view/CategoryViewItem';
+import BankViewItem from '../../../view/bank/view/BankViewItem';
 
 function OperationView(props) {
   const { record, loading } = props;
@@ -22,7 +22,9 @@ function OperationView(props) {
       />
 
       <TextViewItem
-        label={i18n('entities.operation.fields.description')}
+        label={i18n(
+          'entities.operation.fields.description',
+        )}
         value={record.description}
       />
 
@@ -37,7 +39,9 @@ function OperationView(props) {
       />
 
       <TextViewItem
-        label={i18n('entities.operation.fields.userDescription')}
+        label={i18n(
+          'entities.operation.fields.userDescription',
+        )}
         value={record.userDescription}
       />
 
@@ -52,7 +56,9 @@ function OperationView(props) {
       />
 
       <TextViewItem
-        label={i18n('entities.operation.fields.operationDate')}
+        label={i18n(
+          'entities.operation.fields.operationDate',
+        )}
         value={record.operationDate}
       />
 
@@ -62,17 +68,23 @@ function OperationView(props) {
       />
 
       <TextViewItem
-        label={i18n('entities.operation.fields.cleanUserDescription')}
+        label={i18n(
+          'entities.operation.fields.cleanUserDescription',
+        )}
         value={record.cleanUserDescription}
       />
 
       <TextViewItem
-        label={i18n('entities.operation.fields.primaryDisplay')}
+        label={i18n(
+          'entities.operation.fields.primaryDisplay',
+        )}
         value={record.primaryDisplay}
       />
 
       <TextViewItem
-        label={i18n('entities.operation.fields.secondaryDisplay')}
+        label={i18n(
+          'entities.operation.fields.secondaryDisplay',
+        )}
         value={record.secondaryDisplay}
       />
 
@@ -87,9 +99,7 @@ function OperationView(props) {
       />
 
       <FilesViewItem
-        label={i18n(
-          'entities.operation.fields.receipt',
-        )}
+        label={i18n('entities.operation.fields.receipt')}
         value={record.receipt}
       />
 

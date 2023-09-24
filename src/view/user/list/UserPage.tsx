@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import UserFilter from 'src/view/user/list/UserFilter';
-import UserTable from 'src/view/user/list/UserTable';
-import UserToolbar from 'src/view/user/list/UserToolbar';
+import { i18n } from '../../../i18n';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import UserFilter from '../../../view/user/list/UserFilter';
+import UserTable from '../../../view/user/list/UserTable';
+import UserToolbar from '../../../view/user/list/UserToolbar';
 
 function UserPage() {
   return (

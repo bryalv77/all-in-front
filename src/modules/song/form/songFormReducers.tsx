@@ -1,4 +1,4 @@
-import actions from 'src/modules/song/form/songFormActions';
+import actions from '../../../modules/song/form/songFormActions';
 
 const initialData = {
   initLoading: false,

@@ -1,4 +1,4 @@
-import actions from 'src/modules/brand/form/brandFormActions';
+import actions from '../../../modules/brand/form/brandFormActions';
 
 const initialData = {
   initLoading: false,

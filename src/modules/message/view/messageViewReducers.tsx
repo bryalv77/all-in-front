@@ -1,4 +1,4 @@
-import actions from 'src/modules/message/view/messageViewActions';
+import actions from '../../../modules/message/view/messageViewActions';
 
 const initialData = {
   loading: false,

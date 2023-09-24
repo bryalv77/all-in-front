@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import artistSelectors from 'src/modules/artist/artistSelectors';
-import destroyActions from 'src/modules/artist/destroy/artistDestroyActions';
-import destroySelectors from 'src/modules/artist/destroy/artistDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import artistSelectors from '../../../modules/artist/artistSelectors';
+import destroyActions from '../../../modules/artist/destroy/artistDestroyActions';
+import destroySelectors from '../../../modules/artist/destroy/artistDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function ArtistViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

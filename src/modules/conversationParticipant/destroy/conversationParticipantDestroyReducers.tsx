@@ -1,4 +1,4 @@
-import actions from 'src/modules/conversationParticipant/destroy/conversationParticipantDestroyActions';
+import actions from '../../../modules/conversationParticipant/destroy/conversationParticipantDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

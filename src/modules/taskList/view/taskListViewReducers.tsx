@@ -1,4 +1,4 @@
-import actions from 'src/modules/taskList/view/taskListViewActions';
+import actions from '../../../modules/taskList/view/taskListViewActions';
 
 const initialData = {
   loading: false,

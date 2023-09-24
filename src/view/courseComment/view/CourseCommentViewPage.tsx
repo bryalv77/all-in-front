@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseComment/view/courseCommentViewActions';
-import selectors from 'src/modules/courseComment/view/courseCommentViewSelectors';
-import CourseCommentView from 'src/view/courseComment/view/CourseCommentView';
-import CourseCommentViewToolbar from 'src/view/courseComment/view/CourseCommentViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseComment/view/courseCommentViewActions';
+import selectors from '../../../modules/courseComment/view/courseCommentViewSelectors';
+import CourseCommentView from '../../../view/courseComment/view/CourseCommentView';
+import CourseCommentViewToolbar from '../../../view/courseComment/view/CourseCommentViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CourseCommentPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function CourseCommentPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseComment.menu'), '/course-comment'],
+          [
+            i18n('entities.courseComment.menu'),
+            '/course-comment',
+          ],
           [i18n('entities.courseComment.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function CourseCommentPage() {
 
         <CourseCommentViewToolbar match={match} />
 
-        <CourseCommentView loading={loading} record={record} />
+        <CourseCommentView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

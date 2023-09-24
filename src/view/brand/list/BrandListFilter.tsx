@@ -2,21 +2,21 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/brand/list/brandListActions';
-import selectors from 'src/modules/brand/list/brandListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/brand/list/brandListActions';
+import selectors from '../../../modules/brand/list/brandListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import AddressAutocompleteFormItem from 'src/view/address/autocomplete/AddressAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import AddressAutocompleteFormItem from '../../../view/address/autocomplete/AddressAutocompleteFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -38,7 +38,7 @@ const emptyValues = {
   address: null,
   description: null,
   active: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -46,9 +46,9 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   address: {
-      label: i18n('entities.brand.fields.address'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.brand.fields.address'),
+    render: filterRenders.relationToOne(),
+  },
   description: {
     label: i18n('entities.brand.fields.description'),
     render: filterRenders.generic(),
@@ -57,7 +57,7 @@ const previewRenders = {
     label: i18n('entities.brand.fields.active'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function BrandListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -78,7 +78,12 @@ function BrandListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -118,15 +123,19 @@ function BrandListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.brand.fields.name')}      
+                label={i18n('entities.brand.fields.name')}
               />
-              <AddressAutocompleteFormItem  
+              <AddressAutocompleteFormItem
                 name="address"
-                label={i18n('entities.brand.fields.address')}        
+                label={i18n(
+                  'entities.brand.fields.address',
+                )}
               />
               <InputFormItem
                 name="description"
-                label={i18n('entities.brand.fields.description')}      
+                label={i18n(
+                  'entities.brand.fields.description',
+                )}
               />
               <SelectFormItem
                 name="active"

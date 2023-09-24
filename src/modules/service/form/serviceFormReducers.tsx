@@ -1,4 +1,4 @@
-import actions from 'src/modules/service/form/serviceFormActions';
+import actions from '../../../modules/service/form/serviceFormActions';
 
 const initialData = {
   initLoading: false,

@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import AvailabilityTimeslotForm from 'src/view/availabilityTimeslot/form/AvailabilityTimeslotForm';
-import AvailabilityTimeslotService from 'src/modules/availabilityTimeslot/availabilityTimeslotService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import AvailabilityTimeslotForm from '../../../view/availabilityTimeslot/form/AvailabilityTimeslotForm';
+import AvailabilityTimeslotService from '../../../modules/availabilityTimeslot/availabilityTimeslotService';
 
 function AvailabilityTimeslotFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);
@@ -13,8 +13,11 @@ function AvailabilityTimeslotFormModal(props) {
   const doSubmit = async (_, data) => {
     try {
       setSaveLoading(true);
-      const { id } = await AvailabilityTimeslotService.create(data);
-      const record = await AvailabilityTimeslotService.find(id);
+      const { id } =
+        await AvailabilityTimeslotService.create(data);
+      const record = await AvailabilityTimeslotService.find(
+        id,
+      );
       props.onSuccess(record);
     } catch (error) {
       Errors.handle(error);
@@ -37,7 +40,9 @@ function AvailabilityTimeslotFormModal(props) {
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="flex items-start justify-between p-5 rounded-t">
               <div className="text-lg font-semibold">
-                {i18n('entities.availabilityTimeslot.new.title')}
+                {i18n(
+                  'entities.availabilityTimeslot.new.title',
+                )}
               </div>
               <button
                 type="button"

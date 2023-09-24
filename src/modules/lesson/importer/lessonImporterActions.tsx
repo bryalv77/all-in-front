@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/lesson/importer/lessonImporterSelectors';
-import LessonService from 'src/modules/lesson/lessonService';
-import fields from 'src/modules/lesson/importer/lessonImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/lesson/importer/lessonImporterSelectors';
+import LessonService from '../../../modules/lesson/lessonService';
+import fields from '../../../modules/lesson/importer/lessonImporterFields';
+import { i18n } from '../../../i18n';
 
 const lessonImporterActions = importerActions(
   'LESSON_IMPORTER',

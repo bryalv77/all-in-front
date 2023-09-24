@@ -1,4 +1,4 @@
-import actions from 'src/modules/conversation/view/conversationViewActions';
+import actions from '../../../modules/conversation/view/conversationViewActions';
 
 const initialData = {
   loading: false,

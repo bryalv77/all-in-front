@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
 import moment from 'moment';
-import DatePickerFormItem from 'src/view/shared/form/items/DatePickerFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import StudentAutocompleteFormItem from 'src/view/student/autocomplete/StudentAutocompleteFormItem';
+import DatePickerFormItem from '../../../view/shared/form/items/DatePickerFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import StudentAutocompleteFormItem from '../../../view/student/autocomplete/StudentAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -39,7 +39,9 @@ function CourseEnrollmentForm(props) {
     return {
       courseId: record.courseId,
       studentId: record.studentId,
-      enrollmentDate: record.enrollmentDate ? moment(record.enrollmentDate).toDate() : null,
+      enrollmentDate: record.enrollmentDate
+        ? moment(record.enrollmentDate).toDate()
+        : null,
     };
   });
 
@@ -63,21 +65,33 @@ function CourseEnrollmentForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <CourseAutocompleteFormItem  
+          <CourseAutocompleteFormItem
             name="courseId"
-            label={i18n('entities.courseEnrollment.fields.courseId')}
-          placeholder={i18n('entities.courseEnrollment.placeholders.courseId')}
-          hint={i18n('entities.courseEnrollment.hints.courseId')}
+            label={i18n(
+              'entities.courseEnrollment.fields.courseId',
+            )}
+            placeholder={i18n(
+              'entities.courseEnrollment.placeholders.courseId',
+            )}
+            hint={i18n(
+              'entities.courseEnrollment.hints.courseId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <StudentAutocompleteFormItem  
+          <StudentAutocompleteFormItem
             name="studentId"
-            label={i18n('entities.courseEnrollment.fields.studentId')}
-          placeholder={i18n('entities.courseEnrollment.placeholders.studentId')}
-          hint={i18n('entities.courseEnrollment.hints.studentId')}
+            label={i18n(
+              'entities.courseEnrollment.fields.studentId',
+            )}
+            placeholder={i18n(
+              'entities.courseEnrollment.placeholders.studentId',
+            )}
+            hint={i18n(
+              'entities.courseEnrollment.hints.studentId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -85,9 +99,15 @@ function CourseEnrollmentForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <DatePickerFormItem
             name="enrollmentDate"
-            label={i18n('entities.courseEnrollment.fields.enrollmentDate')}
-          placeholder={i18n('entities.courseEnrollment.placeholders.enrollmentDate')}
-          hint={i18n('entities.courseEnrollment.hints.enrollmentDate')}
+            label={i18n(
+              'entities.courseEnrollment.fields.enrollmentDate',
+            )}
+            placeholder={i18n(
+              'entities.courseEnrollment.placeholders.enrollmentDate',
+            )}
+            hint={i18n(
+              'entities.courseEnrollment.hints.enrollmentDate',
+            )}
             required={false}
             showTimeInput
           />

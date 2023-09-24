@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/posts/view/postsViewActions';
-import selectors from 'src/modules/posts/view/postsViewSelectors';
-import PostsView from 'src/view/posts/view/PostsView';
-import PostsViewToolbar from 'src/view/posts/view/PostsViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/posts/view/postsViewActions';
+import selectors from '../../../modules/posts/view/postsViewSelectors';
+import PostsView from '../../../view/posts/view/PostsView';
+import PostsViewToolbar from '../../../view/posts/view/PostsViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PostsPage() {
   const dispatch = useDispatch();

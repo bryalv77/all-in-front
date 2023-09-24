@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -63,25 +63,37 @@ function PaymentMethodsForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <InputFormItem
             name="name"
-            label={i18n('entities.paymentMethods.fields.name')}
-          placeholder={i18n('entities.paymentMethods.placeholders.name')}
-          hint={i18n('entities.paymentMethods.hints.name')}
+            label={i18n(
+              'entities.paymentMethods.fields.name',
+            )}
+            placeholder={i18n(
+              'entities.paymentMethods.placeholders.name',
+            )}
+            hint={i18n(
+              'entities.paymentMethods.hints.name',
+            )}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="additionalInfo"
-            label={i18n('entities.paymentMethods.fields.additionalInfo')}
+            label={i18n(
+              'entities.paymentMethods.fields.additionalInfo',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <SwitchFormItem
             name="active"
-            label={i18n('entities.paymentMethods.fields.active')}
-          hint={i18n('entities.paymentMethods.hints.active')}
+            label={i18n(
+              'entities.paymentMethods.fields.active',
+            )}
+            hint={i18n(
+              'entities.paymentMethods.hints.active',
+            )}
           />
         </div>
 

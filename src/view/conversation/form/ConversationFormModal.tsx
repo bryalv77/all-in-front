@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import ConversationForm from 'src/view/conversation/form/ConversationForm';
-import ConversationService from 'src/modules/conversation/conversationService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import ConversationForm from '../../../view/conversation/form/ConversationForm';
+import ConversationService from '../../../modules/conversation/conversationService';
 
 function ConversationFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

@@ -1,8 +1,8 @@
-import CategoryCourseRelationService from 'src/modules/categoryCourseRelation/categoryCourseRelationService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import CategoryCourseRelationService from '../../../modules/categoryCourseRelation/categoryCourseRelationService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'CATEGORYCOURSERELATION_FORM';
 
@@ -30,7 +30,9 @@ const categoryCourseRelationFormActions = {
       const isEdit = Boolean(id);
 
       if (isEdit) {
-        record = await CategoryCourseRelationService.find(id);
+        record = await CategoryCourseRelationService.find(
+          id,
+        );
       }
 
       dispatch({
@@ -61,7 +63,9 @@ const categoryCourseRelationFormActions = {
       });
 
       Message.success(
-        i18n('entities.categoryCourseRelation.create.success'),
+        i18n(
+          'entities.categoryCourseRelation.create.success',
+        ),
       );
 
       getHistory().push('/category-course-relation');
@@ -80,14 +84,19 @@ const categoryCourseRelationFormActions = {
         type: categoryCourseRelationFormActions.UPDATE_STARTED,
       });
 
-      await CategoryCourseRelationService.update(id, values);
+      await CategoryCourseRelationService.update(
+        id,
+        values,
+      );
 
       dispatch({
         type: categoryCourseRelationFormActions.UPDATE_SUCCESS,
       });
 
       Message.success(
-        i18n('entities.categoryCourseRelation.update.success'),
+        i18n(
+          'entities.categoryCourseRelation.update.success',
+        ),
       );
 
       getHistory().push('/category-course-relation');

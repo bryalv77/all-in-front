@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/song/songSelectors';
+import selectors from '../../../modules/song/songSelectors';
 
 function SongViewItem(props) {
   const hasPermissionToRead = useSelector(

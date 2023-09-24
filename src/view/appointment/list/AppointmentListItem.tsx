@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/appointment/appointmentSelectors';
+import selectors from '../../../modules/appointment/appointmentSelectors';
 
 function AppointmentListItem(props) {
   const hasPermissionToRead = useSelector(

@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import categoryCourseRelationSelectors from 'src/modules/categoryCourseRelation/categoryCourseRelationSelectors';
-import destroyActions from 'src/modules/categoryCourseRelation/destroy/categoryCourseRelationDestroyActions';
-import destroySelectors from 'src/modules/categoryCourseRelation/destroy/categoryCourseRelationDestroySelectors';
-import actions from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListActions';
-import selectors from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import CourseListItem from 'src/view/course/list/CourseListItem';
-import CourseCategoryListItem from 'src/view/courseCategory/list/CourseCategoryListItem';
+import { i18n } from '../../../i18n';
+import categoryCourseRelationSelectors from '../../../modules/categoryCourseRelation/categoryCourseRelationSelectors';
+import destroyActions from '../../../modules/categoryCourseRelation/destroy/categoryCourseRelationDestroyActions';
+import destroySelectors from '../../../modules/categoryCourseRelation/destroy/categoryCourseRelationDestroySelectors';
+import actions from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListActions';
+import selectors from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import CourseListItem from '../../../view/course/list/CourseListItem';
+import CourseCategoryListItem from '../../../view/courseCategory/list/CourseCategoryListItem';
 
 function CategoryCourseRelationListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,16 +108,16 @@ function CategoryCourseRelationListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.categoryCourseRelation.fields.courseId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.categoryCourseRelation.fields.category',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.categoryCourseRelation.fields.courseId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.categoryCourseRelation.fields.category',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -162,7 +160,9 @@ function CategoryCourseRelationListTable(props) {
                     <CourseListItem value={row.courseId} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <CourseCategoryListItem value={row.category} />
+                    <CourseCategoryListItem
+                      value={row.category}
+                    />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

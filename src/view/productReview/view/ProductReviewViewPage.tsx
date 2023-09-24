@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/productReview/view/productReviewViewActions';
-import selectors from 'src/modules/productReview/view/productReviewViewSelectors';
-import ProductReviewView from 'src/view/productReview/view/ProductReviewView';
-import ProductReviewViewToolbar from 'src/view/productReview/view/ProductReviewViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/productReview/view/productReviewViewActions';
+import selectors from '../../../modules/productReview/view/productReviewViewSelectors';
+import ProductReviewView from '../../../view/productReview/view/ProductReviewView';
+import ProductReviewViewToolbar from '../../../view/productReview/view/ProductReviewViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ProductReviewPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function ProductReviewPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.productReview.menu'), '/product-review'],
+          [
+            i18n('entities.productReview.menu'),
+            '/product-review',
+          ],
           [i18n('entities.productReview.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function ProductReviewPage() {
 
         <ProductReviewViewToolbar match={match} />
 
-        <ProductReviewView loading={loading} record={record} />
+        <ProductReviewView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

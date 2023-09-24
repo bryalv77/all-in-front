@@ -1,4 +1,4 @@
-import actions from 'src/modules/business/form/businessFormActions';
+import actions from '../../../modules/business/form/businessFormActions';
 
 const initialData = {
   initLoading: false,

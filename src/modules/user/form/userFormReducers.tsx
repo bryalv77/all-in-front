@@ -1,4 +1,4 @@
-import actions from 'src/modules/user/form/userFormActions';
+import actions from '../../../modules/user/form/userFormActions';
 
 const initialData = {
   initLoading: false,

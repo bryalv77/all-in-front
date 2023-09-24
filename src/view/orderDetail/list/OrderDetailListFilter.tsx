@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/orderDetail/list/orderDetailListActions';
-import selectors from 'src/modules/orderDetail/list/orderDetailListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/orderDetail/list/orderDetailListActions';
+import selectors from '../../../modules/orderDetail/list/orderDetailListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import InputNumberRangeFormItem from 'src/view/shared/form/items/InputNumberRangeFormItem';
-import OrderAutocompleteFormItem from 'src/view/order/autocomplete/OrderAutocompleteFormItem';
-import ProductAutocompleteFormItem from 'src/view/product/autocomplete/ProductAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import InputNumberRangeFormItem from '../../../view/shared/form/items/InputNumberRangeFormItem';
+import OrderAutocompleteFormItem from '../../../view/order/autocomplete/OrderAutocompleteFormItem';
+import ProductAutocompleteFormItem from '../../../view/product/autocomplete/ProductAutocompleteFormItem';
 
 const schema = yup.object().shape({
   orderId: yupFilterSchemas.relationToOne(
@@ -39,26 +39,30 @@ const emptyValues = {
   productId: null,
   quantityRange: [],
   unitPriceRange: [],
-}
+};
 
 const previewRenders = {
   orderId: {
-      label: i18n('entities.orderDetail.fields.orderId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.orderDetail.fields.orderId'),
+    render: filterRenders.relationToOne(),
+  },
   productId: {
-      label: i18n('entities.orderDetail.fields.productId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.orderDetail.fields.productId'),
+    render: filterRenders.relationToOne(),
+  },
   quantityRange: {
-    label: i18n('entities.orderDetail.fields.quantityRange'),
+    label: i18n(
+      'entities.orderDetail.fields.quantityRange',
+    ),
     render: filterRenders.range(),
   },
   unitPriceRange: {
-    label: i18n('entities.orderDetail.fields.unitPriceRange'),
+    label: i18n(
+      'entities.orderDetail.fields.unitPriceRange',
+    ),
     render: filterRenders.decimalRange(),
   },
-}
+};
 
 function OrderDetailListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -79,7 +83,12 @@ function OrderDetailListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -117,21 +126,29 @@ function OrderDetailListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <OrderAutocompleteFormItem  
+              <OrderAutocompleteFormItem
                 name="orderId"
-                label={i18n('entities.orderDetail.fields.orderId')}        
+                label={i18n(
+                  'entities.orderDetail.fields.orderId',
+                )}
               />
-              <ProductAutocompleteFormItem  
+              <ProductAutocompleteFormItem
                 name="productId"
-                label={i18n('entities.orderDetail.fields.productId')}        
+                label={i18n(
+                  'entities.orderDetail.fields.productId',
+                )}
               />
               <InputNumberRangeFormItem
                 name="quantityRange"
-                label={i18n('entities.orderDetail.fields.quantityRange')}      
+                label={i18n(
+                  'entities.orderDetail.fields.quantityRange',
+                )}
               />
               <InputRangeFormItem
                 name="unitPriceRange"
-                label={i18n('entities.orderDetail.fields.unitPriceRange')}      
+                label={i18n(
+                  'entities.orderDetail.fields.unitPriceRange',
+                )}
               />
             </div>
 

@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/artist/importer/artistImporterSelectors';
-import ArtistService from 'src/modules/artist/artistService';
-import fields from 'src/modules/artist/importer/artistImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/artist/importer/artistImporterSelectors';
+import ArtistService from '../../../modules/artist/artistService';
+import fields from '../../../modules/artist/importer/artistImporterFields';
+import { i18n } from '../../../i18n';
 
 const artistImporterActions = importerActions(
   'ARTIST_IMPORTER',

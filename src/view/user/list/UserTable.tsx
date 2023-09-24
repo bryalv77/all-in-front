@@ -7,17 +7,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/user/list/userListActions';
-import selectors from 'src/modules/user/list/userListSelectors';
-import userSelectors from 'src/modules/user/userSelectors';
-import Roles from 'src/security/roles';
-import Avatar from 'src/view/shared/Avatar';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import UserStatusView from 'src/view/user/view/UserStatusView';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/user/list/userListActions';
+import selectors from '../../../modules/user/list/userListSelectors';
+import userSelectors from '../../../modules/user/userSelectors';
+import Roles from '../../../security/roles';
+import Avatar from '../../../view/shared/Avatar';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import UserStatusView from '../../../view/user/view/UserStatusView';
 
 function UserTable() {
   const dispatch = useDispatch();
@@ -161,7 +161,7 @@ function UserTable() {
                     className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
                   >
                     <Avatar
-                      src={
+                      ../../..={
                         row.avatars && row.avatars.length
                           ? row.avatars[0].downloadUrl
                           : undefined

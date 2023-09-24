@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/orderDetail/importer/orderDetailImporterSelectors';
-import OrderDetailService from 'src/modules/orderDetail/orderDetailService';
-import fields from 'src/modules/orderDetail/importer/orderDetailImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/orderDetail/importer/orderDetailImporterSelectors';
+import OrderDetailService from '../../../modules/orderDetail/orderDetailService';
+import fields from '../../../modules/orderDetail/importer/orderDetailImporterFields';
+import { i18n } from '../../../i18n';
 
 const orderDetailImporterActions = importerActions(
   'ORDERDETAIL_IMPORTER',

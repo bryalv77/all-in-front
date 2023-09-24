@@ -1,4 +1,4 @@
-import { setLanguageCode } from 'src/i18n';
+import { setLanguageCode } from '../../../i18n';
 
 const prefix = 'LAYOUT';
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import AppointmentListFilter from 'src/view/appointment/list/AppointmentListFilter';
-import AppointmentListTable from 'src/view/appointment/list/AppointmentListTable';
-import AppointmentListToolbar from 'src/view/appointment/list/AppointmentListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import AppointmentListFilter from '../../../view/appointment/list/AppointmentListFilter';
+import AppointmentListTable from '../../../view/appointment/list/AppointmentListTable';
+import AppointmentListToolbar from '../../../view/appointment/list/AppointmentListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function AppointmentListPage(props) {
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/appointment/importer/appointmentImporterActions';
-import fields from 'src/modules/appointment/importer/appointmentImporterFields';
-import selectors from 'src/modules/appointment/importer/appointmentImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/appointment/importer/appointmentImporterActions';
+import fields from '../../../modules/appointment/importer/appointmentImporterFields';
+import selectors from '../../../modules/appointment/importer/appointmentImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function AppointmentImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function AppointmentImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.appointment.menu'), '/appointment'],
+          [
+            i18n('entities.appointment.menu'),
+            '/appointment',
+          ],
           [i18n('entities.appointment.importer.title')],
         ]}
       />

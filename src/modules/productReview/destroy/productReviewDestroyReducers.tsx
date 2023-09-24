@@ -1,4 +1,4 @@
-import actions from 'src/modules/productReview/destroy/productReviewDestroyActions';
+import actions from '../../../modules/productReview/destroy/productReviewDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

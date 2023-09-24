@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import mediaSelectors from 'src/modules/media/mediaSelectors';
-import destroyActions from 'src/modules/media/destroy/mediaDestroyActions';
-import destroySelectors from 'src/modules/media/destroy/mediaDestroySelectors';
-import actions from 'src/modules/media/list/mediaListActions';
-import selectors from 'src/modules/media/list/mediaListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
-import FilesListView from 'src/view/shared/table/FileListView';
+import { i18n } from '../../../i18n';
+import mediaSelectors from '../../../modules/media/mediaSelectors';
+import destroyActions from '../../../modules/media/destroy/mediaDestroyActions';
+import destroySelectors from '../../../modules/media/destroy/mediaDestroySelectors';
+import actions from '../../../modules/media/list/mediaListActions';
+import selectors from '../../../modules/media/list/mediaListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
+import FilesListView from '../../../view/shared/table/FileListView';
 
 function MediaListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,34 +108,28 @@ function MediaListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.media.fields.file',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'metadata'}
-                  label={i18n(
-                    'entities.media.fields.metadata',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.media.fields.userId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'show'}
-                  label={i18n(
-                    'entities.media.fields.show',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n('entities.media.fields.file')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'metadata'}
+                label={i18n(
+                  'entities.media.fields.metadata',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n('entities.media.fields.userId')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'show'}
+                label={i18n('entities.media.fields.show')}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -177,11 +169,11 @@ function MediaListTable(props) {
                     />
                   </th>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <FilesListView
-                      value={row.file}
-                    />
+                    <FilesListView value={row.file} />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.metadata}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.metadata}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <UserListItem value={row.userId} />
                   </td>

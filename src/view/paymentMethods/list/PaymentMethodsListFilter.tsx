@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/paymentMethods/list/paymentMethodsListActions';
-import selectors from 'src/modules/paymentMethods/list/paymentMethodsListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/paymentMethods/list/paymentMethodsListActions';
+import selectors from '../../../modules/paymentMethods/list/paymentMethodsListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -33,7 +33,7 @@ const emptyValues = {
   name: null,
   additionalInfo: null,
   active: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -41,14 +41,16 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   additionalInfo: {
-    label: i18n('entities.paymentMethods.fields.additionalInfo'),
+    label: i18n(
+      'entities.paymentMethods.fields.additionalInfo',
+    ),
     render: filterRenders.generic(),
   },
   active: {
     label: i18n('entities.paymentMethods.fields.active'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function PaymentMethodsListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -69,7 +71,12 @@ function PaymentMethodsListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -109,15 +116,21 @@ function PaymentMethodsListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.paymentMethods.fields.name')}      
+                label={i18n(
+                  'entities.paymentMethods.fields.name',
+                )}
               />
               <InputFormItem
                 name="additionalInfo"
-                label={i18n('entities.paymentMethods.fields.additionalInfo')}      
+                label={i18n(
+                  'entities.paymentMethods.fields.additionalInfo',
+                )}
               />
               <SelectFormItem
                 name="active"
-                label={i18n('entities.paymentMethods.fields.active')}
+                label={i18n(
+                  'entities.paymentMethods.fields.active',
+                )}
                 options={[
                   {
                     value: true,

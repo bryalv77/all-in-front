@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import SubTasksForm from 'src/view/subTasks/form/SubTasksForm';
-import SubTasksService from 'src/modules/subTasks/subTasksService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import SubTasksForm from '../../../view/subTasks/form/SubTasksForm';
+import SubTasksService from '../../../modules/subTasks/subTasksService';
 
 function SubTasksFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

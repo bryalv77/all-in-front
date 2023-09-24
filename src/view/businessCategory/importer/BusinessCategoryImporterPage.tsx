@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/businessCategory/importer/businessCategoryImporterActions';
-import fields from 'src/modules/businessCategory/importer/businessCategoryImporterFields';
-import selectors from 'src/modules/businessCategory/importer/businessCategoryImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/businessCategory/importer/businessCategoryImporterActions';
+import fields from '../../../modules/businessCategory/importer/businessCategoryImporterFields';
+import selectors from '../../../modules/businessCategory/importer/businessCategoryImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function BusinessCategoryImportPage() {
   const Importer = importerHoc(
@@ -19,8 +19,15 @@ function BusinessCategoryImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.businessCategory.menu'), '/business-category'],
-          [i18n('entities.businessCategory.importer.title')],
+          [
+            i18n('entities.businessCategory.menu'),
+            '/business-category',
+          ],
+          [
+            i18n(
+              'entities.businessCategory.importer.title',
+            ),
+          ],
         ]}
       />
 

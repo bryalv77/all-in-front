@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/taskList/form/taskListFormActions';
-import selectors from 'src/modules/taskList/form/taskListFormSelectors';
-import { getHistory } from 'src/modules/store';
-import TaskListForm from 'src/view/taskList/form/TaskListForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/taskList/form/taskListFormActions';
+import selectors from '../../../modules/taskList/form/taskListFormSelectors';
+import { getHistory } from '../../../modules/store';
+import TaskListForm from '../../../view/taskList/form/TaskListForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function TaskListFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

@@ -1,9 +1,9 @@
-import listActions from 'src/modules/postHashtag/list/postHashtagListActions';
-import PostHashtagService from 'src/modules/postHashtag/postHashtagService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/postHashtag/list/postHashtagListActions';
+import PostHashtagService from '../../../modules/postHashtag/postHashtagService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'POSTHASHTAG_DESTROY';
 

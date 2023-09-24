@@ -1,11 +1,11 @@
 import React from 'react';
-import Roles from 'src/security/roles';
-import Spinner from 'src/view/shared/Spinner';
-import CustomViewItem from 'src/view/shared/view/CustomViewItem';
-import ImagesViewItem from 'src/view/shared/view/ImagesViewItem';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import UserStatusView from 'src/view/user/view/UserStatusView';
-import { i18n } from 'src/i18n';
+import Roles from '../../../security/roles';
+import Spinner from '../../../view/shared/Spinner';
+import CustomViewItem from '../../../view/shared/view/CustomViewItem';
+import ImagesViewItem from '../../../view/shared/view/ImagesViewItem';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import UserStatusView from '../../../view/user/view/UserStatusView';
+import { i18n } from '../../../i18n';
 
 function UserView(props) {
   const { user, loading } = props;

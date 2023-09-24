@@ -1,6 +1,6 @@
-import PostHashtagService from 'src/modules/postHashtag/postHashtagService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import PostHashtagService from '../../../modules/postHashtag/postHashtagService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'POSTHASHTAG_VIEW';
 

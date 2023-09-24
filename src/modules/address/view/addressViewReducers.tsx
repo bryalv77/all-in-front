@@ -1,4 +1,4 @@
-import actions from 'src/modules/address/view/addressViewActions';
+import actions from '../../../modules/address/view/addressViewActions';
 
 const initialData = {
   loading: false,

@@ -2,21 +2,21 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/deliveryMethod/list/deliveryMethodListActions';
-import selectors from 'src/modules/deliveryMethod/list/deliveryMethodListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/deliveryMethod/list/deliveryMethodListActions';
+import selectors from '../../../modules/deliveryMethod/list/deliveryMethodListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -42,7 +42,7 @@ const emptyValues = {
   vehicleInfo: null,
   additionalInfo: null,
   active: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -54,18 +54,22 @@ const previewRenders = {
     render: filterRenders.relationToOne(),
   },
   vehicleInfo: {
-    label: i18n('entities.deliveryMethod.fields.vehicleInfo'),
+    label: i18n(
+      'entities.deliveryMethod.fields.vehicleInfo',
+    ),
     render: filterRenders.generic(),
   },
   additionalInfo: {
-    label: i18n('entities.deliveryMethod.fields.additionalInfo'),
+    label: i18n(
+      'entities.deliveryMethod.fields.additionalInfo',
+    ),
     render: filterRenders.generic(),
   },
   active: {
     label: i18n('entities.deliveryMethod.fields.active'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function DeliveryMethodListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -86,7 +90,12 @@ function DeliveryMethodListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -126,23 +135,33 @@ function DeliveryMethodListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.deliveryMethod.fields.name')}      
+                label={i18n(
+                  'entities.deliveryMethod.fields.name',
+                )}
               />
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.deliveryMethod.fields.userId')}        
+                label={i18n(
+                  'entities.deliveryMethod.fields.userId',
+                )}
               />
               <InputFormItem
                 name="vehicleInfo"
-                label={i18n('entities.deliveryMethod.fields.vehicleInfo')}      
+                label={i18n(
+                  'entities.deliveryMethod.fields.vehicleInfo',
+                )}
               />
               <InputFormItem
                 name="additionalInfo"
-                label={i18n('entities.deliveryMethod.fields.additionalInfo')}      
+                label={i18n(
+                  'entities.deliveryMethod.fields.additionalInfo',
+                )}
               />
               <SelectFormItem
                 name="active"
-                label={i18n('entities.deliveryMethod.fields.active')}
+                label={i18n(
+                  'entities.deliveryMethod.fields.active',
+                )}
                 options={[
                   {
                     value: true,

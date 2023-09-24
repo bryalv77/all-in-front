@@ -1,8 +1,8 @@
-import list from 'src/modules/playlistSong/list/playlistSongListReducers';
-import form from 'src/modules/playlistSong/form/playlistSongFormReducers';
-import view from 'src/modules/playlistSong/view/playlistSongViewReducers';
-import destroy from 'src/modules/playlistSong/destroy/playlistSongDestroyReducers';
-import importerReducer from 'src/modules/playlistSong/importer/playlistSongImporterReducers';
+import list from '../../../modules/playlistSong/list/playlistSongListReducers';
+import form from '../../../modules/playlistSong/form/playlistSongFormReducers';
+import view from '../../../modules/playlistSong/view/playlistSongViewReducers';
+import destroy from '../../../modules/playlistSong/destroy/playlistSongDestroyReducers';
+import importerReducer from '../../../modules/playlistSong/importer/playlistSongImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

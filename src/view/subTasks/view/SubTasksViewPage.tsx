@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/subTasks/view/subTasksViewActions';
-import selectors from 'src/modules/subTasks/view/subTasksViewSelectors';
-import SubTasksView from 'src/view/subTasks/view/SubTasksView';
-import SubTasksViewToolbar from 'src/view/subTasks/view/SubTasksViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/subTasks/view/subTasksViewActions';
+import selectors from '../../../modules/subTasks/view/subTasksViewSelectors';
+import SubTasksView from '../../../view/subTasks/view/SubTasksView';
+import SubTasksViewToolbar from '../../../view/subTasks/view/SubTasksViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function SubTasksPage() {
   const dispatch = useDispatch();

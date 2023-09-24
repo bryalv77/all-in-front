@@ -8,11 +8,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import actions from 'src/modules/user/form/userFormActions';
-import userEnumerators from 'src/modules/user/userEnumerators';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import actions from '../../../modules/user/form/userFormActions';
+import userEnumerators from '../../../modules/user/userEnumerators';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({

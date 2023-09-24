@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
-import authSelectors from 'src/modules/auth/authSelectors';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import actions from 'src/modules/tenant/invitation/tenantInvitationActions';
-import selectors from 'src/modules/tenant/invitation/tenantInvitationSelectors';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import { i18n } from '../../../i18n';
+import authSelectors from '../../../modules/auth/authSelectors';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import actions from '../../../modules/tenant/invitation/tenantInvitationActions';
+import selectors from '../../../modules/tenant/invitation/tenantInvitationSelectors';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 

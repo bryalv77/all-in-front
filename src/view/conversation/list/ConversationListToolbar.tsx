@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import conversationSelectors from 'src/modules/conversation/conversationSelectors';
-import destroyActions from 'src/modules/conversation/destroy/conversationDestroyActions';
-import destroySelectors from 'src/modules/conversation/destroy/conversationDestroySelectors';
-import actions from 'src/modules/conversation/list/conversationListActions';
-import selectors from 'src/modules/conversation/list/conversationListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import conversationSelectors from '../../../modules/conversation/conversationSelectors';
+import destroyActions from '../../../modules/conversation/destroy/conversationDestroyActions';
+import destroySelectors from '../../../modules/conversation/destroy/conversationDestroySelectors';
+import actions from '../../../modules/conversation/list/conversationListActions';
+import selectors from '../../../modules/conversation/list/conversationListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function ConversationToolbar(props) {
   const [

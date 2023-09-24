@@ -1,4 +1,4 @@
-import actions from 'src/modules/bank/view/bankViewActions';
+import actions from '../../../modules/bank/view/bankViewActions';
 
 const initialData = {
   loading: false,

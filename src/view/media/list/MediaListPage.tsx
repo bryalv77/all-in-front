@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import MediaListFilter from 'src/view/media/list/MediaListFilter';
-import MediaListTable from 'src/view/media/list/MediaListTable';
-import MediaListToolbar from 'src/view/media/list/MediaListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import MediaListFilter from '../../../view/media/list/MediaListFilter';
+import MediaListTable from '../../../view/media/list/MediaListTable';
+import MediaListToolbar from '../../../view/media/list/MediaListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function MediaListPage(props) {
   return (

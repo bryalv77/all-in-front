@@ -1,8 +1,8 @@
-import list from 'src/modules/tags/list/tagsListReducers';
-import form from 'src/modules/tags/form/tagsFormReducers';
-import view from 'src/modules/tags/view/tagsViewReducers';
-import destroy from 'src/modules/tags/destroy/tagsDestroyReducers';
-import importerReducer from 'src/modules/tags/importer/tagsImporterReducers';
+import list from '../../../modules/tags/list/tagsListReducers';
+import form from '../../../modules/tags/form/tagsFormReducers';
+import view from '../../../modules/tags/view/tagsViewReducers';
+import destroy from '../../../modules/tags/destroy/tagsDestroyReducers';
+import importerReducer from '../../../modules/tags/importer/tagsImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

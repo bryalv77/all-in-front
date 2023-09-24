@@ -1,4 +1,4 @@
-import actions from 'src/modules/customer/form/customerFormActions';
+import actions from '../../../modules/customer/form/customerFormActions';
 
 const initialData = {
   initLoading: false,

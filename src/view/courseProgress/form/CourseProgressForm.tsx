@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import StudentAutocompleteFormItem from 'src/view/student/autocomplete/StudentAutocompleteFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import LessonAutocompleteFormItem from 'src/view/lesson/autocomplete/LessonAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import StudentAutocompleteFormItem from '../../../view/student/autocomplete/StudentAutocompleteFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import LessonAutocompleteFormItem from '../../../view/lesson/autocomplete/LessonAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -25,7 +25,9 @@ const schema = yup.object().shape({
     {},
   ),
   progressPercentage: yupFormSchemas.decimal(
-    i18n('entities.courseProgress.fields.progressPercentage'),
+    i18n(
+      'entities.courseProgress.fields.progressPercentage',
+    ),
     {},
   ),
   currentLesson: yupFormSchemas.relationToOne(
@@ -68,21 +70,33 @@ function CourseProgressForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <StudentAutocompleteFormItem  
+          <StudentAutocompleteFormItem
             name="studentId"
-            label={i18n('entities.courseProgress.fields.studentId')}
-          placeholder={i18n('entities.courseProgress.placeholders.studentId')}
-          hint={i18n('entities.courseProgress.hints.studentId')}
+            label={i18n(
+              'entities.courseProgress.fields.studentId',
+            )}
+            placeholder={i18n(
+              'entities.courseProgress.placeholders.studentId',
+            )}
+            hint={i18n(
+              'entities.courseProgress.hints.studentId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <CourseAutocompleteFormItem  
+          <CourseAutocompleteFormItem
             name="courseId"
-            label={i18n('entities.courseProgress.fields.courseId')}
-          placeholder={i18n('entities.courseProgress.placeholders.courseId')}
-          hint={i18n('entities.courseProgress.hints.courseId')}
+            label={i18n(
+              'entities.courseProgress.fields.courseId',
+            )}
+            placeholder={i18n(
+              'entities.courseProgress.placeholders.courseId',
+            )}
+            hint={i18n(
+              'entities.courseProgress.hints.courseId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -90,18 +104,30 @@ function CourseProgressForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="progressPercentage"
-            label={i18n('entities.courseProgress.fields.progressPercentage')}
-          placeholder={i18n('entities.courseProgress.placeholders.progressPercentage')}
-          hint={i18n('entities.courseProgress.hints.progressPercentage')}  
+            label={i18n(
+              'entities.courseProgress.fields.progressPercentage',
+            )}
+            placeholder={i18n(
+              'entities.courseProgress.placeholders.progressPercentage',
+            )}
+            hint={i18n(
+              'entities.courseProgress.hints.progressPercentage',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <LessonAutocompleteFormItem  
+          <LessonAutocompleteFormItem
             name="currentLesson"
-            label={i18n('entities.courseProgress.fields.currentLesson')}
-          placeholder={i18n('entities.courseProgress.placeholders.currentLesson')}
-          hint={i18n('entities.courseProgress.hints.currentLesson')}
+            label={i18n(
+              'entities.courseProgress.fields.currentLesson',
+            )}
+            placeholder={i18n(
+              'entities.courseProgress.placeholders.currentLesson',
+            )}
+            hint={i18n(
+              'entities.courseProgress.hints.currentLesson',
+            )}
             required={false}
             showCreate={!props.modal}
           />

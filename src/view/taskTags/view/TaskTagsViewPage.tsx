@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/taskTags/view/taskTagsViewActions';
-import selectors from 'src/modules/taskTags/view/taskTagsViewSelectors';
-import TaskTagsView from 'src/view/taskTags/view/TaskTagsView';
-import TaskTagsViewToolbar from 'src/view/taskTags/view/TaskTagsViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/taskTags/view/taskTagsViewActions';
+import selectors from '../../../modules/taskTags/view/taskTagsViewSelectors';
+import TaskTagsView from '../../../view/taskTags/view/TaskTagsView';
+import TaskTagsViewToolbar from '../../../view/taskTags/view/TaskTagsViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function TaskTagsPage() {
   const dispatch = useDispatch();

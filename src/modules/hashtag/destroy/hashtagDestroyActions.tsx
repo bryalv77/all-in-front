@@ -1,9 +1,9 @@
-import listActions from 'src/modules/hashtag/list/hashtagListActions';
-import HashtagService from 'src/modules/hashtag/hashtagService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/hashtag/list/hashtagListActions';
+import HashtagService from '../../../modules/hashtag/hashtagService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'HASHTAG_DESTROY';
 

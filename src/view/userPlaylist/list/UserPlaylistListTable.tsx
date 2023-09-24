@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import userPlaylistSelectors from 'src/modules/userPlaylist/userPlaylistSelectors';
-import destroyActions from 'src/modules/userPlaylist/destroy/userPlaylistDestroyActions';
-import destroySelectors from 'src/modules/userPlaylist/destroy/userPlaylistDestroySelectors';
-import actions from 'src/modules/userPlaylist/list/userPlaylistListActions';
-import selectors from 'src/modules/userPlaylist/list/userPlaylistListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
-import PlaylistListItem from 'src/view/playlist/list/PlaylistListItem';
+import { i18n } from '../../../i18n';
+import userPlaylistSelectors from '../../../modules/userPlaylist/userPlaylistSelectors';
+import destroyActions from '../../../modules/userPlaylist/destroy/userPlaylistDestroyActions';
+import destroySelectors from '../../../modules/userPlaylist/destroy/userPlaylistDestroySelectors';
+import actions from '../../../modules/userPlaylist/list/userPlaylistListActions';
+import selectors from '../../../modules/userPlaylist/list/userPlaylistListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
+import PlaylistListItem from '../../../view/playlist/list/PlaylistListItem';
 
 function UserPlaylistListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,16 +108,16 @@ function UserPlaylistListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.userPlaylist.fields.userId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.userPlaylist.fields.playlistId',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.userPlaylist.fields.userId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.userPlaylist.fields.playlistId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -162,7 +160,9 @@ function UserPlaylistListTable(props) {
                     <UserListItem value={row.userId} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <PlaylistListItem value={row.playlistId} />
+                    <PlaylistListItem
+                      value={row.playlistId}
+                    />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

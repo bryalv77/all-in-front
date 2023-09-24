@@ -1,4 +1,4 @@
-import selectors from 'src/modules/user/userSelectors';
+import selectors from '../../../modules/user/userSelectors';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';

@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import serviceSelectors from 'src/modules/service/serviceSelectors';
-import destroyActions from 'src/modules/service/destroy/serviceDestroyActions';
-import destroySelectors from 'src/modules/service/destroy/serviceDestroySelectors';
-import actions from 'src/modules/service/list/serviceListActions';
-import selectors from 'src/modules/service/list/serviceListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
-import BusinessListItem from 'src/view/business/list/BusinessListItem';
+import { i18n } from '../../../i18n';
+import serviceSelectors from '../../../modules/service/serviceSelectors';
+import destroyActions from '../../../modules/service/destroy/serviceDestroyActions';
+import destroySelectors from '../../../modules/service/destroy/serviceDestroySelectors';
+import actions from '../../../modules/service/list/serviceListActions';
+import selectors from '../../../modules/service/list/serviceListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
+import BusinessListItem from '../../../view/business/list/BusinessListItem';
 
 function ServiceListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,63 +108,61 @@ function ServiceListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.service.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.service.fields.photo',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.service.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'hoursDuration'}
-                  label={i18n(
-                    'entities.service.fields.hoursDuration',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'price'}
-                  label={i18n(
-                    'entities.service.fields.price',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.service.fields.businessId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'active'}
-                  label={i18n(
-                    'entities.service.fields.active',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n('entities.service.fields.name')}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.service.fields.photo',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.service.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'hoursDuration'}
+                label={i18n(
+                  'entities.service.fields.hoursDuration',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'price'}
+                label={i18n(
+                  'entities.service.fields.price',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.service.fields.businessId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'active'}
+                label={i18n(
+                  'entities.service.fields.active',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -205,19 +201,31 @@ function ServiceListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ImagesListView value={row.photo} />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.description}</td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.description}
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.hoursDuration}
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.price}
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <BusinessListItem value={row.businessId} />
+                    <BusinessListItem
+                      value={row.businessId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.active

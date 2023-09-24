@@ -1,9 +1,9 @@
-import listActions from 'src/modules/courseEnrollment/list/courseEnrollmentListActions';
-import CourseEnrollmentService from 'src/modules/courseEnrollment/courseEnrollmentService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/courseEnrollment/list/courseEnrollmentListActions';
+import CourseEnrollmentService from '../../../modules/courseEnrollment/courseEnrollmentService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'COURSEENROLLMENT_DESTROY';
 
@@ -64,7 +64,9 @@ const courseEnrollmentDestroyActions = {
       }
 
       Message.success(
-        i18n('entities.courseEnrollment.destroyAll.success'),
+        i18n(
+          'entities.courseEnrollment.destroyAll.success',
+        ),
       );
 
       getHistory().push('/course-enrollment');

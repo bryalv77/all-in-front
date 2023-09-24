@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/userPlaylist/view/userPlaylistViewActions';
-import selectors from 'src/modules/userPlaylist/view/userPlaylistViewSelectors';
-import UserPlaylistView from 'src/view/userPlaylist/view/UserPlaylistView';
-import UserPlaylistViewToolbar from 'src/view/userPlaylist/view/UserPlaylistViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/userPlaylist/view/userPlaylistViewActions';
+import selectors from '../../../modules/userPlaylist/view/userPlaylistViewSelectors';
+import UserPlaylistView from '../../../view/userPlaylist/view/UserPlaylistView';
+import UserPlaylistViewToolbar from '../../../view/userPlaylist/view/UserPlaylistViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function UserPlaylistPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function UserPlaylistPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.userPlaylist.menu'), '/user-playlist'],
+          [
+            i18n('entities.userPlaylist.menu'),
+            '/user-playlist',
+          ],
           [i18n('entities.userPlaylist.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function UserPlaylistPage() {
 
         <UserPlaylistViewToolbar match={match} />
 
-        <UserPlaylistView loading={loading} record={record} />
+        <UserPlaylistView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

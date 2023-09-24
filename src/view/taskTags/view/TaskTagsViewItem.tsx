@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/taskTags/taskTagsSelectors';
+import selectors from '../../../modules/taskTags/taskTagsSelectors';
 
 function TaskTagsViewItem(props) {
   const hasPermissionToRead = useSelector(

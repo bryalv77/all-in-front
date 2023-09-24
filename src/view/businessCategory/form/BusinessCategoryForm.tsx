@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
-import BusinessCategoryAutocompleteFormItem from 'src/view/businessCategory/autocomplete/BusinessCategoryAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
+import BusinessCategoryAutocompleteFormItem from '../../../view/businessCategory/autocomplete/BusinessCategoryAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -26,7 +26,9 @@ const schema = yup.object().shape({
     {},
   ),
   parentBusinessType: yupFormSchemas.relationToOne(
-    i18n('entities.businessCategory.fields.parentBusinessType'),
+    i18n(
+      'entities.businessCategory.fields.parentBusinessType',
+    ),
     {},
   ),
   description: yupFormSchemas.string(
@@ -71,29 +73,45 @@ function BusinessCategoryForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <InputFormItem
             name="name"
-            label={i18n('entities.businessCategory.fields.name')}
-          placeholder={i18n('entities.businessCategory.placeholders.name')}
-          hint={i18n('entities.businessCategory.hints.name')}
+            label={i18n(
+              'entities.businessCategory.fields.name',
+            )}
+            placeholder={i18n(
+              'entities.businessCategory.placeholders.name',
+            )}
+            hint={i18n(
+              'entities.businessCategory.hints.name',
+            )}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <ImagesFormItem
             name="logo"
-            label={i18n('entities.businessCategory.fields.logo')}
+            label={i18n(
+              'entities.businessCategory.fields.logo',
+            )}
             required={false}
             storage={Storage.values.businessCategoryLogo}
             max={undefined}
-          hint={i18n('entities.businessCategory.hints.logo')}
+            hint={i18n(
+              'entities.businessCategory.hints.logo',
+            )}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <BusinessCategoryAutocompleteFormItem  
+          <BusinessCategoryAutocompleteFormItem
             name="parentBusinessType"
-            label={i18n('entities.businessCategory.fields.parentBusinessType')}
-          placeholder={i18n('entities.businessCategory.placeholders.parentBusinessType')}
-          hint={i18n('entities.businessCategory.hints.parentBusinessType')}
+            label={i18n(
+              'entities.businessCategory.fields.parentBusinessType',
+            )}
+            placeholder={i18n(
+              'entities.businessCategory.placeholders.parentBusinessType',
+            )}
+            hint={i18n(
+              'entities.businessCategory.hints.parentBusinessType',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -101,9 +119,15 @@ function BusinessCategoryForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.businessCategory.fields.description')}
-          placeholder={i18n('entities.businessCategory.placeholders.description')}
-          hint={i18n('entities.businessCategory.hints.description')}  
+            label={i18n(
+              'entities.businessCategory.fields.description',
+            )}
+            placeholder={i18n(
+              'entities.businessCategory.placeholders.description',
+            )}
+            hint={i18n(
+              'entities.businessCategory.hints.description',
+            )}
             required={false}
           />
         </div>

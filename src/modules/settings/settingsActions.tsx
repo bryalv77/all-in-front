@@ -1,10 +1,10 @@
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
-import SettingsService from 'src/modules/settings/settingsService';
-import Message from 'src/view/shared/message';
-import { i18n } from 'src/i18n';
-import authSelectors from 'src/modules/auth/authSelectors';
-import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
+import SettingsService from '../../../modules/settings/settingsService';
+import Message from '../../../view/shared/message';
+import { i18n } from '../../../i18n';
+import authSelectors from '../../../modules/auth/authSelectors';
+import AuthCurrentTenant from '../../../modules/auth/authCurrentTenant';
 
 const prefix = 'SETTINGS';
 

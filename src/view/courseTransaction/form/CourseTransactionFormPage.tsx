@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseTransaction/form/courseTransactionFormActions';
-import selectors from 'src/modules/courseTransaction/form/courseTransactionFormSelectors';
-import { getHistory } from 'src/modules/store';
-import CourseTransactionForm from 'src/view/courseTransaction/form/CourseTransactionForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseTransaction/form/courseTransactionFormActions';
+import selectors from '../../../modules/courseTransaction/form/courseTransactionFormSelectors';
+import { getHistory } from '../../../modules/store';
+import CourseTransactionForm from '../../../view/courseTransaction/form/CourseTransactionForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function CourseTransactionFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function CourseTransactionFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseTransaction.menu'), '/course-transaction'],
+          [
+            i18n('entities.courseTransaction.menu'),
+            '/course-transaction',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function CourseTransactionFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/course-transaction')}
+            onCancel={() =>
+              getHistory().push('/course-transaction')
+            }
           />
         )}
       </div>

@@ -1,6 +1,6 @@
-import BusinessService from 'src/modules/business/businessService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import BusinessService from '../../../modules/business/businessService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'BUSINESS_VIEW';
 

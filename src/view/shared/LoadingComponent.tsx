@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import ProgressBar from 'src/view/shared/ProgressBar';
+import ProgressBar from '../../../view/shared/ProgressBar';
 
 export default function LoadingComponent() {
   useEffect(() => {

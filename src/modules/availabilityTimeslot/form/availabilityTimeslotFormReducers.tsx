@@ -1,4 +1,4 @@
-import actions from 'src/modules/availabilityTimeslot/form/availabilityTimeslotFormActions';
+import actions from '../../../modules/availabilityTimeslot/form/availabilityTimeslotFormActions';
 
 const initialData = {
   initLoading: false,

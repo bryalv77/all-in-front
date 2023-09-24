@@ -1,6 +1,6 @@
-import MessageService from 'src/modules/message/messageService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import MessageService from '../../../modules/message/messageService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'MESSAGE_VIEW';
 

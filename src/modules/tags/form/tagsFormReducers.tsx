@@ -1,4 +1,4 @@
-import actions from 'src/modules/tags/form/tagsFormActions';
+import actions from '../../../modules/tags/form/tagsFormActions';
 
 const initialData = {
   initLoading: false,

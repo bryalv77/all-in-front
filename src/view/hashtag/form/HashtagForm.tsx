@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputNumberFormItem from 'src/view/shared/form/items/InputNumberFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputNumberFormItem from '../../../view/shared/form/items/InputNumberFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -58,19 +58,29 @@ function HashtagForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <InputFormItem
             name="hashtagText"
-            label={i18n('entities.hashtag.fields.hashtagText')}
-          placeholder={i18n('entities.hashtag.placeholders.hashtagText')}
-          hint={i18n('entities.hashtag.hints.hashtagText')}
+            label={i18n(
+              'entities.hashtag.fields.hashtagText',
+            )}
+            placeholder={i18n(
+              'entities.hashtag.placeholders.hashtagText',
+            )}
+            hint={i18n(
+              'entities.hashtag.hints.hashtagText',
+            )}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputNumberFormItem
             name="usageCount"
-            label={i18n('entities.hashtag.fields.usageCount')}
-          placeholder={i18n('entities.hashtag.placeholders.usageCount')}
-          hint={i18n('entities.hashtag.hints.usageCount')}  
+            label={i18n(
+              'entities.hashtag.fields.usageCount',
+            )}
+            placeholder={i18n(
+              'entities.hashtag.placeholders.usageCount',
+            )}
+            hint={i18n('entities.hashtag.hints.usageCount')}
             required={false}
           />
         </div>

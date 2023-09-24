@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/user/importer/userImporterSelectors';
-import UserService from 'src/modules/user/userService';
-import fields from 'src/modules/user/importer/userImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/user/importer/userImporterSelectors';
+import UserService from '../../../modules/user/userService';
+import fields from '../../../modules/user/importer/userImporterFields';
+import { i18n } from '../../../i18n';
 
 const userImporterActions = importerActions(
   'USER_IMPORTER',

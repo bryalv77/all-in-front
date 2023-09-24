@@ -1,11 +1,11 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
 import moment from 'moment';
-import CustomerViewItem from 'src/view/customer/view/CustomerViewItem';
-import ServiceViewItem from 'src/view/service/view/ServiceViewItem';
-import AvailabilityTimeslotViewItem from 'src/view/availabilityTimeslot/view/AvailabilityTimeslotViewItem';
+import CustomerViewItem from '../../../view/customer/view/CustomerViewItem';
+import ServiceViewItem from '../../../view/service/view/ServiceViewItem';
+import AvailabilityTimeslotViewItem from '../../../view/availabilityTimeslot/view/AvailabilityTimeslotViewItem';
 
 function AppointmentView(props) {
   const { record, loading } = props;
@@ -22,26 +22,34 @@ function AppointmentView(props) {
       />
 
       <ServiceViewItem
-        label={i18n('entities.appointment.fields.serviceId')}
+        label={i18n(
+          'entities.appointment.fields.serviceId',
+        )}
         value={record.serviceId}
       />
 
       <AvailabilityTimeslotViewItem
-        label={i18n('entities.appointment.fields.timeslotId')}
+        label={i18n(
+          'entities.appointment.fields.timeslotId',
+        )}
         value={record.timeslotId}
       />
 
-      {record.appointmentDate && <TextViewItem
-        label={i18n(
-          'entities.appointment.fields.appointmentDate',
-        )}
-        value={moment(record.appointmentDate).format(
-          'YYYY-MM-DD HH:mm',
-        )}
-      />}
+      {record.appointmentDate && (
+        <TextViewItem
+          label={i18n(
+            'entities.appointment.fields.appointmentDate',
+          )}
+          value={moment(record.appointmentDate).format(
+            'YYYY-MM-DD HH:mm',
+          )}
+        />
+      )}
 
       <TextViewItem
-        label={i18n('entities.appointment.fields.appointmentStatus')}
+        label={i18n(
+          'entities.appointment.fields.appointmentStatus',
+        )}
         value={
           record.appointmentStatus &&
           i18n(
@@ -51,7 +59,9 @@ function AppointmentView(props) {
       />
 
       <TextViewItem
-        label={i18n('entities.appointment.fields.paymentStatus')}
+        label={i18n(
+          'entities.appointment.fields.paymentStatus',
+        )}
         value={
           record.paymentStatus &&
           i18n(

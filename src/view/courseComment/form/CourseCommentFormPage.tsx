@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseComment/form/courseCommentFormActions';
-import selectors from 'src/modules/courseComment/form/courseCommentFormSelectors';
-import { getHistory } from 'src/modules/store';
-import CourseCommentForm from 'src/view/courseComment/form/CourseCommentForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseComment/form/courseCommentFormActions';
+import selectors from '../../../modules/courseComment/form/courseCommentFormSelectors';
+import { getHistory } from '../../../modules/store';
+import CourseCommentForm from '../../../view/courseComment/form/CourseCommentForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function CourseCommentFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function CourseCommentFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseComment.menu'), '/course-comment'],
+          [
+            i18n('entities.courseComment.menu'),
+            '/course-comment',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function CourseCommentFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/course-comment')}
+            onCancel={() =>
+              getHistory().push('/course-comment')
+            }
           />
         )}
       </div>

@@ -1,4 +1,4 @@
-import actions from 'src/modules/plan/planActions';
+import actions from '../../../modules/plan/planActions';
 
 const initialData = {
   loading: false,

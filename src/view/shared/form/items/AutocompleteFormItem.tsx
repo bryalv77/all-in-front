@@ -1,14 +1,14 @@
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import FormErrors from 'src/view/shared/form/formErrors';
+import FormErrors from '../../../view/shared/form/formErrors';
 import AsyncSelect from 'react-select/async';
 import { useFormContext } from 'react-hook-form';
-import layoutSelectors from 'src/modules/layout/layoutSelectors';
+import layoutSelectors from '../../../modules/layout/layoutSelectors';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import selectControlStyles from 'src/view/shared/form/items/selectControlStyles';
+import selectControlStyles from '../../../view/shared/form/items/selectControlStyles';
 import { v4 as uuid } from 'uuid';
 
 const AUTOCOMPLETE_SERVER_FETCH_SIZE = 100;
@@ -84,7 +84,10 @@ function AutocompleteFormItem(props) {
 
   const handleSelectMultiple = (values) => {
     if (!values) {
-      setValue(name, [], { shouldValidate: true, shouldDirty: true });
+      setValue(name, [], {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
       props.onChange && props.onChange([]);
       return;
     }
@@ -92,19 +95,28 @@ function AutocompleteFormItem(props) {
     const newValue = values.map((value) =>
       mapper.toValue(value),
     );
-    setValue(name, newValue, { shouldValidate: true, shouldDirty: true });
+    setValue(name, newValue, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
     props.onChange && props.onChange(newValue);
   };
 
   const handleSelectOne = (value) => {
     if (!value) {
-      setValue(name, null, { shouldValidate: true, shouldDirty: true });
+      setValue(name, null, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
       props.onChange && props.onChange(null);
       return;
     }
 
     const newValue = mapper.toValue(value);
-    setValue(name, newValue, { shouldValidate: true, shouldDirty: true });
+    setValue(name, newValue, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
     props.onChange && props.onChange(newValue);
   };
 

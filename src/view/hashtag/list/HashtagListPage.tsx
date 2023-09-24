@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import HashtagListFilter from 'src/view/hashtag/list/HashtagListFilter';
-import HashtagListTable from 'src/view/hashtag/list/HashtagListTable';
-import HashtagListToolbar from 'src/view/hashtag/list/HashtagListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import HashtagListFilter from '../../../view/hashtag/list/HashtagListFilter';
+import HashtagListTable from '../../../view/hashtag/list/HashtagListTable';
+import HashtagListToolbar from '../../../view/hashtag/list/HashtagListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function HashtagListPage(props) {
   return (

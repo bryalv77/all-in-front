@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import messageSelectors from 'src/modules/message/messageSelectors';
-import destroyActions from 'src/modules/message/destroy/messageDestroyActions';
-import destroySelectors from 'src/modules/message/destroy/messageDestroySelectors';
-import actions from 'src/modules/message/list/messageListActions';
-import selectors from 'src/modules/message/list/messageListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import messageSelectors from '../../../modules/message/messageSelectors';
+import destroyActions from '../../../modules/message/destroy/messageDestroyActions';
+import destroySelectors from '../../../modules/message/destroy/messageDestroySelectors';
+import actions from '../../../modules/message/list/messageListActions';
+import selectors from '../../../modules/message/list/messageListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function MessageToolbar(props) {
   const [

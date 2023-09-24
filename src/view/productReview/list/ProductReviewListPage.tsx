@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import ProductReviewListFilter from 'src/view/productReview/list/ProductReviewListFilter';
-import ProductReviewListTable from 'src/view/productReview/list/ProductReviewListTable';
-import ProductReviewListToolbar from 'src/view/productReview/list/ProductReviewListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import ProductReviewListFilter from '../../../view/productReview/list/ProductReviewListFilter';
+import ProductReviewListTable from '../../../view/productReview/list/ProductReviewListTable';
+import ProductReviewListToolbar from '../../../view/productReview/list/ProductReviewListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ProductReviewListPage(props) {
   return (

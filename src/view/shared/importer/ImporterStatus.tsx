@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 
 export default (selectors) => {
   function ImporterStatus() {

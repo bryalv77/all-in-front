@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import courseEnrollmentSelectors from 'src/modules/courseEnrollment/courseEnrollmentSelectors';
-import destroyActions from 'src/modules/courseEnrollment/destroy/courseEnrollmentDestroyActions';
-import destroySelectors from 'src/modules/courseEnrollment/destroy/courseEnrollmentDestroySelectors';
-import actions from 'src/modules/courseEnrollment/list/courseEnrollmentListActions';
-import selectors from 'src/modules/courseEnrollment/list/courseEnrollmentListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import courseEnrollmentSelectors from '../../../modules/courseEnrollment/courseEnrollmentSelectors';
+import destroyActions from '../../../modules/courseEnrollment/destroy/courseEnrollmentDestroyActions';
+import destroySelectors from '../../../modules/courseEnrollment/destroy/courseEnrollmentDestroySelectors';
+import actions from '../../../modules/courseEnrollment/list/courseEnrollmentListActions';
+import selectors from '../../../modules/courseEnrollment/list/courseEnrollmentListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CourseEnrollmentToolbar(props) {
   const [

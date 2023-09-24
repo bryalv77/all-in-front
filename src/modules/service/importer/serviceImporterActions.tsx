@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/service/importer/serviceImporterSelectors';
-import ServiceService from 'src/modules/service/serviceService';
-import fields from 'src/modules/service/importer/serviceImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/service/importer/serviceImporterSelectors';
+import ServiceService from '../../../modules/service/serviceService';
+import fields from '../../../modules/service/importer/serviceImporterFields';
+import { i18n } from '../../../i18n';
 
 const serviceImporterActions = importerActions(
   'SERVICE_IMPORTER',

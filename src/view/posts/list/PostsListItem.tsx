@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/posts/postsSelectors';
+import selectors from '../../../modules/posts/postsSelectors';
 
 function PostsListItem(props) {
   const hasPermissionToRead = useSelector(

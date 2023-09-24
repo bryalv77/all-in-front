@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/category/importer/categoryImporterActions';
-import fields from 'src/modules/category/importer/categoryImporterFields';
-import selectors from 'src/modules/category/importer/categoryImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/category/importer/categoryImporterActions';
+import fields from '../../../modules/category/importer/categoryImporterFields';
+import selectors from '../../../modules/category/importer/categoryImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function CategoryImportPage() {
   const Importer = importerHoc(

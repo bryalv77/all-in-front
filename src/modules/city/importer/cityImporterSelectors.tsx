@@ -1,7 +1,6 @@
-import importerSelectors from 'src/modules/shared/importer/importerSelectors';
+import importerSelectors from '../../../modules/shared/importer/importerSelectors';
 
-const cityImporterSelectors = importerSelectors(
-  'city.importer',
-);
+const cityImporterSelectors =
+  importerSelectors('city.importer');
 
 export default cityImporterSelectors;

@@ -1,4 +1,4 @@
-import actions from 'src/modules/taskList/form/taskListFormActions';
+import actions from '../../../modules/taskList/form/taskListFormActions';
 
 const initialData = {
   initLoading: false,

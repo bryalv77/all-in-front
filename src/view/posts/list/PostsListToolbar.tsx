@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import postsSelectors from 'src/modules/posts/postsSelectors';
-import destroyActions from 'src/modules/posts/destroy/postsDestroyActions';
-import destroySelectors from 'src/modules/posts/destroy/postsDestroySelectors';
-import actions from 'src/modules/posts/list/postsListActions';
-import selectors from 'src/modules/posts/list/postsListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import postsSelectors from '../../../modules/posts/postsSelectors';
+import destroyActions from '../../../modules/posts/destroy/postsDestroyActions';
+import destroySelectors from '../../../modules/posts/destroy/postsDestroySelectors';
+import actions from '../../../modules/posts/list/postsListActions';
+import selectors from '../../../modules/posts/list/postsListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function PostsToolbar(props) {
   const [

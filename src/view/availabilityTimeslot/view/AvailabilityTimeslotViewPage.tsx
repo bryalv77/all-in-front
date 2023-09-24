@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/availabilityTimeslot/view/availabilityTimeslotViewActions';
-import selectors from 'src/modules/availabilityTimeslot/view/availabilityTimeslotViewSelectors';
-import AvailabilityTimeslotView from 'src/view/availabilityTimeslot/view/AvailabilityTimeslotView';
-import AvailabilityTimeslotViewToolbar from 'src/view/availabilityTimeslot/view/AvailabilityTimeslotViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/availabilityTimeslot/view/availabilityTimeslotViewActions';
+import selectors from '../../../modules/availabilityTimeslot/view/availabilityTimeslotViewSelectors';
+import AvailabilityTimeslotView from '../../../view/availabilityTimeslot/view/AvailabilityTimeslotView';
+import AvailabilityTimeslotViewToolbar from '../../../view/availabilityTimeslot/view/AvailabilityTimeslotViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function AvailabilityTimeslotPage() {
   const dispatch = useDispatch();
@@ -24,8 +24,15 @@ function AvailabilityTimeslotPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.availabilityTimeslot.menu'), '/availability-timeslot'],
-          [i18n('entities.availabilityTimeslot.view.title')],
+          [
+            i18n('entities.availabilityTimeslot.menu'),
+            '/availability-timeslot',
+          ],
+          [
+            i18n(
+              'entities.availabilityTimeslot.view.title',
+            ),
+          ],
         ]}
       />
 
@@ -36,7 +43,10 @@ function AvailabilityTimeslotPage() {
 
         <AvailabilityTimeslotViewToolbar match={match} />
 
-        <AvailabilityTimeslotView loading={loading} record={record} />
+        <AvailabilityTimeslotView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import CountryViewItem from 'src/view/country/view/CountryViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import CountryViewItem from '../../../view/country/view/CountryViewItem';
 
 function CityView(props) {
   const { record, loading } = props;

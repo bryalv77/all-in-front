@@ -7,26 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import courseCommentSelectors from 'src/modules/courseComment/courseCommentSelectors';
-import destroyActions from 'src/modules/courseComment/destroy/courseCommentDestroyActions';
-import destroySelectors from 'src/modules/courseComment/destroy/courseCommentDestroySelectors';
-import actions from 'src/modules/courseComment/list/courseCommentListActions';
-import selectors from 'src/modules/courseComment/list/courseCommentListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import FilesListView from 'src/view/shared/table/FileListView';
-import StudentListItem from 'src/view/student/list/StudentListItem';
-import CourseListItem from 'src/view/course/list/CourseListItem';
-import LessonListItem from 'src/view/lesson/list/LessonListItem';
+import { i18n } from '../../../i18n';
+import courseCommentSelectors from '../../../modules/courseComment/courseCommentSelectors';
+import destroyActions from '../../../modules/courseComment/destroy/courseCommentDestroyActions';
+import destroySelectors from '../../../modules/courseComment/destroy/courseCommentDestroySelectors';
+import actions from '../../../modules/courseComment/list/courseCommentListActions';
+import selectors from '../../../modules/courseComment/list/courseCommentListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import FilesListView from '../../../view/shared/table/FileListView';
+import StudentListItem from '../../../view/student/list/StudentListItem';
+import CourseListItem from '../../../view/course/list/CourseListItem';
+import LessonListItem from '../../../view/lesson/list/LessonListItem';
 
 function CourseCommentListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -112,35 +110,35 @@ function CourseCommentListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'comment'}
-                  label={i18n(
-                    'entities.courseComment.fields.comment',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseComment.fields.studentId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseComment.fields.courseId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseComment.fields.lessonId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseComment.fields.media',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'comment'}
+                label={i18n(
+                  'entities.courseComment.fields.comment',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseComment.fields.studentId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseComment.fields.courseId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseComment.fields.lessonId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseComment.fields.media',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -179,9 +177,13 @@ function CourseCommentListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.comment}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <StudentListItem value={row.studentId} />
+                    {row.comment}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <StudentListItem
+                      value={row.studentId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <CourseListItem value={row.courseId} />
@@ -190,9 +192,7 @@ function CourseCommentListTable(props) {
                     <LessonListItem value={row.lessonId} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <FilesListView
-                      value={row.media}
-                    />
+                    <FilesListView value={row.media} />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

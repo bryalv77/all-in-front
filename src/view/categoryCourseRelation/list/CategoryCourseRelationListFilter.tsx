@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListActions';
-import selectors from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListActions';
+import selectors from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import CourseCategoryAutocompleteFormItem from 'src/view/courseCategory/autocomplete/CourseCategoryAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import CourseCategoryAutocompleteFormItem from '../../../view/courseCategory/autocomplete/CourseCategoryAutocompleteFormItem';
 
 const schema = yup.object().shape({
   courseId: yupFilterSchemas.relationToOne(
@@ -29,18 +29,22 @@ const schema = yup.object().shape({
 const emptyValues = {
   courseId: null,
   category: null,
-}
+};
 
 const previewRenders = {
   courseId: {
-      label: i18n('entities.categoryCourseRelation.fields.courseId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n(
+      'entities.categoryCourseRelation.fields.courseId',
+    ),
+    render: filterRenders.relationToOne(),
+  },
   category: {
-      label: i18n('entities.categoryCourseRelation.fields.category'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n(
+      'entities.categoryCourseRelation.fields.category',
+    ),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function CategoryCourseRelationListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +65,12 @@ function CategoryCourseRelationListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -99,13 +108,17 @@ function CategoryCourseRelationListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <CourseAutocompleteFormItem  
+              <CourseAutocompleteFormItem
                 name="courseId"
-                label={i18n('entities.categoryCourseRelation.fields.courseId')}        
+                label={i18n(
+                  'entities.categoryCourseRelation.fields.courseId',
+                )}
               />
-              <CourseCategoryAutocompleteFormItem  
+              <CourseCategoryAutocompleteFormItem
                 name="category"
-                label={i18n('entities.categoryCourseRelation.fields.category')}        
+                label={i18n(
+                  'entities.categoryCourseRelation.fields.category',
+                )}
               />
             </div>
 

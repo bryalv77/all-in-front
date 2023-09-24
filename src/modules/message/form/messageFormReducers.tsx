@@ -1,4 +1,4 @@
-import actions from 'src/modules/message/form/messageFormActions';
+import actions from '../../../modules/message/form/messageFormActions';
 
 const initialData = {
   initLoading: false,

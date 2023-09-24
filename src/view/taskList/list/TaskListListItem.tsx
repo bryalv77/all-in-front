@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/taskList/taskListSelectors';
+import selectors from '../../../modules/taskList/taskListSelectors';
 
 function TaskListListItem(props) {
   const hasPermissionToRead = useSelector(

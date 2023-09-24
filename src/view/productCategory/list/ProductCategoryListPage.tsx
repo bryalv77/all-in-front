@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import ProductCategoryListFilter from 'src/view/productCategory/list/ProductCategoryListFilter';
-import ProductCategoryListTable from 'src/view/productCategory/list/ProductCategoryListTable';
-import ProductCategoryListToolbar from 'src/view/productCategory/list/ProductCategoryListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import ProductCategoryListFilter from '../../../view/productCategory/list/ProductCategoryListFilter';
+import ProductCategoryListTable from '../../../view/productCategory/list/ProductCategoryListTable';
+import ProductCategoryListToolbar from '../../../view/productCategory/list/ProductCategoryListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ProductCategoryListPage(props) {
   return (

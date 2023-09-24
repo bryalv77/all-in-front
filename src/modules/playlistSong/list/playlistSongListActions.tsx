@@ -1,9 +1,9 @@
-import PlaylistSongService from 'src/modules/playlistSong/playlistSongService';
-import selectors from 'src/modules/playlistSong/list/playlistSongListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/playlistSong/list/playlistSongListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import PlaylistSongService from '../../../modules/playlistSong/playlistSongService';
+import selectors from '../../../modules/playlistSong/list/playlistSongListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/playlistSong/list/playlistSongListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'PLAYLISTSONG_LIST';
 
@@ -86,17 +86,17 @@ const playlistSongListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: playlistSongListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: playlistSongListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(playlistSongListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        playlistSongListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +104,57 @@ const playlistSongListActions = {
       payload: sorter,
     });
 
-    dispatch(playlistSongListActions.doFetchCurrentFilter());
+    dispatch(
+      playlistSongListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(playlistSongListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: playlistSongListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await PlaylistSongService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        playlistSongListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: playlistSongListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: playlistSongListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: playlistSongListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await PlaylistSongService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: playlistSongListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: playlistSongListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default playlistSongListActions;

@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/subTasks/importer/subTasksImporterSelectors';
-import SubTasksService from 'src/modules/subTasks/subTasksService';
-import fields from 'src/modules/subTasks/importer/subTasksImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/subTasks/importer/subTasksImporterSelectors';
+import SubTasksService from '../../../modules/subTasks/subTasksService';
+import fields from '../../../modules/subTasks/importer/subTasksImporterFields';
+import { i18n } from '../../../i18n';
 
 const subTasksImporterActions = importerActions(
   'SUBTASKS_IMPORTER',

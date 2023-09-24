@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/tags/importer/tagsImporterSelectors';
-import TagsService from 'src/modules/tags/tagsService';
-import fields from 'src/modules/tags/importer/tagsImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/tags/importer/tagsImporterSelectors';
+import TagsService from '../../../modules/tags/tagsService';
+import fields from '../../../modules/tags/importer/tagsImporterFields';
+import { i18n } from '../../../i18n';
 
 const tagsImporterActions = importerActions(
   'TAGS_IMPORTER',

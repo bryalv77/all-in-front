@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import userSelectors from 'src/modules/user/userSelectors';
-import selectors from 'src/modules/user/view/userViewSelectors';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import userSelectors from '../../../modules/user/userSelectors';
+import selectors from '../../../modules/user/view/userViewSelectors';
 
 function UserViewToolbar(props) {
   const { match } = props;

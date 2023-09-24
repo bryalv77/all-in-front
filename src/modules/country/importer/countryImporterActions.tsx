@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/country/importer/countryImporterSelectors';
-import CountryService from 'src/modules/country/countryService';
-import fields from 'src/modules/country/importer/countryImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/country/importer/countryImporterSelectors';
+import CountryService from '../../../modules/country/countryService';
+import fields from '../../../modules/country/importer/countryImporterFields';
+import { i18n } from '../../../i18n';
 
 const countryImporterActions = importerActions(
   'COUNTRY_IMPORTER',

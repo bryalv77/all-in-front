@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/album/view/albumViewActions';
-import selectors from 'src/modules/album/view/albumViewSelectors';
-import AlbumView from 'src/view/album/view/AlbumView';
-import AlbumViewToolbar from 'src/view/album/view/AlbumViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/album/view/albumViewActions';
+import selectors from '../../../modules/album/view/albumViewSelectors';
+import AlbumView from '../../../view/album/view/AlbumView';
+import AlbumViewToolbar from '../../../view/album/view/AlbumViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function AlbumPage() {
   const dispatch = useDispatch();

@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import customerSelectors from 'src/modules/customer/customerSelectors';
-import destroyActions from 'src/modules/customer/destroy/customerDestroyActions';
-import destroySelectors from 'src/modules/customer/destroy/customerDestroySelectors';
-import actions from 'src/modules/customer/list/customerListActions';
-import selectors from 'src/modules/customer/list/customerListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import customerSelectors from '../../../modules/customer/customerSelectors';
+import destroyActions from '../../../modules/customer/destroy/customerDestroyActions';
+import destroySelectors from '../../../modules/customer/destroy/customerDestroySelectors';
+import actions from '../../../modules/customer/list/customerListActions';
+import selectors from '../../../modules/customer/list/customerListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CustomerToolbar(props) {
   const [

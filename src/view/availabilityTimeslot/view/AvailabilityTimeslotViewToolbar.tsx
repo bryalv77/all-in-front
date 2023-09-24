@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import availabilityTimeslotSelectors from 'src/modules/availabilityTimeslot/availabilityTimeslotSelectors';
-import destroyActions from 'src/modules/availabilityTimeslot/destroy/availabilityTimeslotDestroyActions';
-import destroySelectors from 'src/modules/availabilityTimeslot/destroy/availabilityTimeslotDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import availabilityTimeslotSelectors from '../../../modules/availabilityTimeslot/availabilityTimeslotSelectors';
+import destroyActions from '../../../modules/availabilityTimeslot/destroy/availabilityTimeslotDestroyActions';
+import destroySelectors from '../../../modules/availabilityTimeslot/destroy/availabilityTimeslotDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function AvailabilityTimeslotViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

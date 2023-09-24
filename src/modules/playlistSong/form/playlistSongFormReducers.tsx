@@ -1,4 +1,4 @@
-import actions from 'src/modules/playlistSong/form/playlistSongFormActions';
+import actions from '../../../modules/playlistSong/form/playlistSongFormActions';
 
 const initialData = {
   initLoading: false,

@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import conversationSelectors from 'src/modules/conversation/conversationSelectors';
-import destroyActions from 'src/modules/conversation/destroy/conversationDestroyActions';
-import destroySelectors from 'src/modules/conversation/destroy/conversationDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import conversationSelectors from '../../../modules/conversation/conversationSelectors';
+import destroyActions from '../../../modules/conversation/destroy/conversationDestroyActions';
+import destroySelectors from '../../../modules/conversation/destroy/conversationDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function ConversationViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

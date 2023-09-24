@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import categoryCourseRelationSelectors from 'src/modules/categoryCourseRelation/categoryCourseRelationSelectors';
-import destroyActions from 'src/modules/categoryCourseRelation/destroy/categoryCourseRelationDestroyActions';
-import destroySelectors from 'src/modules/categoryCourseRelation/destroy/categoryCourseRelationDestroySelectors';
-import actions from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListActions';
-import selectors from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import categoryCourseRelationSelectors from '../../../modules/categoryCourseRelation/categoryCourseRelationSelectors';
+import destroyActions from '../../../modules/categoryCourseRelation/destroy/categoryCourseRelationDestroyActions';
+import destroySelectors from '../../../modules/categoryCourseRelation/destroy/categoryCourseRelationDestroySelectors';
+import actions from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListActions';
+import selectors from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CategoryCourseRelationToolbar(props) {
   const [

@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import CourseCategoryAutocompleteFormItem from 'src/view/courseCategory/autocomplete/CourseCategoryAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import CourseCategoryAutocompleteFormItem from '../../../view/courseCategory/autocomplete/CourseCategoryAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -56,21 +56,33 @@ function CategoryCourseRelationForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <CourseAutocompleteFormItem  
+          <CourseAutocompleteFormItem
             name="courseId"
-            label={i18n('entities.categoryCourseRelation.fields.courseId')}
-          placeholder={i18n('entities.categoryCourseRelation.placeholders.courseId')}
-          hint={i18n('entities.categoryCourseRelation.hints.courseId')}
+            label={i18n(
+              'entities.categoryCourseRelation.fields.courseId',
+            )}
+            placeholder={i18n(
+              'entities.categoryCourseRelation.placeholders.courseId',
+            )}
+            hint={i18n(
+              'entities.categoryCourseRelation.hints.courseId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <CourseCategoryAutocompleteFormItem  
+          <CourseCategoryAutocompleteFormItem
             name="category"
-            label={i18n('entities.categoryCourseRelation.fields.category')}
-          placeholder={i18n('entities.categoryCourseRelation.placeholders.category')}
-          hint={i18n('entities.categoryCourseRelation.hints.category')}
+            label={i18n(
+              'entities.categoryCourseRelation.fields.category',
+            )}
+            placeholder={i18n(
+              'entities.categoryCourseRelation.placeholders.category',
+            )}
+            hint={i18n(
+              'entities.categoryCourseRelation.hints.category',
+            )}
             required={false}
             showCreate={!props.modal}
           />

@@ -7,23 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import RadioFormItem from 'src/view/shared/form/items/RadioFormItem';
-import customerEnumerators from 'src/modules/customer/customerEnumerators';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import RadioFormItem from '../../../view/shared/form/items/RadioFormItem';
+import customerEnumerators from '../../../modules/customer/customerEnumerators';
 import moment from 'moment';
-import DatePickerFormItem from 'src/view/shared/form/items/DatePickerFormItem';
+import DatePickerFormItem from '../../../view/shared/form/items/DatePickerFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
   name: yupFormSchemas.string(
     i18n('entities.customer.fields.name'),
     {
-      "required": true,
-      "min": 2,
-      "max": 255
+      required: true,
+      min: 2,
+      max: 255,
     },
   ),
   birthdate: yupFormSchemas.date(
@@ -33,7 +33,7 @@ const schema = yup.object().shape({
   gender: yupFormSchemas.enumerator(
     i18n('entities.customer.fields.gender'),
     {
-      "options": customerEnumerators.gender
+      options: customerEnumerators.gender,
     },
   ),
   userId: yupFormSchemas.relationToOne(
@@ -50,7 +50,9 @@ function CustomerForm(props) {
 
     return {
       name: record.name,
-      birthdate: record.birthdate ? moment(record.birthdate, 'YYYY-MM-DD').toDate() : null,
+      birthdate: record.birthdate
+        ? moment(record.birthdate, 'YYYY-MM-DD').toDate()
+        : null,
       gender: record.gender,
       userId: record.userId,
     };
@@ -80,13 +82,15 @@ function CustomerForm(props) {
             name="name"
             label={i18n('entities.customer.fields.name')}
             required={true}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <DatePickerFormItem
             name="birthdate"
-            label={i18n('entities.customer.fields.birthdate')}
+            label={i18n(
+              'entities.customer.fields.birthdate',
+            )}
             required={false}
           />
         </div>
@@ -106,11 +110,13 @@ function CustomerForm(props) {
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
             label={i18n('entities.customer.fields.userId')}
-          placeholder={i18n('entities.customer.placeholders.userId')}
-          hint={i18n('entities.customer.hints.userId')}
+            placeholder={i18n(
+              'entities.customer.placeholders.userId',
+            )}
+            hint={i18n('entities.customer.hints.userId')}
             required={false}
             showCreate={!props.modal}
           />

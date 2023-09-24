@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { i18n } from 'src/i18n';
-import statuses from 'src/modules/shared/importer/importerStatuses';
+import { i18n } from '../../../i18n';
+import statuses from '../../../modules/shared/importer/importerStatuses';
 
 function ImporterRowStatus(props) {
   const { value, errorMessage } = props;

@@ -1,6 +1,6 @@
-import AlbumService from 'src/modules/album/albumService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import AlbumService from '../../../modules/album/albumService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'ALBUM_VIEW';
 

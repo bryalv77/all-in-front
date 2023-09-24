@@ -1,4 +1,4 @@
-import actions from 'src/modules/courseTransaction/form/courseTransactionFormActions';
+import actions from '../../../modules/courseTransaction/form/courseTransactionFormActions';
 
 const initialData = {
   initLoading: false,

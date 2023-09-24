@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import BusinessCategoryForm from 'src/view/businessCategory/form/BusinessCategoryForm';
-import BusinessCategoryService from 'src/modules/businessCategory/businessCategoryService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import BusinessCategoryForm from '../../../view/businessCategory/form/BusinessCategoryForm';
+import BusinessCategoryService from '../../../modules/businessCategory/businessCategoryService';
 
 function BusinessCategoryFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);
@@ -13,7 +13,9 @@ function BusinessCategoryFormModal(props) {
   const doSubmit = async (_, data) => {
     try {
       setSaveLoading(true);
-      const { id } = await BusinessCategoryService.create(data);
+      const { id } = await BusinessCategoryService.create(
+        data,
+      );
       const record = await BusinessCategoryService.find(id);
       props.onSuccess(record);
     } catch (error) {
@@ -37,7 +39,9 @@ function BusinessCategoryFormModal(props) {
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="flex items-start justify-between p-5 rounded-t">
               <div className="text-lg font-semibold">
-                {i18n('entities.businessCategory.new.title')}
+                {i18n(
+                  'entities.businessCategory.new.title',
+                )}
               </div>
               <button
                 type="button"

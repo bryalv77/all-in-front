@@ -2,13 +2,13 @@ import queryString from 'query-string';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import authActions from 'src/modules/auth/authActions';
-import selectors from 'src/modules/auth/authSelectors';
-import { getHistory } from 'src/modules/store';
-import invitationActions from 'src/modules/tenant/invitation/tenantInvitationActions';
-import invitationSelectors from 'src/modules/tenant/invitation/tenantInvitationSelectors';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import authActions from '../../../modules/auth/authActions';
+import selectors from '../../../modules/auth/authSelectors';
+import { getHistory } from '../../../modules/store';
+import invitationActions from '../../../modules/tenant/invitation/tenantInvitationActions';
+import invitationSelectors from '../../../modules/tenant/invitation/tenantInvitationSelectors';
+import Spinner from '../../../view/shared/Spinner';
 
 function InviationPage() {
   const dispatch = useDispatch();

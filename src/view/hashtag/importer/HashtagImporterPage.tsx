@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/hashtag/importer/hashtagImporterActions';
-import fields from 'src/modules/hashtag/importer/hashtagImporterFields';
-import selectors from 'src/modules/hashtag/importer/hashtagImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/hashtag/importer/hashtagImporterActions';
+import fields from '../../../modules/hashtag/importer/hashtagImporterFields';
+import selectors from '../../../modules/hashtag/importer/hashtagImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function HashtagImportPage() {
   const Importer = importerHoc(

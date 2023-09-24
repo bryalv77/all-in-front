@@ -1,8 +1,8 @@
-import list from 'src/modules/tasks/list/tasksListReducers';
-import form from 'src/modules/tasks/form/tasksFormReducers';
-import view from 'src/modules/tasks/view/tasksViewReducers';
-import destroy from 'src/modules/tasks/destroy/tasksDestroyReducers';
-import importerReducer from 'src/modules/tasks/importer/tasksImporterReducers';
+import list from '../../../modules/tasks/list/tasksListReducers';
+import form from '../../../modules/tasks/form/tasksFormReducers';
+import view from '../../../modules/tasks/view/tasksViewReducers';
+import destroy from '../../../modules/tasks/destroy/tasksDestroyReducers';
+import importerReducer from '../../../modules/tasks/importer/tasksImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import UserPlaylistListFilter from 'src/view/userPlaylist/list/UserPlaylistListFilter';
-import UserPlaylistListTable from 'src/view/userPlaylist/list/UserPlaylistListTable';
-import UserPlaylistListToolbar from 'src/view/userPlaylist/list/UserPlaylistListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import UserPlaylistListFilter from '../../../view/userPlaylist/list/UserPlaylistListFilter';
+import UserPlaylistListTable from '../../../view/userPlaylist/list/UserPlaylistListTable';
+import UserPlaylistListToolbar from '../../../view/userPlaylist/list/UserPlaylistListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function UserPlaylistListPage(props) {
   return (

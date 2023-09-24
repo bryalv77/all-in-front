@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import AvailabilityTimeslotService from 'src/modules/availabilityTimeslot/availabilityTimeslotService';
-import AvailabilityTimeslotFormModal from 'src/view/availabilityTimeslot/form/AvailabilityTimeslotFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import AvailabilityTimeslotService from '../../../modules/availabilityTimeslot/availabilityTimeslotService';
+import AvailabilityTimeslotFormModal from '../../../view/availabilityTimeslot/form/AvailabilityTimeslotFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/availabilityTimeslot/availabilityTimeslotSelectors';
+import selectors from '../../../modules/availabilityTimeslot/availabilityTimeslotSelectors';
 
 function AvailabilityTimeslotAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function AvailabilityTimeslotAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return AvailabilityTimeslotService.listAutocomplete(value, limit);
+    return AvailabilityTimeslotService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

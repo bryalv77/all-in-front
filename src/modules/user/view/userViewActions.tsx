@@ -1,6 +1,6 @@
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
-import UserService from 'src/modules/user/userService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
+import UserService from '../../../modules/user/userService';
 
 const prefix = 'USER_VIEW';
 

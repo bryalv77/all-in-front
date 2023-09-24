@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/productReview/form/productReviewFormActions';
-import selectors from 'src/modules/productReview/form/productReviewFormSelectors';
-import { getHistory } from 'src/modules/store';
-import ProductReviewForm from 'src/view/productReview/form/ProductReviewForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/productReview/form/productReviewFormActions';
+import selectors from '../../../modules/productReview/form/productReviewFormSelectors';
+import { getHistory } from '../../../modules/store';
+import ProductReviewForm from '../../../view/productReview/form/ProductReviewForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function ProductReviewFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function ProductReviewFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.productReview.menu'), '/product-review'],
+          [
+            i18n('entities.productReview.menu'),
+            '/product-review',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function ProductReviewFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/product-review')}
+            onCancel={() =>
+              getHistory().push('/product-review')
+            }
           />
         )}
       </div>

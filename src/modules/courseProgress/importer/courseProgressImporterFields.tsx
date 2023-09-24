@@ -1,5 +1,5 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
 
 export default [
   {
@@ -20,15 +20,21 @@ export default [
   },
   {
     name: 'progressPercentage',
-    label: i18n('entities.courseProgress.fields.progressPercentage'),
+    label: i18n(
+      'entities.courseProgress.fields.progressPercentage',
+    ),
     schema: schemas.decimal(
-      i18n('entities.courseProgress.fields.progressPercentage'),
+      i18n(
+        'entities.courseProgress.fields.progressPercentage',
+      ),
       {},
     ),
   },
   {
     name: 'currentLesson',
-    label: i18n('entities.courseProgress.fields.currentLesson'),
+    label: i18n(
+      'entities.courseProgress.fields.currentLesson',
+    ),
     schema: schemas.relationToOne(
       i18n('entities.courseProgress.fields.currentLesson'),
       {},

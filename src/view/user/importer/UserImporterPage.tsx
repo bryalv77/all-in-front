@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/user/importer/userImporterActions';
-import fields from 'src/modules/user/importer/userImporterFields';
-import selectors from 'src/modules/user/importer/userImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/user/importer/userImporterActions';
+import fields from '../../../modules/user/importer/userImporterFields';
+import selectors from '../../../modules/user/importer/userImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 const Importer = importerHoc(
   selectors,

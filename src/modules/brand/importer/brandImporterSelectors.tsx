@@ -1,4 +1,4 @@
-import importerSelectors from 'src/modules/shared/importer/importerSelectors';
+import importerSelectors from '../../../modules/shared/importer/importerSelectors';
 
 const brandImporterSelectors = importerSelectors(
   'brand.importer',

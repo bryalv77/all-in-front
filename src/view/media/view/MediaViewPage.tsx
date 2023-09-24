@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/media/view/mediaViewActions';
-import selectors from 'src/modules/media/view/mediaViewSelectors';
-import MediaView from 'src/view/media/view/MediaView';
-import MediaViewToolbar from 'src/view/media/view/MediaViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/media/view/mediaViewActions';
+import selectors from '../../../modules/media/view/mediaViewSelectors';
+import MediaView from '../../../view/media/view/MediaView';
+import MediaViewToolbar from '../../../view/media/view/MediaViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function MediaPage() {
   const dispatch = useDispatch();

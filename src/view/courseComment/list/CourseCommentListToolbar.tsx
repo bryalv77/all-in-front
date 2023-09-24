@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import courseCommentSelectors from 'src/modules/courseComment/courseCommentSelectors';
-import destroyActions from 'src/modules/courseComment/destroy/courseCommentDestroyActions';
-import destroySelectors from 'src/modules/courseComment/destroy/courseCommentDestroySelectors';
-import actions from 'src/modules/courseComment/list/courseCommentListActions';
-import selectors from 'src/modules/courseComment/list/courseCommentListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import courseCommentSelectors from '../../../modules/courseComment/courseCommentSelectors';
+import destroyActions from '../../../modules/courseComment/destroy/courseCommentDestroyActions';
+import destroySelectors from '../../../modules/courseComment/destroy/courseCommentDestroySelectors';
+import actions from '../../../modules/courseComment/list/courseCommentListActions';
+import selectors from '../../../modules/courseComment/list/courseCommentListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CourseCommentToolbar(props) {
   const [

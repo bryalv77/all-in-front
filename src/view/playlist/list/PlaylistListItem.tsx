@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/playlist/playlistSelectors';
+import selectors from '../../../modules/playlist/playlistSelectors';
 
 function PlaylistListItem(props) {
   const hasPermissionToRead = useSelector(

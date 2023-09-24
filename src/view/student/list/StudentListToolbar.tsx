@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import studentSelectors from 'src/modules/student/studentSelectors';
-import destroyActions from 'src/modules/student/destroy/studentDestroyActions';
-import destroySelectors from 'src/modules/student/destroy/studentDestroySelectors';
-import actions from 'src/modules/student/list/studentListActions';
-import selectors from 'src/modules/student/list/studentListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import studentSelectors from '../../../modules/student/studentSelectors';
+import destroyActions from '../../../modules/student/destroy/studentDestroyActions';
+import destroySelectors from '../../../modules/student/destroy/studentDestroySelectors';
+import actions from '../../../modules/student/list/studentListActions';
+import selectors from '../../../modules/student/list/studentListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function StudentToolbar(props) {
   const [

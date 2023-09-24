@@ -1,9 +1,9 @@
-import listActions from 'src/modules/tasks/list/tasksListActions';
-import TasksService from 'src/modules/tasks/tasksService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/tasks/list/tasksListActions';
+import TasksService from '../../../modules/tasks/tasksService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'TASKS_DESTROY';
 

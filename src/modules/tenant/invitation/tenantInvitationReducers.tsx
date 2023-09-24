@@ -1,4 +1,4 @@
-import actions from 'src/modules/tenant/invitation/tenantInvitationActions';
+import actions from '../../../modules/tenant/invitation/tenantInvitationActions';
 
 const initialData = {
   loading: false,

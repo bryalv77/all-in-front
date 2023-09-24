@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
-import CustomerAutocompleteFormItem from 'src/view/customer/autocomplete/CustomerAutocompleteFormItem';
-import CityAutocompleteFormItem from 'src/view/city/autocomplete/CityAutocompleteFormItem';
-import BusinessAutocompleteFormItem from 'src/view/business/autocomplete/BusinessAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
+import CustomerAutocompleteFormItem from '../../../view/customer/autocomplete/CustomerAutocompleteFormItem';
+import CityAutocompleteFormItem from '../../../view/city/autocomplete/CityAutocompleteFormItem';
+import BusinessAutocompleteFormItem from '../../../view/business/autocomplete/BusinessAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -105,11 +105,13 @@ function AddressForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <CustomerAutocompleteFormItem  
+          <CustomerAutocompleteFormItem
             name="customer"
             label={i18n('entities.address.fields.customer')}
-          placeholder={i18n('entities.address.placeholders.customer')}
-          hint={i18n('entities.address.hints.customer')}
+            placeholder={i18n(
+              'entities.address.placeholders.customer',
+            )}
+            hint={i18n('entities.address.hints.customer')}
             required={false}
             showCreate={!props.modal}
           />
@@ -117,27 +119,41 @@ function AddressForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="addressName"
-            label={i18n('entities.address.fields.addressName')}
-          placeholder={i18n('entities.address.placeholders.addressName')}
-          hint={i18n('entities.address.hints.addressName')}
+            label={i18n(
+              'entities.address.fields.addressName',
+            )}
+            placeholder={i18n(
+              'entities.address.placeholders.addressName',
+            )}
+            hint={i18n(
+              'entities.address.hints.addressName',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="firstLine"
-            label={i18n('entities.address.fields.firstLine')}
-          placeholder={i18n('entities.address.placeholders.firstLine')}
-          hint={i18n('entities.address.hints.firstLine')}  
+            label={i18n(
+              'entities.address.fields.firstLine',
+            )}
+            placeholder={i18n(
+              'entities.address.placeholders.firstLine',
+            )}
+            hint={i18n('entities.address.hints.firstLine')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="secondLine"
-            label={i18n('entities.address.fields.secondLine')}
-          placeholder={i18n('entities.address.placeholders.secondLine')}
-          hint={i18n('entities.address.hints.secondLine')}  
+            label={i18n(
+              'entities.address.fields.secondLine',
+            )}
+            placeholder={i18n(
+              'entities.address.placeholders.secondLine',
+            )}
+            hint={i18n('entities.address.hints.secondLine')}
             required={false}
           />
         </div>
@@ -145,17 +161,21 @@ function AddressForm(props) {
           <InputFormItem
             name="zipCode"
             label={i18n('entities.address.fields.zipCode')}
-          placeholder={i18n('entities.address.placeholders.zipCode')}
-          hint={i18n('entities.address.hints.zipCode')}
+            placeholder={i18n(
+              'entities.address.placeholders.zipCode',
+            )}
+            hint={i18n('entities.address.hints.zipCode')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <CityAutocompleteFormItem  
+          <CityAutocompleteFormItem
             name="city"
             label={i18n('entities.address.fields.city')}
-          placeholder={i18n('entities.address.placeholders.city')}
-          hint={i18n('entities.address.hints.city')}
+            placeholder={i18n(
+              'entities.address.placeholders.city',
+            )}
+            hint={i18n('entities.address.hints.city')}
             required={false}
             showCreate={!props.modal}
           />
@@ -164,17 +184,21 @@ function AddressForm(props) {
           <InputFormItem
             name="phone"
             label={i18n('entities.address.fields.phone')}
-          placeholder={i18n('entities.address.placeholders.phone')}
-          hint={i18n('entities.address.hints.phone')}
+            placeholder={i18n(
+              'entities.address.placeholders.phone',
+            )}
+            hint={i18n('entities.address.hints.phone')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <BusinessAutocompleteFormItem  
+          <BusinessAutocompleteFormItem
             name="business"
             label={i18n('entities.address.fields.business')}
-          placeholder={i18n('entities.address.placeholders.business')}
-          hint={i18n('entities.address.hints.business')}
+            placeholder={i18n(
+              'entities.address.placeholders.business',
+            )}
+            hint={i18n('entities.address.hints.business')}
             required={false}
             showCreate={!props.modal}
           />
@@ -182,9 +206,15 @@ function AddressForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="coordinates"
-            label={i18n('entities.address.fields.coordinates')}
-          placeholder={i18n('entities.address.placeholders.coordinates')}
-          hint={i18n('entities.address.hints.coordinates')}
+            label={i18n(
+              'entities.address.fields.coordinates',
+            )}
+            placeholder={i18n(
+              'entities.address.placeholders.coordinates',
+            )}
+            hint={i18n(
+              'entities.address.hints.coordinates',
+            )}
             required={false}
           />
         </div>
@@ -192,16 +222,20 @@ function AddressForm(props) {
           <InputFormItem
             name="urlMap"
             label={i18n('entities.address.fields.urlMap')}
-          placeholder={i18n('entities.address.placeholders.urlMap')}
-          hint={i18n('entities.address.hints.urlMap')}
+            placeholder={i18n(
+              'entities.address.placeholders.urlMap',
+            )}
+            hint={i18n('entities.address.hints.urlMap')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <SwitchFormItem
             name="preferred"
-            label={i18n('entities.address.fields.preferred')}
-          hint={i18n('entities.address.hints.preferred')}
+            label={i18n(
+              'entities.address.fields.preferred',
+            )}
+            hint={i18n('entities.address.hints.preferred')}
           />
         </div>
 

@@ -1,20 +1,19 @@
-import Permissions from 'src/security/permissions';
-import config from 'src/config';
+import Permissions from '../security/permissions';
+import config from '../config';
 
 const permissions = Permissions.values;
 
 const privateRoutes = [
   {
     path: '/',
-    loader: () =>
-      import('src/view/dashboard/DashboardPage'),
+    loader: () => import('../view/dashboard/DashboardPage'),
     permissionRequired: null,
     exact: true,
   },
 
   {
     path: '/profile',
-    loader: () => import('src/view/auth/ProfileFormPage'),
+    loader: () => import('../view/auth/ProfileFormPage'),
     permissionRequired: null,
     exact: true,
   },
@@ -22,7 +21,7 @@ const privateRoutes = [
   {
     path: '/password-change',
     loader: () =>
-      import('src/view/auth/PasswordChangeFormPage'),
+      import('../view/auth/PasswordChangeFormPage'),
     permissionRequired: null,
     exact: true,
   },
@@ -30,42 +29,42 @@ const privateRoutes = [
   {
     path: '/tenant',
     loader: () =>
-      import('src/view/tenant/list/TenantListPage'),
+      import('../view/tenant/list/TenantListPage'),
     permissionRequired: null,
     exact: true,
   },
   {
     path: '/tenant/new',
     loader: () =>
-      import('src/view/tenant/form/TenantFormPage'),
+      import('../view/tenant/form/TenantFormPage'),
     permissionRequired: null,
     exact: true,
   },
   {
     path: '/tenant/:id/edit',
     loader: () =>
-      import('src/view/tenant/form/TenantFormPage'),
+      import('../view/tenant/form/TenantFormPage'),
     permissionRequired: null,
     exact: true,
   },
 
   config.isPlanEnabled && {
     path: '/plan',
-    loader: () => import('src/view/plan/PlanPage'),
+    loader: () => import('../view/plan/PlanPage'),
     permissionRequired: permissions.planRead,
     exact: true,
   },
 
   {
     path: '/user',
-    loader: () => import('src/view/user/list/UserPage'),
+    loader: () => import('../view/user/list/UserPage'),
     permissionRequired: permissions.userRead,
     exact: true,
   },
 
   {
     path: '/user/new',
-    loader: () => import('src/view/user/new/UserNewPage'),
+    loader: () => import('../view/user/new/UserNewPage'),
     permissionRequired: permissions.userCreate,
     exact: true,
   },
@@ -73,47 +72,47 @@ const privateRoutes = [
   {
     path: '/user/importer',
     loader: () =>
-      import('src/view/user/importer/UserImporterPage'),
+      import('../view/user/importer/UserImporterPage'),
     permissionRequired: permissions.userImport,
     exact: true,
   },
   {
     path: '/user/:id/edit',
-    loader: () => import('src/view/user/edit/UserEditPage'),
+    loader: () => import('../view/user/edit/UserEditPage'),
     permissionRequired: permissions.userEdit,
     exact: true,
   },
   {
     path: '/user/:id',
-    loader: () => import('src/view/user/view/UserViewPage'),
+    loader: () => import('../view/user/view/UserViewPage'),
     permissionRequired: permissions.userRead,
     exact: true,
   },
 
   {
     path: '/audit-logs',
-    loader: () => import('src/view/auditLog/AuditLogPage'),
+    loader: () => import('../view/auditLog/AuditLogPage'),
     permissionRequired: permissions.auditLogRead,
   },
 
   {
     path: '/settings',
     loader: () =>
-      import('src/view/settings/SettingsFormPage'),
+      import('../view/settings/SettingsFormPage'),
     permissionRequired: permissions.settingsEdit,
   },
 
   {
     path: '/customer',
     loader: () =>
-      import('src/view/customer/list/CustomerListPage'),
+      import('../view/customer/list/CustomerListPage'),
     permissionRequired: permissions.customerRead,
     exact: true,
   },
   {
     path: '/customer/new',
     loader: () =>
-      import('src/view/customer/form/CustomerFormPage'),
+      import('../view/customer/form/CustomerFormPage'),
     permissionRequired: permissions.customerCreate,
     exact: true,
   },
@@ -121,7 +120,7 @@ const privateRoutes = [
     path: '/customer/importer',
     loader: () =>
       import(
-        'src/view/customer/importer/CustomerImporterPage'
+        '../view/customer/importer/CustomerImporterPage'
       ),
     permissionRequired: permissions.customerImport,
     exact: true,
@@ -129,14 +128,14 @@ const privateRoutes = [
   {
     path: '/customer/:id/edit',
     loader: () =>
-      import('src/view/customer/form/CustomerFormPage'),
+      import('../view/customer/form/CustomerFormPage'),
     permissionRequired: permissions.customerEdit,
     exact: true,
   },
   {
     path: '/customer/:id',
     loader: () =>
-      import('src/view/customer/view/CustomerViewPage'),
+      import('../view/customer/view/CustomerViewPage'),
     permissionRequired: permissions.customerRead,
     exact: true,
   },
@@ -144,14 +143,14 @@ const privateRoutes = [
   {
     path: '/product',
     loader: () =>
-      import('src/view/product/list/ProductListPage'),
+      import('../view/product/list/ProductListPage'),
     permissionRequired: permissions.productRead,
     exact: true,
   },
   {
     path: '/product/new',
     loader: () =>
-      import('src/view/product/form/ProductFormPage'),
+      import('../view/product/form/ProductFormPage'),
     permissionRequired: permissions.productCreate,
     exact: true,
   },
@@ -159,7 +158,7 @@ const privateRoutes = [
     path: '/product/importer',
     loader: () =>
       import(
-        'src/view/product/importer/ProductImporterPage'
+        '../view/product/importer/ProductImporterPage'
       ),
     permissionRequired: permissions.productImport,
     exact: true,
@@ -167,14 +166,14 @@ const privateRoutes = [
   {
     path: '/product/:id/edit',
     loader: () =>
-      import('src/view/product/form/ProductFormPage'),
+      import('../view/product/form/ProductFormPage'),
     permissionRequired: permissions.productEdit,
     exact: true,
   },
   {
     path: '/product/:id',
     loader: () =>
-      import('src/view/product/view/ProductViewPage'),
+      import('../view/product/view/ProductViewPage'),
     permissionRequired: permissions.productRead,
     exact: true,
   },
@@ -182,37 +181,35 @@ const privateRoutes = [
   {
     path: '/order',
     loader: () =>
-      import('src/view/order/list/OrderListPage'),
+      import('../view/order/list/OrderListPage'),
     permissionRequired: permissions.orderRead,
     exact: true,
   },
   {
     path: '/order/new',
     loader: () =>
-      import('src/view/order/form/OrderFormPage'),
+      import('../view/order/form/OrderFormPage'),
     permissionRequired: permissions.orderCreate,
     exact: true,
   },
   {
     path: '/order/importer',
     loader: () =>
-      import(
-        'src/view/order/importer/OrderImporterPage'
-      ),
+      import('../view/order/importer/OrderImporterPage'),
     permissionRequired: permissions.orderImport,
     exact: true,
   },
   {
     path: '/order/:id/edit',
     loader: () =>
-      import('src/view/order/form/OrderFormPage'),
+      import('../view/order/form/OrderFormPage'),
     permissionRequired: permissions.orderEdit,
     exact: true,
   },
   {
     path: '/order/:id',
     loader: () =>
-      import('src/view/order/view/OrderViewPage'),
+      import('../view/order/view/OrderViewPage'),
     permissionRequired: permissions.orderRead,
     exact: true,
   },
@@ -220,14 +217,14 @@ const privateRoutes = [
   {
     path: '/operation',
     loader: () =>
-      import('src/view/operation/list/OperationListPage'),
+      import('../view/operation/list/OperationListPage'),
     permissionRequired: permissions.operationRead,
     exact: true,
   },
   {
     path: '/operation/new',
     loader: () =>
-      import('src/view/operation/form/OperationFormPage'),
+      import('../view/operation/form/OperationFormPage'),
     permissionRequired: permissions.operationCreate,
     exact: true,
   },
@@ -235,7 +232,7 @@ const privateRoutes = [
     path: '/operation/importer',
     loader: () =>
       import(
-        'src/view/operation/importer/OperationImporterPage'
+        '../view/operation/importer/OperationImporterPage'
       ),
     permissionRequired: permissions.operationImport,
     exact: true,
@@ -243,52 +240,46 @@ const privateRoutes = [
   {
     path: '/operation/:id/edit',
     loader: () =>
-      import('src/view/operation/form/OperationFormPage'),
+      import('../view/operation/form/OperationFormPage'),
     permissionRequired: permissions.operationEdit,
     exact: true,
   },
   {
     path: '/operation/:id',
     loader: () =>
-      import('src/view/operation/view/OperationViewPage'),
+      import('../view/operation/view/OperationViewPage'),
     permissionRequired: permissions.operationRead,
     exact: true,
   },
 
   {
     path: '/bank',
-    loader: () =>
-      import('src/view/bank/list/BankListPage'),
+    loader: () => import('../view/bank/list/BankListPage'),
     permissionRequired: permissions.bankRead,
     exact: true,
   },
   {
     path: '/bank/new',
-    loader: () =>
-      import('src/view/bank/form/BankFormPage'),
+    loader: () => import('../view/bank/form/BankFormPage'),
     permissionRequired: permissions.bankCreate,
     exact: true,
   },
   {
     path: '/bank/importer',
     loader: () =>
-      import(
-        'src/view/bank/importer/BankImporterPage'
-      ),
+      import('../view/bank/importer/BankImporterPage'),
     permissionRequired: permissions.bankImport,
     exact: true,
   },
   {
     path: '/bank/:id/edit',
-    loader: () =>
-      import('src/view/bank/form/BankFormPage'),
+    loader: () => import('../view/bank/form/BankFormPage'),
     permissionRequired: permissions.bankEdit,
     exact: true,
   },
   {
     path: '/bank/:id',
-    loader: () =>
-      import('src/view/bank/view/BankViewPage'),
+    loader: () => import('../view/bank/view/BankViewPage'),
     permissionRequired: permissions.bankRead,
     exact: true,
   },
@@ -296,14 +287,14 @@ const privateRoutes = [
   {
     path: '/category',
     loader: () =>
-      import('src/view/category/list/CategoryListPage'),
+      import('../view/category/list/CategoryListPage'),
     permissionRequired: permissions.categoryRead,
     exact: true,
   },
   {
     path: '/category/new',
     loader: () =>
-      import('src/view/category/form/CategoryFormPage'),
+      import('../view/category/form/CategoryFormPage'),
     permissionRequired: permissions.categoryCreate,
     exact: true,
   },
@@ -311,7 +302,7 @@ const privateRoutes = [
     path: '/category/importer',
     loader: () =>
       import(
-        'src/view/category/importer/CategoryImporterPage'
+        '../view/category/importer/CategoryImporterPage'
       ),
     permissionRequired: permissions.categoryImport,
     exact: true,
@@ -319,14 +310,14 @@ const privateRoutes = [
   {
     path: '/category/:id/edit',
     loader: () =>
-      import('src/view/category/form/CategoryFormPage'),
+      import('../view/category/form/CategoryFormPage'),
     permissionRequired: permissions.categoryEdit,
     exact: true,
   },
   {
     path: '/category/:id',
     loader: () =>
-      import('src/view/category/view/CategoryViewPage'),
+      import('../view/category/view/CategoryViewPage'),
     permissionRequired: permissions.categoryRead,
     exact: true,
   },
@@ -334,14 +325,14 @@ const privateRoutes = [
   {
     path: '/task-list',
     loader: () =>
-      import('src/view/taskList/list/TaskListListPage'),
+      import('../view/taskList/list/TaskListListPage'),
     permissionRequired: permissions.taskListRead,
     exact: true,
   },
   {
     path: '/task-list/new',
     loader: () =>
-      import('src/view/taskList/form/TaskListFormPage'),
+      import('../view/taskList/form/TaskListFormPage'),
     permissionRequired: permissions.taskListCreate,
     exact: true,
   },
@@ -349,7 +340,7 @@ const privateRoutes = [
     path: '/task-list/importer',
     loader: () =>
       import(
-        'src/view/taskList/importer/TaskListImporterPage'
+        '../view/taskList/importer/TaskListImporterPage'
       ),
     permissionRequired: permissions.taskListImport,
     exact: true,
@@ -357,14 +348,14 @@ const privateRoutes = [
   {
     path: '/task-list/:id/edit',
     loader: () =>
-      import('src/view/taskList/form/TaskListFormPage'),
+      import('../view/taskList/form/TaskListFormPage'),
     permissionRequired: permissions.taskListEdit,
     exact: true,
   },
   {
     path: '/task-list/:id',
     loader: () =>
-      import('src/view/taskList/view/TaskListViewPage'),
+      import('../view/taskList/view/TaskListViewPage'),
     permissionRequired: permissions.taskListRead,
     exact: true,
   },
@@ -372,75 +363,67 @@ const privateRoutes = [
   {
     path: '/tasks',
     loader: () =>
-      import('src/view/tasks/list/TasksListPage'),
+      import('../view/tasks/list/TasksListPage'),
     permissionRequired: permissions.tasksRead,
     exact: true,
   },
   {
     path: '/tasks/new',
     loader: () =>
-      import('src/view/tasks/form/TasksFormPage'),
+      import('../view/tasks/form/TasksFormPage'),
     permissionRequired: permissions.tasksCreate,
     exact: true,
   },
   {
     path: '/tasks/importer',
     loader: () =>
-      import(
-        'src/view/tasks/importer/TasksImporterPage'
-      ),
+      import('../view/tasks/importer/TasksImporterPage'),
     permissionRequired: permissions.tasksImport,
     exact: true,
   },
   {
     path: '/tasks/:id/edit',
     loader: () =>
-      import('src/view/tasks/form/TasksFormPage'),
+      import('../view/tasks/form/TasksFormPage'),
     permissionRequired: permissions.tasksEdit,
     exact: true,
   },
   {
     path: '/tasks/:id',
     loader: () =>
-      import('src/view/tasks/view/TasksViewPage'),
+      import('../view/tasks/view/TasksViewPage'),
     permissionRequired: permissions.tasksRead,
     exact: true,
   },
 
   {
     path: '/tags',
-    loader: () =>
-      import('src/view/tags/list/TagsListPage'),
+    loader: () => import('../view/tags/list/TagsListPage'),
     permissionRequired: permissions.tagsRead,
     exact: true,
   },
   {
     path: '/tags/new',
-    loader: () =>
-      import('src/view/tags/form/TagsFormPage'),
+    loader: () => import('../view/tags/form/TagsFormPage'),
     permissionRequired: permissions.tagsCreate,
     exact: true,
   },
   {
     path: '/tags/importer',
     loader: () =>
-      import(
-        'src/view/tags/importer/TagsImporterPage'
-      ),
+      import('../view/tags/importer/TagsImporterPage'),
     permissionRequired: permissions.tagsImport,
     exact: true,
   },
   {
     path: '/tags/:id/edit',
-    loader: () =>
-      import('src/view/tags/form/TagsFormPage'),
+    loader: () => import('../view/tags/form/TagsFormPage'),
     permissionRequired: permissions.tagsEdit,
     exact: true,
   },
   {
     path: '/tags/:id',
-    loader: () =>
-      import('src/view/tags/view/TagsViewPage'),
+    loader: () => import('../view/tags/view/TagsViewPage'),
     permissionRequired: permissions.tagsRead,
     exact: true,
   },
@@ -448,14 +431,14 @@ const privateRoutes = [
   {
     path: '/task-tags',
     loader: () =>
-      import('src/view/taskTags/list/TaskTagsListPage'),
+      import('../view/taskTags/list/TaskTagsListPage'),
     permissionRequired: permissions.taskTagsRead,
     exact: true,
   },
   {
     path: '/task-tags/new',
     loader: () =>
-      import('src/view/taskTags/form/TaskTagsFormPage'),
+      import('../view/taskTags/form/TaskTagsFormPage'),
     permissionRequired: permissions.taskTagsCreate,
     exact: true,
   },
@@ -463,7 +446,7 @@ const privateRoutes = [
     path: '/task-tags/importer',
     loader: () =>
       import(
-        'src/view/taskTags/importer/TaskTagsImporterPage'
+        '../view/taskTags/importer/TaskTagsImporterPage'
       ),
     permissionRequired: permissions.taskTagsImport,
     exact: true,
@@ -471,14 +454,14 @@ const privateRoutes = [
   {
     path: '/task-tags/:id/edit',
     loader: () =>
-      import('src/view/taskTags/form/TaskTagsFormPage'),
+      import('../view/taskTags/form/TaskTagsFormPage'),
     permissionRequired: permissions.taskTagsEdit,
     exact: true,
   },
   {
     path: '/task-tags/:id',
     loader: () =>
-      import('src/view/taskTags/view/TaskTagsViewPage'),
+      import('../view/taskTags/view/TaskTagsViewPage'),
     permissionRequired: permissions.taskTagsRead,
     exact: true,
   },
@@ -486,14 +469,14 @@ const privateRoutes = [
   {
     path: '/sub-tasks',
     loader: () =>
-      import('src/view/subTasks/list/SubTasksListPage'),
+      import('../view/subTasks/list/SubTasksListPage'),
     permissionRequired: permissions.subTasksRead,
     exact: true,
   },
   {
     path: '/sub-tasks/new',
     loader: () =>
-      import('src/view/subTasks/form/SubTasksFormPage'),
+      import('../view/subTasks/form/SubTasksFormPage'),
     permissionRequired: permissions.subTasksCreate,
     exact: true,
   },
@@ -501,7 +484,7 @@ const privateRoutes = [
     path: '/sub-tasks/importer',
     loader: () =>
       import(
-        'src/view/subTasks/importer/SubTasksImporterPage'
+        '../view/subTasks/importer/SubTasksImporterPage'
       ),
     permissionRequired: permissions.subTasksImport,
     exact: true,
@@ -509,14 +492,14 @@ const privateRoutes = [
   {
     path: '/sub-tasks/:id/edit',
     loader: () =>
-      import('src/view/subTasks/form/SubTasksFormPage'),
+      import('../view/subTasks/form/SubTasksFormPage'),
     permissionRequired: permissions.subTasksEdit,
     exact: true,
   },
   {
     path: '/sub-tasks/:id',
     loader: () =>
-      import('src/view/subTasks/view/SubTasksViewPage'),
+      import('../view/subTasks/view/SubTasksViewPage'),
     permissionRequired: permissions.subTasksRead,
     exact: true,
   },
@@ -524,37 +507,35 @@ const privateRoutes = [
   {
     path: '/media',
     loader: () =>
-      import('src/view/media/list/MediaListPage'),
+      import('../view/media/list/MediaListPage'),
     permissionRequired: permissions.mediaRead,
     exact: true,
   },
   {
     path: '/media/new',
     loader: () =>
-      import('src/view/media/form/MediaFormPage'),
+      import('../view/media/form/MediaFormPage'),
     permissionRequired: permissions.mediaCreate,
     exact: true,
   },
   {
     path: '/media/importer',
     loader: () =>
-      import(
-        'src/view/media/importer/MediaImporterPage'
-      ),
+      import('../view/media/importer/MediaImporterPage'),
     permissionRequired: permissions.mediaImport,
     exact: true,
   },
   {
     path: '/media/:id/edit',
     loader: () =>
-      import('src/view/media/form/MediaFormPage'),
+      import('../view/media/form/MediaFormPage'),
     permissionRequired: permissions.mediaEdit,
     exact: true,
   },
   {
     path: '/media/:id',
     loader: () =>
-      import('src/view/media/view/MediaViewPage'),
+      import('../view/media/view/MediaViewPage'),
     permissionRequired: permissions.mediaRead,
     exact: true,
   },
@@ -562,37 +543,35 @@ const privateRoutes = [
   {
     path: '/posts',
     loader: () =>
-      import('src/view/posts/list/PostsListPage'),
+      import('../view/posts/list/PostsListPage'),
     permissionRequired: permissions.postsRead,
     exact: true,
   },
   {
     path: '/posts/new',
     loader: () =>
-      import('src/view/posts/form/PostsFormPage'),
+      import('../view/posts/form/PostsFormPage'),
     permissionRequired: permissions.postsCreate,
     exact: true,
   },
   {
     path: '/posts/importer',
     loader: () =>
-      import(
-        'src/view/posts/importer/PostsImporterPage'
-      ),
+      import('../view/posts/importer/PostsImporterPage'),
     permissionRequired: permissions.postsImport,
     exact: true,
   },
   {
     path: '/posts/:id/edit',
     loader: () =>
-      import('src/view/posts/form/PostsFormPage'),
+      import('../view/posts/form/PostsFormPage'),
     permissionRequired: permissions.postsEdit,
     exact: true,
   },
   {
     path: '/posts/:id',
     loader: () =>
-      import('src/view/posts/view/PostsViewPage'),
+      import('../view/posts/view/PostsViewPage'),
     permissionRequired: permissions.postsRead,
     exact: true,
   },
@@ -600,14 +579,14 @@ const privateRoutes = [
   {
     path: '/followers',
     loader: () =>
-      import('src/view/followers/list/FollowersListPage'),
+      import('../view/followers/list/FollowersListPage'),
     permissionRequired: permissions.followersRead,
     exact: true,
   },
   {
     path: '/followers/new',
     loader: () =>
-      import('src/view/followers/form/FollowersFormPage'),
+      import('../view/followers/form/FollowersFormPage'),
     permissionRequired: permissions.followersCreate,
     exact: true,
   },
@@ -615,7 +594,7 @@ const privateRoutes = [
     path: '/followers/importer',
     loader: () =>
       import(
-        'src/view/followers/importer/FollowersImporterPage'
+        '../view/followers/importer/FollowersImporterPage'
       ),
     permissionRequired: permissions.followersImport,
     exact: true,
@@ -623,52 +602,46 @@ const privateRoutes = [
   {
     path: '/followers/:id/edit',
     loader: () =>
-      import('src/view/followers/form/FollowersFormPage'),
+      import('../view/followers/form/FollowersFormPage'),
     permissionRequired: permissions.followersEdit,
     exact: true,
   },
   {
     path: '/followers/:id',
     loader: () =>
-      import('src/view/followers/view/FollowersViewPage'),
+      import('../view/followers/view/FollowersViewPage'),
     permissionRequired: permissions.followersRead,
     exact: true,
   },
 
   {
     path: '/like',
-    loader: () =>
-      import('src/view/like/list/LikeListPage'),
+    loader: () => import('../view/like/list/LikeListPage'),
     permissionRequired: permissions.likeRead,
     exact: true,
   },
   {
     path: '/like/new',
-    loader: () =>
-      import('src/view/like/form/LikeFormPage'),
+    loader: () => import('../view/like/form/LikeFormPage'),
     permissionRequired: permissions.likeCreate,
     exact: true,
   },
   {
     path: '/like/importer',
     loader: () =>
-      import(
-        'src/view/like/importer/LikeImporterPage'
-      ),
+      import('../view/like/importer/LikeImporterPage'),
     permissionRequired: permissions.likeImport,
     exact: true,
   },
   {
     path: '/like/:id/edit',
-    loader: () =>
-      import('src/view/like/form/LikeFormPage'),
+    loader: () => import('../view/like/form/LikeFormPage'),
     permissionRequired: permissions.likeEdit,
     exact: true,
   },
   {
     path: '/like/:id',
-    loader: () =>
-      import('src/view/like/view/LikeViewPage'),
+    loader: () => import('../view/like/view/LikeViewPage'),
     permissionRequired: permissions.likeRead,
     exact: true,
   },
@@ -676,14 +649,14 @@ const privateRoutes = [
   {
     path: '/hashtag',
     loader: () =>
-      import('src/view/hashtag/list/HashtagListPage'),
+      import('../view/hashtag/list/HashtagListPage'),
     permissionRequired: permissions.hashtagRead,
     exact: true,
   },
   {
     path: '/hashtag/new',
     loader: () =>
-      import('src/view/hashtag/form/HashtagFormPage'),
+      import('../view/hashtag/form/HashtagFormPage'),
     permissionRequired: permissions.hashtagCreate,
     exact: true,
   },
@@ -691,7 +664,7 @@ const privateRoutes = [
     path: '/hashtag/importer',
     loader: () =>
       import(
-        'src/view/hashtag/importer/HashtagImporterPage'
+        '../view/hashtag/importer/HashtagImporterPage'
       ),
     permissionRequired: permissions.hashtagImport,
     exact: true,
@@ -699,14 +672,14 @@ const privateRoutes = [
   {
     path: '/hashtag/:id/edit',
     loader: () =>
-      import('src/view/hashtag/form/HashtagFormPage'),
+      import('../view/hashtag/form/HashtagFormPage'),
     permissionRequired: permissions.hashtagEdit,
     exact: true,
   },
   {
     path: '/hashtag/:id',
     loader: () =>
-      import('src/view/hashtag/view/HashtagViewPage'),
+      import('../view/hashtag/view/HashtagViewPage'),
     permissionRequired: permissions.hashtagRead,
     exact: true,
   },
@@ -714,14 +687,18 @@ const privateRoutes = [
   {
     path: '/post-hashtag',
     loader: () =>
-      import('src/view/postHashtag/list/PostHashtagListPage'),
+      import(
+        '../view/postHashtag/list/PostHashtagListPage'
+      ),
     permissionRequired: permissions.postHashtagRead,
     exact: true,
   },
   {
     path: '/post-hashtag/new',
     loader: () =>
-      import('src/view/postHashtag/form/PostHashtagFormPage'),
+      import(
+        '../view/postHashtag/form/PostHashtagFormPage'
+      ),
     permissionRequired: permissions.postHashtagCreate,
     exact: true,
   },
@@ -729,7 +706,7 @@ const privateRoutes = [
     path: '/post-hashtag/importer',
     loader: () =>
       import(
-        'src/view/postHashtag/importer/PostHashtagImporterPage'
+        '../view/postHashtag/importer/PostHashtagImporterPage'
       ),
     permissionRequired: permissions.postHashtagImport,
     exact: true,
@@ -737,14 +714,18 @@ const privateRoutes = [
   {
     path: '/post-hashtag/:id/edit',
     loader: () =>
-      import('src/view/postHashtag/form/PostHashtagFormPage'),
+      import(
+        '../view/postHashtag/form/PostHashtagFormPage'
+      ),
     permissionRequired: permissions.postHashtagEdit,
     exact: true,
   },
   {
     path: '/post-hashtag/:id',
     loader: () =>
-      import('src/view/postHashtag/view/PostHashtagViewPage'),
+      import(
+        '../view/postHashtag/view/PostHashtagViewPage'
+      ),
     permissionRequired: permissions.postHashtagRead,
     exact: true,
   },
@@ -752,37 +733,35 @@ const privateRoutes = [
   {
     path: '/artist',
     loader: () =>
-      import('src/view/artist/list/ArtistListPage'),
+      import('../view/artist/list/ArtistListPage'),
     permissionRequired: permissions.artistRead,
     exact: true,
   },
   {
     path: '/artist/new',
     loader: () =>
-      import('src/view/artist/form/ArtistFormPage'),
+      import('../view/artist/form/ArtistFormPage'),
     permissionRequired: permissions.artistCreate,
     exact: true,
   },
   {
     path: '/artist/importer',
     loader: () =>
-      import(
-        'src/view/artist/importer/ArtistImporterPage'
-      ),
+      import('../view/artist/importer/ArtistImporterPage'),
     permissionRequired: permissions.artistImport,
     exact: true,
   },
   {
     path: '/artist/:id/edit',
     loader: () =>
-      import('src/view/artist/form/ArtistFormPage'),
+      import('../view/artist/form/ArtistFormPage'),
     permissionRequired: permissions.artistEdit,
     exact: true,
   },
   {
     path: '/artist/:id',
     loader: () =>
-      import('src/view/artist/view/ArtistViewPage'),
+      import('../view/artist/view/ArtistViewPage'),
     permissionRequired: permissions.artistRead,
     exact: true,
   },
@@ -790,75 +769,67 @@ const privateRoutes = [
   {
     path: '/album',
     loader: () =>
-      import('src/view/album/list/AlbumListPage'),
+      import('../view/album/list/AlbumListPage'),
     permissionRequired: permissions.albumRead,
     exact: true,
   },
   {
     path: '/album/new',
     loader: () =>
-      import('src/view/album/form/AlbumFormPage'),
+      import('../view/album/form/AlbumFormPage'),
     permissionRequired: permissions.albumCreate,
     exact: true,
   },
   {
     path: '/album/importer',
     loader: () =>
-      import(
-        'src/view/album/importer/AlbumImporterPage'
-      ),
+      import('../view/album/importer/AlbumImporterPage'),
     permissionRequired: permissions.albumImport,
     exact: true,
   },
   {
     path: '/album/:id/edit',
     loader: () =>
-      import('src/view/album/form/AlbumFormPage'),
+      import('../view/album/form/AlbumFormPage'),
     permissionRequired: permissions.albumEdit,
     exact: true,
   },
   {
     path: '/album/:id',
     loader: () =>
-      import('src/view/album/view/AlbumViewPage'),
+      import('../view/album/view/AlbumViewPage'),
     permissionRequired: permissions.albumRead,
     exact: true,
   },
 
   {
     path: '/song',
-    loader: () =>
-      import('src/view/song/list/SongListPage'),
+    loader: () => import('../view/song/list/SongListPage'),
     permissionRequired: permissions.songRead,
     exact: true,
   },
   {
     path: '/song/new',
-    loader: () =>
-      import('src/view/song/form/SongFormPage'),
+    loader: () => import('../view/song/form/SongFormPage'),
     permissionRequired: permissions.songCreate,
     exact: true,
   },
   {
     path: '/song/importer',
     loader: () =>
-      import(
-        'src/view/song/importer/SongImporterPage'
-      ),
+      import('../view/song/importer/SongImporterPage'),
     permissionRequired: permissions.songImport,
     exact: true,
   },
   {
     path: '/song/:id/edit',
-    loader: () =>
-      import('src/view/song/form/SongFormPage'),
+    loader: () => import('../view/song/form/SongFormPage'),
     permissionRequired: permissions.songEdit,
     exact: true,
   },
   {
     path: '/song/:id',
-    loader: () =>
-      import('src/view/song/view/SongViewPage'),
+    loader: () => import('../view/song/view/SongViewPage'),
     permissionRequired: permissions.songRead,
     exact: true,
   },
@@ -866,14 +837,14 @@ const privateRoutes = [
   {
     path: '/playlist',
     loader: () =>
-      import('src/view/playlist/list/PlaylistListPage'),
+      import('../view/playlist/list/PlaylistListPage'),
     permissionRequired: permissions.playlistRead,
     exact: true,
   },
   {
     path: '/playlist/new',
     loader: () =>
-      import('src/view/playlist/form/PlaylistFormPage'),
+      import('../view/playlist/form/PlaylistFormPage'),
     permissionRequired: permissions.playlistCreate,
     exact: true,
   },
@@ -881,7 +852,7 @@ const privateRoutes = [
     path: '/playlist/importer',
     loader: () =>
       import(
-        'src/view/playlist/importer/PlaylistImporterPage'
+        '../view/playlist/importer/PlaylistImporterPage'
       ),
     permissionRequired: permissions.playlistImport,
     exact: true,
@@ -889,14 +860,14 @@ const privateRoutes = [
   {
     path: '/playlist/:id/edit',
     loader: () =>
-      import('src/view/playlist/form/PlaylistFormPage'),
+      import('../view/playlist/form/PlaylistFormPage'),
     permissionRequired: permissions.playlistEdit,
     exact: true,
   },
   {
     path: '/playlist/:id',
     loader: () =>
-      import('src/view/playlist/view/PlaylistViewPage'),
+      import('../view/playlist/view/PlaylistViewPage'),
     permissionRequired: permissions.playlistRead,
     exact: true,
   },
@@ -904,14 +875,18 @@ const privateRoutes = [
   {
     path: '/playlist-song',
     loader: () =>
-      import('src/view/playlistSong/list/PlaylistSongListPage'),
+      import(
+        '../view/playlistSong/list/PlaylistSongListPage'
+      ),
     permissionRequired: permissions.playlistSongRead,
     exact: true,
   },
   {
     path: '/playlist-song/new',
     loader: () =>
-      import('src/view/playlistSong/form/PlaylistSongFormPage'),
+      import(
+        '../view/playlistSong/form/PlaylistSongFormPage'
+      ),
     permissionRequired: permissions.playlistSongCreate,
     exact: true,
   },
@@ -919,7 +894,7 @@ const privateRoutes = [
     path: '/playlist-song/importer',
     loader: () =>
       import(
-        'src/view/playlistSong/importer/PlaylistSongImporterPage'
+        '../view/playlistSong/importer/PlaylistSongImporterPage'
       ),
     permissionRequired: permissions.playlistSongImport,
     exact: true,
@@ -927,14 +902,18 @@ const privateRoutes = [
   {
     path: '/playlist-song/:id/edit',
     loader: () =>
-      import('src/view/playlistSong/form/PlaylistSongFormPage'),
+      import(
+        '../view/playlistSong/form/PlaylistSongFormPage'
+      ),
     permissionRequired: permissions.playlistSongEdit,
     exact: true,
   },
   {
     path: '/playlist-song/:id',
     loader: () =>
-      import('src/view/playlistSong/view/PlaylistSongViewPage'),
+      import(
+        '../view/playlistSong/view/PlaylistSongViewPage'
+      ),
     permissionRequired: permissions.playlistSongRead,
     exact: true,
   },
@@ -942,14 +921,18 @@ const privateRoutes = [
   {
     path: '/user-playlist',
     loader: () =>
-      import('src/view/userPlaylist/list/UserPlaylistListPage'),
+      import(
+        '../view/userPlaylist/list/UserPlaylistListPage'
+      ),
     permissionRequired: permissions.userPlaylistRead,
     exact: true,
   },
   {
     path: '/user-playlist/new',
     loader: () =>
-      import('src/view/userPlaylist/form/UserPlaylistFormPage'),
+      import(
+        '../view/userPlaylist/form/UserPlaylistFormPage'
+      ),
     permissionRequired: permissions.userPlaylistCreate,
     exact: true,
   },
@@ -957,7 +940,7 @@ const privateRoutes = [
     path: '/user-playlist/importer',
     loader: () =>
       import(
-        'src/view/userPlaylist/importer/UserPlaylistImporterPage'
+        '../view/userPlaylist/importer/UserPlaylistImporterPage'
       ),
     permissionRequired: permissions.userPlaylistImport,
     exact: true,
@@ -965,52 +948,50 @@ const privateRoutes = [
   {
     path: '/user-playlist/:id/edit',
     loader: () =>
-      import('src/view/userPlaylist/form/UserPlaylistFormPage'),
+      import(
+        '../view/userPlaylist/form/UserPlaylistFormPage'
+      ),
     permissionRequired: permissions.userPlaylistEdit,
     exact: true,
   },
   {
     path: '/user-playlist/:id',
     loader: () =>
-      import('src/view/userPlaylist/view/UserPlaylistViewPage'),
+      import(
+        '../view/userPlaylist/view/UserPlaylistViewPage'
+      ),
     permissionRequired: permissions.userPlaylistRead,
     exact: true,
   },
 
   {
     path: '/city',
-    loader: () =>
-      import('src/view/city/list/CityListPage'),
+    loader: () => import('../view/city/list/CityListPage'),
     permissionRequired: permissions.cityRead,
     exact: true,
   },
   {
     path: '/city/new',
-    loader: () =>
-      import('src/view/city/form/CityFormPage'),
+    loader: () => import('../view/city/form/CityFormPage'),
     permissionRequired: permissions.cityCreate,
     exact: true,
   },
   {
     path: '/city/importer',
     loader: () =>
-      import(
-        'src/view/city/importer/CityImporterPage'
-      ),
+      import('../view/city/importer/CityImporterPage'),
     permissionRequired: permissions.cityImport,
     exact: true,
   },
   {
     path: '/city/:id/edit',
-    loader: () =>
-      import('src/view/city/form/CityFormPage'),
+    loader: () => import('../view/city/form/CityFormPage'),
     permissionRequired: permissions.cityEdit,
     exact: true,
   },
   {
     path: '/city/:id',
-    loader: () =>
-      import('src/view/city/view/CityViewPage'),
+    loader: () => import('../view/city/view/CityViewPage'),
     permissionRequired: permissions.cityRead,
     exact: true,
   },
@@ -1018,14 +999,14 @@ const privateRoutes = [
   {
     path: '/country',
     loader: () =>
-      import('src/view/country/list/CountryListPage'),
+      import('../view/country/list/CountryListPage'),
     permissionRequired: permissions.countryRead,
     exact: true,
   },
   {
     path: '/country/new',
     loader: () =>
-      import('src/view/country/form/CountryFormPage'),
+      import('../view/country/form/CountryFormPage'),
     permissionRequired: permissions.countryCreate,
     exact: true,
   },
@@ -1033,7 +1014,7 @@ const privateRoutes = [
     path: '/country/importer',
     loader: () =>
       import(
-        'src/view/country/importer/CountryImporterPage'
+        '../view/country/importer/CountryImporterPage'
       ),
     permissionRequired: permissions.countryImport,
     exact: true,
@@ -1041,14 +1022,14 @@ const privateRoutes = [
   {
     path: '/country/:id/edit',
     loader: () =>
-      import('src/view/country/form/CountryFormPage'),
+      import('../view/country/form/CountryFormPage'),
     permissionRequired: permissions.countryEdit,
     exact: true,
   },
   {
     path: '/country/:id',
     loader: () =>
-      import('src/view/country/view/CountryViewPage'),
+      import('../view/country/view/CountryViewPage'),
     permissionRequired: permissions.countryRead,
     exact: true,
   },
@@ -1056,14 +1037,14 @@ const privateRoutes = [
   {
     path: '/address',
     loader: () =>
-      import('src/view/address/list/AddressListPage'),
+      import('../view/address/list/AddressListPage'),
     permissionRequired: permissions.addressRead,
     exact: true,
   },
   {
     path: '/address/new',
     loader: () =>
-      import('src/view/address/form/AddressFormPage'),
+      import('../view/address/form/AddressFormPage'),
     permissionRequired: permissions.addressCreate,
     exact: true,
   },
@@ -1071,7 +1052,7 @@ const privateRoutes = [
     path: '/address/importer',
     loader: () =>
       import(
-        'src/view/address/importer/AddressImporterPage'
+        '../view/address/importer/AddressImporterPage'
       ),
     permissionRequired: permissions.addressImport,
     exact: true,
@@ -1079,14 +1060,14 @@ const privateRoutes = [
   {
     path: '/address/:id/edit',
     loader: () =>
-      import('src/view/address/form/AddressFormPage'),
+      import('../view/address/form/AddressFormPage'),
     permissionRequired: permissions.addressEdit,
     exact: true,
   },
   {
     path: '/address/:id',
     loader: () =>
-      import('src/view/address/view/AddressViewPage'),
+      import('../view/address/view/AddressViewPage'),
     permissionRequired: permissions.addressRead,
     exact: true,
   },
@@ -1094,14 +1075,18 @@ const privateRoutes = [
   {
     path: '/product-category',
     loader: () =>
-      import('src/view/productCategory/list/ProductCategoryListPage'),
+      import(
+        '../view/productCategory/list/ProductCategoryListPage'
+      ),
     permissionRequired: permissions.productCategoryRead,
     exact: true,
   },
   {
     path: '/product-category/new',
     loader: () =>
-      import('src/view/productCategory/form/ProductCategoryFormPage'),
+      import(
+        '../view/productCategory/form/ProductCategoryFormPage'
+      ),
     permissionRequired: permissions.productCategoryCreate,
     exact: true,
   },
@@ -1109,7 +1094,7 @@ const privateRoutes = [
     path: '/product-category/importer',
     loader: () =>
       import(
-        'src/view/productCategory/importer/ProductCategoryImporterPage'
+        '../view/productCategory/importer/ProductCategoryImporterPage'
       ),
     permissionRequired: permissions.productCategoryImport,
     exact: true,
@@ -1117,14 +1102,18 @@ const privateRoutes = [
   {
     path: '/product-category/:id/edit',
     loader: () =>
-      import('src/view/productCategory/form/ProductCategoryFormPage'),
+      import(
+        '../view/productCategory/form/ProductCategoryFormPage'
+      ),
     permissionRequired: permissions.productCategoryEdit,
     exact: true,
   },
   {
     path: '/product-category/:id',
     loader: () =>
-      import('src/view/productCategory/view/ProductCategoryViewPage'),
+      import(
+        '../view/productCategory/view/ProductCategoryViewPage'
+      ),
     permissionRequired: permissions.productCategoryRead,
     exact: true,
   },
@@ -1132,14 +1121,18 @@ const privateRoutes = [
   {
     path: '/order-detail',
     loader: () =>
-      import('src/view/orderDetail/list/OrderDetailListPage'),
+      import(
+        '../view/orderDetail/list/OrderDetailListPage'
+      ),
     permissionRequired: permissions.orderDetailRead,
     exact: true,
   },
   {
     path: '/order-detail/new',
     loader: () =>
-      import('src/view/orderDetail/form/OrderDetailFormPage'),
+      import(
+        '../view/orderDetail/form/OrderDetailFormPage'
+      ),
     permissionRequired: permissions.orderDetailCreate,
     exact: true,
   },
@@ -1147,7 +1140,7 @@ const privateRoutes = [
     path: '/order-detail/importer',
     loader: () =>
       import(
-        'src/view/orderDetail/importer/OrderDetailImporterPage'
+        '../view/orderDetail/importer/OrderDetailImporterPage'
       ),
     permissionRequired: permissions.orderDetailImport,
     exact: true,
@@ -1155,14 +1148,18 @@ const privateRoutes = [
   {
     path: '/order-detail/:id/edit',
     loader: () =>
-      import('src/view/orderDetail/form/OrderDetailFormPage'),
+      import(
+        '../view/orderDetail/form/OrderDetailFormPage'
+      ),
     permissionRequired: permissions.orderDetailEdit,
     exact: true,
   },
   {
     path: '/order-detail/:id',
     loader: () =>
-      import('src/view/orderDetail/view/OrderDetailViewPage'),
+      import(
+        '../view/orderDetail/view/OrderDetailViewPage'
+      ),
     permissionRequired: permissions.orderDetailRead,
     exact: true,
   },
@@ -1170,14 +1167,18 @@ const privateRoutes = [
   {
     path: '/payment-methods',
     loader: () =>
-      import('src/view/paymentMethods/list/PaymentMethodsListPage'),
+      import(
+        '../view/paymentMethods/list/PaymentMethodsListPage'
+      ),
     permissionRequired: permissions.paymentMethodsRead,
     exact: true,
   },
   {
     path: '/payment-methods/new',
     loader: () =>
-      import('src/view/paymentMethods/form/PaymentMethodsFormPage'),
+      import(
+        '../view/paymentMethods/form/PaymentMethodsFormPage'
+      ),
     permissionRequired: permissions.paymentMethodsCreate,
     exact: true,
   },
@@ -1185,7 +1186,7 @@ const privateRoutes = [
     path: '/payment-methods/importer',
     loader: () =>
       import(
-        'src/view/paymentMethods/importer/PaymentMethodsImporterPage'
+        '../view/paymentMethods/importer/PaymentMethodsImporterPage'
       ),
     permissionRequired: permissions.paymentMethodsImport,
     exact: true,
@@ -1193,14 +1194,18 @@ const privateRoutes = [
   {
     path: '/payment-methods/:id/edit',
     loader: () =>
-      import('src/view/paymentMethods/form/PaymentMethodsFormPage'),
+      import(
+        '../view/paymentMethods/form/PaymentMethodsFormPage'
+      ),
     permissionRequired: permissions.paymentMethodsEdit,
     exact: true,
   },
   {
     path: '/payment-methods/:id',
     loader: () =>
-      import('src/view/paymentMethods/view/PaymentMethodsViewPage'),
+      import(
+        '../view/paymentMethods/view/PaymentMethodsViewPage'
+      ),
     permissionRequired: permissions.paymentMethodsRead,
     exact: true,
   },
@@ -1208,14 +1213,18 @@ const privateRoutes = [
   {
     path: '/product-review',
     loader: () =>
-      import('src/view/productReview/list/ProductReviewListPage'),
+      import(
+        '../view/productReview/list/ProductReviewListPage'
+      ),
     permissionRequired: permissions.productReviewRead,
     exact: true,
   },
   {
     path: '/product-review/new',
     loader: () =>
-      import('src/view/productReview/form/ProductReviewFormPage'),
+      import(
+        '../view/productReview/form/ProductReviewFormPage'
+      ),
     permissionRequired: permissions.productReviewCreate,
     exact: true,
   },
@@ -1223,7 +1232,7 @@ const privateRoutes = [
     path: '/product-review/importer',
     loader: () =>
       import(
-        'src/view/productReview/importer/ProductReviewImporterPage'
+        '../view/productReview/importer/ProductReviewImporterPage'
       ),
     permissionRequired: permissions.productReviewImport,
     exact: true,
@@ -1231,14 +1240,18 @@ const privateRoutes = [
   {
     path: '/product-review/:id/edit',
     loader: () =>
-      import('src/view/productReview/form/ProductReviewFormPage'),
+      import(
+        '../view/productReview/form/ProductReviewFormPage'
+      ),
     permissionRequired: permissions.productReviewEdit,
     exact: true,
   },
   {
     path: '/product-review/:id',
     loader: () =>
-      import('src/view/productReview/view/ProductReviewViewPage'),
+      import(
+        '../view/productReview/view/ProductReviewViewPage'
+      ),
     permissionRequired: permissions.productReviewRead,
     exact: true,
   },
@@ -1246,14 +1259,14 @@ const privateRoutes = [
   {
     path: '/promotions',
     loader: () =>
-      import('src/view/promotions/list/PromotionsListPage'),
+      import('../view/promotions/list/PromotionsListPage'),
     permissionRequired: permissions.promotionsRead,
     exact: true,
   },
   {
     path: '/promotions/new',
     loader: () =>
-      import('src/view/promotions/form/PromotionsFormPage'),
+      import('../view/promotions/form/PromotionsFormPage'),
     permissionRequired: permissions.promotionsCreate,
     exact: true,
   },
@@ -1261,7 +1274,7 @@ const privateRoutes = [
     path: '/promotions/importer',
     loader: () =>
       import(
-        'src/view/promotions/importer/PromotionsImporterPage'
+        '../view/promotions/importer/PromotionsImporterPage'
       ),
     permissionRequired: permissions.promotionsImport,
     exact: true,
@@ -1269,14 +1282,14 @@ const privateRoutes = [
   {
     path: '/promotions/:id/edit',
     loader: () =>
-      import('src/view/promotions/form/PromotionsFormPage'),
+      import('../view/promotions/form/PromotionsFormPage'),
     permissionRequired: permissions.promotionsEdit,
     exact: true,
   },
   {
     path: '/promotions/:id',
     loader: () =>
-      import('src/view/promotions/view/PromotionsViewPage'),
+      import('../view/promotions/view/PromotionsViewPage'),
     permissionRequired: permissions.promotionsRead,
     exact: true,
   },
@@ -1284,37 +1297,35 @@ const privateRoutes = [
   {
     path: '/course',
     loader: () =>
-      import('src/view/course/list/CourseListPage'),
+      import('../view/course/list/CourseListPage'),
     permissionRequired: permissions.courseRead,
     exact: true,
   },
   {
     path: '/course/new',
     loader: () =>
-      import('src/view/course/form/CourseFormPage'),
+      import('../view/course/form/CourseFormPage'),
     permissionRequired: permissions.courseCreate,
     exact: true,
   },
   {
     path: '/course/importer',
     loader: () =>
-      import(
-        'src/view/course/importer/CourseImporterPage'
-      ),
+      import('../view/course/importer/CourseImporterPage'),
     permissionRequired: permissions.courseImport,
     exact: true,
   },
   {
     path: '/course/:id/edit',
     loader: () =>
-      import('src/view/course/form/CourseFormPage'),
+      import('../view/course/form/CourseFormPage'),
     permissionRequired: permissions.courseEdit,
     exact: true,
   },
   {
     path: '/course/:id',
     loader: () =>
-      import('src/view/course/view/CourseViewPage'),
+      import('../view/course/view/CourseViewPage'),
     permissionRequired: permissions.courseRead,
     exact: true,
   },
@@ -1322,14 +1333,14 @@ const privateRoutes = [
   {
     path: '/teacher',
     loader: () =>
-      import('src/view/teacher/list/TeacherListPage'),
+      import('../view/teacher/list/TeacherListPage'),
     permissionRequired: permissions.teacherRead,
     exact: true,
   },
   {
     path: '/teacher/new',
     loader: () =>
-      import('src/view/teacher/form/TeacherFormPage'),
+      import('../view/teacher/form/TeacherFormPage'),
     permissionRequired: permissions.teacherCreate,
     exact: true,
   },
@@ -1337,7 +1348,7 @@ const privateRoutes = [
     path: '/teacher/importer',
     loader: () =>
       import(
-        'src/view/teacher/importer/TeacherImporterPage'
+        '../view/teacher/importer/TeacherImporterPage'
       ),
     permissionRequired: permissions.teacherImport,
     exact: true,
@@ -1345,14 +1356,14 @@ const privateRoutes = [
   {
     path: '/teacher/:id/edit',
     loader: () =>
-      import('src/view/teacher/form/TeacherFormPage'),
+      import('../view/teacher/form/TeacherFormPage'),
     permissionRequired: permissions.teacherEdit,
     exact: true,
   },
   {
     path: '/teacher/:id',
     loader: () =>
-      import('src/view/teacher/view/TeacherViewPage'),
+      import('../view/teacher/view/TeacherViewPage'),
     permissionRequired: permissions.teacherRead,
     exact: true,
   },
@@ -1360,37 +1371,35 @@ const privateRoutes = [
   {
     path: '/lesson',
     loader: () =>
-      import('src/view/lesson/list/LessonListPage'),
+      import('../view/lesson/list/LessonListPage'),
     permissionRequired: permissions.lessonRead,
     exact: true,
   },
   {
     path: '/lesson/new',
     loader: () =>
-      import('src/view/lesson/form/LessonFormPage'),
+      import('../view/lesson/form/LessonFormPage'),
     permissionRequired: permissions.lessonCreate,
     exact: true,
   },
   {
     path: '/lesson/importer',
     loader: () =>
-      import(
-        'src/view/lesson/importer/LessonImporterPage'
-      ),
+      import('../view/lesson/importer/LessonImporterPage'),
     permissionRequired: permissions.lessonImport,
     exact: true,
   },
   {
     path: '/lesson/:id/edit',
     loader: () =>
-      import('src/view/lesson/form/LessonFormPage'),
+      import('../view/lesson/form/LessonFormPage'),
     permissionRequired: permissions.lessonEdit,
     exact: true,
   },
   {
     path: '/lesson/:id',
     loader: () =>
-      import('src/view/lesson/view/LessonViewPage'),
+      import('../view/lesson/view/LessonViewPage'),
     permissionRequired: permissions.lessonRead,
     exact: true,
   },
@@ -1398,14 +1407,18 @@ const privateRoutes = [
   {
     path: '/course-enrollment',
     loader: () =>
-      import('src/view/courseEnrollment/list/CourseEnrollmentListPage'),
+      import(
+        '../view/courseEnrollment/list/CourseEnrollmentListPage'
+      ),
     permissionRequired: permissions.courseEnrollmentRead,
     exact: true,
   },
   {
     path: '/course-enrollment/new',
     loader: () =>
-      import('src/view/courseEnrollment/form/CourseEnrollmentFormPage'),
+      import(
+        '../view/courseEnrollment/form/CourseEnrollmentFormPage'
+      ),
     permissionRequired: permissions.courseEnrollmentCreate,
     exact: true,
   },
@@ -1413,7 +1426,7 @@ const privateRoutes = [
     path: '/course-enrollment/importer',
     loader: () =>
       import(
-        'src/view/courseEnrollment/importer/CourseEnrollmentImporterPage'
+        '../view/courseEnrollment/importer/CourseEnrollmentImporterPage'
       ),
     permissionRequired: permissions.courseEnrollmentImport,
     exact: true,
@@ -1421,14 +1434,18 @@ const privateRoutes = [
   {
     path: '/course-enrollment/:id/edit',
     loader: () =>
-      import('src/view/courseEnrollment/form/CourseEnrollmentFormPage'),
+      import(
+        '../view/courseEnrollment/form/CourseEnrollmentFormPage'
+      ),
     permissionRequired: permissions.courseEnrollmentEdit,
     exact: true,
   },
   {
     path: '/course-enrollment/:id',
     loader: () =>
-      import('src/view/courseEnrollment/view/CourseEnrollmentViewPage'),
+      import(
+        '../view/courseEnrollment/view/CourseEnrollmentViewPage'
+      ),
     permissionRequired: permissions.courseEnrollmentRead,
     exact: true,
   },
@@ -1436,14 +1453,14 @@ const privateRoutes = [
   {
     path: '/student',
     loader: () =>
-      import('src/view/student/list/StudentListPage'),
+      import('../view/student/list/StudentListPage'),
     permissionRequired: permissions.studentRead,
     exact: true,
   },
   {
     path: '/student/new',
     loader: () =>
-      import('src/view/student/form/StudentFormPage'),
+      import('../view/student/form/StudentFormPage'),
     permissionRequired: permissions.studentCreate,
     exact: true,
   },
@@ -1451,7 +1468,7 @@ const privateRoutes = [
     path: '/student/importer',
     loader: () =>
       import(
-        'src/view/student/importer/StudentImporterPage'
+        '../view/student/importer/StudentImporterPage'
       ),
     permissionRequired: permissions.studentImport,
     exact: true,
@@ -1459,14 +1476,14 @@ const privateRoutes = [
   {
     path: '/student/:id/edit',
     loader: () =>
-      import('src/view/student/form/StudentFormPage'),
+      import('../view/student/form/StudentFormPage'),
     permissionRequired: permissions.studentEdit,
     exact: true,
   },
   {
     path: '/student/:id',
     loader: () =>
-      import('src/view/student/view/StudentViewPage'),
+      import('../view/student/view/StudentViewPage'),
     permissionRequired: permissions.studentRead,
     exact: true,
   },
@@ -1474,14 +1491,18 @@ const privateRoutes = [
   {
     path: '/course-comment',
     loader: () =>
-      import('src/view/courseComment/list/CourseCommentListPage'),
+      import(
+        '../view/courseComment/list/CourseCommentListPage'
+      ),
     permissionRequired: permissions.courseCommentRead,
     exact: true,
   },
   {
     path: '/course-comment/new',
     loader: () =>
-      import('src/view/courseComment/form/CourseCommentFormPage'),
+      import(
+        '../view/courseComment/form/CourseCommentFormPage'
+      ),
     permissionRequired: permissions.courseCommentCreate,
     exact: true,
   },
@@ -1489,7 +1510,7 @@ const privateRoutes = [
     path: '/course-comment/importer',
     loader: () =>
       import(
-        'src/view/courseComment/importer/CourseCommentImporterPage'
+        '../view/courseComment/importer/CourseCommentImporterPage'
       ),
     permissionRequired: permissions.courseCommentImport,
     exact: true,
@@ -1497,14 +1518,18 @@ const privateRoutes = [
   {
     path: '/course-comment/:id/edit',
     loader: () =>
-      import('src/view/courseComment/form/CourseCommentFormPage'),
+      import(
+        '../view/courseComment/form/CourseCommentFormPage'
+      ),
     permissionRequired: permissions.courseCommentEdit,
     exact: true,
   },
   {
     path: '/course-comment/:id',
     loader: () =>
-      import('src/view/courseComment/view/CourseCommentViewPage'),
+      import(
+        '../view/courseComment/view/CourseCommentViewPage'
+      ),
     permissionRequired: permissions.courseCommentRead,
     exact: true,
   },
@@ -1512,14 +1537,18 @@ const privateRoutes = [
   {
     path: '/course-transaction',
     loader: () =>
-      import('src/view/courseTransaction/list/CourseTransactionListPage'),
+      import(
+        '../view/courseTransaction/list/CourseTransactionListPage'
+      ),
     permissionRequired: permissions.courseTransactionRead,
     exact: true,
   },
   {
     path: '/course-transaction/new',
     loader: () =>
-      import('src/view/courseTransaction/form/CourseTransactionFormPage'),
+      import(
+        '../view/courseTransaction/form/CourseTransactionFormPage'
+      ),
     permissionRequired: permissions.courseTransactionCreate,
     exact: true,
   },
@@ -1527,7 +1556,7 @@ const privateRoutes = [
     path: '/course-transaction/importer',
     loader: () =>
       import(
-        'src/view/courseTransaction/importer/CourseTransactionImporterPage'
+        '../view/courseTransaction/importer/CourseTransactionImporterPage'
       ),
     permissionRequired: permissions.courseTransactionImport,
     exact: true,
@@ -1535,14 +1564,18 @@ const privateRoutes = [
   {
     path: '/course-transaction/:id/edit',
     loader: () =>
-      import('src/view/courseTransaction/form/CourseTransactionFormPage'),
+      import(
+        '../view/courseTransaction/form/CourseTransactionFormPage'
+      ),
     permissionRequired: permissions.courseTransactionEdit,
     exact: true,
   },
   {
     path: '/course-transaction/:id',
     loader: () =>
-      import('src/view/courseTransaction/view/CourseTransactionViewPage'),
+      import(
+        '../view/courseTransaction/view/CourseTransactionViewPage'
+      ),
     permissionRequired: permissions.courseTransactionRead,
     exact: true,
   },
@@ -1550,14 +1583,18 @@ const privateRoutes = [
   {
     path: '/course-category',
     loader: () =>
-      import('src/view/courseCategory/list/CourseCategoryListPage'),
+      import(
+        '../view/courseCategory/list/CourseCategoryListPage'
+      ),
     permissionRequired: permissions.courseCategoryRead,
     exact: true,
   },
   {
     path: '/course-category/new',
     loader: () =>
-      import('src/view/courseCategory/form/CourseCategoryFormPage'),
+      import(
+        '../view/courseCategory/form/CourseCategoryFormPage'
+      ),
     permissionRequired: permissions.courseCategoryCreate,
     exact: true,
   },
@@ -1565,7 +1602,7 @@ const privateRoutes = [
     path: '/course-category/importer',
     loader: () =>
       import(
-        'src/view/courseCategory/importer/CourseCategoryImporterPage'
+        '../view/courseCategory/importer/CourseCategoryImporterPage'
       ),
     permissionRequired: permissions.courseCategoryImport,
     exact: true,
@@ -1573,14 +1610,18 @@ const privateRoutes = [
   {
     path: '/course-category/:id/edit',
     loader: () =>
-      import('src/view/courseCategory/form/CourseCategoryFormPage'),
+      import(
+        '../view/courseCategory/form/CourseCategoryFormPage'
+      ),
     permissionRequired: permissions.courseCategoryEdit,
     exact: true,
   },
   {
     path: '/course-category/:id',
     loader: () =>
-      import('src/view/courseCategory/view/CourseCategoryViewPage'),
+      import(
+        '../view/courseCategory/view/CourseCategoryViewPage'
+      ),
     permissionRequired: permissions.courseCategoryRead,
     exact: true,
   },
@@ -1588,52 +1629,69 @@ const privateRoutes = [
   {
     path: '/category-course-relation',
     loader: () =>
-      import('src/view/categoryCourseRelation/list/CategoryCourseRelationListPage'),
-    permissionRequired: permissions.categoryCourseRelationRead,
+      import(
+        '../view/categoryCourseRelation/list/CategoryCourseRelationListPage'
+      ),
+    permissionRequired:
+      permissions.categoryCourseRelationRead,
     exact: true,
   },
   {
     path: '/category-course-relation/new',
     loader: () =>
-      import('src/view/categoryCourseRelation/form/CategoryCourseRelationFormPage'),
-    permissionRequired: permissions.categoryCourseRelationCreate,
+      import(
+        '../view/categoryCourseRelation/form/CategoryCourseRelationFormPage'
+      ),
+    permissionRequired:
+      permissions.categoryCourseRelationCreate,
     exact: true,
   },
   {
     path: '/category-course-relation/importer',
     loader: () =>
       import(
-        'src/view/categoryCourseRelation/importer/CategoryCourseRelationImporterPage'
+        '../view/categoryCourseRelation/importer/CategoryCourseRelationImporterPage'
       ),
-    permissionRequired: permissions.categoryCourseRelationImport,
+    permissionRequired:
+      permissions.categoryCourseRelationImport,
     exact: true,
   },
   {
     path: '/category-course-relation/:id/edit',
     loader: () =>
-      import('src/view/categoryCourseRelation/form/CategoryCourseRelationFormPage'),
-    permissionRequired: permissions.categoryCourseRelationEdit,
+      import(
+        '../view/categoryCourseRelation/form/CategoryCourseRelationFormPage'
+      ),
+    permissionRequired:
+      permissions.categoryCourseRelationEdit,
     exact: true,
   },
   {
     path: '/category-course-relation/:id',
     loader: () =>
-      import('src/view/categoryCourseRelation/view/CategoryCourseRelationViewPage'),
-    permissionRequired: permissions.categoryCourseRelationRead,
+      import(
+        '../view/categoryCourseRelation/view/CategoryCourseRelationViewPage'
+      ),
+    permissionRequired:
+      permissions.categoryCourseRelationRead,
     exact: true,
   },
 
   {
     path: '/course-progress',
     loader: () =>
-      import('src/view/courseProgress/list/CourseProgressListPage'),
+      import(
+        '../view/courseProgress/list/CourseProgressListPage'
+      ),
     permissionRequired: permissions.courseProgressRead,
     exact: true,
   },
   {
     path: '/course-progress/new',
     loader: () =>
-      import('src/view/courseProgress/form/CourseProgressFormPage'),
+      import(
+        '../view/courseProgress/form/CourseProgressFormPage'
+      ),
     permissionRequired: permissions.courseProgressCreate,
     exact: true,
   },
@@ -1641,7 +1699,7 @@ const privateRoutes = [
     path: '/course-progress/importer',
     loader: () =>
       import(
-        'src/view/courseProgress/importer/CourseProgressImporterPage'
+        '../view/courseProgress/importer/CourseProgressImporterPage'
       ),
     permissionRequired: permissions.courseProgressImport,
     exact: true,
@@ -1649,14 +1707,18 @@ const privateRoutes = [
   {
     path: '/course-progress/:id/edit',
     loader: () =>
-      import('src/view/courseProgress/form/CourseProgressFormPage'),
+      import(
+        '../view/courseProgress/form/CourseProgressFormPage'
+      ),
     permissionRequired: permissions.courseProgressEdit,
     exact: true,
   },
   {
     path: '/course-progress/:id',
     loader: () =>
-      import('src/view/courseProgress/view/CourseProgressViewPage'),
+      import(
+        '../view/courseProgress/view/CourseProgressViewPage'
+      ),
     permissionRequired: permissions.courseProgressRead,
     exact: true,
   },
@@ -1664,14 +1726,14 @@ const privateRoutes = [
   {
     path: '/message',
     loader: () =>
-      import('src/view/message/list/MessageListPage'),
+      import('../view/message/list/MessageListPage'),
     permissionRequired: permissions.messageRead,
     exact: true,
   },
   {
     path: '/message/new',
     loader: () =>
-      import('src/view/message/form/MessageFormPage'),
+      import('../view/message/form/MessageFormPage'),
     permissionRequired: permissions.messageCreate,
     exact: true,
   },
@@ -1679,7 +1741,7 @@ const privateRoutes = [
     path: '/message/importer',
     loader: () =>
       import(
-        'src/view/message/importer/MessageImporterPage'
+        '../view/message/importer/MessageImporterPage'
       ),
     permissionRequired: permissions.messageImport,
     exact: true,
@@ -1687,14 +1749,14 @@ const privateRoutes = [
   {
     path: '/message/:id/edit',
     loader: () =>
-      import('src/view/message/form/MessageFormPage'),
+      import('../view/message/form/MessageFormPage'),
     permissionRequired: permissions.messageEdit,
     exact: true,
   },
   {
     path: '/message/:id',
     loader: () =>
-      import('src/view/message/view/MessageViewPage'),
+      import('../view/message/view/MessageViewPage'),
     permissionRequired: permissions.messageRead,
     exact: true,
   },
@@ -1702,14 +1764,18 @@ const privateRoutes = [
   {
     path: '/conversation',
     loader: () =>
-      import('src/view/conversation/list/ConversationListPage'),
+      import(
+        '../view/conversation/list/ConversationListPage'
+      ),
     permissionRequired: permissions.conversationRead,
     exact: true,
   },
   {
     path: '/conversation/new',
     loader: () =>
-      import('src/view/conversation/form/ConversationFormPage'),
+      import(
+        '../view/conversation/form/ConversationFormPage'
+      ),
     permissionRequired: permissions.conversationCreate,
     exact: true,
   },
@@ -1717,7 +1783,7 @@ const privateRoutes = [
     path: '/conversation/importer',
     loader: () =>
       import(
-        'src/view/conversation/importer/ConversationImporterPage'
+        '../view/conversation/importer/ConversationImporterPage'
       ),
     permissionRequired: permissions.conversationImport,
     exact: true,
@@ -1725,14 +1791,18 @@ const privateRoutes = [
   {
     path: '/conversation/:id/edit',
     loader: () =>
-      import('src/view/conversation/form/ConversationFormPage'),
+      import(
+        '../view/conversation/form/ConversationFormPage'
+      ),
     permissionRequired: permissions.conversationEdit,
     exact: true,
   },
   {
     path: '/conversation/:id',
     loader: () =>
-      import('src/view/conversation/view/ConversationViewPage'),
+      import(
+        '../view/conversation/view/ConversationViewPage'
+      ),
     permissionRequired: permissions.conversationRead,
     exact: true,
   },
@@ -1740,52 +1810,65 @@ const privateRoutes = [
   {
     path: '/conversation-participant',
     loader: () =>
-      import('src/view/conversationParticipant/list/ConversationParticipantListPage'),
-    permissionRequired: permissions.conversationParticipantRead,
+      import(
+        '../view/conversationParticipant/list/ConversationParticipantListPage'
+      ),
+    permissionRequired:
+      permissions.conversationParticipantRead,
     exact: true,
   },
   {
     path: '/conversation-participant/new',
     loader: () =>
-      import('src/view/conversationParticipant/form/ConversationParticipantFormPage'),
-    permissionRequired: permissions.conversationParticipantCreate,
+      import(
+        '../view/conversationParticipant/form/ConversationParticipantFormPage'
+      ),
+    permissionRequired:
+      permissions.conversationParticipantCreate,
     exact: true,
   },
   {
     path: '/conversation-participant/importer',
     loader: () =>
       import(
-        'src/view/conversationParticipant/importer/ConversationParticipantImporterPage'
+        '../view/conversationParticipant/importer/ConversationParticipantImporterPage'
       ),
-    permissionRequired: permissions.conversationParticipantImport,
+    permissionRequired:
+      permissions.conversationParticipantImport,
     exact: true,
   },
   {
     path: '/conversation-participant/:id/edit',
     loader: () =>
-      import('src/view/conversationParticipant/form/ConversationParticipantFormPage'),
-    permissionRequired: permissions.conversationParticipantEdit,
+      import(
+        '../view/conversationParticipant/form/ConversationParticipantFormPage'
+      ),
+    permissionRequired:
+      permissions.conversationParticipantEdit,
     exact: true,
   },
   {
     path: '/conversation-participant/:id',
     loader: () =>
-      import('src/view/conversationParticipant/view/ConversationParticipantViewPage'),
-    permissionRequired: permissions.conversationParticipantRead,
+      import(
+        '../view/conversationParticipant/view/ConversationParticipantViewPage'
+      ),
+    permissionRequired:
+      permissions.conversationParticipantRead,
     exact: true,
   },
 
   {
     path: '/business',
     loader: () =>
-      import('src/view/business/list/BusinessListPage'),
+      import('../view/business/list/BusinessListPage'),
     permissionRequired: permissions.businessRead,
     exact: true,
   },
   {
     path: '/business/new',
     loader: () =>
-      import('src/view/business/form/BusinessFormPage'),
+      import('../view/business/form/BusinessFormPage'),
     permissionRequired: permissions.businessCreate,
     exact: true,
   },
@@ -1793,7 +1876,7 @@ const privateRoutes = [
     path: '/business/importer',
     loader: () =>
       import(
-        'src/view/business/importer/BusinessImporterPage'
+        '../view/business/importer/BusinessImporterPage'
       ),
     permissionRequired: permissions.businessImport,
     exact: true,
@@ -1801,14 +1884,14 @@ const privateRoutes = [
   {
     path: '/business/:id/edit',
     loader: () =>
-      import('src/view/business/form/BusinessFormPage'),
+      import('../view/business/form/BusinessFormPage'),
     permissionRequired: permissions.businessEdit,
     exact: true,
   },
   {
     path: '/business/:id',
     loader: () =>
-      import('src/view/business/view/BusinessViewPage'),
+      import('../view/business/view/BusinessViewPage'),
     permissionRequired: permissions.businessRead,
     exact: true,
   },
@@ -1816,14 +1899,18 @@ const privateRoutes = [
   {
     path: '/business-category',
     loader: () =>
-      import('src/view/businessCategory/list/BusinessCategoryListPage'),
+      import(
+        '../view/businessCategory/list/BusinessCategoryListPage'
+      ),
     permissionRequired: permissions.businessCategoryRead,
     exact: true,
   },
   {
     path: '/business-category/new',
     loader: () =>
-      import('src/view/businessCategory/form/BusinessCategoryFormPage'),
+      import(
+        '../view/businessCategory/form/BusinessCategoryFormPage'
+      ),
     permissionRequired: permissions.businessCategoryCreate,
     exact: true,
   },
@@ -1831,7 +1918,7 @@ const privateRoutes = [
     path: '/business-category/importer',
     loader: () =>
       import(
-        'src/view/businessCategory/importer/BusinessCategoryImporterPage'
+        '../view/businessCategory/importer/BusinessCategoryImporterPage'
       ),
     permissionRequired: permissions.businessCategoryImport,
     exact: true,
@@ -1839,14 +1926,18 @@ const privateRoutes = [
   {
     path: '/business-category/:id/edit',
     loader: () =>
-      import('src/view/businessCategory/form/BusinessCategoryFormPage'),
+      import(
+        '../view/businessCategory/form/BusinessCategoryFormPage'
+      ),
     permissionRequired: permissions.businessCategoryEdit,
     exact: true,
   },
   {
     path: '/business-category/:id',
     loader: () =>
-      import('src/view/businessCategory/view/BusinessCategoryViewPage'),
+      import(
+        '../view/businessCategory/view/BusinessCategoryViewPage'
+      ),
     permissionRequired: permissions.businessCategoryRead,
     exact: true,
   },
@@ -1854,14 +1945,14 @@ const privateRoutes = [
   {
     path: '/service',
     loader: () =>
-      import('src/view/service/list/ServiceListPage'),
+      import('../view/service/list/ServiceListPage'),
     permissionRequired: permissions.serviceRead,
     exact: true,
   },
   {
     path: '/service/new',
     loader: () =>
-      import('src/view/service/form/ServiceFormPage'),
+      import('../view/service/form/ServiceFormPage'),
     permissionRequired: permissions.serviceCreate,
     exact: true,
   },
@@ -1869,7 +1960,7 @@ const privateRoutes = [
     path: '/service/importer',
     loader: () =>
       import(
-        'src/view/service/importer/ServiceImporterPage'
+        '../view/service/importer/ServiceImporterPage'
       ),
     permissionRequired: permissions.serviceImport,
     exact: true,
@@ -1877,14 +1968,14 @@ const privateRoutes = [
   {
     path: '/service/:id/edit',
     loader: () =>
-      import('src/view/service/form/ServiceFormPage'),
+      import('../view/service/form/ServiceFormPage'),
     permissionRequired: permissions.serviceEdit,
     exact: true,
   },
   {
     path: '/service/:id',
     loader: () =>
-      import('src/view/service/view/ServiceViewPage'),
+      import('../view/service/view/ServiceViewPage'),
     permissionRequired: permissions.serviceRead,
     exact: true,
   },
@@ -1892,52 +1983,69 @@ const privateRoutes = [
   {
     path: '/availability-timeslot',
     loader: () =>
-      import('src/view/availabilityTimeslot/list/AvailabilityTimeslotListPage'),
-    permissionRequired: permissions.availabilityTimeslotRead,
+      import(
+        '../view/availabilityTimeslot/list/AvailabilityTimeslotListPage'
+      ),
+    permissionRequired:
+      permissions.availabilityTimeslotRead,
     exact: true,
   },
   {
     path: '/availability-timeslot/new',
     loader: () =>
-      import('src/view/availabilityTimeslot/form/AvailabilityTimeslotFormPage'),
-    permissionRequired: permissions.availabilityTimeslotCreate,
+      import(
+        '../view/availabilityTimeslot/form/AvailabilityTimeslotFormPage'
+      ),
+    permissionRequired:
+      permissions.availabilityTimeslotCreate,
     exact: true,
   },
   {
     path: '/availability-timeslot/importer',
     loader: () =>
       import(
-        'src/view/availabilityTimeslot/importer/AvailabilityTimeslotImporterPage'
+        '../view/availabilityTimeslot/importer/AvailabilityTimeslotImporterPage'
       ),
-    permissionRequired: permissions.availabilityTimeslotImport,
+    permissionRequired:
+      permissions.availabilityTimeslotImport,
     exact: true,
   },
   {
     path: '/availability-timeslot/:id/edit',
     loader: () =>
-      import('src/view/availabilityTimeslot/form/AvailabilityTimeslotFormPage'),
-    permissionRequired: permissions.availabilityTimeslotEdit,
+      import(
+        '../view/availabilityTimeslot/form/AvailabilityTimeslotFormPage'
+      ),
+    permissionRequired:
+      permissions.availabilityTimeslotEdit,
     exact: true,
   },
   {
     path: '/availability-timeslot/:id',
     loader: () =>
-      import('src/view/availabilityTimeslot/view/AvailabilityTimeslotViewPage'),
-    permissionRequired: permissions.availabilityTimeslotRead,
+      import(
+        '../view/availabilityTimeslot/view/AvailabilityTimeslotViewPage'
+      ),
+    permissionRequired:
+      permissions.availabilityTimeslotRead,
     exact: true,
   },
 
   {
     path: '/appointment',
     loader: () =>
-      import('src/view/appointment/list/AppointmentListPage'),
+      import(
+        '../view/appointment/list/AppointmentListPage'
+      ),
     permissionRequired: permissions.appointmentRead,
     exact: true,
   },
   {
     path: '/appointment/new',
     loader: () =>
-      import('src/view/appointment/form/AppointmentFormPage'),
+      import(
+        '../view/appointment/form/AppointmentFormPage'
+      ),
     permissionRequired: permissions.appointmentCreate,
     exact: true,
   },
@@ -1945,7 +2053,7 @@ const privateRoutes = [
     path: '/appointment/importer',
     loader: () =>
       import(
-        'src/view/appointment/importer/AppointmentImporterPage'
+        '../view/appointment/importer/AppointmentImporterPage'
       ),
     permissionRequired: permissions.appointmentImport,
     exact: true,
@@ -1953,14 +2061,18 @@ const privateRoutes = [
   {
     path: '/appointment/:id/edit',
     loader: () =>
-      import('src/view/appointment/form/AppointmentFormPage'),
+      import(
+        '../view/appointment/form/AppointmentFormPage'
+      ),
     permissionRequired: permissions.appointmentEdit,
     exact: true,
   },
   {
     path: '/appointment/:id',
     loader: () =>
-      import('src/view/appointment/view/AppointmentViewPage'),
+      import(
+        '../view/appointment/view/AppointmentViewPage'
+      ),
     permissionRequired: permissions.appointmentRead,
     exact: true,
   },
@@ -1968,37 +2080,35 @@ const privateRoutes = [
   {
     path: '/brand',
     loader: () =>
-      import('src/view/brand/list/BrandListPage'),
+      import('../view/brand/list/BrandListPage'),
     permissionRequired: permissions.brandRead,
     exact: true,
   },
   {
     path: '/brand/new',
     loader: () =>
-      import('src/view/brand/form/BrandFormPage'),
+      import('../view/brand/form/BrandFormPage'),
     permissionRequired: permissions.brandCreate,
     exact: true,
   },
   {
     path: '/brand/importer',
     loader: () =>
-      import(
-        'src/view/brand/importer/BrandImporterPage'
-      ),
+      import('../view/brand/importer/BrandImporterPage'),
     permissionRequired: permissions.brandImport,
     exact: true,
   },
   {
     path: '/brand/:id/edit',
     loader: () =>
-      import('src/view/brand/form/BrandFormPage'),
+      import('../view/brand/form/BrandFormPage'),
     permissionRequired: permissions.brandEdit,
     exact: true,
   },
   {
     path: '/brand/:id',
     loader: () =>
-      import('src/view/brand/view/BrandViewPage'),
+      import('../view/brand/view/BrandViewPage'),
     permissionRequired: permissions.brandRead,
     exact: true,
   },
@@ -2006,14 +2116,18 @@ const privateRoutes = [
   {
     path: '/delivery-method',
     loader: () =>
-      import('src/view/deliveryMethod/list/DeliveryMethodListPage'),
+      import(
+        '../view/deliveryMethod/list/DeliveryMethodListPage'
+      ),
     permissionRequired: permissions.deliveryMethodRead,
     exact: true,
   },
   {
     path: '/delivery-method/new',
     loader: () =>
-      import('src/view/deliveryMethod/form/DeliveryMethodFormPage'),
+      import(
+        '../view/deliveryMethod/form/DeliveryMethodFormPage'
+      ),
     permissionRequired: permissions.deliveryMethodCreate,
     exact: true,
   },
@@ -2021,7 +2135,7 @@ const privateRoutes = [
     path: '/delivery-method/importer',
     loader: () =>
       import(
-        'src/view/deliveryMethod/importer/DeliveryMethodImporterPage'
+        '../view/deliveryMethod/importer/DeliveryMethodImporterPage'
       ),
     permissionRequired: permissions.deliveryMethodImport,
     exact: true,
@@ -2029,14 +2143,18 @@ const privateRoutes = [
   {
     path: '/delivery-method/:id/edit',
     loader: () =>
-      import('src/view/deliveryMethod/form/DeliveryMethodFormPage'),
+      import(
+        '../view/deliveryMethod/form/DeliveryMethodFormPage'
+      ),
     permissionRequired: permissions.deliveryMethodEdit,
     exact: true,
   },
   {
     path: '/delivery-method/:id',
     loader: () =>
-      import('src/view/deliveryMethod/view/DeliveryMethodViewPage'),
+      import(
+        '../view/deliveryMethod/view/DeliveryMethodViewPage'
+      ),
     permissionRequired: permissions.deliveryMethodRead,
     exact: true,
   },
@@ -2045,23 +2163,22 @@ const privateRoutes = [
 const publicRoutes = [
   {
     path: '/auth/signin',
-    loader: () => import('src/view/auth/SigninPage'),
+    loader: () => import('../view/auth/SigninPage'),
   },
   {
     path: '/auth/signup',
-    loader: () => import('src/view/auth/SignupPage'),
+    loader: () => import('../view/auth/SignupPage'),
   },
   {
     path: '/auth/forgot-password',
-    loader: () =>
-      import('src/view/auth/ForgotPasswordPage'),
+    loader: () => import('../view/auth/ForgotPasswordPage'),
   },
 ].filter(Boolean);
 
 const emptyTenantRoutes = [
   {
     path: '/auth/tenant',
-    loader: () => import('src/view/auth/TenantPage'),
+    loader: () => import('../view/auth/TenantPage'),
   },
 ].filter(Boolean);
 
@@ -2069,7 +2186,7 @@ const emptyPermissionsRoutes = [
   {
     path: '/auth/empty-permissions',
     loader: () =>
-      import('src/view/auth/EmptyPermissionsPage'),
+      import('../view/auth/EmptyPermissionsPage'),
   },
 ].filter(Boolean);
 
@@ -2077,37 +2194,37 @@ const emailUnverifiedRoutes = [
   {
     path: '/auth/email-unverified',
     loader: () =>
-      import('src/view/auth/EmailUnverifiedPage'),
+      import('../view/auth/EmailUnverifiedPage'),
   },
 ].filter(Boolean);
 
 const simpleRoutes = [
   {
     path: '/auth/password-reset',
-    loader: () => import('src/view/auth/PasswordResetPage'),
+    loader: () => import('../view/auth/PasswordResetPage'),
   },
   {
     path: '/auth/invitation',
-    loader: () => import('src/view/auth/InvitationPage'),
+    loader: () => import('../view/auth/InvitationPage'),
   },
   {
     path: '/auth/verify-email',
-    loader: () => import('src/view/auth/VerifyEmailPage'),
+    loader: () => import('../view/auth/VerifyEmailPage'),
   },
   {
     path: '/403',
     loader: () =>
-      import('src/view/shared/errors/Error403Page'),
+      import('../view/shared/errors/Error403Page'),
   },
   {
     path: '/500',
     loader: () =>
-      import('src/view/shared/errors/Error500Page'),
+      import('../view/shared/errors/Error500Page'),
   },
   {
     path: '**',
     loader: () =>
-      import('src/view/shared/errors/Error404Page'),
+      import('../view/shared/errors/Error404Page'),
   },
 ].filter(Boolean);
 

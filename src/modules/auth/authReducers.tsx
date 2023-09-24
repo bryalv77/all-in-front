@@ -1,5 +1,5 @@
-import actions from 'src/modules/auth/authActions';
-import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
+import actions from '../../../modules/auth/authActions';
+import AuthCurrentTenant from '../../../modules/auth/authCurrentTenant';
 
 const initialData = {
   currentUser: null,
@@ -28,9 +28,10 @@ export default (state = initialData, { type, payload }) => {
     return {
       ...state,
       currentUser: payload.currentUser || null,
-      currentTenant: AuthCurrentTenant.selectAndSaveOnStorageFor(
-        payload.currentUser,
-      ),
+      currentTenant:
+        AuthCurrentTenant.selectAndSaveOnStorageFor(
+          payload.currentUser,
+        ),
     };
   }
 
@@ -38,9 +39,8 @@ export default (state = initialData, { type, payload }) => {
     return {
       ...state,
       currentUser: null,
-      currentTenant: AuthCurrentTenant.selectAndSaveOnStorageFor(
-        null,
-      ),
+      currentTenant:
+        AuthCurrentTenant.selectAndSaveOnStorageFor(null),
     };
   }
 
@@ -56,9 +56,10 @@ export default (state = initialData, { type, payload }) => {
     return {
       ...state,
       currentUser: payload.currentUser || null,
-      currentTenant: AuthCurrentTenant.selectAndSaveOnStorageFor(
-        payload.currentUser,
-      ),
+      currentTenant:
+        AuthCurrentTenant.selectAndSaveOnStorageFor(
+          payload.currentUser,
+        ),
       errorMessage: null,
       loading: false,
     };
@@ -162,9 +163,10 @@ export default (state = initialData, { type, payload }) => {
     return {
       ...state,
       currentUser: payload.currentUser || null,
-      currentTenant: AuthCurrentTenant.selectAndSaveOnStorageFor(
-        payload.currentUser,
-      ),
+      currentTenant:
+        AuthCurrentTenant.selectAndSaveOnStorageFor(
+          payload.currentUser,
+        ),
       loadingInit: false,
     };
   }

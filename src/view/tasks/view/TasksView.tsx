@@ -1,8 +1,8 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import TaskListViewItem from 'src/view/taskList/view/TaskListViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import TaskListViewItem from '../../../view/taskList/view/TaskListViewItem';
 
 function TasksView(props) {
   const { record, loading } = props;

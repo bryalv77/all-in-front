@@ -1,4 +1,4 @@
-import actions from 'src/modules/taskTags/view/taskTagsViewActions';
+import actions from '../../../modules/taskTags/view/taskTagsViewActions';
 
 const initialData = {
   loading: false,

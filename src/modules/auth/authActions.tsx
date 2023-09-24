@@ -1,11 +1,11 @@
-import service from 'src/modules/auth/authService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import { AuthToken } from 'src/modules/auth/authToken';
-import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
-import selectors from 'src/modules/auth/authSelectors';
+import service from '../../../modules/auth/authService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import { AuthToken } from '../../../modules/auth/authToken';
+import AuthCurrentTenant from '../../../modules/auth/authCurrentTenant';
+import selectors from '../../../modules/auth/authSelectors';
 import { tenantSubdomain } from '../tenant/tenantSubdomain';
 import SettingsService from '../settings/settingsService';
 
@@ -55,24 +55,26 @@ const authActions = {
     };
   },
 
-  doSendEmailConfirmation: () => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({ type: authActions.EMAIL_CONFIRMATION_START });
-      await service.sendEmailVerification();
-      Message.success(
-        i18n('auth.verificationEmailSuccess'),
-      );
-      dispatch({
-        type: authActions.EMAIL_CONFIRMATION_SUCCESS,
-      });
-    } catch (error) {
-      Errors.handle(error);
-      dispatch({ type: authActions.EMAIL_CONFIRMATION_ERROR });
-    }
-  },
+  doSendEmailConfirmation:
+    () => async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: authActions.EMAIL_CONFIRMATION_START,
+        });
+        await service.sendEmailVerification();
+        Message.success(
+          i18n('auth.verificationEmailSuccess'),
+        );
+        dispatch({
+          type: authActions.EMAIL_CONFIRMATION_SUCCESS,
+        });
+      } catch (error) {
+        Errors.handle(error);
+        dispatch({
+          type: authActions.EMAIL_CONFIRMATION_ERROR,
+        });
+      }
+    },
 
   doSendPasswordResetEmail: (email) => async (dispatch) => {
     try {
@@ -94,78 +96,76 @@ const authActions = {
     }
   },
 
-  doRegisterEmailAndPassword: (email, password) => async (
-    dispatch,
-  ) => {
-    try {
-      dispatch({ type: authActions.AUTH_START });
+  doRegisterEmailAndPassword:
+    (email, password) => async (dispatch) => {
+      try {
+        dispatch({ type: authActions.AUTH_START });
 
-      const token = await service.registerWithEmailAndPassword(
-        email,
-        password,
-      );
+        const token =
+          await service.registerWithEmailAndPassword(
+            email,
+            password,
+          );
 
-      AuthToken.set(token, true);
+        AuthToken.set(token, true);
 
-      const currentUser = await service.fetchMe();
+        const currentUser = await service.fetchMe();
 
-      dispatch({
-        type: authActions.AUTH_SUCCESS,
-        payload: {
-          currentUser,
-        },
-      });
-    } catch (error) {
-      await service.signout();
+        dispatch({
+          type: authActions.AUTH_SUCCESS,
+          payload: {
+            currentUser,
+          },
+        });
+      } catch (error) {
+        await service.signout();
 
-      if (Errors.errorCode(error) !== 400) {
-        Errors.handle(error);
+        if (Errors.errorCode(error) !== 400) {
+          Errors.handle(error);
+        }
+
+        dispatch({
+          type: authActions.AUTH_ERROR,
+          payload: Errors.selectMessage(error),
+        });
       }
+    },
 
-      dispatch({
-        type: authActions.AUTH_ERROR,
-        payload: Errors.selectMessage(error),
-      });
-    }
-  },
+  doSigninWithEmailAndPassword:
+    (email, password, rememberMe) => async (dispatch) => {
+      try {
+        dispatch({ type: authActions.AUTH_START });
 
-  doSigninWithEmailAndPassword: (
-    email,
-    password,
-    rememberMe,
-  ) => async (dispatch) => {
-    try {
-      dispatch({ type: authActions.AUTH_START });
+        let currentUser = null;
 
-      let currentUser = null;
+        const token =
+          await service.signinWithEmailAndPassword(
+            email,
+            password,
+          );
 
-      const token = await service.signinWithEmailAndPassword(
-        email,
-        password,
-      );
+        AuthToken.set(token, rememberMe);
+        currentUser = await service.fetchMe();
 
-      AuthToken.set(token, rememberMe);
-      currentUser = await service.fetchMe();
+        dispatch({
+          type: authActions.AUTH_SUCCESS,
+          payload: {
+            currentUser,
+          },
+        });
+      } catch (error) {
+        await service.signout();
 
-      dispatch({
-        type: authActions.AUTH_SUCCESS,
-        payload: {
-          currentUser,
-        },
-      });
-    } catch (error) {
-      await service.signout();
+        if (Errors.errorCode(error) !== 400) {
+          Errors.handle(error);
+        }
 
-      if (Errors.errorCode(error) !== 400) {
-        Errors.handle(error);
+        dispatch({
+          type: authActions.AUTH_ERROR,
+          payload: Errors.selectMessage(error),
+        });
       }
-
-      dispatch({
-        type: authActions.AUTH_ERROR,
-        payload: Errors.selectMessage(error),
-      });
-    }
-  },
+    },
 
   doSignout: () => async (dispatch) => {
     try {
@@ -266,33 +266,34 @@ const authActions = {
     }
   },
 
-  doChangePassword: (oldPassword, newPassword) => async (
-    dispatch,
-  ) => {
-    try {
-      dispatch({
-        type: authActions.PASSWORD_CHANGE_START,
-      });
+  doChangePassword:
+    (oldPassword, newPassword) => async (dispatch) => {
+      try {
+        dispatch({
+          type: authActions.PASSWORD_CHANGE_START,
+        });
 
-      await service.changePassword(
-        oldPassword,
-        newPassword,
-      );
+        await service.changePassword(
+          oldPassword,
+          newPassword,
+        );
 
-      dispatch({
-        type: authActions.PASSWORD_CHANGE_SUCCESS,
-      });
-      await dispatch(authActions.doRefreshCurrentUser());
-      Message.success(i18n('auth.passwordChange.success'));
-      getHistory().push('/');
-    } catch (error) {
-      Errors.handle(error);
+        dispatch({
+          type: authActions.PASSWORD_CHANGE_SUCCESS,
+        });
+        await dispatch(authActions.doRefreshCurrentUser());
+        Message.success(
+          i18n('auth.passwordChange.success'),
+        );
+        getHistory().push('/');
+      } catch (error) {
+        Errors.handle(error);
 
-      dispatch({
-        type: authActions.PASSWORD_CHANGE_ERROR,
-      });
-    }
-  },
+        dispatch({
+          type: authActions.PASSWORD_CHANGE_ERROR,
+        });
+      }
+    },
 
   doVerifyEmail: (token) => async (dispatch, getState) => {
     try {
@@ -325,32 +326,31 @@ const authActions = {
     }
   },
 
-  doResetPassword: (token, password) => async (
-    dispatch,
-  ) => {
-    try {
-      dispatch({
-        type: authActions.PASSWORD_RESET_START,
-      });
+  doResetPassword:
+    (token, password) => async (dispatch) => {
+      try {
+        dispatch({
+          type: authActions.PASSWORD_RESET_START,
+        });
 
-      await service.passwordReset(token, password);
+        await service.passwordReset(token, password);
 
-      Message.success(i18n('auth.passwordResetSuccess'));
-      dispatch({
-        type: authActions.PASSWORD_RESET_SUCCESS,
-      });
-      getHistory().push('/');
-    } catch (error) {
-      Errors.handle(error);
+        Message.success(i18n('auth.passwordResetSuccess'));
+        dispatch({
+          type: authActions.PASSWORD_RESET_SUCCESS,
+        });
+        getHistory().push('/');
+      } catch (error) {
+        Errors.handle(error);
 
-      dispatch({
-        type: authActions.PASSWORD_RESET_ERROR,
-      });
+        dispatch({
+          type: authActions.PASSWORD_RESET_ERROR,
+        });
 
-      dispatch(authActions.doSignout());
-      getHistory().push('/');
-    }
-  },
+        dispatch(authActions.doSignout());
+        getHistory().push('/');
+      }
+    },
 
   doSelectTenant: (tenant) => async (dispatch) => {
     if (tenantSubdomain.isEnabled) {

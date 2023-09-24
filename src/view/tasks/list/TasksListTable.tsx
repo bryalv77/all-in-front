@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import tasksSelectors from 'src/modules/tasks/tasksSelectors';
-import destroyActions from 'src/modules/tasks/destroy/tasksDestroyActions';
-import destroySelectors from 'src/modules/tasks/destroy/tasksDestroySelectors';
-import actions from 'src/modules/tasks/list/tasksListActions';
-import selectors from 'src/modules/tasks/list/tasksListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import TaskListListItem from 'src/view/taskList/list/TaskListListItem';
+import { i18n } from '../../../i18n';
+import tasksSelectors from '../../../modules/tasks/tasksSelectors';
+import destroyActions from '../../../modules/tasks/destroy/tasksDestroyActions';
+import destroySelectors from '../../../modules/tasks/destroy/tasksDestroySelectors';
+import actions from '../../../modules/tasks/list/tasksListActions';
+import selectors from '../../../modules/tasks/list/tasksListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import TaskListListItem from '../../../view/taskList/list/TaskListListItem';
 
 function TasksListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,38 +107,36 @@ function TasksListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.tasks.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'dueDate'}
-                  label={i18n(
-                    'entities.tasks.fields.dueDate',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'status'}
-                  label={i18n(
-                    'entities.tasks.fields.status',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.tasks.fields.taskList',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.tasks.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'dueDate'}
+                label={i18n(
+                  'entities.tasks.fields.dueDate',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'status'}
+                label={i18n('entities.tasks.fields.status')}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.tasks.fields.taskList',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -179,8 +175,12 @@ function TasksListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.description}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.dueDate}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.description}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.dueDate}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.status
                       ? i18n(
@@ -189,7 +189,9 @@ function TasksListTable(props) {
                       : null}
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <TaskListListItem value={row.taskList} />
+                    <TaskListListItem
+                      value={row.taskList}
+                    />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

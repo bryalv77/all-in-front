@@ -2,23 +2,23 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/address/list/addressListActions';
-import selectors from 'src/modules/address/list/addressListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/address/list/addressListActions';
+import selectors from '../../../modules/address/list/addressListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import CustomerAutocompleteFormItem from 'src/view/customer/autocomplete/CustomerAutocompleteFormItem';
-import CityAutocompleteFormItem from 'src/view/city/autocomplete/CityAutocompleteFormItem';
-import BusinessAutocompleteFormItem from 'src/view/business/autocomplete/BusinessAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import CustomerAutocompleteFormItem from '../../../view/customer/autocomplete/CustomerAutocompleteFormItem';
+import CityAutocompleteFormItem from '../../../view/city/autocomplete/CityAutocompleteFormItem';
+import BusinessAutocompleteFormItem from '../../../view/business/autocomplete/BusinessAutocompleteFormItem';
 
 const schema = yup.object().shape({
   customer: yupFilterSchemas.relationToOne(
@@ -68,13 +68,13 @@ const emptyValues = {
   coordinates: null,
   urlMap: null,
   preferred: null,
-}
+};
 
 const previewRenders = {
   customer: {
-      label: i18n('entities.address.fields.customer'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.address.fields.customer'),
+    render: filterRenders.relationToOne(),
+  },
   addressName: {
     label: i18n('entities.address.fields.addressName'),
     render: filterRenders.generic(),
@@ -92,17 +92,17 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   city: {
-      label: i18n('entities.address.fields.city'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.address.fields.city'),
+    render: filterRenders.relationToOne(),
+  },
   phone: {
     label: i18n('entities.address.fields.phone'),
     render: filterRenders.generic(),
   },
   business: {
-      label: i18n('entities.address.fields.business'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.address.fields.business'),
+    render: filterRenders.relationToOne(),
+  },
   coordinates: {
     label: i18n('entities.address.fields.coordinates'),
     render: filterRenders.generic(),
@@ -115,7 +115,7 @@ const previewRenders = {
     label: i18n('entities.address.fields.preferred'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function AddressListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -136,7 +136,12 @@ function AddressListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -174,49 +179,69 @@ function AddressListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <CustomerAutocompleteFormItem  
+              <CustomerAutocompleteFormItem
                 name="customer"
-                label={i18n('entities.address.fields.customer')}        
+                label={i18n(
+                  'entities.address.fields.customer',
+                )}
               />
               <InputFormItem
                 name="addressName"
-                label={i18n('entities.address.fields.addressName')}      
+                label={i18n(
+                  'entities.address.fields.addressName',
+                )}
               />
               <InputFormItem
                 name="firstLine"
-                label={i18n('entities.address.fields.firstLine')}      
+                label={i18n(
+                  'entities.address.fields.firstLine',
+                )}
               />
               <InputFormItem
                 name="secondLine"
-                label={i18n('entities.address.fields.secondLine')}      
+                label={i18n(
+                  'entities.address.fields.secondLine',
+                )}
               />
               <InputFormItem
                 name="zipCode"
-                label={i18n('entities.address.fields.zipCode')}      
+                label={i18n(
+                  'entities.address.fields.zipCode',
+                )}
               />
-              <CityAutocompleteFormItem  
+              <CityAutocompleteFormItem
                 name="city"
-                label={i18n('entities.address.fields.city')}        
+                label={i18n('entities.address.fields.city')}
               />
               <InputFormItem
                 name="phone"
-                label={i18n('entities.address.fields.phone')}      
+                label={i18n(
+                  'entities.address.fields.phone',
+                )}
               />
-              <BusinessAutocompleteFormItem  
+              <BusinessAutocompleteFormItem
                 name="business"
-                label={i18n('entities.address.fields.business')}        
+                label={i18n(
+                  'entities.address.fields.business',
+                )}
               />
               <InputFormItem
                 name="coordinates"
-                label={i18n('entities.address.fields.coordinates')}      
+                label={i18n(
+                  'entities.address.fields.coordinates',
+                )}
               />
               <InputFormItem
                 name="urlMap"
-                label={i18n('entities.address.fields.urlMap')}      
+                label={i18n(
+                  'entities.address.fields.urlMap',
+                )}
               />
               <SelectFormItem
                 name="preferred"
-                label={i18n('entities.address.fields.preferred')}
+                label={i18n(
+                  'entities.address.fields.preferred',
+                )}
                 options={[
                   {
                     value: true,

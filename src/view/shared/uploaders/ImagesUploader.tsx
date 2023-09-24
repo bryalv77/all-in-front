@@ -6,10 +6,10 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import FileUploader from 'src/modules/shared/fileUpload/fileUploader';
-import ImageModal from 'src/view/shared/modals/ImageModal';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import FileUploader from '../../../modules/shared/fileUpload/fileUploader';
+import ImageModal from '../../../view/shared/modals/ImageModal';
 
 function ImagesUploader(props) {
   const [loading, setLoading] = useState(false);

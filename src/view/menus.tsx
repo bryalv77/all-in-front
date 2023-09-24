@@ -1,6 +1,6 @@
-import Permissions from 'src/security/permissions';
-import { i18n } from 'src/i18n';
-import config from 'src/config';
+import Permissions from '../security/permissions';
+import { i18n } from '../i18n';
+import config from '../config';
 import {
   faChevronRight,
   faCog,
@@ -324,7 +324,8 @@ export default [
 
   {
     path: '/category-course-relation',
-    permissionRequired: permissions.categoryCourseRelationRead,
+    permissionRequired:
+      permissions.categoryCourseRelationRead,
     icon: faChevronRight,
     label: i18n('entities.categoryCourseRelation.menu'),
   },
@@ -352,7 +353,8 @@ export default [
 
   {
     path: '/conversation-participant',
-    permissionRequired: permissions.conversationParticipantRead,
+    permissionRequired:
+      permissions.conversationParticipantRead,
     icon: faChevronRight,
     label: i18n('entities.conversationParticipant.menu'),
   },
@@ -380,7 +382,8 @@ export default [
 
   {
     path: '/availability-timeslot',
-    permissionRequired: permissions.availabilityTimeslotRead,
+    permissionRequired:
+      permissions.availabilityTimeslotRead,
     icon: faChevronRight,
     label: i18n('entities.availabilityTimeslot.menu'),
   },
@@ -404,5 +407,5 @@ export default [
     permissionRequired: permissions.deliveryMethodRead,
     icon: faChevronRight,
     label: i18n('entities.deliveryMethod.menu'),
-  },  
+  },
 ].filter(Boolean);

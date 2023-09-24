@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/student/studentSelectors';
+import selectors from '../../../modules/student/studentSelectors';
 
 function StudentViewItem(props) {
   const hasPermissionToRead = useSelector(

@@ -2,27 +2,29 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/businessCategory/list/businessCategoryListActions';
-import selectors from 'src/modules/businessCategory/list/businessCategoryListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/businessCategory/list/businessCategoryListActions';
+import selectors from '../../../modules/businessCategory/list/businessCategoryListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import BusinessCategoryAutocompleteFormItem from 'src/view/businessCategory/autocomplete/BusinessCategoryAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import BusinessCategoryAutocompleteFormItem from '../../../view/businessCategory/autocomplete/BusinessCategoryAutocompleteFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
     i18n('entities.businessCategory.fields.name'),
   ),
   parentBusinessType: yupFilterSchemas.relationToOne(
-    i18n('entities.businessCategory.fields.parentBusinessType'),
+    i18n(
+      'entities.businessCategory.fields.parentBusinessType',
+    ),
   ),
   description: yupFilterSchemas.string(
     i18n('entities.businessCategory.fields.description'),
@@ -33,7 +35,7 @@ const emptyValues = {
   name: null,
   parentBusinessType: null,
   description: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -41,14 +43,18 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   parentBusinessType: {
-      label: i18n('entities.businessCategory.fields.parentBusinessType'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n(
+      'entities.businessCategory.fields.parentBusinessType',
+    ),
+    render: filterRenders.relationToOne(),
+  },
   description: {
-    label: i18n('entities.businessCategory.fields.description'),
+    label: i18n(
+      'entities.businessCategory.fields.description',
+    ),
     render: filterRenders.generic(),
   },
-}
+};
 
 function BusinessCategoryListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -69,7 +75,12 @@ function BusinessCategoryListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -109,15 +120,21 @@ function BusinessCategoryListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.businessCategory.fields.name')}      
+                label={i18n(
+                  'entities.businessCategory.fields.name',
+                )}
               />
-              <BusinessCategoryAutocompleteFormItem  
+              <BusinessCategoryAutocompleteFormItem
                 name="parentBusinessType"
-                label={i18n('entities.businessCategory.fields.parentBusinessType')}        
+                label={i18n(
+                  'entities.businessCategory.fields.parentBusinessType',
+                )}
               />
               <InputFormItem
                 name="description"
-                label={i18n('entities.businessCategory.fields.description')}      
+                label={i18n(
+                  'entities.businessCategory.fields.description',
+                )}
               />
             </div>
 

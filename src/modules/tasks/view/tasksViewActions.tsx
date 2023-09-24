@@ -1,6 +1,6 @@
-import TasksService from 'src/modules/tasks/tasksService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import TasksService from '../../../modules/tasks/tasksService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'TASKS_VIEW';
 

@@ -7,34 +7,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import orderEnumerators from 'src/modules/order/orderEnumerators';
-import Storage from 'src/security/storage';
-import FilesFormItem from 'src/view/shared/form/items/FilesFormItem';
-import CustomerAutocompleteFormItem from 'src/view/customer/autocomplete/CustomerAutocompleteFormItem';
-import DeliveryMethodAutocompleteFormItem from 'src/view/deliveryMethod/autocomplete/DeliveryMethodAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import orderEnumerators from '../../../modules/order/orderEnumerators';
+import Storage from '../../../security/storage';
+import FilesFormItem from '../../../view/shared/form/items/FilesFormItem';
+import CustomerAutocompleteFormItem from '../../../view/customer/autocomplete/CustomerAutocompleteFormItem';
+import DeliveryMethodAutocompleteFormItem from '../../../view/deliveryMethod/autocomplete/DeliveryMethodAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
   customer: yupFormSchemas.relationToOne(
     i18n('entities.order.fields.customer'),
     {
-      "required": true
+      required: true,
     },
   ),
   status: yupFormSchemas.enumerator(
     i18n('entities.order.fields.status'),
     {
-      "options": orderEnumerators.status
+      options: orderEnumerators.status,
     },
   ),
   attachments: yupFormSchemas.files(
     i18n('entities.order.fields.attachments'),
     {
-      "max": 3
+      max: 3,
     },
   ),
   shippingPrice: yupFormSchemas.decimal(
@@ -87,7 +87,7 @@ function OrderForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <CustomerAutocompleteFormItem  
+          <CustomerAutocompleteFormItem
             name="customer"
             label={i18n('entities.order.fields.customer')}
             required={true}
@@ -98,8 +98,10 @@ function OrderForm(props) {
           <SelectFormItem
             name="status"
             label={i18n('entities.order.fields.status')}
-          placeholder={i18n('entities.order.placeholders.status')}
-          hint={i18n('entities.order.hints.status')}
+            placeholder={i18n(
+              'entities.order.placeholders.status',
+            )}
+            hint={i18n('entities.order.hints.status')}
             options={orderEnumerators.status.map(
               (value) => ({
                 value,
@@ -114,19 +116,27 @@ function OrderForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <FilesFormItem
             name="attachments"
-            label={i18n('entities.order.fields.attachments')}
+            label={i18n(
+              'entities.order.fields.attachments',
+            )}
             required={false}
             storage={Storage.values.orderAttachments}
             max={3}
-            formats={["txt","pdf"]}
+            formats={['txt', 'pdf']}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="shippingPrice"
-            label={i18n('entities.order.fields.shippingPrice')}
-          placeholder={i18n('entities.order.placeholders.shippingPrice')}
-          hint={i18n('entities.order.hints.shippingPrice')}  
+            label={i18n(
+              'entities.order.fields.shippingPrice',
+            )}
+            placeholder={i18n(
+              'entities.order.placeholders.shippingPrice',
+            )}
+            hint={i18n(
+              'entities.order.hints.shippingPrice',
+            )}
             required={false}
           />
         </div>
@@ -134,17 +144,21 @@ function OrderForm(props) {
           <InputFormItem
             name="total"
             label={i18n('entities.order.fields.total')}
-          placeholder={i18n('entities.order.placeholders.total')}
-          hint={i18n('entities.order.hints.total')}  
+            placeholder={i18n(
+              'entities.order.placeholders.total',
+            )}
+            hint={i18n('entities.order.hints.total')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <DeliveryMethodAutocompleteFormItem  
+          <DeliveryMethodAutocompleteFormItem
             name="deliver"
             label={i18n('entities.order.fields.deliver')}
-          placeholder={i18n('entities.order.placeholders.deliver')}
-          hint={i18n('entities.order.hints.deliver')}
+            placeholder={i18n(
+              'entities.order.placeholders.deliver',
+            )}
+            hint={i18n('entities.order.hints.deliver')}
             required={false}
             showCreate={!props.modal}
           />

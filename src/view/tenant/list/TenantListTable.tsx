@@ -7,31 +7,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import config from 'src/config';
-import { i18n } from 'src/i18n';
-import authActions from 'src/modules/auth/authActions';
-import authSelectors from 'src/modules/auth/authSelectors';
-import destroyActions from 'src/modules/tenant/destroy/tenantDestroyActions';
-import destroySelectors from 'src/modules/tenant/destroy/tenantDestroySelectors';
-import invitationActions from 'src/modules/tenant/invitation/tenantInvitationActions';
-import invitationSelectors from 'src/modules/tenant/invitation/tenantInvitationSelectors';
-import actions from 'src/modules/tenant/list/tenantListActions';
-import selectors from 'src/modules/tenant/list/tenantListSelectors';
-import tenantSelectors from 'src/modules/tenant/tenantSelectors';
-import { tenantSubdomain } from 'src/modules/tenant/tenantSubdomain';
-import Plans from 'src/security/plans';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
+import config from '../../../config';
+import { i18n } from '../../../i18n';
+import authActions from '../../../modules/auth/authActions';
+import authSelectors from '../../../modules/auth/authSelectors';
+import destroyActions from '../../../modules/tenant/destroy/tenantDestroyActions';
+import destroySelectors from '../../../modules/tenant/destroy/tenantDestroySelectors';
+import invitationActions from '../../../modules/tenant/invitation/tenantInvitationActions';
+import invitationSelectors from '../../../modules/tenant/invitation/tenantInvitationSelectors';
+import actions from '../../../modules/tenant/list/tenantListActions';
+import selectors from '../../../modules/tenant/list/tenantListSelectors';
+import tenantSelectors from '../../../modules/tenant/tenantSelectors';
+import { tenantSubdomain } from '../../../modules/tenant/tenantSubdomain';
+import Plans from '../../../security/plans';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
 
 function TenantListTable() {
   const dispatch = useDispatch();
 
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
 
   const [
     invitationTokenToDeclineInvitation,

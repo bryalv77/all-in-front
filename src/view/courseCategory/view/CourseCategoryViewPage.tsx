@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseCategory/view/courseCategoryViewActions';
-import selectors from 'src/modules/courseCategory/view/courseCategoryViewSelectors';
-import CourseCategoryView from 'src/view/courseCategory/view/CourseCategoryView';
-import CourseCategoryViewToolbar from 'src/view/courseCategory/view/CourseCategoryViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseCategory/view/courseCategoryViewActions';
+import selectors from '../../../modules/courseCategory/view/courseCategoryViewSelectors';
+import CourseCategoryView from '../../../view/courseCategory/view/CourseCategoryView';
+import CourseCategoryViewToolbar from '../../../view/courseCategory/view/CourseCategoryViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CourseCategoryPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function CourseCategoryPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseCategory.menu'), '/course-category'],
+          [
+            i18n('entities.courseCategory.menu'),
+            '/course-category',
+          ],
           [i18n('entities.courseCategory.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function CourseCategoryPage() {
 
         <CourseCategoryViewToolbar match={match} />
 
-        <CourseCategoryView loading={loading} record={record} />
+        <CourseCategoryView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

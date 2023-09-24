@@ -1,4 +1,4 @@
-import statuses from 'src/modules/shared/importer/importerStatuses';
+import statuses from '../../../modules/shared/importer/importerStatuses';
 import * as yup from 'yup';
 
 export default class ImporterSchema {

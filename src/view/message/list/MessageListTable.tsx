@@ -7,25 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import messageSelectors from 'src/modules/message/messageSelectors';
-import destroyActions from 'src/modules/message/destroy/messageDestroyActions';
-import destroySelectors from 'src/modules/message/destroy/messageDestroySelectors';
-import actions from 'src/modules/message/list/messageListActions';
-import selectors from 'src/modules/message/list/messageListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
-import FilesListView from 'src/view/shared/table/FileListView';
-import ConversationListItem from 'src/view/conversation/list/ConversationListItem';
+import { i18n } from '../../../i18n';
+import messageSelectors from '../../../modules/message/messageSelectors';
+import destroyActions from '../../../modules/message/destroy/messageDestroyActions';
+import destroySelectors from '../../../modules/message/destroy/messageDestroySelectors';
+import actions from '../../../modules/message/list/messageListActions';
+import selectors from '../../../modules/message/list/messageListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
+import FilesListView from '../../../view/shared/table/FileListView';
+import ConversationListItem from '../../../view/conversation/list/ConversationListItem';
 
 function MessageListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -111,44 +109,44 @@ function MessageListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.message.fields.senderId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.message.fields.recipientId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'content'}
-                  label={i18n(
-                    'entities.message.fields.content',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.message.fields.media',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.message.fields.conversationId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'status'}
-                  label={i18n(
-                    'entities.message.fields.status',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.message.fields.senderId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.message.fields.recipientId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'content'}
+                label={i18n(
+                  'entities.message.fields.content',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.message.fields.media',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.message.fields.conversationId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'status'}
+                label={i18n(
+                  'entities.message.fields.status',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -193,14 +191,16 @@ function MessageListTable(props) {
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <UserListItem value={row.recipientId} />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.content}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <FilesListView
-                      value={row.media}
-                    />
+                    {row.content}
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <ConversationListItem value={row.conversationId} />
+                    <FilesListView value={row.media} />
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <ConversationListItem
+                      value={row.conversationId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.status

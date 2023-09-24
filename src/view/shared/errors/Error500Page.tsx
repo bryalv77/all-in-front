@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ErrorWrapper from 'src/view/shared/errors/styles/ErrorWrapper';
-import { i18n } from 'src/i18n';
+import ErrorWrapper from '../../../view/shared/errors/styles/ErrorWrapper';
+import { i18n } from '../../../i18n';
 
 const Error500Page = () => {
   return (

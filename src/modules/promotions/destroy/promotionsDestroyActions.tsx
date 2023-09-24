@@ -1,9 +1,9 @@
-import listActions from 'src/modules/promotions/list/promotionsListActions';
-import PromotionsService from 'src/modules/promotions/promotionsService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/promotions/list/promotionsListActions';
+import PromotionsService from '../../../modules/promotions/promotionsService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'PROMOTIONS_DESTROY';
 

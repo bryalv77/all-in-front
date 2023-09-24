@@ -1,6 +1,6 @@
-import TaskTagsService from 'src/modules/taskTags/taskTagsService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import TaskTagsService from '../../../modules/taskTags/taskTagsService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'TASKTAGS_VIEW';
 

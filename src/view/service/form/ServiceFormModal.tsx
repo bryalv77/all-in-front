@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import ServiceForm from 'src/view/service/form/ServiceForm';
-import ServiceService from 'src/modules/service/serviceService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import ServiceForm from '../../../view/service/form/ServiceForm';
+import ServiceService from '../../../modules/service/serviceService';
 
 function ServiceFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

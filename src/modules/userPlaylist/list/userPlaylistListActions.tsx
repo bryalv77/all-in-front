@@ -1,9 +1,9 @@
-import UserPlaylistService from 'src/modules/userPlaylist/userPlaylistService';
-import selectors from 'src/modules/userPlaylist/list/userPlaylistListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/userPlaylist/list/userPlaylistListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import UserPlaylistService from '../../../modules/userPlaylist/userPlaylistService';
+import selectors from '../../../modules/userPlaylist/list/userPlaylistListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/userPlaylist/list/userPlaylistListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'USERPLAYLIST_LIST';
 
@@ -86,17 +86,17 @@ const userPlaylistListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: userPlaylistListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: userPlaylistListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(userPlaylistListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        userPlaylistListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +104,57 @@ const userPlaylistListActions = {
       payload: sorter,
     });
 
-    dispatch(userPlaylistListActions.doFetchCurrentFilter());
+    dispatch(
+      userPlaylistListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(userPlaylistListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: userPlaylistListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await UserPlaylistService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        userPlaylistListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: userPlaylistListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: userPlaylistListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: userPlaylistListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await UserPlaylistService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: userPlaylistListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: userPlaylistListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default userPlaylistListActions;

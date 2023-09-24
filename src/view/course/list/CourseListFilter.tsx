@@ -2,23 +2,23 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/course/list/courseListActions';
-import selectors from 'src/modules/course/list/courseListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/course/list/courseListActions';
+import selectors from '../../../modules/course/list/courseListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
-import TeacherAutocompleteFormItem from 'src/view/teacher/autocomplete/TeacherAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
+import TeacherAutocompleteFormItem from '../../../view/teacher/autocomplete/TeacherAutocompleteFormItem';
 
 const schema = yup.object().shape({
   teacherId: yupFilterSchemas.relationToOne(
@@ -64,13 +64,13 @@ const emptyValues = {
   level: null,
   additionalInfo: null,
   active: null,
-}
+};
 
 const previewRenders = {
   teacherId: {
-      label: i18n('entities.course.fields.teacherId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.course.fields.teacherId'),
+    render: filterRenders.relationToOne(),
+  },
   title: {
     label: i18n('entities.course.fields.title'),
     render: filterRenders.generic(),
@@ -84,7 +84,9 @@ const previewRenders = {
     render: filterRenders.decimalRange(),
   },
   hoursDurationRange: {
-    label: i18n('entities.course.fields.hoursDurationRange'),
+    label: i18n(
+      'entities.course.fields.hoursDurationRange',
+    ),
     render: filterRenders.decimalRange(),
   },
   startDateRange: {
@@ -107,7 +109,7 @@ const previewRenders = {
     label: i18n('entities.course.fields.active'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function CourseListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -128,7 +130,12 @@ function CourseListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -166,45 +173,61 @@ function CourseListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <TeacherAutocompleteFormItem  
+              <TeacherAutocompleteFormItem
                 name="teacherId"
-                label={i18n('entities.course.fields.teacherId')}        
+                label={i18n(
+                  'entities.course.fields.teacherId',
+                )}
               />
               <InputFormItem
                 name="title"
-                label={i18n('entities.course.fields.title')}      
+                label={i18n('entities.course.fields.title')}
               />
               <InputFormItem
                 name="description"
-                label={i18n('entities.course.fields.description')}      
+                label={i18n(
+                  'entities.course.fields.description',
+                )}
               />
               <InputRangeFormItem
                 name="priceRange"
-                label={i18n('entities.course.fields.priceRange')}      
+                label={i18n(
+                  'entities.course.fields.priceRange',
+                )}
               />
               <InputRangeFormItem
                 name="hoursDurationRange"
-                label={i18n('entities.course.fields.hoursDurationRange')}      
+                label={i18n(
+                  'entities.course.fields.hoursDurationRange',
+                )}
               />
               <DatePickerRangeFormItem
                 name="startDateRange"
-                label={i18n('entities.course.fields.startDateRange')}    
+                label={i18n(
+                  'entities.course.fields.startDateRange',
+                )}
               />
               <DatePickerRangeFormItem
                 name="endDateRange"
-                label={i18n('entities.course.fields.endDateRange')}    
+                label={i18n(
+                  'entities.course.fields.endDateRange',
+                )}
               />
               <InputFormItem
                 name="level"
-                label={i18n('entities.course.fields.level')}      
+                label={i18n('entities.course.fields.level')}
               />
               <InputFormItem
                 name="additionalInfo"
-                label={i18n('entities.course.fields.additionalInfo')}      
+                label={i18n(
+                  'entities.course.fields.additionalInfo',
+                )}
               />
               <SelectFormItem
                 name="active"
-                label={i18n('entities.course.fields.active')}
+                label={i18n(
+                  'entities.course.fields.active',
+                )}
                 options={[
                   {
                     value: true,

@@ -2,21 +2,21 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/posts/list/postsListActions';
-import selectors from 'src/modules/posts/list/postsListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/posts/list/postsListActions';
+import selectors from '../../../modules/posts/list/postsListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
 
 const schema = yup.object().shape({
   content: yupFilterSchemas.string(
@@ -34,7 +34,7 @@ const emptyValues = {
   content: null,
   postDateRange: [],
   userId: null,
-}
+};
 
 const previewRenders = {
   content: {
@@ -49,7 +49,7 @@ const previewRenders = {
     label: i18n('entities.posts.fields.userId'),
     render: filterRenders.relationToOne(),
   },
-}
+};
 
 function PostsListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -70,7 +70,12 @@ function PostsListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -110,16 +115,20 @@ function PostsListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="content"
-                label={i18n('entities.posts.fields.content')}      
+                label={i18n(
+                  'entities.posts.fields.content',
+                )}
               />
               <DatePickerRangeFormItem
                 name="postDateRange"
-                label={i18n('entities.posts.fields.postDateRange')}    
+                label={i18n(
+                  'entities.posts.fields.postDateRange',
+                )}
                 showTimeInput
               />
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.posts.fields.userId')}        
+                label={i18n('entities.posts.fields.userId')}
               />
             </div>
 

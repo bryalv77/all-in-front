@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseComment/list/courseCommentListActions';
-import selectors from 'src/modules/courseComment/list/courseCommentListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseComment/list/courseCommentListActions';
+import selectors from '../../../modules/courseComment/list/courseCommentListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import StudentAutocompleteFormItem from 'src/view/student/autocomplete/StudentAutocompleteFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import LessonAutocompleteFormItem from 'src/view/lesson/autocomplete/LessonAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import StudentAutocompleteFormItem from '../../../view/student/autocomplete/StudentAutocompleteFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import LessonAutocompleteFormItem from '../../../view/lesson/autocomplete/LessonAutocompleteFormItem';
 
 const schema = yup.object().shape({
   comment: yupFilterSchemas.string(
@@ -39,7 +39,7 @@ const emptyValues = {
   studentId: null,
   courseId: null,
   lessonId: null,
-}
+};
 
 const previewRenders = {
   comment: {
@@ -47,18 +47,18 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   studentId: {
-      label: i18n('entities.courseComment.fields.studentId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.courseComment.fields.studentId'),
+    render: filterRenders.relationToOne(),
+  },
   courseId: {
-      label: i18n('entities.courseComment.fields.courseId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.courseComment.fields.courseId'),
+    render: filterRenders.relationToOne(),
+  },
   lessonId: {
-      label: i18n('entities.courseComment.fields.lessonId'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.courseComment.fields.lessonId'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function CourseCommentListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -79,7 +79,12 @@ function CourseCommentListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -119,19 +124,27 @@ function CourseCommentListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="comment"
-                label={i18n('entities.courseComment.fields.comment')}      
+                label={i18n(
+                  'entities.courseComment.fields.comment',
+                )}
               />
-              <StudentAutocompleteFormItem  
+              <StudentAutocompleteFormItem
                 name="studentId"
-                label={i18n('entities.courseComment.fields.studentId')}        
+                label={i18n(
+                  'entities.courseComment.fields.studentId',
+                )}
               />
-              <CourseAutocompleteFormItem  
+              <CourseAutocompleteFormItem
                 name="courseId"
-                label={i18n('entities.courseComment.fields.courseId')}        
+                label={i18n(
+                  'entities.courseComment.fields.courseId',
+                )}
               />
-              <LessonAutocompleteFormItem  
+              <LessonAutocompleteFormItem
                 name="lessonId"
-                label={i18n('entities.courseComment.fields.lessonId')}        
+                label={i18n(
+                  'entities.courseComment.fields.lessonId',
+                )}
               />
             </div>
 

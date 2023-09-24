@@ -7,20 +7,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import conversationEnumerators from 'src/modules/conversation/conversationEnumerators';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import conversationEnumerators from '../../../modules/conversation/conversationEnumerators';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
   type: yupFormSchemas.enumerator(
     i18n('entities.conversation.fields.type'),
     {
-      "options": conversationEnumerators.type
+      options: conversationEnumerators.type,
     },
   ),
   name: yupFormSchemas.string(
@@ -68,9 +68,13 @@ function ConversationForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <SelectFormItem
             name="type"
-            label={i18n('entities.conversation.fields.type')}
-          placeholder={i18n('entities.conversation.placeholders.type')}
-          hint={i18n('entities.conversation.hints.type')}
+            label={i18n(
+              'entities.conversation.fields.type',
+            )}
+            placeholder={i18n(
+              'entities.conversation.placeholders.type',
+            )}
+            hint={i18n('entities.conversation.hints.type')}
             options={conversationEnumerators.type.map(
               (value) => ({
                 value,
@@ -85,20 +89,28 @@ function ConversationForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="name"
-            label={i18n('entities.conversation.fields.name')}
-          placeholder={i18n('entities.conversation.placeholders.name')}
-          hint={i18n('entities.conversation.hints.name')}
+            label={i18n(
+              'entities.conversation.fields.name',
+            )}
+            placeholder={i18n(
+              'entities.conversation.placeholders.name',
+            )}
+            hint={i18n('entities.conversation.hints.name')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <ImagesFormItem
             name="avatar"
-            label={i18n('entities.conversation.fields.avatar')}
+            label={i18n(
+              'entities.conversation.fields.avatar',
+            )}
             required={false}
             storage={Storage.values.conversationAvatar}
             max={undefined}
-          hint={i18n('entities.conversation.hints.avatar')}
+            hint={i18n(
+              'entities.conversation.hints.avatar',
+            )}
           />
         </div>
 

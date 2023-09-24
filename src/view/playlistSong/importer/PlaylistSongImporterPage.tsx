@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/playlistSong/importer/playlistSongImporterActions';
-import fields from 'src/modules/playlistSong/importer/playlistSongImporterFields';
-import selectors from 'src/modules/playlistSong/importer/playlistSongImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/playlistSong/importer/playlistSongImporterActions';
+import fields from '../../../modules/playlistSong/importer/playlistSongImporterFields';
+import selectors from '../../../modules/playlistSong/importer/playlistSongImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function PlaylistSongImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function PlaylistSongImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.playlistSong.menu'), '/playlist-song'],
+          [
+            i18n('entities.playlistSong.menu'),
+            '/playlist-song',
+          ],
           [i18n('entities.playlistSong.importer.title')],
         ]}
       />

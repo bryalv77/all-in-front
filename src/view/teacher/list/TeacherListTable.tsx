@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import teacherSelectors from 'src/modules/teacher/teacherSelectors';
-import destroyActions from 'src/modules/teacher/destroy/teacherDestroyActions';
-import destroySelectors from 'src/modules/teacher/destroy/teacherDestroySelectors';
-import actions from 'src/modules/teacher/list/teacherListActions';
-import selectors from 'src/modules/teacher/list/teacherListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
+import { i18n } from '../../../i18n';
+import teacherSelectors from '../../../modules/teacher/teacherSelectors';
+import destroyActions from '../../../modules/teacher/destroy/teacherDestroyActions';
+import destroySelectors from '../../../modules/teacher/destroy/teacherDestroySelectors';
+import actions from '../../../modules/teacher/list/teacherListActions';
+import selectors from '../../../modules/teacher/list/teacherListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
 
 function TeacherListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,25 +108,23 @@ function TeacherListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.teacher.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.teacher.fields.photo',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.teacher.fields.userId',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n('entities.teacher.fields.name')}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.teacher.fields.photo',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.teacher.fields.userId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -167,7 +163,9 @@ function TeacherListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ImagesListView value={row.photo} />
                   </td>

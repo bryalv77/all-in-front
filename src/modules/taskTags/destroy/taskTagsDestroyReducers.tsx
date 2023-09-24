@@ -1,4 +1,4 @@
-import actions from 'src/modules/taskTags/destroy/taskTagsDestroyActions';
+import actions from '../../../modules/taskTags/destroy/taskTagsDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

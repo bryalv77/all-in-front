@@ -1,4 +1,4 @@
-import actions from 'src/modules/like/form/likeFormActions';
+import actions from '../../../modules/like/form/likeFormActions';
 
 const initialData = {
   initLoading: false,

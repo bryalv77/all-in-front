@@ -1,4 +1,4 @@
-import actions from 'src/modules/postHashtag/form/postHashtagFormActions';
+import actions from '../../../modules/postHashtag/form/postHashtagFormActions';
 
 const initialData = {
   initLoading: false,

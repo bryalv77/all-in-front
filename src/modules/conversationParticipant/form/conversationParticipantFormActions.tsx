@@ -1,8 +1,8 @@
-import ConversationParticipantService from 'src/modules/conversationParticipant/conversationParticipantService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import ConversationParticipantService from '../../../modules/conversationParticipant/conversationParticipantService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'CONVERSATIONPARTICIPANT_FORM';
 
@@ -30,7 +30,9 @@ const conversationParticipantFormActions = {
       const isEdit = Boolean(id);
 
       if (isEdit) {
-        record = await ConversationParticipantService.find(id);
+        record = await ConversationParticipantService.find(
+          id,
+        );
       }
 
       dispatch({
@@ -61,7 +63,9 @@ const conversationParticipantFormActions = {
       });
 
       Message.success(
-        i18n('entities.conversationParticipant.create.success'),
+        i18n(
+          'entities.conversationParticipant.create.success',
+        ),
       );
 
       getHistory().push('/conversation-participant');
@@ -80,14 +84,19 @@ const conversationParticipantFormActions = {
         type: conversationParticipantFormActions.UPDATE_STARTED,
       });
 
-      await ConversationParticipantService.update(id, values);
+      await ConversationParticipantService.update(
+        id,
+        values,
+      );
 
       dispatch({
         type: conversationParticipantFormActions.UPDATE_SUCCESS,
       });
 
       Message.success(
-        i18n('entities.conversationParticipant.update.success'),
+        i18n(
+          'entities.conversationParticipant.update.success',
+        ),
       );
 
       getHistory().push('/conversation-participant');

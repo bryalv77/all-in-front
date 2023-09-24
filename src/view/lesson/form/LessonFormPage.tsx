@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/lesson/form/lessonFormActions';
-import selectors from 'src/modules/lesson/form/lessonFormSelectors';
-import { getHistory } from 'src/modules/store';
-import LessonForm from 'src/view/lesson/form/LessonForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/lesson/form/lessonFormActions';
+import selectors from '../../../modules/lesson/form/lessonFormSelectors';
+import { getHistory } from '../../../modules/store';
+import LessonForm from '../../../view/lesson/form/LessonForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function LessonFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/posts/importer/postsImporterSelectors';
-import PostsService from 'src/modules/posts/postsService';
-import fields from 'src/modules/posts/importer/postsImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/posts/importer/postsImporterSelectors';
+import PostsService from '../../../modules/posts/postsService';
+import fields from '../../../modules/posts/importer/postsImporterFields';
+import { i18n } from '../../../i18n';
 
 const postsImporterActions = importerActions(
   'POSTS_IMPORTER',

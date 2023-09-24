@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import OrderViewItem from 'src/view/order/view/OrderViewItem';
-import ProductViewItem from 'src/view/product/view/ProductViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import OrderViewItem from '../../../view/order/view/OrderViewItem';
+import ProductViewItem from '../../../view/product/view/ProductViewItem';
 
 function OrderDetailView(props) {
   const { record, loading } = props;
@@ -20,7 +20,9 @@ function OrderDetailView(props) {
       />
 
       <ProductViewItem
-        label={i18n('entities.orderDetail.fields.productId')}
+        label={i18n(
+          'entities.orderDetail.fields.productId',
+        )}
         value={record.productId}
       />
 
@@ -30,7 +32,9 @@ function OrderDetailView(props) {
       />
 
       <TextViewItem
-        label={i18n('entities.orderDetail.fields.unitPrice')}
+        label={i18n(
+          'entities.orderDetail.fields.unitPrice',
+        )}
         value={record.unitPrice}
       />
     </div>

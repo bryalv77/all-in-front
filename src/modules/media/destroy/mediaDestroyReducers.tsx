@@ -1,4 +1,4 @@
-import actions from 'src/modules/media/destroy/mediaDestroyActions';
+import actions from '../../../modules/media/destroy/mediaDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

@@ -1,4 +1,4 @@
-import actions from 'src/modules/availabilityTimeslot/view/availabilityTimeslotViewActions';
+import actions from '../../../modules/availabilityTimeslot/view/availabilityTimeslotViewActions';
 
 const initialData = {
   loading: false,

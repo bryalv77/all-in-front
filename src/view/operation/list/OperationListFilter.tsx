@@ -2,24 +2,24 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/operation/list/operationListActions';
-import selectors from 'src/modules/operation/list/operationListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/operation/list/operationListActions';
+import selectors from '../../../modules/operation/list/operationListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
-import CategoryAutocompleteFormItem from 'src/view/category/autocomplete/CategoryAutocompleteFormItem';
-import BankAutocompleteFormItem from 'src/view/bank/autocomplete/BankAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
+import CategoryAutocompleteFormItem from '../../../view/category/autocomplete/CategoryAutocompleteFormItem';
+import BankAutocompleteFormItem from '../../../view/bank/autocomplete/BankAutocompleteFormItem';
 
 const schema = yup.object().shape({
   fintonicId: yupFilterSchemas.string(
@@ -85,7 +85,7 @@ const emptyValues = {
   categoryId: null,
   bankId: null,
   userId: null,
-}
+};
 
 const previewRenders = {
   fintonicId: {
@@ -105,7 +105,9 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   userDescription: {
-    label: i18n('entities.operation.fields.userDescription'),
+    label: i18n(
+      'entities.operation.fields.userDescription',
+    ),
     render: filterRenders.generic(),
   },
   quantityRange: {
@@ -117,7 +119,9 @@ const previewRenders = {
     render: filterRenders.dateRange(),
   },
   operationDateRange: {
-    label: i18n('entities.operation.fields.operationDateRange'),
+    label: i18n(
+      'entities.operation.fields.operationDateRange',
+    ),
     render: filterRenders.dateRange(),
   },
   cleanNote: {
@@ -125,7 +129,9 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   cleanUserDescription: {
-    label: i18n('entities.operation.fields.cleanUserDescription'),
+    label: i18n(
+      'entities.operation.fields.cleanUserDescription',
+    ),
     render: filterRenders.generic(),
   },
   primaryDisplay: {
@@ -133,22 +139,24 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   secondaryDisplay: {
-    label: i18n('entities.operation.fields.secondaryDisplay'),
+    label: i18n(
+      'entities.operation.fields.secondaryDisplay',
+    ),
     render: filterRenders.generic(),
   },
   categoryId: {
-      label: i18n('entities.operation.fields.categoryId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.operation.fields.categoryId'),
+    render: filterRenders.relationToOne(),
+  },
   bankId: {
-      label: i18n('entities.operation.fields.bankId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.operation.fields.bankId'),
+    render: filterRenders.relationToOne(),
+  },
   userId: {
     label: i18n('entities.operation.fields.userId'),
     render: filterRenders.relationToOne(),
   },
-}
+};
 
 function OperationListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -169,7 +177,12 @@ function OperationListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -209,63 +222,93 @@ function OperationListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="fintonicId"
-                label={i18n('entities.operation.fields.fintonicId')}      
+                label={i18n(
+                  'entities.operation.fields.fintonicId',
+                )}
               />
               <InputFormItem
                 name="description"
-                label={i18n('entities.operation.fields.description')}      
+                label={i18n(
+                  'entities.operation.fields.description',
+                )}
               />
               <InputFormItem
                 name="reference"
-                label={i18n('entities.operation.fields.reference')}      
+                label={i18n(
+                  'entities.operation.fields.reference',
+                )}
               />
               <InputFormItem
                 name="note"
-                label={i18n('entities.operation.fields.note')}      
+                label={i18n(
+                  'entities.operation.fields.note',
+                )}
               />
               <InputFormItem
                 name="userDescription"
-                label={i18n('entities.operation.fields.userDescription')}      
+                label={i18n(
+                  'entities.operation.fields.userDescription',
+                )}
               />
               <InputRangeFormItem
                 name="quantityRange"
-                label={i18n('entities.operation.fields.quantityRange')}      
+                label={i18n(
+                  'entities.operation.fields.quantityRange',
+                )}
               />
               <DatePickerRangeFormItem
                 name="valueDateRange"
-                label={i18n('entities.operation.fields.valueDateRange')}    
+                label={i18n(
+                  'entities.operation.fields.valueDateRange',
+                )}
               />
               <DatePickerRangeFormItem
                 name="operationDateRange"
-                label={i18n('entities.operation.fields.operationDateRange')}    
+                label={i18n(
+                  'entities.operation.fields.operationDateRange',
+                )}
               />
               <InputFormItem
                 name="cleanNote"
-                label={i18n('entities.operation.fields.cleanNote')}      
+                label={i18n(
+                  'entities.operation.fields.cleanNote',
+                )}
               />
               <InputFormItem
                 name="cleanUserDescription"
-                label={i18n('entities.operation.fields.cleanUserDescription')}      
+                label={i18n(
+                  'entities.operation.fields.cleanUserDescription',
+                )}
               />
               <InputFormItem
                 name="primaryDisplay"
-                label={i18n('entities.operation.fields.primaryDisplay')}      
+                label={i18n(
+                  'entities.operation.fields.primaryDisplay',
+                )}
               />
               <InputFormItem
                 name="secondaryDisplay"
-                label={i18n('entities.operation.fields.secondaryDisplay')}      
+                label={i18n(
+                  'entities.operation.fields.secondaryDisplay',
+                )}
               />
-              <CategoryAutocompleteFormItem  
+              <CategoryAutocompleteFormItem
                 name="categoryId"
-                label={i18n('entities.operation.fields.categoryId')}        
+                label={i18n(
+                  'entities.operation.fields.categoryId',
+                )}
               />
-              <BankAutocompleteFormItem  
+              <BankAutocompleteFormItem
                 name="bankId"
-                label={i18n('entities.operation.fields.bankId')}        
+                label={i18n(
+                  'entities.operation.fields.bankId',
+                )}
               />
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.operation.fields.userId')}        
+                label={i18n(
+                  'entities.operation.fields.userId',
+                )}
               />
             </div>
 

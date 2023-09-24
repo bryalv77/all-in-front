@@ -1,4 +1,4 @@
-import actions from 'src/modules/album/destroy/albumDestroyActions';
+import actions from '../../../modules/album/destroy/albumDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

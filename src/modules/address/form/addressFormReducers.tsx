@@ -1,4 +1,4 @@
-import actions from 'src/modules/address/form/addressFormActions';
+import actions from '../../../modules/address/form/addressFormActions';
 
 const initialData = {
   initLoading: false,

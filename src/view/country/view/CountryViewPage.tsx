@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/country/view/countryViewActions';
-import selectors from 'src/modules/country/view/countryViewSelectors';
-import CountryView from 'src/view/country/view/CountryView';
-import CountryViewToolbar from 'src/view/country/view/CountryViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/country/view/countryViewActions';
+import selectors from '../../../modules/country/view/countryViewSelectors';
+import CountryView from '../../../view/country/view/CountryView';
+import CountryViewToolbar from '../../../view/country/view/CountryViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CountryPage() {
   const dispatch = useDispatch();

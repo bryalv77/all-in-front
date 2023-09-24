@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/album/albumSelectors';
+import selectors from '../../../modules/album/albumSelectors';
 
 function AlbumViewItem(props) {
   const hasPermissionToRead = useSelector(

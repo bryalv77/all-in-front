@@ -1,6 +1,6 @@
-import AppointmentService from 'src/modules/appointment/appointmentService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import AppointmentService from '../../../modules/appointment/appointmentService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'APPOINTMENT_VIEW';
 

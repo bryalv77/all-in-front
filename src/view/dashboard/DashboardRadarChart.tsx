@@ -1,6 +1,6 @@
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 
 const data = {
   labels: [
@@ -43,6 +43,5 @@ const options = {
 };
 
 export default function DashboardRadarChart(props) {
-
-    return <Radar data={data} options={options} />;
+  return <Radar data={data} options={options} />;
 }

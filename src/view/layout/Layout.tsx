@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from 'src/view/layout/Header';
-import Menu from 'src/view/layout/Menu';
+import Header from '../../../view/layout/Header';
+import Menu from '../../../view/layout/Menu';
 import { useRouteMatch } from 'react-router-dom';
-import layoutSelectors from 'src/modules/layout/layoutSelectors';
+import layoutSelectors from '../../../modules/layout/layoutSelectors';
 import { useSelector } from 'react-redux';
 
 function Layout(props) {

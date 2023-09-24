@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/subTasks/subTasksSelectors';
+import selectors from '../../../modules/subTasks/subTasksSelectors';
 
 function SubTasksListItem(props) {
   const hasPermissionToRead = useSelector(

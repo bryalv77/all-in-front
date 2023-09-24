@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import AddressListFilter from 'src/view/address/list/AddressListFilter';
-import AddressListTable from 'src/view/address/list/AddressListTable';
-import AddressListToolbar from 'src/view/address/list/AddressListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import AddressListFilter from '../../../view/address/list/AddressListFilter';
+import AddressListTable from '../../../view/address/list/AddressListTable';
+import AddressListToolbar from '../../../view/address/list/AddressListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function AddressListPage(props) {
   return (

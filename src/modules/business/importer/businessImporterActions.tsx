@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/business/importer/businessImporterSelectors';
-import BusinessService from 'src/modules/business/businessService';
-import fields from 'src/modules/business/importer/businessImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/business/importer/businessImporterSelectors';
+import BusinessService from '../../../modules/business/businessService';
+import fields from '../../../modules/business/importer/businessImporterFields';
+import { i18n } from '../../../i18n';
 
 const businessImporterActions = importerActions(
   'BUSINESS_IMPORTER',

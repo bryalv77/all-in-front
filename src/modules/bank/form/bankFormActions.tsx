@@ -1,8 +1,8 @@
-import BankService from 'src/modules/bank/bankService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import BankService from '../../../modules/bank/bankService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'BANK_FORM';
 
@@ -60,9 +60,7 @@ const bankFormActions = {
         type: bankFormActions.CREATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.bank.create.success'),
-      );
+      Message.success(i18n('entities.bank.create.success'));
 
       getHistory().push('/bank');
     } catch (error) {
@@ -86,9 +84,7 @@ const bankFormActions = {
         type: bankFormActions.UPDATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.bank.update.success'),
-      );
+      Message.success(i18n('entities.bank.update.success'));
 
       getHistory().push('/bank');
     } catch (error) {

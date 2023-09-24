@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/deliveryMethod/deliveryMethodSelectors';
+import selectors from '../../../modules/deliveryMethod/deliveryMethodSelectors';
 
 function DeliveryMethodViewItem(props) {
   const hasPermissionToRead = useSelector(

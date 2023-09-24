@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import ImagesViewItem from 'src/view/shared/view/ImagesViewItem';
-import CourseCategoryViewItem from 'src/view/courseCategory/view/CourseCategoryViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import ImagesViewItem from '../../../view/shared/view/ImagesViewItem';
+import CourseCategoryViewItem from '../../../view/courseCategory/view/CourseCategoryViewItem';
 
 function CourseCategoryView(props) {
   const { record, loading } = props;
@@ -25,7 +25,9 @@ function CourseCategoryView(props) {
       />
 
       <CourseCategoryViewItem
-        label={i18n('entities.courseCategory.fields.parentCategory')}
+        label={i18n(
+          'entities.courseCategory.fields.parentCategory',
+        )}
         value={record.parentCategory}
       />
     </div>

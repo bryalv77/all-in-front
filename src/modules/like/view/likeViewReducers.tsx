@@ -1,4 +1,4 @@
-import actions from 'src/modules/like/view/likeViewActions';
+import actions from '../../../modules/like/view/likeViewActions';
 
 const initialData = {
   loading: false,

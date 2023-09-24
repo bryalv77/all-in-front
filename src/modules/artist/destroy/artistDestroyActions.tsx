@@ -1,9 +1,9 @@
-import listActions from 'src/modules/artist/list/artistListActions';
-import ArtistService from 'src/modules/artist/artistService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/artist/list/artistListActions';
+import ArtistService from '../../../modules/artist/artistService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'ARTIST_DESTROY';
 

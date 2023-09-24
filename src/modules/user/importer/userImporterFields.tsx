@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
 
 export default [
   {

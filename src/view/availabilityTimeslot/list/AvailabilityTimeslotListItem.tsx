@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/availabilityTimeslot/availabilityTimeslotSelectors';
+import selectors from '../../../modules/availabilityTimeslot/availabilityTimeslotSelectors';
 
 function AvailabilityTimeslotListItem(props) {
   const hasPermissionToRead = useSelector(

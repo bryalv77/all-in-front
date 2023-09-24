@@ -1,8 +1,8 @@
-import CityService from 'src/modules/city/cityService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import CityService from '../../../modules/city/cityService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'CITY_FORM';
 
@@ -60,9 +60,7 @@ const cityFormActions = {
         type: cityFormActions.CREATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.city.create.success'),
-      );
+      Message.success(i18n('entities.city.create.success'));
 
       getHistory().push('/city');
     } catch (error) {
@@ -86,9 +84,7 @@ const cityFormActions = {
         type: cityFormActions.UPDATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.city.update.success'),
-      );
+      Message.success(i18n('entities.city.update.success'));
 
       getHistory().push('/city');
     } catch (error) {

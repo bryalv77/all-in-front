@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/product/view/productViewActions';
-import selectors from 'src/modules/product/view/productViewSelectors';
-import ProductView from 'src/view/product/view/ProductView';
-import ProductViewToolbar from 'src/view/product/view/ProductViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/product/view/productViewActions';
+import selectors from '../../../modules/product/view/productViewSelectors';
+import ProductView from '../../../view/product/view/ProductView';
+import ProductViewToolbar from '../../../view/product/view/ProductViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ProductPage() {
   const dispatch = useDispatch();

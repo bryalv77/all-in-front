@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import moment from 'moment';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import moment from 'moment';
 
 export default [
   {
@@ -49,7 +50,10 @@ export default [
       i18n('entities.course.fields.startDate'),
       {},
     ),
-   render: (value) => value && value instanceof Date ? moment(value).format('YYYY-MM-DD') : value,
+    render: (value) =>
+      value && value instanceof Date
+        ? moment(value).format('YYYY-MM-DD')
+        : value,
   },
   {
     name: 'endDate',
@@ -58,7 +62,10 @@ export default [
       i18n('entities.course.fields.endDate'),
       {},
     ),
-   render: (value) => value && value instanceof Date ? moment(value).format('YYYY-MM-DD') : value,
+    render: (value) =>
+      value && value instanceof Date
+        ? moment(value).format('YYYY-MM-DD')
+        : value,
   },
   {
     name: 'level',

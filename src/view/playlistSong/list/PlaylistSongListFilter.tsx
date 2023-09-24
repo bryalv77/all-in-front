@@ -2,21 +2,21 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/playlistSong/list/playlistSongListActions';
-import selectors from 'src/modules/playlistSong/list/playlistSongListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/playlistSong/list/playlistSongListActions';
+import selectors from '../../../modules/playlistSong/list/playlistSongListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputNumberRangeFormItem from 'src/view/shared/form/items/InputNumberRangeFormItem';
-import PlaylistAutocompleteFormItem from 'src/view/playlist/autocomplete/PlaylistAutocompleteFormItem';
-import SongAutocompleteFormItem from 'src/view/song/autocomplete/SongAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputNumberRangeFormItem from '../../../view/shared/form/items/InputNumberRangeFormItem';
+import PlaylistAutocompleteFormItem from '../../../view/playlist/autocomplete/PlaylistAutocompleteFormItem';
+import SongAutocompleteFormItem from '../../../view/song/autocomplete/SongAutocompleteFormItem';
 
 const schema = yup.object().shape({
   playlistId: yupFilterSchemas.relationToOne(
@@ -34,22 +34,24 @@ const emptyValues = {
   playlistId: null,
   songId: null,
   trackOrderRange: [],
-}
+};
 
 const previewRenders = {
   playlistId: {
-      label: i18n('entities.playlistSong.fields.playlistId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.playlistSong.fields.playlistId'),
+    render: filterRenders.relationToOne(),
+  },
   songId: {
-      label: i18n('entities.playlistSong.fields.songId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.playlistSong.fields.songId'),
+    render: filterRenders.relationToOne(),
+  },
   trackOrderRange: {
-    label: i18n('entities.playlistSong.fields.trackOrderRange'),
+    label: i18n(
+      'entities.playlistSong.fields.trackOrderRange',
+    ),
     render: filterRenders.range(),
   },
-}
+};
 
 function PlaylistSongListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -70,7 +72,12 @@ function PlaylistSongListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -108,17 +115,23 @@ function PlaylistSongListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <PlaylistAutocompleteFormItem  
+              <PlaylistAutocompleteFormItem
                 name="playlistId"
-                label={i18n('entities.playlistSong.fields.playlistId')}        
+                label={i18n(
+                  'entities.playlistSong.fields.playlistId',
+                )}
               />
-              <SongAutocompleteFormItem  
+              <SongAutocompleteFormItem
                 name="songId"
-                label={i18n('entities.playlistSong.fields.songId')}        
+                label={i18n(
+                  'entities.playlistSong.fields.songId',
+                )}
               />
               <InputNumberRangeFormItem
                 name="trackOrderRange"
-                label={i18n('entities.playlistSong.fields.trackOrderRange')}      
+                label={i18n(
+                  'entities.playlistSong.fields.trackOrderRange',
+                )}
               />
             </div>
 

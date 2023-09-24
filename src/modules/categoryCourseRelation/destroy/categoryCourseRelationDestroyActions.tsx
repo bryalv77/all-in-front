@@ -1,9 +1,9 @@
-import listActions from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListActions';
-import CategoryCourseRelationService from 'src/modules/categoryCourseRelation/categoryCourseRelationService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListActions';
+import CategoryCourseRelationService from '../../../modules/categoryCourseRelation/categoryCourseRelationService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'CATEGORYCOURSERELATION_DESTROY';
 
@@ -29,7 +29,9 @@ const categoryCourseRelationDestroyActions = {
       });
 
       Message.success(
-        i18n('entities.categoryCourseRelation.destroy.success'),
+        i18n(
+          'entities.categoryCourseRelation.destroy.success',
+        ),
       );
 
       dispatch(listActions.doFetchCurrentFilter());
@@ -64,7 +66,9 @@ const categoryCourseRelationDestroyActions = {
       }
 
       Message.success(
-        i18n('entities.categoryCourseRelation.destroyAll.success'),
+        i18n(
+          'entities.categoryCourseRelation.destroyAll.success',
+        ),
       );
 
       getHistory().push('/category-course-relation');

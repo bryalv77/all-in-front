@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import TaskTagsListFilter from 'src/view/taskTags/list/TaskTagsListFilter';
-import TaskTagsListTable from 'src/view/taskTags/list/TaskTagsListTable';
-import TaskTagsListToolbar from 'src/view/taskTags/list/TaskTagsListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import TaskTagsListFilter from '../../../view/taskTags/list/TaskTagsListFilter';
+import TaskTagsListTable from '../../../view/taskTags/list/TaskTagsListTable';
+import TaskTagsListToolbar from '../../../view/taskTags/list/TaskTagsListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function TaskTagsListPage(props) {
   return (

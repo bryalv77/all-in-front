@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/city/importer/cityImporterSelectors';
-import CityService from 'src/modules/city/cityService';
-import fields from 'src/modules/city/importer/cityImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/city/importer/cityImporterSelectors';
+import CityService from '../../../modules/city/cityService';
+import fields from '../../../modules/city/importer/cityImporterFields';
+import { i18n } from '../../../i18n';
 
 const cityImporterActions = importerActions(
   'CITY_IMPORTER',

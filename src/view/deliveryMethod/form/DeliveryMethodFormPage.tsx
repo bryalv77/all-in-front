@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/deliveryMethod/form/deliveryMethodFormActions';
-import selectors from 'src/modules/deliveryMethod/form/deliveryMethodFormSelectors';
-import { getHistory } from 'src/modules/store';
-import DeliveryMethodForm from 'src/view/deliveryMethod/form/DeliveryMethodForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/deliveryMethod/form/deliveryMethodFormActions';
+import selectors from '../../../modules/deliveryMethod/form/deliveryMethodFormSelectors';
+import { getHistory } from '../../../modules/store';
+import DeliveryMethodForm from '../../../view/deliveryMethod/form/DeliveryMethodForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function DeliveryMethodFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function DeliveryMethodFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.deliveryMethod.menu'), '/delivery-method'],
+          [
+            i18n('entities.deliveryMethod.menu'),
+            '/delivery-method',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function DeliveryMethodFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/delivery-method')}
+            onCancel={() =>
+              getHistory().push('/delivery-method')
+            }
           />
         )}
       </div>

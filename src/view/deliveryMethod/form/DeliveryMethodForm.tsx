@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -75,19 +75,31 @@ function DeliveryMethodForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <InputFormItem
             name="name"
-            label={i18n('entities.deliveryMethod.fields.name')}
-          placeholder={i18n('entities.deliveryMethod.placeholders.name')}
-          hint={i18n('entities.deliveryMethod.hints.name')}
+            label={i18n(
+              'entities.deliveryMethod.fields.name',
+            )}
+            placeholder={i18n(
+              'entities.deliveryMethod.placeholders.name',
+            )}
+            hint={i18n(
+              'entities.deliveryMethod.hints.name',
+            )}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
-            label={i18n('entities.deliveryMethod.fields.userId')}
-          placeholder={i18n('entities.deliveryMethod.placeholders.userId')}
-          hint={i18n('entities.deliveryMethod.hints.userId')}
+            label={i18n(
+              'entities.deliveryMethod.fields.userId',
+            )}
+            placeholder={i18n(
+              'entities.deliveryMethod.placeholders.userId',
+            )}
+            hint={i18n(
+              'entities.deliveryMethod.hints.userId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -95,26 +107,42 @@ function DeliveryMethodForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="vehicleInfo"
-            label={i18n('entities.deliveryMethod.fields.vehicleInfo')}
-          placeholder={i18n('entities.deliveryMethod.placeholders.vehicleInfo')}
-          hint={i18n('entities.deliveryMethod.hints.vehicleInfo')}  
+            label={i18n(
+              'entities.deliveryMethod.fields.vehicleInfo',
+            )}
+            placeholder={i18n(
+              'entities.deliveryMethod.placeholders.vehicleInfo',
+            )}
+            hint={i18n(
+              'entities.deliveryMethod.hints.vehicleInfo',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="additionalInfo"
-            label={i18n('entities.deliveryMethod.fields.additionalInfo')}
-          placeholder={i18n('entities.deliveryMethod.placeholders.additionalInfo')}
-          hint={i18n('entities.deliveryMethod.hints.additionalInfo')}  
+            label={i18n(
+              'entities.deliveryMethod.fields.additionalInfo',
+            )}
+            placeholder={i18n(
+              'entities.deliveryMethod.placeholders.additionalInfo',
+            )}
+            hint={i18n(
+              'entities.deliveryMethod.hints.additionalInfo',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <SwitchFormItem
             name="active"
-            label={i18n('entities.deliveryMethod.fields.active')}
-          hint={i18n('entities.deliveryMethod.hints.active')}
+            label={i18n(
+              'entities.deliveryMethod.fields.active',
+            )}
+            hint={i18n(
+              'entities.deliveryMethod.hints.active',
+            )}
           />
         </div>
 

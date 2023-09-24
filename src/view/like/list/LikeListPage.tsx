@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import LikeListFilter from 'src/view/like/list/LikeListFilter';
-import LikeListTable from 'src/view/like/list/LikeListTable';
-import LikeListToolbar from 'src/view/like/list/LikeListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import LikeListFilter from '../../../view/like/list/LikeListFilter';
+import LikeListTable from '../../../view/like/list/LikeListTable';
+import LikeListToolbar from '../../../view/like/list/LikeListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function LikeListPage(props) {
   return (

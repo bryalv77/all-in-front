@@ -7,11 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputNumberFormItem from 'src/view/shared/form/items/InputNumberFormItem';
-import PlaylistAutocompleteFormItem from 'src/view/playlist/autocomplete/PlaylistAutocompleteFormItem';
-import SongAutocompleteFormItem from 'src/view/song/autocomplete/SongAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputNumberFormItem from '../../../view/shared/form/items/InputNumberFormItem';
+import PlaylistAutocompleteFormItem from '../../../view/playlist/autocomplete/PlaylistAutocompleteFormItem';
+import SongAutocompleteFormItem from '../../../view/song/autocomplete/SongAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -62,21 +62,33 @@ function PlaylistSongForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <PlaylistAutocompleteFormItem  
+          <PlaylistAutocompleteFormItem
             name="playlistId"
-            label={i18n('entities.playlistSong.fields.playlistId')}
-          placeholder={i18n('entities.playlistSong.placeholders.playlistId')}
-          hint={i18n('entities.playlistSong.hints.playlistId')}
+            label={i18n(
+              'entities.playlistSong.fields.playlistId',
+            )}
+            placeholder={i18n(
+              'entities.playlistSong.placeholders.playlistId',
+            )}
+            hint={i18n(
+              'entities.playlistSong.hints.playlistId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <SongAutocompleteFormItem  
+          <SongAutocompleteFormItem
             name="songId"
-            label={i18n('entities.playlistSong.fields.songId')}
-          placeholder={i18n('entities.playlistSong.placeholders.songId')}
-          hint={i18n('entities.playlistSong.hints.songId')}
+            label={i18n(
+              'entities.playlistSong.fields.songId',
+            )}
+            placeholder={i18n(
+              'entities.playlistSong.placeholders.songId',
+            )}
+            hint={i18n(
+              'entities.playlistSong.hints.songId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -84,9 +96,15 @@ function PlaylistSongForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputNumberFormItem
             name="trackOrder"
-            label={i18n('entities.playlistSong.fields.trackOrder')}
-          placeholder={i18n('entities.playlistSong.placeholders.trackOrder')}
-          hint={i18n('entities.playlistSong.hints.trackOrder')}  
+            label={i18n(
+              'entities.playlistSong.fields.trackOrder',
+            )}
+            placeholder={i18n(
+              'entities.playlistSong.placeholders.trackOrder',
+            )}
+            hint={i18n(
+              'entities.playlistSong.hints.trackOrder',
+            )}
             required={false}
           />
         </div>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import CustomerViewItem from 'src/view/customer/view/CustomerViewItem';
-import CityViewItem from 'src/view/city/view/CityViewItem';
-import BusinessViewItem from 'src/view/business/view/BusinessViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import CustomerViewItem from '../../../view/customer/view/CustomerViewItem';
+import CityViewItem from '../../../view/city/view/CityViewItem';
+import BusinessViewItem from '../../../view/business/view/BusinessViewItem';
 
 function AddressView(props) {
   const { record, loading } = props;

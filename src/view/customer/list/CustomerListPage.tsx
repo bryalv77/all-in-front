@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import CustomerListFilter from 'src/view/customer/list/CustomerListFilter';
-import CustomerListTable from 'src/view/customer/list/CustomerListTable';
-import CustomerListToolbar from 'src/view/customer/list/CustomerListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import CustomerListFilter from '../../../view/customer/list/CustomerListFilter';
+import CustomerListTable from '../../../view/customer/list/CustomerListTable';
+import CustomerListToolbar from '../../../view/customer/list/CustomerListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CustomerListPage(props) {
   return (

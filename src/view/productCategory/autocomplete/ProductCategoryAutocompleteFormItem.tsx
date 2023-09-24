@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import ProductCategoryService from 'src/modules/productCategory/productCategoryService';
-import ProductCategoryFormModal from 'src/view/productCategory/form/ProductCategoryFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import ProductCategoryService from '../../../modules/productCategory/productCategoryService';
+import ProductCategoryFormModal from '../../../view/productCategory/form/ProductCategoryFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/productCategory/productCategorySelectors';
+import selectors from '../../../modules/productCategory/productCategorySelectors';
 
 function ProductCategoryAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function ProductCategoryAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return ProductCategoryService.listAutocomplete(value, limit);
+    return ProductCategoryService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

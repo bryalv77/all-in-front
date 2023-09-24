@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import orderDetailSelectors from 'src/modules/orderDetail/orderDetailSelectors';
-import destroyActions from 'src/modules/orderDetail/destroy/orderDetailDestroyActions';
-import destroySelectors from 'src/modules/orderDetail/destroy/orderDetailDestroySelectors';
-import actions from 'src/modules/orderDetail/list/orderDetailListActions';
-import selectors from 'src/modules/orderDetail/list/orderDetailListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import OrderListItem from 'src/view/order/list/OrderListItem';
-import ProductListItem from 'src/view/product/list/ProductListItem';
+import { i18n } from '../../../i18n';
+import orderDetailSelectors from '../../../modules/orderDetail/orderDetailSelectors';
+import destroyActions from '../../../modules/orderDetail/destroy/orderDetailDestroyActions';
+import destroySelectors from '../../../modules/orderDetail/destroy/orderDetailDestroySelectors';
+import actions from '../../../modules/orderDetail/list/orderDetailListActions';
+import selectors from '../../../modules/orderDetail/list/orderDetailListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import OrderListItem from '../../../view/order/list/OrderListItem';
+import ProductListItem from '../../../view/product/list/ProductListItem';
 
 function OrderDetailListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,36 +108,36 @@ function OrderDetailListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.orderDetail.fields.orderId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.orderDetail.fields.productId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'quantity'}
-                  label={i18n(
-                    'entities.orderDetail.fields.quantity',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'unitPrice'}
-                  label={i18n(
-                    'entities.orderDetail.fields.unitPrice',
-                  )}
-                  align="right"
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.orderDetail.fields.orderId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.orderDetail.fields.productId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'quantity'}
+                label={i18n(
+                  'entities.orderDetail.fields.quantity',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'unitPrice'}
+                label={i18n(
+                  'entities.orderDetail.fields.unitPrice',
+                )}
+                align="right"
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -182,10 +180,20 @@ function OrderDetailListTable(props) {
                     <OrderListItem value={row.orderId} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <ProductListItem value={row.productId} />
+                    <ProductListItem
+                      value={row.productId}
+                    />
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.quantity}</td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
+                    {row.quantity}
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.unitPrice}
                   </td>
                   <td

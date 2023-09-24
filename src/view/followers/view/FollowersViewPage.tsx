@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/followers/view/followersViewActions';
-import selectors from 'src/modules/followers/view/followersViewSelectors';
-import FollowersView from 'src/view/followers/view/FollowersView';
-import FollowersViewToolbar from 'src/view/followers/view/FollowersViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/followers/view/followersViewActions';
+import selectors from '../../../modules/followers/view/followersViewSelectors';
+import FollowersView from '../../../view/followers/view/FollowersView';
+import FollowersViewToolbar from '../../../view/followers/view/FollowersViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function FollowersPage() {
   const dispatch = useDispatch();

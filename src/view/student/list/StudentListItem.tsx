@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/student/studentSelectors';
+import selectors from '../../../modules/student/studentSelectors';
 
 function StudentListItem(props) {
   const hasPermissionToRead = useSelector(

@@ -7,11 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import config from 'src/config';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import { tenantSubdomain } from 'src/modules/tenant/tenantSubdomain';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
+import config from '../../../config';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import { tenantSubdomain } from '../../../modules/tenant/tenantSubdomain';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
 import * as yup from 'yup';
 
 const schemaWithUrl = yup.object().shape({

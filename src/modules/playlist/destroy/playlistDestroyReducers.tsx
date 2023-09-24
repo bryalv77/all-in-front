@@ -1,4 +1,4 @@
-import actions from 'src/modules/playlist/destroy/playlistDestroyActions';
+import actions from '../../../modules/playlist/destroy/playlistDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

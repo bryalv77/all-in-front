@@ -1,6 +1,6 @@
-import CourseTransactionService from 'src/modules/courseTransaction/courseTransactionService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import CourseTransactionService from '../../../modules/courseTransaction/courseTransactionService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'COURSETRANSACTION_VIEW';
 
@@ -15,7 +15,9 @@ const courseTransactionViewActions = {
         type: courseTransactionViewActions.FIND_STARTED,
       });
 
-      const record = await CourseTransactionService.find(id);
+      const record = await CourseTransactionService.find(
+        id,
+      );
 
       dispatch({
         type: courseTransactionViewActions.FIND_SUCCESS,

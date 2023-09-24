@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import customerSelectors from 'src/modules/customer/customerSelectors';
-import destroyActions from 'src/modules/customer/destroy/customerDestroyActions';
-import destroySelectors from 'src/modules/customer/destroy/customerDestroySelectors';
-import actions from 'src/modules/customer/list/customerListActions';
-import selectors from 'src/modules/customer/list/customerListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
+import { i18n } from '../../../i18n';
+import customerSelectors from '../../../modules/customer/customerSelectors';
+import destroyActions from '../../../modules/customer/destroy/customerDestroyActions';
+import destroySelectors from '../../../modules/customer/destroy/customerDestroySelectors';
+import actions from '../../../modules/customer/list/customerListActions';
+import selectors from '../../../modules/customer/list/customerListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
 
 function CustomerListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,38 +107,38 @@ function CustomerListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.customer.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'birthdate'}
-                  label={i18n(
-                    'entities.customer.fields.birthdate',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'gender'}
-                  label={i18n(
-                    'entities.customer.fields.gender',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.customer.fields.userId',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n(
+                  'entities.customer.fields.name',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'birthdate'}
+                label={i18n(
+                  'entities.customer.fields.birthdate',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'gender'}
+                label={i18n(
+                  'entities.customer.fields.gender',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.customer.fields.userId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -179,8 +177,12 @@ function CustomerListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.birthdate}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.birthdate}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.gender
                       ? i18n(

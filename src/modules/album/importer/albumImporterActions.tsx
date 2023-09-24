@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/album/importer/albumImporterSelectors';
-import AlbumService from 'src/modules/album/albumService';
-import fields from 'src/modules/album/importer/albumImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/album/importer/albumImporterSelectors';
+import AlbumService from '../../../modules/album/albumService';
+import fields from '../../../modules/album/importer/albumImporterFields';
+import { i18n } from '../../../i18n';
 
 const albumImporterActions = importerActions(
   'ALBUM_IMPORTER',

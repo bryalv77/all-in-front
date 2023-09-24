@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/brand/importer/brandImporterActions';
-import fields from 'src/modules/brand/importer/brandImporterFields';
-import selectors from 'src/modules/brand/importer/brandImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/brand/importer/brandImporterActions';
+import fields from '../../../modules/brand/importer/brandImporterFields';
+import selectors from '../../../modules/brand/importer/brandImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function BrandImportPage() {
   const Importer = importerHoc(

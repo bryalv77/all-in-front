@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/playlist/view/playlistViewActions';
-import selectors from 'src/modules/playlist/view/playlistViewSelectors';
-import PlaylistView from 'src/view/playlist/view/PlaylistView';
-import PlaylistViewToolbar from 'src/view/playlist/view/PlaylistViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/playlist/view/playlistViewActions';
+import selectors from '../../../modules/playlist/view/playlistViewSelectors';
+import PlaylistView from '../../../view/playlist/view/PlaylistView';
+import PlaylistViewToolbar from '../../../view/playlist/view/PlaylistViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PlaylistPage() {
   const dispatch = useDispatch();

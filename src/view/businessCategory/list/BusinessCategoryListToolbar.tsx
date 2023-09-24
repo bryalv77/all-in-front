@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import businessCategorySelectors from 'src/modules/businessCategory/businessCategorySelectors';
-import destroyActions from 'src/modules/businessCategory/destroy/businessCategoryDestroyActions';
-import destroySelectors from 'src/modules/businessCategory/destroy/businessCategoryDestroySelectors';
-import actions from 'src/modules/businessCategory/list/businessCategoryListActions';
-import selectors from 'src/modules/businessCategory/list/businessCategoryListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import businessCategorySelectors from '../../../modules/businessCategory/businessCategorySelectors';
+import destroyActions from '../../../modules/businessCategory/destroy/businessCategoryDestroyActions';
+import destroySelectors from '../../../modules/businessCategory/destroy/businessCategoryDestroySelectors';
+import actions from '../../../modules/businessCategory/list/businessCategoryListActions';
+import selectors from '../../../modules/businessCategory/list/businessCategoryListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function BusinessCategoryToolbar(props) {
   const [

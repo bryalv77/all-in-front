@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/teacher/view/teacherViewActions';
-import selectors from 'src/modules/teacher/view/teacherViewSelectors';
-import TeacherView from 'src/view/teacher/view/TeacherView';
-import TeacherViewToolbar from 'src/view/teacher/view/TeacherViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/teacher/view/teacherViewActions';
+import selectors from '../../../modules/teacher/view/teacherViewSelectors';
+import TeacherView from '../../../view/teacher/view/TeacherView';
+import TeacherViewToolbar from '../../../view/teacher/view/TeacherViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function TeacherPage() {
   const dispatch = useDispatch();

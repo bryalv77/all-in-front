@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/student/view/studentViewActions';
-import selectors from 'src/modules/student/view/studentViewSelectors';
-import StudentView from 'src/view/student/view/StudentView';
-import StudentViewToolbar from 'src/view/student/view/StudentViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/student/view/studentViewActions';
+import selectors from '../../../modules/student/view/studentViewSelectors';
+import StudentView from '../../../view/student/view/StudentView';
+import StudentViewToolbar from '../../../view/student/view/StudentViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function StudentPage() {
   const dispatch = useDispatch();

@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import CustomerForm from 'src/view/customer/form/CustomerForm';
-import CustomerService from 'src/modules/customer/customerService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import CustomerForm from '../../../view/customer/form/CustomerForm';
+import CustomerService from '../../../modules/customer/customerService';
 
 function CustomerFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

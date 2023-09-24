@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/playlist/form/playlistFormActions';
-import selectors from 'src/modules/playlist/form/playlistFormSelectors';
-import { getHistory } from 'src/modules/store';
-import PlaylistForm from 'src/view/playlist/form/PlaylistForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/playlist/form/playlistFormActions';
+import selectors from '../../../modules/playlist/form/playlistFormSelectors';
+import { getHistory } from '../../../modules/store';
+import PlaylistForm from '../../../view/playlist/form/PlaylistForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function PlaylistFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

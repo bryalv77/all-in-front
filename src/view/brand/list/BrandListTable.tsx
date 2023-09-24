@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import brandSelectors from 'src/modules/brand/brandSelectors';
-import destroyActions from 'src/modules/brand/destroy/brandDestroyActions';
-import destroySelectors from 'src/modules/brand/destroy/brandDestroySelectors';
-import actions from 'src/modules/brand/list/brandListActions';
-import selectors from 'src/modules/brand/list/brandListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
-import AddressListItem from 'src/view/address/list/AddressListItem';
+import { i18n } from '../../../i18n';
+import brandSelectors from '../../../modules/brand/brandSelectors';
+import destroyActions from '../../../modules/brand/destroy/brandDestroyActions';
+import destroySelectors from '../../../modules/brand/destroy/brandDestroySelectors';
+import actions from '../../../modules/brand/list/brandListActions';
+import selectors from '../../../modules/brand/list/brandListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
+import AddressListItem from '../../../view/address/list/AddressListItem';
 
 function BrandListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,43 +108,37 @@ function BrandListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.brand.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.brand.fields.address',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.brand.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.brand.fields.photo',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'active'}
-                  label={i18n(
-                    'entities.brand.fields.active',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n('entities.brand.fields.name')}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.brand.fields.address',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.brand.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n('entities.brand.fields.photo')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'active'}
+                label={i18n('entities.brand.fields.active')}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -185,11 +177,15 @@ function BrandListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <AddressListItem value={row.address} />
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.description}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.description}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ImagesListView value={row.photo} />
                   </td>

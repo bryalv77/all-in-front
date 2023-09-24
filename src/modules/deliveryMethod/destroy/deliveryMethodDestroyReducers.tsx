@@ -1,4 +1,4 @@
-import actions from 'src/modules/deliveryMethod/destroy/deliveryMethodDestroyActions';
+import actions from '../../../modules/deliveryMethod/destroy/deliveryMethodDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

@@ -1,9 +1,9 @@
-import listActions from 'src/modules/course/list/courseListActions';
-import CourseService from 'src/modules/course/courseService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/course/list/courseListActions';
+import CourseService from '../../../modules/course/courseService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'COURSE_DESTROY';
 

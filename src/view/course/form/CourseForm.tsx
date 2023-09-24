@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import SwitchFormItem from 'src/view/shared/form/items/SwitchFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import SwitchFormItem from '../../../view/shared/form/items/SwitchFormItem';
 import moment from 'moment';
-import DatePickerFormItem from 'src/view/shared/form/items/DatePickerFormItem';
-import TeacherAutocompleteFormItem from 'src/view/teacher/autocomplete/TeacherAutocompleteFormItem';
+import DatePickerFormItem from '../../../view/shared/form/items/DatePickerFormItem';
+import TeacherAutocompleteFormItem from '../../../view/teacher/autocomplete/TeacherAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -72,8 +72,12 @@ function CourseForm(props) {
       description: record.description,
       price: record.price,
       hoursDuration: record.hoursDuration,
-      startDate: record.startDate ? moment(record.startDate, 'YYYY-MM-DD').toDate() : null,
-      endDate: record.endDate ? moment(record.endDate, 'YYYY-MM-DD').toDate() : null,
+      startDate: record.startDate
+        ? moment(record.startDate, 'YYYY-MM-DD').toDate()
+        : null,
+      endDate: record.endDate
+        ? moment(record.endDate, 'YYYY-MM-DD').toDate()
+        : null,
       level: record.level,
       additionalInfo: record.additionalInfo,
       active: record.active,
@@ -100,11 +104,13 @@ function CourseForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <TeacherAutocompleteFormItem  
+          <TeacherAutocompleteFormItem
             name="teacherId"
             label={i18n('entities.course.fields.teacherId')}
-          placeholder={i18n('entities.course.placeholders.teacherId')}
-          hint={i18n('entities.course.hints.teacherId')}
+            placeholder={i18n(
+              'entities.course.placeholders.teacherId',
+            )}
+            hint={i18n('entities.course.hints.teacherId')}
             required={false}
             showCreate={!props.modal}
           />
@@ -113,17 +119,23 @@ function CourseForm(props) {
           <InputFormItem
             name="title"
             label={i18n('entities.course.fields.title')}
-          placeholder={i18n('entities.course.placeholders.title')}
-          hint={i18n('entities.course.hints.title')}
+            placeholder={i18n(
+              'entities.course.placeholders.title',
+            )}
+            hint={i18n('entities.course.hints.title')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.course.fields.description')}
-          placeholder={i18n('entities.course.placeholders.description')}
-          hint={i18n('entities.course.hints.description')}  
+            label={i18n(
+              'entities.course.fields.description',
+            )}
+            placeholder={i18n(
+              'entities.course.placeholders.description',
+            )}
+            hint={i18n('entities.course.hints.description')}
             required={false}
           />
         </div>
@@ -131,17 +143,25 @@ function CourseForm(props) {
           <InputFormItem
             name="price"
             label={i18n('entities.course.fields.price')}
-          placeholder={i18n('entities.course.placeholders.price')}
-          hint={i18n('entities.course.hints.price')}  
+            placeholder={i18n(
+              'entities.course.placeholders.price',
+            )}
+            hint={i18n('entities.course.hints.price')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="hoursDuration"
-            label={i18n('entities.course.fields.hoursDuration')}
-          placeholder={i18n('entities.course.placeholders.hoursDuration')}
-          hint={i18n('entities.course.hints.hoursDuration')}  
+            label={i18n(
+              'entities.course.fields.hoursDuration',
+            )}
+            placeholder={i18n(
+              'entities.course.placeholders.hoursDuration',
+            )}
+            hint={i18n(
+              'entities.course.hints.hoursDuration',
+            )}
             required={false}
           />
         </div>
@@ -149,8 +169,10 @@ function CourseForm(props) {
           <DatePickerFormItem
             name="startDate"
             label={i18n('entities.course.fields.startDate')}
-          placeholder={i18n('entities.course.placeholders.startDate')}
-          hint={i18n('entities.course.hints.startDate')}
+            placeholder={i18n(
+              'entities.course.placeholders.startDate',
+            )}
+            hint={i18n('entities.course.hints.startDate')}
             required={false}
           />
         </div>
@@ -158,8 +180,10 @@ function CourseForm(props) {
           <DatePickerFormItem
             name="endDate"
             label={i18n('entities.course.fields.endDate')}
-          placeholder={i18n('entities.course.placeholders.endDate')}
-          hint={i18n('entities.course.hints.endDate')}
+            placeholder={i18n(
+              'entities.course.placeholders.endDate',
+            )}
+            hint={i18n('entities.course.hints.endDate')}
             required={false}
           />
         </div>
@@ -167,17 +191,25 @@ function CourseForm(props) {
           <InputFormItem
             name="level"
             label={i18n('entities.course.fields.level')}
-          placeholder={i18n('entities.course.placeholders.level')}
-          hint={i18n('entities.course.hints.level')}
+            placeholder={i18n(
+              'entities.course.placeholders.level',
+            )}
+            hint={i18n('entities.course.hints.level')}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="additionalInfo"
-            label={i18n('entities.course.fields.additionalInfo')}
-          placeholder={i18n('entities.course.placeholders.additionalInfo')}
-          hint={i18n('entities.course.hints.additionalInfo')}  
+            label={i18n(
+              'entities.course.fields.additionalInfo',
+            )}
+            placeholder={i18n(
+              'entities.course.placeholders.additionalInfo',
+            )}
+            hint={i18n(
+              'entities.course.hints.additionalInfo',
+            )}
             required={false}
           />
         </div>
@@ -185,7 +217,7 @@ function CourseForm(props) {
           <SwitchFormItem
             name="active"
             label={i18n('entities.course.fields.active')}
-          hint={i18n('entities.course.hints.active')}
+            hint={i18n('entities.course.hints.active')}
           />
         </div>
 

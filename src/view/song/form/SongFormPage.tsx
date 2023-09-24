@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/song/form/songFormActions';
-import selectors from 'src/modules/song/form/songFormSelectors';
-import { getHistory } from 'src/modules/store';
-import SongForm from 'src/view/song/form/SongForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/song/form/songFormActions';
+import selectors from '../../../modules/song/form/songFormSelectors';
+import { getHistory } from '../../../modules/store';
+import SongForm from '../../../view/song/form/SongForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function SongFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

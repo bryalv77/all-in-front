@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/artist/importer/artistImporterActions';
-import fields from 'src/modules/artist/importer/artistImporterFields';
-import selectors from 'src/modules/artist/importer/artistImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/artist/importer/artistImporterActions';
+import fields from '../../../modules/artist/importer/artistImporterFields';
+import selectors from '../../../modules/artist/importer/artistImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function ArtistImportPage() {
   const Importer = importerHoc(

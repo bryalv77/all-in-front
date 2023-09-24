@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import artistSelectors from 'src/modules/artist/artistSelectors';
-import destroyActions from 'src/modules/artist/destroy/artistDestroyActions';
-import destroySelectors from 'src/modules/artist/destroy/artistDestroySelectors';
-import actions from 'src/modules/artist/list/artistListActions';
-import selectors from 'src/modules/artist/list/artistListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import artistSelectors from '../../../modules/artist/artistSelectors';
+import destroyActions from '../../../modules/artist/destroy/artistDestroyActions';
+import destroySelectors from '../../../modules/artist/destroy/artistDestroySelectors';
+import actions from '../../../modules/artist/list/artistListActions';
+import selectors from '../../../modules/artist/list/artistListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function ArtistToolbar(props) {
   const [

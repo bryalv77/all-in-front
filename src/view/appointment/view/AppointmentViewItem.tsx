@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/appointment/appointmentSelectors';
+import selectors from '../../../modules/appointment/appointmentSelectors';
 
 function AppointmentViewItem(props) {
   const hasPermissionToRead = useSelector(

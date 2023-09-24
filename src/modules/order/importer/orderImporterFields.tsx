@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import orderEnumerators from 'src/modules/order/orderEnumerators';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import orderEnumerators from '../../../modules/order/orderEnumerators';
 
 export default [
   {
@@ -8,7 +9,7 @@ export default [
     schema: schemas.relationToOne(
       i18n('entities.order.fields.customer'),
       {
-        "required": true
+        required: true,
       },
     ),
   },
@@ -18,7 +19,7 @@ export default [
     schema: schemas.enumerator(
       i18n('entities.order.fields.status'),
       {
-        "options": orderEnumerators.status
+        options: orderEnumerators.status,
       },
     ),
   },
@@ -28,7 +29,7 @@ export default [
     schema: schemas.files(
       i18n('entities.order.fields.attachments'),
       {
-        "max": 3
+        max: 3,
       },
     ),
   },

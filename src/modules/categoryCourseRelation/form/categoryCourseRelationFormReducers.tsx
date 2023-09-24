@@ -1,4 +1,4 @@
-import actions from 'src/modules/categoryCourseRelation/form/categoryCourseRelationFormActions';
+import actions from '../../../modules/categoryCourseRelation/form/categoryCourseRelationFormActions';
 
 const initialData = {
   initLoading: false,

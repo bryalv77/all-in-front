@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/paymentMethods/form/paymentMethodsFormActions';
-import selectors from 'src/modules/paymentMethods/form/paymentMethodsFormSelectors';
-import { getHistory } from 'src/modules/store';
-import PaymentMethodsForm from 'src/view/paymentMethods/form/PaymentMethodsForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/paymentMethods/form/paymentMethodsFormActions';
+import selectors from '../../../modules/paymentMethods/form/paymentMethodsFormSelectors';
+import { getHistory } from '../../../modules/store';
+import PaymentMethodsForm from '../../../view/paymentMethods/form/PaymentMethodsForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function PaymentMethodsFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function PaymentMethodsFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.paymentMethods.menu'), '/payment-methods'],
+          [
+            i18n('entities.paymentMethods.menu'),
+            '/payment-methods',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function PaymentMethodsFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/payment-methods')}
+            onCancel={() =>
+              getHistory().push('/payment-methods')
+            }
           />
         )}
       </div>

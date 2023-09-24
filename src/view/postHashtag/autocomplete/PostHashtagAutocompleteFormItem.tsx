@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import PostHashtagService from 'src/modules/postHashtag/postHashtagService';
-import PostHashtagFormModal from 'src/view/postHashtag/form/PostHashtagFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import PostHashtagService from '../../../modules/postHashtag/postHashtagService';
+import PostHashtagFormModal from '../../../view/postHashtag/form/PostHashtagFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/postHashtag/postHashtagSelectors';
+import selectors from '../../../modules/postHashtag/postHashtagSelectors';
 
 function PostHashtagAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function PostHashtagAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return PostHashtagService.listAutocomplete(value, limit);
+    return PostHashtagService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

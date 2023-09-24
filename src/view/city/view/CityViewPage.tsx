@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/city/view/cityViewActions';
-import selectors from 'src/modules/city/view/cityViewSelectors';
-import CityView from 'src/view/city/view/CityView';
-import CityViewToolbar from 'src/view/city/view/CityViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/city/view/cityViewActions';
+import selectors from '../../../modules/city/view/cityViewSelectors';
+import CityView from '../../../view/city/view/CityView';
+import CityViewToolbar from '../../../view/city/view/CityViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CityPage() {
   const dispatch = useDispatch();

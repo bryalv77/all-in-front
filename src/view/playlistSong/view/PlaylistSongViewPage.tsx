@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/playlistSong/view/playlistSongViewActions';
-import selectors from 'src/modules/playlistSong/view/playlistSongViewSelectors';
-import PlaylistSongView from 'src/view/playlistSong/view/PlaylistSongView';
-import PlaylistSongViewToolbar from 'src/view/playlistSong/view/PlaylistSongViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/playlistSong/view/playlistSongViewActions';
+import selectors from '../../../modules/playlistSong/view/playlistSongViewSelectors';
+import PlaylistSongView from '../../../view/playlistSong/view/PlaylistSongView';
+import PlaylistSongViewToolbar from '../../../view/playlistSong/view/PlaylistSongViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PlaylistSongPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function PlaylistSongPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.playlistSong.menu'), '/playlist-song'],
+          [
+            i18n('entities.playlistSong.menu'),
+            '/playlist-song',
+          ],
           [i18n('entities.playlistSong.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function PlaylistSongPage() {
 
         <PlaylistSongViewToolbar match={match} />
 
-        <PlaylistSongView loading={loading} record={record} />
+        <PlaylistSongView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

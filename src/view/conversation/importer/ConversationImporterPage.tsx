@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/conversation/importer/conversationImporterActions';
-import fields from 'src/modules/conversation/importer/conversationImporterFields';
-import selectors from 'src/modules/conversation/importer/conversationImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/conversation/importer/conversationImporterActions';
+import fields from '../../../modules/conversation/importer/conversationImporterFields';
+import selectors from '../../../modules/conversation/importer/conversationImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function ConversationImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function ConversationImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.conversation.menu'), '/conversation'],
+          [
+            i18n('entities.conversation.menu'),
+            '/conversation',
+          ],
           [i18n('entities.conversation.importer.title')],
         ]}
       />

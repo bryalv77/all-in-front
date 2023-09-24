@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import citySelectors from 'src/modules/city/citySelectors';
-import destroyActions from 'src/modules/city/destroy/cityDestroyActions';
-import destroySelectors from 'src/modules/city/destroy/cityDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import citySelectors from '../../../modules/city/citySelectors';
+import destroyActions from '../../../modules/city/destroy/cityDestroyActions';
+import destroySelectors from '../../../modules/city/destroy/cityDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CityViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

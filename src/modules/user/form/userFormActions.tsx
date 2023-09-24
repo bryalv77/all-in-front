@@ -1,10 +1,10 @@
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import UserService from 'src/modules/user/userService';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
-import authSelectors from 'src/modules/auth/authSelectors';
-import authActions from 'src/modules/auth/authActions';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import UserService from '../../../modules/user/userService';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
+import authSelectors from '../../../modules/auth/authSelectors';
+import authActions from '../../../modules/auth/authActions';
 
 const prefix = 'USER_FORM';
 

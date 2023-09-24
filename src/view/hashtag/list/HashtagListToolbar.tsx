@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import hashtagSelectors from 'src/modules/hashtag/hashtagSelectors';
-import destroyActions from 'src/modules/hashtag/destroy/hashtagDestroyActions';
-import destroySelectors from 'src/modules/hashtag/destroy/hashtagDestroySelectors';
-import actions from 'src/modules/hashtag/list/hashtagListActions';
-import selectors from 'src/modules/hashtag/list/hashtagListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import hashtagSelectors from '../../../modules/hashtag/hashtagSelectors';
+import destroyActions from '../../../modules/hashtag/destroy/hashtagDestroyActions';
+import destroySelectors from '../../../modules/hashtag/destroy/hashtagDestroySelectors';
+import actions from '../../../modules/hashtag/list/hashtagListActions';
+import selectors from '../../../modules/hashtag/list/hashtagListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function HashtagToolbar(props) {
   const [

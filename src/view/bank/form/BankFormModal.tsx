@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import BankForm from 'src/view/bank/form/BankForm';
-import BankService from 'src/modules/bank/bankService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import BankForm from '../../../view/bank/form/BankForm';
+import BankService from '../../../modules/bank/bankService';
 
 function BankFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

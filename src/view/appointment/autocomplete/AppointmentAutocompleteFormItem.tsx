@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import AppointmentService from 'src/modules/appointment/appointmentService';
-import AppointmentFormModal from 'src/view/appointment/form/AppointmentFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import AppointmentService from '../../../modules/appointment/appointmentService';
+import AppointmentFormModal from '../../../view/appointment/form/AppointmentFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/appointment/appointmentSelectors';
+import selectors from '../../../modules/appointment/appointmentSelectors';
 
 function AppointmentAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function AppointmentAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return AppointmentService.listAutocomplete(value, limit);
+    return AppointmentService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

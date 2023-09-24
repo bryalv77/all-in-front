@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import Storage from 'src/security/storage';
-import FilesFormItem from 'src/view/shared/form/items/FilesFormItem';
-import StudentAutocompleteFormItem from 'src/view/student/autocomplete/StudentAutocompleteFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import LessonAutocompleteFormItem from 'src/view/lesson/autocomplete/LessonAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import Storage from '../../../security/storage';
+import FilesFormItem from '../../../view/shared/form/items/FilesFormItem';
+import StudentAutocompleteFormItem from '../../../view/student/autocomplete/StudentAutocompleteFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import LessonAutocompleteFormItem from '../../../view/lesson/autocomplete/LessonAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -77,39 +77,63 @@ function CourseCommentForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <TextAreaFormItem
             name="comment"
-            label={i18n('entities.courseComment.fields.comment')}
-          placeholder={i18n('entities.courseComment.placeholders.comment')}
-          hint={i18n('entities.courseComment.hints.comment')}  
+            label={i18n(
+              'entities.courseComment.fields.comment',
+            )}
+            placeholder={i18n(
+              'entities.courseComment.placeholders.comment',
+            )}
+            hint={i18n(
+              'entities.courseComment.hints.comment',
+            )}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <StudentAutocompleteFormItem  
+          <StudentAutocompleteFormItem
             name="studentId"
-            label={i18n('entities.courseComment.fields.studentId')}
-          placeholder={i18n('entities.courseComment.placeholders.studentId')}
-          hint={i18n('entities.courseComment.hints.studentId')}
+            label={i18n(
+              'entities.courseComment.fields.studentId',
+            )}
+            placeholder={i18n(
+              'entities.courseComment.placeholders.studentId',
+            )}
+            hint={i18n(
+              'entities.courseComment.hints.studentId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <CourseAutocompleteFormItem  
+          <CourseAutocompleteFormItem
             name="courseId"
-            label={i18n('entities.courseComment.fields.courseId')}
-          placeholder={i18n('entities.courseComment.placeholders.courseId')}
-          hint={i18n('entities.courseComment.hints.courseId')}
+            label={i18n(
+              'entities.courseComment.fields.courseId',
+            )}
+            placeholder={i18n(
+              'entities.courseComment.placeholders.courseId',
+            )}
+            hint={i18n(
+              'entities.courseComment.hints.courseId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <LessonAutocompleteFormItem  
+          <LessonAutocompleteFormItem
             name="lessonId"
-            label={i18n('entities.courseComment.fields.lessonId')}
-          placeholder={i18n('entities.courseComment.placeholders.lessonId')}
-          hint={i18n('entities.courseComment.hints.lessonId')}
+            label={i18n(
+              'entities.courseComment.fields.lessonId',
+            )}
+            placeholder={i18n(
+              'entities.courseComment.placeholders.lessonId',
+            )}
+            hint={i18n(
+              'entities.courseComment.hints.lessonId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -117,12 +141,16 @@ function CourseCommentForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <FilesFormItem
             name="media"
-            label={i18n('entities.courseComment.fields.media')}
+            label={i18n(
+              'entities.courseComment.fields.media',
+            )}
             required={false}
             storage={Storage.values.courseCommentMedia}
             max={undefined}
             formats={undefined}
-          hint={i18n('entities.courseComment.hints.media')}
+            hint={i18n(
+              'entities.courseComment.hints.media',
+            )}
           />
         </div>
 

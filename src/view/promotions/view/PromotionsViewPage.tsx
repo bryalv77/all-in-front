@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/promotions/view/promotionsViewActions';
-import selectors from 'src/modules/promotions/view/promotionsViewSelectors';
-import PromotionsView from 'src/view/promotions/view/PromotionsView';
-import PromotionsViewToolbar from 'src/view/promotions/view/PromotionsViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/promotions/view/promotionsViewActions';
+import selectors from '../../../modules/promotions/view/promotionsViewSelectors';
+import PromotionsView from '../../../view/promotions/view/PromotionsView';
+import PromotionsViewToolbar from '../../../view/promotions/view/PromotionsViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PromotionsPage() {
   const dispatch = useDispatch();

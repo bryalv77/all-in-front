@@ -1,4 +1,4 @@
-import actions from 'src/modules/taskTags/form/taskTagsFormActions';
+import actions from '../../../modules/taskTags/form/taskTagsFormActions';
 
 const initialData = {
   initLoading: false,

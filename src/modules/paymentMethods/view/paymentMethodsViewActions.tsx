@@ -1,6 +1,6 @@
-import PaymentMethodsService from 'src/modules/paymentMethods/paymentMethodsService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import PaymentMethodsService from '../../../modules/paymentMethods/paymentMethodsService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'PAYMENTMETHODS_VIEW';
 

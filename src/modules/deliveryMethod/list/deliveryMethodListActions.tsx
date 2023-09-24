@@ -1,9 +1,9 @@
-import DeliveryMethodService from 'src/modules/deliveryMethod/deliveryMethodService';
-import selectors from 'src/modules/deliveryMethod/list/deliveryMethodListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/deliveryMethod/list/deliveryMethodListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import DeliveryMethodService from '../../../modules/deliveryMethod/deliveryMethodService';
+import selectors from '../../../modules/deliveryMethod/list/deliveryMethodListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/deliveryMethod/list/deliveryMethodListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'DELIVERYMETHOD_LIST';
 
@@ -86,17 +86,17 @@ const deliveryMethodListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: deliveryMethodListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: deliveryMethodListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(deliveryMethodListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        deliveryMethodListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +104,57 @@ const deliveryMethodListActions = {
       payload: sorter,
     });
 
-    dispatch(deliveryMethodListActions.doFetchCurrentFilter());
+    dispatch(
+      deliveryMethodListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(deliveryMethodListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: deliveryMethodListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await DeliveryMethodService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        deliveryMethodListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: deliveryMethodListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: deliveryMethodListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: deliveryMethodListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await DeliveryMethodService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: deliveryMethodListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: deliveryMethodListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default deliveryMethodListActions;

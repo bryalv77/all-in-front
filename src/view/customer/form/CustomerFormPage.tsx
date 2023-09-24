@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/customer/form/customerFormActions';
-import selectors from 'src/modules/customer/form/customerFormSelectors';
-import { getHistory } from 'src/modules/store';
-import CustomerForm from 'src/view/customer/form/CustomerForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/customer/form/customerFormActions';
+import selectors from '../../../modules/customer/form/customerFormSelectors';
+import { getHistory } from '../../../modules/store';
+import CustomerForm from '../../../view/customer/form/CustomerForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function CustomerFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

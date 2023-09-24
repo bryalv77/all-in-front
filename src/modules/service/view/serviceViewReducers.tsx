@@ -1,4 +1,4 @@
-import actions from 'src/modules/service/view/serviceViewActions';
+import actions from '../../../modules/service/view/serviceViewActions';
 
 const initialData = {
   loading: false,

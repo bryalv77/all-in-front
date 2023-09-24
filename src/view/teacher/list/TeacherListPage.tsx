@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import TeacherListFilter from 'src/view/teacher/list/TeacherListFilter';
-import TeacherListTable from 'src/view/teacher/list/TeacherListTable';
-import TeacherListToolbar from 'src/view/teacher/list/TeacherListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import TeacherListFilter from '../../../view/teacher/list/TeacherListFilter';
+import TeacherListTable from '../../../view/teacher/list/TeacherListTable';
+import TeacherListToolbar from '../../../view/teacher/list/TeacherListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function TeacherListPage(props) {
   return (

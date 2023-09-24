@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/media/mediaSelectors';
+import selectors from '../../../modules/media/mediaSelectors';
 
 function MediaViewItem(props) {
   const hasPermissionToRead = useSelector(

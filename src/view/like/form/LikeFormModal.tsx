@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import LikeForm from 'src/view/like/form/LikeForm';
-import LikeService from 'src/modules/like/likeService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import LikeForm from '../../../view/like/form/LikeForm';
+import LikeService from '../../../modules/like/likeService';
 
 function LikeFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

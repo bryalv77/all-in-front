@@ -1,7 +1,6 @@
-import importerSelectors from 'src/modules/shared/importer/importerSelectors';
+import importerSelectors from '../../../modules/shared/importer/importerSelectors';
 
-const categoryCourseRelationImporterSelectors = importerSelectors(
-  'categoryCourseRelation.importer',
-);
+const categoryCourseRelationImporterSelectors =
+  importerSelectors('categoryCourseRelation.importer');
 
 export default categoryCourseRelationImporterSelectors;

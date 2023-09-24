@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import PlaylistAutocompleteFormItem from 'src/view/playlist/autocomplete/PlaylistAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import PlaylistAutocompleteFormItem from '../../../view/playlist/autocomplete/PlaylistAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -56,21 +56,33 @@ function UserPlaylistForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="userId"
-            label={i18n('entities.userPlaylist.fields.userId')}
-          placeholder={i18n('entities.userPlaylist.placeholders.userId')}
-          hint={i18n('entities.userPlaylist.hints.userId')}
+            label={i18n(
+              'entities.userPlaylist.fields.userId',
+            )}
+            placeholder={i18n(
+              'entities.userPlaylist.placeholders.userId',
+            )}
+            hint={i18n(
+              'entities.userPlaylist.hints.userId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <PlaylistAutocompleteFormItem  
+          <PlaylistAutocompleteFormItem
             name="playlistId"
-            label={i18n('entities.userPlaylist.fields.playlistId')}
-          placeholder={i18n('entities.userPlaylist.placeholders.playlistId')}
-          hint={i18n('entities.userPlaylist.hints.playlistId')}
+            label={i18n(
+              'entities.userPlaylist.fields.playlistId',
+            )}
+            placeholder={i18n(
+              'entities.userPlaylist.placeholders.playlistId',
+            )}
+            hint={i18n(
+              'entities.userPlaylist.hints.playlistId',
+            )}
             required={false}
             showCreate={!props.modal}
           />

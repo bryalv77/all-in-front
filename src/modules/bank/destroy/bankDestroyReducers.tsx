@@ -1,4 +1,4 @@
-import actions from 'src/modules/bank/destroy/bankDestroyActions';
+import actions from '../../../modules/bank/destroy/bankDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

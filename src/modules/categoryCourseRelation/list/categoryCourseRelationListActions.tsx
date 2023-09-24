@@ -1,9 +1,9 @@
-import CategoryCourseRelationService from 'src/modules/categoryCourseRelation/categoryCourseRelationService';
-import selectors from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import CategoryCourseRelationService from '../../../modules/categoryCourseRelation/categoryCourseRelationService';
+import selectors from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'CATEGORYCOURSERELATION_LIST';
 
@@ -62,16 +62,19 @@ const categoryCourseRelationListActions = {
       });
 
       const filter = selectors.selectFilter(getState());
-      const response = await CategoryCourseRelationService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        null,
-        null,
-      );
+      const response =
+        await CategoryCourseRelationService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          null,
+          null,
+        );
 
       new Exporter(
         exporterFields,
-        i18n('entities.categoryCourseRelation.exporterFileName'),
+        i18n(
+          'entities.categoryCourseRelation.exporterFileName',
+        ),
       ).transformAndExportAsExcelFile(response.rows);
 
       dispatch({
@@ -86,17 +89,17 @@ const categoryCourseRelationListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: categoryCourseRelationListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: categoryCourseRelationListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(categoryCourseRelationListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        categoryCourseRelationListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +107,58 @@ const categoryCourseRelationListActions = {
       payload: sorter,
     });
 
-    dispatch(categoryCourseRelationListActions.doFetchCurrentFilter());
+    dispatch(
+      categoryCourseRelationListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(categoryCourseRelationListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: categoryCourseRelationListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await CategoryCourseRelationService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        categoryCourseRelationListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: categoryCourseRelationListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: categoryCourseRelationListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: categoryCourseRelationListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response =
+          await CategoryCourseRelationService.list(
+            filter,
+            selectors.selectOrderBy(getState()),
+            selectors.selectLimit(getState()),
+            selectors.selectOffset(getState()),
+          );
+
+        dispatch({
+          type: categoryCourseRelationListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: categoryCourseRelationListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default categoryCourseRelationListActions;

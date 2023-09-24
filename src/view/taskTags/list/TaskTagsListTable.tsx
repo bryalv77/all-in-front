@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import taskTagsSelectors from 'src/modules/taskTags/taskTagsSelectors';
-import destroyActions from 'src/modules/taskTags/destroy/taskTagsDestroyActions';
-import destroySelectors from 'src/modules/taskTags/destroy/taskTagsDestroySelectors';
-import actions from 'src/modules/taskTags/list/taskTagsListActions';
-import selectors from 'src/modules/taskTags/list/taskTagsListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import TasksListItem from 'src/view/tasks/list/TasksListItem';
-import TagsListItem from 'src/view/tags/list/TagsListItem';
+import { i18n } from '../../../i18n';
+import taskTagsSelectors from '../../../modules/taskTags/taskTagsSelectors';
+import destroyActions from '../../../modules/taskTags/destroy/taskTagsDestroyActions';
+import destroySelectors from '../../../modules/taskTags/destroy/taskTagsDestroySelectors';
+import actions from '../../../modules/taskTags/list/taskTagsListActions';
+import selectors from '../../../modules/taskTags/list/taskTagsListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import TasksListItem from '../../../view/tasks/list/TasksListItem';
+import TagsListItem from '../../../view/tags/list/TagsListItem';
 
 function TaskTagsListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,16 +108,16 @@ function TaskTagsListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.taskTags.fields.taskId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.taskTags.fields.tagId',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.taskTags.fields.taskId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.taskTags.fields.tagId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>

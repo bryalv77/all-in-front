@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/like/view/likeViewActions';
-import selectors from 'src/modules/like/view/likeViewSelectors';
-import LikeView from 'src/view/like/view/LikeView';
-import LikeViewToolbar from 'src/view/like/view/LikeViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/like/view/likeViewActions';
+import selectors from '../../../modules/like/view/likeViewSelectors';
+import LikeView from '../../../view/like/view/LikeView';
+import LikeViewToolbar from '../../../view/like/view/LikeViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function LikePage() {
   const dispatch = useDispatch();

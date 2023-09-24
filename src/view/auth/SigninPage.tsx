@@ -4,14 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import config from 'src/config';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/auth/authActions';
-import selectors from 'src/modules/auth/authSelectors';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import I18nFlags from 'src/view/layout/I18nFlags';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import Message from 'src/view/shared/message';
+import config from '../../../config';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/auth/authActions';
+import selectors from '../../../modules/auth/authSelectors';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import I18nFlags from '../../../view/layout/I18nFlags';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import Message from '../../../view/shared/message';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({

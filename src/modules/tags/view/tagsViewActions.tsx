@@ -1,6 +1,6 @@
-import TagsService from 'src/modules/tags/tagsService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import TagsService from '../../../modules/tags/tagsService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'TAGS_VIEW';
 

@@ -7,26 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import appointmentSelectors from 'src/modules/appointment/appointmentSelectors';
-import destroyActions from 'src/modules/appointment/destroy/appointmentDestroyActions';
-import destroySelectors from 'src/modules/appointment/destroy/appointmentDestroySelectors';
-import actions from 'src/modules/appointment/list/appointmentListActions';
-import selectors from 'src/modules/appointment/list/appointmentListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
+import { i18n } from '../../../i18n';
+import appointmentSelectors from '../../../modules/appointment/appointmentSelectors';
+import destroyActions from '../../../modules/appointment/destroy/appointmentDestroyActions';
+import destroySelectors from '../../../modules/appointment/destroy/appointmentDestroySelectors';
+import actions from '../../../modules/appointment/list/appointmentListActions';
+import selectors from '../../../modules/appointment/list/appointmentListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
 import moment from 'moment';
-import CustomerListItem from 'src/view/customer/list/CustomerListItem';
-import ServiceListItem from 'src/view/service/list/ServiceListItem';
-import AvailabilityTimeslotListItem from 'src/view/availabilityTimeslot/list/AvailabilityTimeslotListItem';
+import CustomerListItem from '../../../view/customer/list/CustomerListItem';
+import ServiceListItem from '../../../view/service/list/ServiceListItem';
+import AvailabilityTimeslotListItem from '../../../view/availabilityTimeslot/list/AvailabilityTimeslotListItem';
 
 function AppointmentListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -112,48 +110,48 @@ function AppointmentListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.appointment.fields.customer',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.appointment.fields.serviceId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.appointment.fields.timeslotId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'appointmentDate'}
-                  label={i18n(
-                    'entities.appointment.fields.appointmentDate',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'appointmentStatus'}
-                  label={i18n(
-                    'entities.appointment.fields.appointmentStatus',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'paymentStatus'}
-                  label={i18n(
-                    'entities.appointment.fields.paymentStatus',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.appointment.fields.customer',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.appointment.fields.serviceId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.appointment.fields.timeslotId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'appointmentDate'}
+                label={i18n(
+                  'entities.appointment.fields.appointmentDate',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'appointmentStatus'}
+                label={i18n(
+                  'entities.appointment.fields.appointmentStatus',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'paymentStatus'}
+                label={i18n(
+                  'entities.appointment.fields.paymentStatus',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -193,13 +191,19 @@ function AppointmentListTable(props) {
                     />
                   </th>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <CustomerListItem value={row.customer} />
+                    <CustomerListItem
+                      value={row.customer}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <ServiceListItem value={row.serviceId} />
+                    <ServiceListItem
+                      value={row.serviceId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <AvailabilityTimeslotListItem value={row.timeslotId} />
+                    <AvailabilityTimeslotListItem
+                      value={row.timeslotId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.appointmentDate

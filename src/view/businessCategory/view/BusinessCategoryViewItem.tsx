@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/businessCategory/businessCategorySelectors';
+import selectors from '../../../modules/businessCategory/businessCategorySelectors';
 
 function BusinessCategoryViewItem(props) {
   const hasPermissionToRead = useSelector(

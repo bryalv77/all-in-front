@@ -1,10 +1,10 @@
-import UserService from 'src/modules/user/userService';
-import selectors from 'src/modules/user/list/userListSelectors';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/user/list/userListExporterFields';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import UserService from '../../../modules/user/userService';
+import selectors from '../../../modules/user/list/userListSelectors';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/user/list/userListExporterFields';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'USER_LIST';
 
@@ -95,17 +95,15 @@ const userListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: userListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: userListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(userListActions.doFetchCurrentFilter());
-  },
+      dispatch(userListActions.doFetchCurrentFilter());
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -116,47 +114,48 @@ const userListActions = {
     dispatch(userListActions.doFetchCurrentFilter());
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(userListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: userListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await UserService.fetchUsers(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        userListActions.doFetch(filter, rawFilter, true),
+      );
+    },
 
-      dispatch({
-        type: userListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: userListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: userListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await UserService.fetchUsers(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: userListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: userListActions.FETCH_ERROR,
+        });
+      }
+    },
 
   doDestroy: (id) => async (dispatch, getState) => {
     try {
@@ -184,42 +183,40 @@ const userListActions = {
     }
   },
 
-  doDestroyAllSelected: () => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      const selectedRows = selectors.selectSelectedRows(
-        getState(),
-      );
+  doDestroyAllSelected:
+    () => async (dispatch, getState) => {
+      try {
+        const selectedRows = selectors.selectSelectedRows(
+          getState(),
+        );
 
-      dispatch({
-        type: userListActions.DESTROY_ALL_SELECTED_STARTED,
-      });
+        dispatch({
+          type: userListActions.DESTROY_ALL_SELECTED_STARTED,
+        });
 
-      await UserService.destroy(
-        selectedRows.map((row) => row.id),
-      );
+        await UserService.destroy(
+          selectedRows.map((row) => row.id),
+        );
 
-      dispatch({
-        type: userListActions.DESTROY_ALL_SELECTED_SUCCESS,
-      });
+        dispatch({
+          type: userListActions.DESTROY_ALL_SELECTED_SUCCESS,
+        });
 
-      Message.success(
-        i18n('user.doDestroyAllSelectedSuccess'),
-      );
+        Message.success(
+          i18n('user.doDestroyAllSelectedSuccess'),
+        );
 
-      dispatch(userListActions.doFetchCurrentFilter());
-    } catch (error) {
-      Errors.handle(error);
+        dispatch(userListActions.doFetchCurrentFilter());
+      } catch (error) {
+        Errors.handle(error);
 
-      dispatch({
-        type: userListActions.DESTROY_ALL_SELECTED_ERROR,
-      });
+        dispatch({
+          type: userListActions.DESTROY_ALL_SELECTED_ERROR,
+        });
 
-      dispatch(userListActions.doFetchCurrentFilter());
-    }
-  },
+        dispatch(userListActions.doFetchCurrentFilter());
+      }
+    },
 };
 
 export default userListActions;

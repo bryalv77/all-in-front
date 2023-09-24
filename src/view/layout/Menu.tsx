@@ -3,16 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 import {
   default as authSelectors,
   default as selectors,
-} from 'src/modules/auth/authSelectors';
-import PermissionChecker from 'src/modules/auth/permissionChecker';
-import layoutActions from 'src/modules/layout/layoutActions';
-import actions from 'src/modules/layout/layoutActions';
-import layoutSelectors from 'src/modules/layout/layoutSelectors';
-import menus from 'src/view/menus';
+} from '../../../modules/auth/authSelectors';
+import PermissionChecker from '../../../modules/auth/permissionChecker';
+import layoutActions from '../../../modules/layout/layoutActions';
+import actions from '../../../modules/layout/layoutActions';
+import layoutSelectors from '../../../modules/layout/layoutSelectors';
+import menus from '../../../view/menus';
 
 function Menu(props) {
   const dispatch = useDispatch();

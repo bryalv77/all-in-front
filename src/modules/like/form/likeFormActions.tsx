@@ -1,8 +1,8 @@
-import LikeService from 'src/modules/like/likeService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
+import LikeService from '../../../modules/like/likeService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
 
 const prefix = 'LIKE_FORM';
 
@@ -60,9 +60,7 @@ const likeFormActions = {
         type: likeFormActions.CREATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.like.create.success'),
-      );
+      Message.success(i18n('entities.like.create.success'));
 
       getHistory().push('/like');
     } catch (error) {
@@ -86,9 +84,7 @@ const likeFormActions = {
         type: likeFormActions.UPDATE_SUCCESS,
       });
 
-      Message.success(
-        i18n('entities.like.update.success'),
-      );
+      Message.success(i18n('entities.like.update.success'));
 
       getHistory().push('/like');
     } catch (error) {

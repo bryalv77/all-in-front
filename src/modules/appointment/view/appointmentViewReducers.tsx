@@ -1,4 +1,4 @@
-import actions from 'src/modules/appointment/view/appointmentViewActions';
+import actions from '../../../modules/appointment/view/appointmentViewActions';
 
 const initialData = {
   loading: false,

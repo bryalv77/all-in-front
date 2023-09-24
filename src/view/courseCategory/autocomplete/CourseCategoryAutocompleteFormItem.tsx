@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import CourseCategoryService from 'src/modules/courseCategory/courseCategoryService';
-import CourseCategoryFormModal from 'src/view/courseCategory/form/CourseCategoryFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import CourseCategoryService from '../../../modules/courseCategory/courseCategoryService';
+import CourseCategoryFormModal from '../../../view/courseCategory/form/CourseCategoryFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/courseCategory/courseCategorySelectors';
+import selectors from '../../../modules/courseCategory/courseCategorySelectors';
 
 function CourseCategoryAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function CourseCategoryAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return CourseCategoryService.listAutocomplete(value, limit);
+    return CourseCategoryService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

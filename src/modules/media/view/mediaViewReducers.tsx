@@ -1,4 +1,4 @@
-import actions from 'src/modules/media/view/mediaViewActions';
+import actions from '../../../modules/media/view/mediaViewActions';
 
 const initialData = {
   loading: false,

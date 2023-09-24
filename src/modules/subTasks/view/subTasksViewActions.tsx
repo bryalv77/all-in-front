@@ -1,6 +1,6 @@
-import SubTasksService from 'src/modules/subTasks/subTasksService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import SubTasksService from '../../../modules/subTasks/subTasksService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'SUBTASKS_VIEW';
 

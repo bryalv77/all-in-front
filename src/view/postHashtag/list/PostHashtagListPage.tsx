@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import PostHashtagListFilter from 'src/view/postHashtag/list/PostHashtagListFilter';
-import PostHashtagListTable from 'src/view/postHashtag/list/PostHashtagListTable';
-import PostHashtagListToolbar from 'src/view/postHashtag/list/PostHashtagListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import PostHashtagListFilter from '../../../view/postHashtag/list/PostHashtagListFilter';
+import PostHashtagListTable from '../../../view/postHashtag/list/PostHashtagListTable';
+import PostHashtagListToolbar from '../../../view/postHashtag/list/PostHashtagListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PostHashtagListPage(props) {
   return (

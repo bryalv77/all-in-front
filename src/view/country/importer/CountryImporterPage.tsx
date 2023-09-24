@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/country/importer/countryImporterActions';
-import fields from 'src/modules/country/importer/countryImporterFields';
-import selectors from 'src/modules/country/importer/countryImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/country/importer/countryImporterActions';
+import fields from '../../../modules/country/importer/countryImporterFields';
+import selectors from '../../../modules/country/importer/countryImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function CountryImportPage() {
   const Importer = importerHoc(

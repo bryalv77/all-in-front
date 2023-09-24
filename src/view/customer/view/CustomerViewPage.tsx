@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/customer/view/customerViewActions';
-import selectors from 'src/modules/customer/view/customerViewSelectors';
-import CustomerView from 'src/view/customer/view/CustomerView';
-import CustomerViewToolbar from 'src/view/customer/view/CustomerViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/customer/view/customerViewActions';
+import selectors from '../../../modules/customer/view/customerViewSelectors';
+import CustomerView from '../../../view/customer/view/CustomerView';
+import CustomerViewToolbar from '../../../view/customer/view/CustomerViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CustomerPage() {
   const dispatch = useDispatch();

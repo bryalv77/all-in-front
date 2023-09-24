@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import followersSelectors from 'src/modules/followers/followersSelectors';
-import destroyActions from 'src/modules/followers/destroy/followersDestroyActions';
-import destroySelectors from 'src/modules/followers/destroy/followersDestroySelectors';
-import actions from 'src/modules/followers/list/followersListActions';
-import selectors from 'src/modules/followers/list/followersListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
+import { i18n } from '../../../i18n';
+import followersSelectors from '../../../modules/followers/followersSelectors';
+import destroyActions from '../../../modules/followers/destroy/followersDestroyActions';
+import destroySelectors from '../../../modules/followers/destroy/followersDestroySelectors';
+import actions from '../../../modules/followers/list/followersListActions';
+import selectors from '../../../modules/followers/list/followersListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
 
 function FollowersListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,16 +107,16 @@ function FollowersListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.followers.fields.userId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.followers.fields.followerId',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.followers.fields.userId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.followers.fields.followerId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>

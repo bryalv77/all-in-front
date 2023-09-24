@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import tasksEnumerators from 'src/modules/tasks/tasksEnumerators';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import tasksEnumerators from '../../../modules/tasks/tasksEnumerators';
 import moment from 'moment';
 
 export default [
@@ -18,7 +19,10 @@ export default [
       i18n('entities.tasks.fields.dueDate'),
       {},
     ),
-   render: (value) => value && value instanceof Date ? moment(value).format('YYYY-MM-DD') : value,
+    render: (value) =>
+      value && value instanceof Date
+        ? moment(value).format('YYYY-MM-DD')
+        : value,
   },
   {
     name: 'status',
@@ -26,7 +30,7 @@ export default [
     schema: schemas.enumerator(
       i18n('entities.tasks.fields.status'),
       {
-        "options": tasksEnumerators.status
+        options: tasksEnumerators.status,
       },
     ),
   },

@@ -1,4 +1,4 @@
-import actions from 'src/modules/categoryCourseRelation/view/categoryCourseRelationViewActions';
+import actions from '../../../modules/categoryCourseRelation/view/categoryCourseRelationViewActions';
 
 const initialData = {
   loading: false,

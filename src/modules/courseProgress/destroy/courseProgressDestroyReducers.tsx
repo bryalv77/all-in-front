@@ -1,4 +1,4 @@
-import actions from 'src/modules/courseProgress/destroy/courseProgressDestroyActions';
+import actions from '../../../modules/courseProgress/destroy/courseProgressDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

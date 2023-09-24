@@ -1,4 +1,4 @@
-import actions from 'src/modules/playlistSong/view/playlistSongViewActions';
+import actions from '../../../modules/playlistSong/view/playlistSongViewActions';
 
 const initialData = {
   loading: false,

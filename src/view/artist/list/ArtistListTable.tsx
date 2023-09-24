@@ -7,23 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import artistSelectors from 'src/modules/artist/artistSelectors';
-import destroyActions from 'src/modules/artist/destroy/artistDestroyActions';
-import destroySelectors from 'src/modules/artist/destroy/artistDestroySelectors';
-import actions from 'src/modules/artist/list/artistListActions';
-import selectors from 'src/modules/artist/list/artistListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
+import { i18n } from '../../../i18n';
+import artistSelectors from '../../../modules/artist/artistSelectors';
+import destroyActions from '../../../modules/artist/destroy/artistDestroyActions';
+import destroySelectors from '../../../modules/artist/destroy/artistDestroySelectors';
+import actions from '../../../modules/artist/list/artistListActions';
+import selectors from '../../../modules/artist/list/artistListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
 
 function ArtistListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,29 +107,23 @@ function ArtistListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.artist.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'bio'}
-                  label={i18n(
-                    'entities.artist.fields.bio',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.artist.fields.photo',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n('entities.artist.fields.name')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'bio'}
+                label={i18n('entities.artist.fields.bio')}
+              />
+              <TableColumnHeader
+                label={i18n('entities.artist.fields.photo')}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -170,8 +162,12 @@ function ArtistListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.bio}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.bio}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ImagesListView value={row.photo} />
                   </td>

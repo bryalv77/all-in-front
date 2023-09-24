@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/availabilityTimeslot/form/availabilityTimeslotFormActions';
-import selectors from 'src/modules/availabilityTimeslot/form/availabilityTimeslotFormSelectors';
-import { getHistory } from 'src/modules/store';
-import AvailabilityTimeslotForm from 'src/view/availabilityTimeslot/form/AvailabilityTimeslotForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/availabilityTimeslot/form/availabilityTimeslotFormActions';
+import selectors from '../../../modules/availabilityTimeslot/form/availabilityTimeslotFormSelectors';
+import { getHistory } from '../../../modules/store';
+import AvailabilityTimeslotForm from '../../../view/availabilityTimeslot/form/AvailabilityTimeslotForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function AvailabilityTimeslotFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function AvailabilityTimeslotFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.availabilityTimeslot.menu'), '/availability-timeslot'],
+          [
+            i18n('entities.availabilityTimeslot.menu'),
+            '/availability-timeslot',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function AvailabilityTimeslotFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/availability-timeslot')}
+            onCancel={() =>
+              getHistory().push('/availability-timeslot')
+            }
           />
         )}
       </div>

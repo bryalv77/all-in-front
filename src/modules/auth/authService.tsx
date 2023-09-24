@@ -1,7 +1,7 @@
-import authAxios from 'src/modules/shared/axios/authAxios';
-import { AuthToken } from 'src/modules/auth/authToken';
-import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
-import AuthInvitationToken from 'src/modules/auth/authInvitationToken';
+import authAxios from '../shared/axios/authAxios';
+import { AuthToken } from './authToken';
+import AuthCurrentTenant from './authCurrentTenant';
+import AuthInvitationToken from './authInvitationToken';
 import { tenantSubdomain } from '../tenant/tenantSubdomain';
 
 export default class AuthService {
@@ -12,7 +12,7 @@ export default class AuthService {
         tenantId: tenantSubdomain.isSubdomain
           ? AuthCurrentTenant.get()
           : undefined,
-      }
+      },
     );
 
     return response.data;

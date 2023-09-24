@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import DeliveryMethodListFilter from 'src/view/deliveryMethod/list/DeliveryMethodListFilter';
-import DeliveryMethodListTable from 'src/view/deliveryMethod/list/DeliveryMethodListTable';
-import DeliveryMethodListToolbar from 'src/view/deliveryMethod/list/DeliveryMethodListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import DeliveryMethodListFilter from '../../../view/deliveryMethod/list/DeliveryMethodListFilter';
+import DeliveryMethodListTable from '../../../view/deliveryMethod/list/DeliveryMethodListTable';
+import DeliveryMethodListToolbar from '../../../view/deliveryMethod/list/DeliveryMethodListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function DeliveryMethodListPage(props) {
   return (

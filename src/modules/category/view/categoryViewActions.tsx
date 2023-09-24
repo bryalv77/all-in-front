@@ -1,6 +1,6 @@
-import CategoryService from 'src/modules/category/categoryService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import CategoryService from '../../../modules/category/categoryService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'CATEGORY_VIEW';
 

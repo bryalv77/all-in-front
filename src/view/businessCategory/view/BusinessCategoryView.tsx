@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import ImagesViewItem from 'src/view/shared/view/ImagesViewItem';
-import BusinessCategoryViewItem from 'src/view/businessCategory/view/BusinessCategoryViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import ImagesViewItem from '../../../view/shared/view/ImagesViewItem';
+import BusinessCategoryViewItem from '../../../view/businessCategory/view/BusinessCategoryViewItem';
 
 function BusinessCategoryView(props) {
   const { record, loading } = props;
@@ -15,22 +15,30 @@ function BusinessCategoryView(props) {
   return (
     <div>
       <TextViewItem
-        label={i18n('entities.businessCategory.fields.name')}
+        label={i18n(
+          'entities.businessCategory.fields.name',
+        )}
         value={record.name}
       />
 
       <ImagesViewItem
-        label={i18n('entities.businessCategory.fields.logo')}
+        label={i18n(
+          'entities.businessCategory.fields.logo',
+        )}
         value={record.logo}
       />
 
       <BusinessCategoryViewItem
-        label={i18n('entities.businessCategory.fields.parentBusinessType')}
+        label={i18n(
+          'entities.businessCategory.fields.parentBusinessType',
+        )}
         value={record.parentBusinessType}
       />
 
       <TextViewItem
-        label={i18n('entities.businessCategory.fields.description')}
+        label={i18n(
+          'entities.businessCategory.fields.description',
+        )}
         value={record.description}
       />
     </div>

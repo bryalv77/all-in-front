@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseEnrollment/view/courseEnrollmentViewActions';
-import selectors from 'src/modules/courseEnrollment/view/courseEnrollmentViewSelectors';
-import CourseEnrollmentView from 'src/view/courseEnrollment/view/CourseEnrollmentView';
-import CourseEnrollmentViewToolbar from 'src/view/courseEnrollment/view/CourseEnrollmentViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseEnrollment/view/courseEnrollmentViewActions';
+import selectors from '../../../modules/courseEnrollment/view/courseEnrollmentViewSelectors';
+import CourseEnrollmentView from '../../../view/courseEnrollment/view/CourseEnrollmentView';
+import CourseEnrollmentViewToolbar from '../../../view/courseEnrollment/view/CourseEnrollmentViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CourseEnrollmentPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function CourseEnrollmentPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseEnrollment.menu'), '/course-enrollment'],
+          [
+            i18n('entities.courseEnrollment.menu'),
+            '/course-enrollment',
+          ],
           [i18n('entities.courseEnrollment.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function CourseEnrollmentPage() {
 
         <CourseEnrollmentViewToolbar match={match} />
 
-        <CourseEnrollmentView loading={loading} record={record} />
+        <CourseEnrollmentView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

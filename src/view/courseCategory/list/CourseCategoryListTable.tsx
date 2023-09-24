@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import courseCategorySelectors from 'src/modules/courseCategory/courseCategorySelectors';
-import destroyActions from 'src/modules/courseCategory/destroy/courseCategoryDestroyActions';
-import destroySelectors from 'src/modules/courseCategory/destroy/courseCategoryDestroySelectors';
-import actions from 'src/modules/courseCategory/list/courseCategoryListActions';
-import selectors from 'src/modules/courseCategory/list/courseCategoryListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
-import CourseCategoryListItem from 'src/view/courseCategory/list/CourseCategoryListItem';
+import { i18n } from '../../../i18n';
+import courseCategorySelectors from '../../../modules/courseCategory/courseCategorySelectors';
+import destroyActions from '../../../modules/courseCategory/destroy/courseCategoryDestroyActions';
+import destroySelectors from '../../../modules/courseCategory/destroy/courseCategoryDestroySelectors';
+import actions from '../../../modules/courseCategory/list/courseCategoryListActions';
+import selectors from '../../../modules/courseCategory/list/courseCategoryListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
+import CourseCategoryListItem from '../../../view/courseCategory/list/CourseCategoryListItem';
 
 function CourseCategoryListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,25 +108,25 @@ function CourseCategoryListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.courseCategory.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseCategory.fields.photo',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseCategory.fields.parentCategory',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n(
+                  'entities.courseCategory.fields.name',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseCategory.fields.photo',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseCategory.fields.parentCategory',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -167,12 +165,16 @@ function CourseCategoryListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ImagesListView value={row.photo} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <CourseCategoryListItem value={row.parentCategory} />
+                    <CourseCategoryListItem
+                      value={row.parentCategory}
+                    />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

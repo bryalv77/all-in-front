@@ -1,4 +1,4 @@
-import actions from 'src/modules/tenant/form/tenantFormActions';
+import actions from '../../../modules/tenant/form/tenantFormActions';
 
 const initialData = {
   initLoading: false,

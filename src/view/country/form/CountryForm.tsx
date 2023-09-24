@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -53,10 +53,12 @@ function CountryForm(props) {
           <InputFormItem
             name="name"
             label={i18n('entities.country.fields.name')}
-          placeholder={i18n('entities.country.placeholders.name')}
-          hint={i18n('entities.country.hints.name')}
+            placeholder={i18n(
+              'entities.country.placeholders.name',
+            )}
+            hint={i18n('entities.country.hints.name')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
 

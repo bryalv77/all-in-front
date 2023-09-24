@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import ProductAutocompleteFormItem from 'src/view/product/autocomplete/ProductAutocompleteFormItem';
-import CustomerAutocompleteFormItem from 'src/view/customer/autocomplete/CustomerAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import ProductAutocompleteFormItem from '../../../view/product/autocomplete/ProductAutocompleteFormItem';
+import CustomerAutocompleteFormItem from '../../../view/customer/autocomplete/CustomerAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -70,29 +70,47 @@ function ProductReviewForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <TextAreaFormItem
             name="comment"
-            label={i18n('entities.productReview.fields.comment')}
-          placeholder={i18n('entities.productReview.placeholders.comment')}
-          hint={i18n('entities.productReview.hints.comment')}  
+            label={i18n(
+              'entities.productReview.fields.comment',
+            )}
+            placeholder={i18n(
+              'entities.productReview.placeholders.comment',
+            )}
+            hint={i18n(
+              'entities.productReview.hints.comment',
+            )}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <ProductAutocompleteFormItem  
+          <ProductAutocompleteFormItem
             name="productId"
-            label={i18n('entities.productReview.fields.productId')}
-          placeholder={i18n('entities.productReview.placeholders.productId')}
-          hint={i18n('entities.productReview.hints.productId')}
+            label={i18n(
+              'entities.productReview.fields.productId',
+            )}
+            placeholder={i18n(
+              'entities.productReview.placeholders.productId',
+            )}
+            hint={i18n(
+              'entities.productReview.hints.productId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <CustomerAutocompleteFormItem  
+          <CustomerAutocompleteFormItem
             name="customerId"
-            label={i18n('entities.productReview.fields.customerId')}
-          placeholder={i18n('entities.productReview.placeholders.customerId')}
-          hint={i18n('entities.productReview.hints.customerId')}
+            label={i18n(
+              'entities.productReview.fields.customerId',
+            )}
+            placeholder={i18n(
+              'entities.productReview.placeholders.customerId',
+            )}
+            hint={i18n(
+              'entities.productReview.hints.customerId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -100,7 +118,9 @@ function ProductReviewForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="rating"
-            label={i18n('entities.productReview.fields.rating')}  
+            label={i18n(
+              'entities.productReview.fields.rating',
+            )}
             required={false}
           />
         </div>

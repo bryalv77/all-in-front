@@ -1,8 +1,8 @@
-import list from 'src/modules/album/list/albumListReducers';
-import form from 'src/modules/album/form/albumFormReducers';
-import view from 'src/modules/album/view/albumViewReducers';
-import destroy from 'src/modules/album/destroy/albumDestroyReducers';
-import importerReducer from 'src/modules/album/importer/albumImporterReducers';
+import list from '../../../modules/album/list/albumListReducers';
+import form from '../../../modules/album/form/albumFormReducers';
+import view from '../../../modules/album/view/albumViewReducers';
+import destroy from '../../../modules/album/destroy/albumDestroyReducers';
+import importerReducer from '../../../modules/album/importer/albumImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

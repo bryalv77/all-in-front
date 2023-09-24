@@ -1,9 +1,9 @@
-import TasksService from 'src/modules/tasks/tasksService';
-import selectors from 'src/modules/tasks/list/tasksListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/tasks/list/tasksListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import TasksService from '../../../modules/tasks/tasksService';
+import selectors from '../../../modules/tasks/list/tasksListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/tasks/list/tasksListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'TASKS_LIST';
 
@@ -86,17 +86,15 @@ const tasksListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: tasksListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: tasksListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(tasksListActions.doFetchCurrentFilter());
-  },
+      dispatch(tasksListActions.doFetchCurrentFilter());
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -107,47 +105,48 @@ const tasksListActions = {
     dispatch(tasksListActions.doFetchCurrentFilter());
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(tasksListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: tasksListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await TasksService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        tasksListActions.doFetch(filter, rawFilter, true),
+      );
+    },
 
-      dispatch({
-        type: tasksListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: tasksListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: tasksListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await TasksService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: tasksListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: tasksListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default tasksListActions;

@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputNumberFormItem from 'src/view/shared/form/items/InputNumberFormItem';
-import OrderAutocompleteFormItem from 'src/view/order/autocomplete/OrderAutocompleteFormItem';
-import ProductAutocompleteFormItem from 'src/view/product/autocomplete/ProductAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputNumberFormItem from '../../../view/shared/form/items/InputNumberFormItem';
+import OrderAutocompleteFormItem from '../../../view/order/autocomplete/OrderAutocompleteFormItem';
+import ProductAutocompleteFormItem from '../../../view/product/autocomplete/ProductAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -68,21 +68,33 @@ function OrderDetailForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <OrderAutocompleteFormItem  
+          <OrderAutocompleteFormItem
             name="orderId"
-            label={i18n('entities.orderDetail.fields.orderId')}
-          placeholder={i18n('entities.orderDetail.placeholders.orderId')}
-          hint={i18n('entities.orderDetail.hints.orderId')}
+            label={i18n(
+              'entities.orderDetail.fields.orderId',
+            )}
+            placeholder={i18n(
+              'entities.orderDetail.placeholders.orderId',
+            )}
+            hint={i18n(
+              'entities.orderDetail.hints.orderId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <ProductAutocompleteFormItem  
+          <ProductAutocompleteFormItem
             name="productId"
-            label={i18n('entities.orderDetail.fields.productId')}
-          placeholder={i18n('entities.orderDetail.placeholders.productId')}
-          hint={i18n('entities.orderDetail.hints.productId')}
+            label={i18n(
+              'entities.orderDetail.fields.productId',
+            )}
+            placeholder={i18n(
+              'entities.orderDetail.placeholders.productId',
+            )}
+            hint={i18n(
+              'entities.orderDetail.hints.productId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -90,18 +102,30 @@ function OrderDetailForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputNumberFormItem
             name="quantity"
-            label={i18n('entities.orderDetail.fields.quantity')}
-          placeholder={i18n('entities.orderDetail.placeholders.quantity')}
-          hint={i18n('entities.orderDetail.hints.quantity')}  
+            label={i18n(
+              'entities.orderDetail.fields.quantity',
+            )}
+            placeholder={i18n(
+              'entities.orderDetail.placeholders.quantity',
+            )}
+            hint={i18n(
+              'entities.orderDetail.hints.quantity',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="unitPrice"
-            label={i18n('entities.orderDetail.fields.unitPrice')}
-          placeholder={i18n('entities.orderDetail.placeholders.unitPrice')}
-          hint={i18n('entities.orderDetail.hints.unitPrice')}  
+            label={i18n(
+              'entities.orderDetail.fields.unitPrice',
+            )}
+            placeholder={i18n(
+              'entities.orderDetail.placeholders.unitPrice',
+            )}
+            hint={i18n(
+              'entities.orderDetail.hints.unitPrice',
+            )}
             required={false}
           />
         </div>

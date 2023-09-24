@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import teacherSelectors from 'src/modules/teacher/teacherSelectors';
-import destroyActions from 'src/modules/teacher/destroy/teacherDestroyActions';
-import destroySelectors from 'src/modules/teacher/destroy/teacherDestroySelectors';
-import actions from 'src/modules/teacher/list/teacherListActions';
-import selectors from 'src/modules/teacher/list/teacherListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import teacherSelectors from '../../../modules/teacher/teacherSelectors';
+import destroyActions from '../../../modules/teacher/destroy/teacherDestroyActions';
+import destroySelectors from '../../../modules/teacher/destroy/teacherDestroySelectors';
+import actions from '../../../modules/teacher/list/teacherListActions';
+import selectors from '../../../modules/teacher/list/teacherListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function TeacherToolbar(props) {
   const [

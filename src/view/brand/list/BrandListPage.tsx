@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import BrandListFilter from 'src/view/brand/list/BrandListFilter';
-import BrandListTable from 'src/view/brand/list/BrandListTable';
-import BrandListToolbar from 'src/view/brand/list/BrandListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import BrandListFilter from '../../../view/brand/list/BrandListFilter';
+import BrandListTable from '../../../view/brand/list/BrandListTable';
+import BrandListToolbar from '../../../view/brand/list/BrandListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function BrandListPage(props) {
   return (

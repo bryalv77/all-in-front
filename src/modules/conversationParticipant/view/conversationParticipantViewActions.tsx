@@ -1,6 +1,6 @@
-import ConversationParticipantService from 'src/modules/conversationParticipant/conversationParticipantService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import ConversationParticipantService from '../../../modules/conversationParticipant/conversationParticipantService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'CONVERSATIONPARTICIPANT_VIEW';
 
@@ -15,7 +15,8 @@ const conversationParticipantViewActions = {
         type: conversationParticipantViewActions.FIND_STARTED,
       });
 
-      const record = await ConversationParticipantService.find(id);
+      const record =
+        await ConversationParticipantService.find(id);
 
       dispatch({
         type: conversationParticipantViewActions.FIND_SUCCESS,

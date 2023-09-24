@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import Storage from 'src/security/storage';
-import ImagesFormItem from 'src/view/shared/form/items/ImagesFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import Storage from '../../../security/storage';
+import ImagesFormItem from '../../../view/shared/form/items/ImagesFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -66,18 +66,22 @@ function ArtistForm(props) {
           <InputFormItem
             name="name"
             label={i18n('entities.artist.fields.name')}
-          placeholder={i18n('entities.artist.placeholders.name')}
-          hint={i18n('entities.artist.hints.name')}
+            placeholder={i18n(
+              'entities.artist.placeholders.name',
+            )}
+            hint={i18n('entities.artist.hints.name')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <TextAreaFormItem
             name="bio"
             label={i18n('entities.artist.fields.bio')}
-          placeholder={i18n('entities.artist.placeholders.bio')}
-          hint={i18n('entities.artist.hints.bio')}  
+            placeholder={i18n(
+              'entities.artist.placeholders.bio',
+            )}
+            hint={i18n('entities.artist.hints.bio')}
             required={false}
           />
         </div>
@@ -88,7 +92,7 @@ function ArtistForm(props) {
             required={false}
             storage={Storage.values.artistPhoto}
             max={undefined}
-          hint={i18n('entities.artist.hints.photo')}
+            hint={i18n('entities.artist.hints.photo')}
           />
         </div>
 

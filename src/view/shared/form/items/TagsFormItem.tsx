@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import CreatableSelect from 'react-select/creatable';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from 'src/view/shared/form/formErrors';
+import FormErrors from '../../../view/shared/form/formErrors';
 import { useSelector } from 'react-redux';
-import layoutSelectors from 'src/modules/layout/layoutSelectors';
-import selectControlStyles from 'src/view/shared/form/items/selectControlStyles';
+import layoutSelectors from '../../../modules/layout/layoutSelectors';
+import selectControlStyles from '../../../view/shared/form/items/selectControlStyles';
 import { v4 as uuid } from 'uuid';
 
 function TagsFormItem(props) {
@@ -51,7 +51,10 @@ function TagsFormItem(props) {
 
   const handleChange = (data) => {
     if (!data || !data.length) {
-      setValue(name, null, { shouldValidate: true, shouldDirty: true });
+      setValue(name, null, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
       props.onChange && props.onChange(null);
       return;
     }
@@ -62,7 +65,8 @@ function TagsFormItem(props) {
       .split(',');
 
     setValue(name, commaSplittedValues, {
-      shouldValidate: true, shouldDirty: true,
+      shouldValidate: true,
+      shouldDirty: true,
     });
     props.onChange && props.onChange(commaSplittedValues);
   };

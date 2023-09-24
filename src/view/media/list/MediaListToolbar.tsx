@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import mediaSelectors from 'src/modules/media/mediaSelectors';
-import destroyActions from 'src/modules/media/destroy/mediaDestroyActions';
-import destroySelectors from 'src/modules/media/destroy/mediaDestroySelectors';
-import actions from 'src/modules/media/list/mediaListActions';
-import selectors from 'src/modules/media/list/mediaListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import mediaSelectors from '../../../modules/media/mediaSelectors';
+import destroyActions from '../../../modules/media/destroy/mediaDestroyActions';
+import destroySelectors from '../../../modules/media/destroy/mediaDestroySelectors';
+import actions from '../../../modules/media/list/mediaListActions';
+import selectors from '../../../modules/media/list/mediaListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function MediaToolbar(props) {
   const [

@@ -1,6 +1,6 @@
-import MediaService from 'src/modules/media/mediaService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import MediaService from '../../../modules/media/mediaService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'MEDIA_VIEW';
 

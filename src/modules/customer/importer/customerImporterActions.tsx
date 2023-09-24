@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/customer/importer/customerImporterSelectors';
-import CustomerService from 'src/modules/customer/customerService';
-import fields from 'src/modules/customer/importer/customerImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/customer/importer/customerImporterSelectors';
+import CustomerService from '../../../modules/customer/customerService';
+import fields from '../../../modules/customer/importer/customerImporterFields';
+import { i18n } from '../../../i18n';
 
 const customerImporterActions = importerActions(
   'CUSTOMER_IMPORTER',

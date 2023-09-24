@@ -1,9 +1,9 @@
-import listActions from 'src/modules/courseComment/list/courseCommentListActions';
-import CourseCommentService from 'src/modules/courseComment/courseCommentService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/courseComment/list/courseCommentListActions';
+import CourseCommentService from '../../../modules/courseComment/courseCommentService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'COURSECOMMENT_DESTROY';
 

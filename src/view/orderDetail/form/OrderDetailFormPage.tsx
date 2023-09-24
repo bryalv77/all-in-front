@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/orderDetail/form/orderDetailFormActions';
-import selectors from 'src/modules/orderDetail/form/orderDetailFormSelectors';
-import { getHistory } from 'src/modules/store';
-import OrderDetailForm from 'src/view/orderDetail/form/OrderDetailForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/orderDetail/form/orderDetailFormActions';
+import selectors from '../../../modules/orderDetail/form/orderDetailFormSelectors';
+import { getHistory } from '../../../modules/store';
+import OrderDetailForm from '../../../view/orderDetail/form/OrderDetailForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function OrderDetailFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function OrderDetailFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.orderDetail.menu'), '/order-detail'],
+          [
+            i18n('entities.orderDetail.menu'),
+            '/order-detail',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function OrderDetailFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/order-detail')}
+            onCancel={() =>
+              getHistory().push('/order-detail')
+            }
           />
         )}
       </div>

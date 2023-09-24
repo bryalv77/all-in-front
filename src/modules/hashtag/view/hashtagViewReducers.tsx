@@ -1,4 +1,4 @@
-import actions from 'src/modules/hashtag/view/hashtagViewActions';
+import actions from '../../../modules/hashtag/view/hashtagViewActions';
 
 const initialData = {
   loading: false,

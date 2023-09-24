@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/productCategory/importer/productCategoryImporterSelectors';
-import ProductCategoryService from 'src/modules/productCategory/productCategoryService';
-import fields from 'src/modules/productCategory/importer/productCategoryImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/productCategory/importer/productCategoryImporterSelectors';
+import ProductCategoryService from '../../../modules/productCategory/productCategoryService';
+import fields from '../../../modules/productCategory/importer/productCategoryImporterFields';
+import { i18n } from '../../../i18n';
 
 const productCategoryImporterActions = importerActions(
   'PRODUCTCATEGORY_IMPORTER',

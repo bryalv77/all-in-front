@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/courseEnrollment/importer/courseEnrollmentImporterSelectors';
-import CourseEnrollmentService from 'src/modules/courseEnrollment/courseEnrollmentService';
-import fields from 'src/modules/courseEnrollment/importer/courseEnrollmentImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/courseEnrollment/importer/courseEnrollmentImporterSelectors';
+import CourseEnrollmentService from '../../../modules/courseEnrollment/courseEnrollmentService';
+import fields from '../../../modules/courseEnrollment/importer/courseEnrollmentImporterFields';
+import { i18n } from '../../../i18n';
 
 const courseEnrollmentImporterActions = importerActions(
   'COURSEENROLLMENT_IMPORTER',

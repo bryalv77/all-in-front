@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/postHashtag/postHashtagSelectors';
+import selectors from '../../../modules/postHashtag/postHashtagSelectors';
 
 function PostHashtagViewItem(props) {
   const hasPermissionToRead = useSelector(

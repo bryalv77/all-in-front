@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import CountryAutocompleteFormItem from 'src/view/country/autocomplete/CountryAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import CountryAutocompleteFormItem from '../../../view/country/autocomplete/CountryAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -60,15 +60,17 @@ function CityForm(props) {
             name="name"
             label={i18n('entities.city.fields.name')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <CountryAutocompleteFormItem  
+          <CountryAutocompleteFormItem
             name="country"
             label={i18n('entities.city.fields.country')}
-          placeholder={i18n('entities.city.placeholders.country')}
-          hint={i18n('entities.city.hints.country')}
+            placeholder={i18n(
+              'entities.city.placeholders.country',
+            )}
+            hint={i18n('entities.city.hints.country')}
             required={false}
             showCreate={!props.modal}
           />

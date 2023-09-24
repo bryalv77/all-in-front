@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/business/view/businessViewActions';
-import selectors from 'src/modules/business/view/businessViewSelectors';
-import BusinessView from 'src/view/business/view/BusinessView';
-import BusinessViewToolbar from 'src/view/business/view/BusinessViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/business/view/businessViewActions';
+import selectors from '../../../modules/business/view/businessViewSelectors';
+import BusinessView from '../../../view/business/view/BusinessView';
+import BusinessViewToolbar from '../../../view/business/view/BusinessViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function BusinessPage() {
   const dispatch = useDispatch();

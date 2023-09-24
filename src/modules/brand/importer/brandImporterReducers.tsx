@@ -1,4 +1,4 @@
-import importerReducers from 'src/modules/shared/importer/importerReducers';
-import actions from 'src/modules/brand/importer/brandImporterActions';
+import importerReducers from '../../../modules/shared/importer/importerReducers';
+import actions from '../../../modules/brand/importer/brandImporterActions';
 
 export default importerReducers(actions);

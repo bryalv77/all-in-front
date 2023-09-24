@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import MessageListFilter from 'src/view/message/list/MessageListFilter';
-import MessageListTable from 'src/view/message/list/MessageListTable';
-import MessageListToolbar from 'src/view/message/list/MessageListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import MessageListFilter from '../../../view/message/list/MessageListFilter';
+import MessageListTable from '../../../view/message/list/MessageListTable';
+import MessageListToolbar from '../../../view/message/list/MessageListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function MessageListPage(props) {
   return (

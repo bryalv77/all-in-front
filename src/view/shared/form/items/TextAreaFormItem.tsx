@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from 'src/view/shared/form/formErrors';
+import FormErrors from '../../../view/shared/form/formErrors';
 import { v4 as uuid } from 'uuid';
 
 function TextAreaFormItem(props) {

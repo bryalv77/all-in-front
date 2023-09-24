@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/operation/form/operationFormActions';
-import selectors from 'src/modules/operation/form/operationFormSelectors';
-import { getHistory } from 'src/modules/store';
-import OperationForm from 'src/view/operation/form/OperationForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/operation/form/operationFormActions';
+import selectors from '../../../modules/operation/form/operationFormSelectors';
+import { getHistory } from '../../../modules/store';
+import OperationForm from '../../../view/operation/form/OperationForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function OperationFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

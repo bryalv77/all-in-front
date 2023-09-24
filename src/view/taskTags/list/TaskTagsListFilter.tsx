@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/taskTags/list/taskTagsListActions';
-import selectors from 'src/modules/taskTags/list/taskTagsListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/taskTags/list/taskTagsListActions';
+import selectors from '../../../modules/taskTags/list/taskTagsListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import TasksAutocompleteFormItem from 'src/view/tasks/autocomplete/TasksAutocompleteFormItem';
-import TagsAutocompleteFormItem from 'src/view/tags/autocomplete/TagsAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import TasksAutocompleteFormItem from '../../../view/tasks/autocomplete/TasksAutocompleteFormItem';
+import TagsAutocompleteFormItem from '../../../view/tags/autocomplete/TagsAutocompleteFormItem';
 
 const schema = yup.object().shape({
   taskId: yupFilterSchemas.relationToOne(
@@ -29,18 +29,18 @@ const schema = yup.object().shape({
 const emptyValues = {
   taskId: null,
   tagId: null,
-}
+};
 
 const previewRenders = {
   taskId: {
-      label: i18n('entities.taskTags.fields.taskId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.taskTags.fields.taskId'),
+    render: filterRenders.relationToOne(),
+  },
   tagId: {
-      label: i18n('entities.taskTags.fields.tagId'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.taskTags.fields.tagId'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function TaskTagsListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +61,12 @@ function TaskTagsListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -99,13 +104,17 @@ function TaskTagsListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <TasksAutocompleteFormItem  
+              <TasksAutocompleteFormItem
                 name="taskId"
-                label={i18n('entities.taskTags.fields.taskId')}        
+                label={i18n(
+                  'entities.taskTags.fields.taskId',
+                )}
               />
-              <TagsAutocompleteFormItem  
+              <TagsAutocompleteFormItem
                 name="tagId"
-                label={i18n('entities.taskTags.fields.tagId')}        
+                label={i18n(
+                  'entities.taskTags.fields.tagId',
+                )}
               />
             </div>
 

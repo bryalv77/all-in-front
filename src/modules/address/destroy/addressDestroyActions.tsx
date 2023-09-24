@@ -1,9 +1,9 @@
-import listActions from 'src/modules/address/list/addressListActions';
-import AddressService from 'src/modules/address/addressService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/address/list/addressListActions';
+import AddressService from '../../../modules/address/addressService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'ADDRESS_DESTROY';
 

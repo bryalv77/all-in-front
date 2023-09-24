@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from 'src/view/shared/form/formErrors';
+import FormErrors from '../../../view/shared/form/formErrors';
 import { v4 as uuid } from 'uuid';
 
 function InputNumberRangeFormItem(props) {
@@ -42,14 +42,16 @@ function InputNumberRangeFormItem(props) {
 
   const handleStartChanged = (value) => {
     setValue(name, [value, endValue()], {
-      shouldValidate: true, shouldDirty: true,
+      shouldValidate: true,
+      shouldDirty: true,
     });
     props.onChange && props.onChange([value, endValue()]);
   };
 
   const handleEndChanged = (value) => {
     setValue(name, [startValue(), value], {
-      shouldValidate: true, shouldDirty: true,
+      shouldValidate: true,
+      shouldDirty: true,
     });
     props.onChange && props.onChange([value, startValue()]);
   };

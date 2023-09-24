@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import orderDetailSelectors from 'src/modules/orderDetail/orderDetailSelectors';
-import destroyActions from 'src/modules/orderDetail/destroy/orderDetailDestroyActions';
-import destroySelectors from 'src/modules/orderDetail/destroy/orderDetailDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import orderDetailSelectors from '../../../modules/orderDetail/orderDetailSelectors';
+import destroyActions from '../../../modules/orderDetail/destroy/orderDetailDestroyActions';
+import destroySelectors from '../../../modules/orderDetail/destroy/orderDetailDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function OrderDetailViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

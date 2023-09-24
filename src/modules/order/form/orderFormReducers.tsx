@@ -1,4 +1,4 @@
-import actions from 'src/modules/order/form/orderFormActions';
+import actions from '../../../modules/order/form/orderFormActions';
 
 const initialData = {
   initLoading: false,

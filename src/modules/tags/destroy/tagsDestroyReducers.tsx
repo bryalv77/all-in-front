@@ -1,4 +1,4 @@
-import actions from 'src/modules/tags/destroy/tagsDestroyActions';
+import actions from '../../../modules/tags/destroy/tagsDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

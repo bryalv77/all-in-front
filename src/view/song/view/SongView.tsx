@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import FilesViewItem from 'src/view/shared/view/FilesViewItem';
-import ArtistViewItem from 'src/view/artist/view/ArtistViewItem';
-import AlbumViewItem from 'src/view/album/view/AlbumViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import FilesViewItem from '../../../view/shared/view/FilesViewItem';
+import ArtistViewItem from '../../../view/artist/view/ArtistViewItem';
+import AlbumViewItem from '../../../view/album/view/AlbumViewItem';
 
 function SongView(props) {
   const { record, loading } = props;
@@ -46,9 +46,7 @@ function SongView(props) {
       />
 
       <FilesViewItem
-        label={i18n(
-          'entities.song.fields.media',
-        )}
+        label={i18n('entities.song.fields.media')}
         value={record.media}
       />
     </div>

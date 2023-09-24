@@ -1,4 +1,4 @@
-import actions from 'src/modules/courseProgress/form/courseProgressFormActions';
+import actions from '../../../modules/courseProgress/form/courseProgressFormActions';
 
 const initialData = {
   initLoading: false,

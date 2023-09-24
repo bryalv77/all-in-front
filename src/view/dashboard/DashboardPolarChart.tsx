@@ -1,6 +1,6 @@
 import React from 'react';
 import { Polar } from 'react-chartjs-2';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 
 const data = {
   datasets: [
@@ -25,6 +25,5 @@ const data = {
 };
 
 export default function DashboardPolarChart(props) {
-
-    return <Polar data={data} />;
+  return <Polar data={data} />;
 }

@@ -1,6 +1,6 @@
-import CourseProgressService from 'src/modules/courseProgress/courseProgressService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import CourseProgressService from '../../../modules/courseProgress/courseProgressService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'COURSEPROGRESS_VIEW';
 

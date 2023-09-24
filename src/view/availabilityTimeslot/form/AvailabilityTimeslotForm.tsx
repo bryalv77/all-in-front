@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputNumberFormItem from 'src/view/shared/form/items/InputNumberFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputNumberFormItem from '../../../view/shared/form/items/InputNumberFormItem';
 import moment from 'moment';
-import DatePickerFormItem from 'src/view/shared/form/items/DatePickerFormItem';
-import BusinessAutocompleteFormItem from 'src/view/business/autocomplete/BusinessAutocompleteFormItem';
+import DatePickerFormItem from '../../../view/shared/form/items/DatePickerFormItem';
+import BusinessAutocompleteFormItem from '../../../view/business/autocomplete/BusinessAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -22,7 +22,9 @@ const schema = yup.object().shape({
     {},
   ),
   dayOfTheWeek: yupFormSchemas.string(
-    i18n('entities.availabilityTimeslot.fields.dayOfTheWeek'),
+    i18n(
+      'entities.availabilityTimeslot.fields.dayOfTheWeek',
+    ),
     {},
   ),
   startTime: yupFormSchemas.datetime(
@@ -48,8 +50,12 @@ function AvailabilityTimeslotForm(props) {
     return {
       businessId: record.businessId,
       dayOfTheWeek: record.dayOfTheWeek,
-      startTime: record.startTime ? moment(record.startTime).toDate() : null,
-      endTime: record.endTime ? moment(record.endTime).toDate() : null,
+      startTime: record.startTime
+        ? moment(record.startTime).toDate()
+        : null,
+      endTime: record.endTime
+        ? moment(record.endTime).toDate()
+        : null,
       capacity: record.capacity,
     };
   });
@@ -74,11 +80,17 @@ function AvailabilityTimeslotForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <BusinessAutocompleteFormItem  
+          <BusinessAutocompleteFormItem
             name="businessId"
-            label={i18n('entities.availabilityTimeslot.fields.businessId')}
-          placeholder={i18n('entities.availabilityTimeslot.placeholders.businessId')}
-          hint={i18n('entities.availabilityTimeslot.hints.businessId')}
+            label={i18n(
+              'entities.availabilityTimeslot.fields.businessId',
+            )}
+            placeholder={i18n(
+              'entities.availabilityTimeslot.placeholders.businessId',
+            )}
+            hint={i18n(
+              'entities.availabilityTimeslot.hints.businessId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -86,18 +98,30 @@ function AvailabilityTimeslotForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputFormItem
             name="dayOfTheWeek"
-            label={i18n('entities.availabilityTimeslot.fields.dayOfTheWeek')}
-          placeholder={i18n('entities.availabilityTimeslot.placeholders.dayOfTheWeek')}
-          hint={i18n('entities.availabilityTimeslot.hints.dayOfTheWeek')}
+            label={i18n(
+              'entities.availabilityTimeslot.fields.dayOfTheWeek',
+            )}
+            placeholder={i18n(
+              'entities.availabilityTimeslot.placeholders.dayOfTheWeek',
+            )}
+            hint={i18n(
+              'entities.availabilityTimeslot.hints.dayOfTheWeek',
+            )}
             required={false}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <DatePickerFormItem
             name="startTime"
-            label={i18n('entities.availabilityTimeslot.fields.startTime')}
-          placeholder={i18n('entities.availabilityTimeslot.placeholders.startTime')}
-          hint={i18n('entities.availabilityTimeslot.hints.startTime')}
+            label={i18n(
+              'entities.availabilityTimeslot.fields.startTime',
+            )}
+            placeholder={i18n(
+              'entities.availabilityTimeslot.placeholders.startTime',
+            )}
+            hint={i18n(
+              'entities.availabilityTimeslot.hints.startTime',
+            )}
             required={false}
             showTimeInput
           />
@@ -105,9 +129,15 @@ function AvailabilityTimeslotForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <DatePickerFormItem
             name="endTime"
-            label={i18n('entities.availabilityTimeslot.fields.endTime')}
-          placeholder={i18n('entities.availabilityTimeslot.placeholders.endTime')}
-          hint={i18n('entities.availabilityTimeslot.hints.endTime')}
+            label={i18n(
+              'entities.availabilityTimeslot.fields.endTime',
+            )}
+            placeholder={i18n(
+              'entities.availabilityTimeslot.placeholders.endTime',
+            )}
+            hint={i18n(
+              'entities.availabilityTimeslot.hints.endTime',
+            )}
             required={false}
             showTimeInput
           />
@@ -115,9 +145,15 @@ function AvailabilityTimeslotForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <InputNumberFormItem
             name="capacity"
-            label={i18n('entities.availabilityTimeslot.fields.capacity')}
-          placeholder={i18n('entities.availabilityTimeslot.placeholders.capacity')}
-          hint={i18n('entities.availabilityTimeslot.hints.capacity')}  
+            label={i18n(
+              'entities.availabilityTimeslot.fields.capacity',
+            )}
+            placeholder={i18n(
+              'entities.availabilityTimeslot.placeholders.capacity',
+            )}
+            hint={i18n(
+              'entities.availabilityTimeslot.hints.capacity',
+            )}
             required={false}
           />
         </div>

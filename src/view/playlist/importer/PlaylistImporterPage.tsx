@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/playlist/importer/playlistImporterActions';
-import fields from 'src/modules/playlist/importer/playlistImporterFields';
-import selectors from 'src/modules/playlist/importer/playlistImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/playlist/importer/playlistImporterActions';
+import fields from '../../../modules/playlist/importer/playlistImporterFields';
+import selectors from '../../../modules/playlist/importer/playlistImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function PlaylistImportPage() {
   const Importer = importerHoc(

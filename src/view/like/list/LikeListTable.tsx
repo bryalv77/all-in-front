@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import likeSelectors from 'src/modules/like/likeSelectors';
-import destroyActions from 'src/modules/like/destroy/likeDestroyActions';
-import destroySelectors from 'src/modules/like/destroy/likeDestroySelectors';
-import actions from 'src/modules/like/list/likeListActions';
-import selectors from 'src/modules/like/list/likeListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
-import PostsListItem from 'src/view/posts/list/PostsListItem';
+import { i18n } from '../../../i18n';
+import likeSelectors from '../../../modules/like/likeSelectors';
+import destroyActions from '../../../modules/like/destroy/likeDestroyActions';
+import destroySelectors from '../../../modules/like/destroy/likeDestroySelectors';
+import actions from '../../../modules/like/list/likeListActions';
+import selectors from '../../../modules/like/list/likeListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
+import PostsListItem from '../../../view/posts/list/PostsListItem';
 
 function LikeListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,16 +108,12 @@ function LikeListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.like.fields.userId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.like.fields.postId',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n('entities.like.fields.userId')}
+              />
+              <TableColumnHeader
+                label={i18n('entities.like.fields.postId')}
+              />
               <TableColumnHeader />
             </tr>
           </thead>

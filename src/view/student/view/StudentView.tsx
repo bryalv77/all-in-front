@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import UserViewItem from 'src/view/user/view/UserViewItem';
-import ImagesViewItem from 'src/view/shared/view/ImagesViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import UserViewItem from '../../../view/user/view/UserViewItem';
+import ImagesViewItem from '../../../view/shared/view/ImagesViewItem';
 
 function StudentView(props) {
   const { record, loading } = props;

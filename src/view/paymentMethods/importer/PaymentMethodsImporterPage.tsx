@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/paymentMethods/importer/paymentMethodsImporterActions';
-import fields from 'src/modules/paymentMethods/importer/paymentMethodsImporterFields';
-import selectors from 'src/modules/paymentMethods/importer/paymentMethodsImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/paymentMethods/importer/paymentMethodsImporterActions';
+import fields from '../../../modules/paymentMethods/importer/paymentMethodsImporterFields';
+import selectors from '../../../modules/paymentMethods/importer/paymentMethodsImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function PaymentMethodsImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function PaymentMethodsImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.paymentMethods.menu'), '/payment-methods'],
+          [
+            i18n('entities.paymentMethods.menu'),
+            '/payment-methods',
+          ],
           [i18n('entities.paymentMethods.importer.title')],
         ]}
       />

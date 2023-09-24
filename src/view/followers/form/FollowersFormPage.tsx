@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/followers/form/followersFormActions';
-import selectors from 'src/modules/followers/form/followersFormSelectors';
-import { getHistory } from 'src/modules/store';
-import FollowersForm from 'src/view/followers/form/FollowersForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/followers/form/followersFormActions';
+import selectors from '../../../modules/followers/form/followersFormSelectors';
+import { getHistory } from '../../../modules/store';
+import FollowersForm from '../../../view/followers/form/FollowersForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function FollowersFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

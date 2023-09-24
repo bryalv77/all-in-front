@@ -1,4 +1,4 @@
-import actions from 'src/modules/postHashtag/view/postHashtagViewActions';
+import actions from '../../../modules/postHashtag/view/postHashtagViewActions';
 
 const initialData = {
   loading: false,

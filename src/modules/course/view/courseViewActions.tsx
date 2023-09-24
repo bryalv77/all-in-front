@@ -1,6 +1,6 @@
-import CourseService from 'src/modules/course/courseService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import CourseService from '../../../modules/course/courseService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'COURSE_VIEW';
 

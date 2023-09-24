@@ -1,4 +1,4 @@
-import actions from 'src/modules/teacher/destroy/teacherDestroyActions';
+import actions from '../../../modules/teacher/destroy/teacherDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

@@ -7,15 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import messageEnumerators from 'src/modules/message/messageEnumerators';
-import Storage from 'src/security/storage';
-import FilesFormItem from 'src/view/shared/form/items/FilesFormItem';
-import ConversationAutocompleteFormItem from 'src/view/conversation/autocomplete/ConversationAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import messageEnumerators from '../../../modules/message/messageEnumerators';
+import Storage from '../../../security/storage';
+import FilesFormItem from '../../../view/shared/form/items/FilesFormItem';
+import ConversationAutocompleteFormItem from '../../../view/conversation/autocomplete/ConversationAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -42,7 +42,7 @@ const schema = yup.object().shape({
   status: yupFormSchemas.enumerator(
     i18n('entities.message.fields.status'),
     {
-      "options": messageEnumerators.status
+      options: messageEnumerators.status,
     },
   ),
 });
@@ -83,21 +83,29 @@ function MessageForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="senderId"
             label={i18n('entities.message.fields.senderId')}
-          placeholder={i18n('entities.message.placeholders.senderId')}
-          hint={i18n('entities.message.hints.senderId')}
+            placeholder={i18n(
+              'entities.message.placeholders.senderId',
+            )}
+            hint={i18n('entities.message.hints.senderId')}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <UserAutocompleteFormItem  
+          <UserAutocompleteFormItem
             name="recipientId"
-            label={i18n('entities.message.fields.recipientId')}
-          placeholder={i18n('entities.message.placeholders.recipientId')}
-          hint={i18n('entities.message.hints.recipientId')}
+            label={i18n(
+              'entities.message.fields.recipientId',
+            )}
+            placeholder={i18n(
+              'entities.message.placeholders.recipientId',
+            )}
+            hint={i18n(
+              'entities.message.hints.recipientId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -106,8 +114,10 @@ function MessageForm(props) {
           <TextAreaFormItem
             name="content"
             label={i18n('entities.message.fields.content')}
-          placeholder={i18n('entities.message.placeholders.content')}
-          hint={i18n('entities.message.hints.content')}  
+            placeholder={i18n(
+              'entities.message.placeholders.content',
+            )}
+            hint={i18n('entities.message.hints.content')}
             required={false}
           />
         </div>
@@ -119,15 +129,21 @@ function MessageForm(props) {
             storage={Storage.values.messageMedia}
             max={undefined}
             formats={undefined}
-          hint={i18n('entities.message.hints.media')}
+            hint={i18n('entities.message.hints.media')}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <ConversationAutocompleteFormItem  
+          <ConversationAutocompleteFormItem
             name="conversationId"
-            label={i18n('entities.message.fields.conversationId')}
-          placeholder={i18n('entities.message.placeholders.conversationId')}
-          hint={i18n('entities.message.hints.conversationId')}
+            label={i18n(
+              'entities.message.fields.conversationId',
+            )}
+            placeholder={i18n(
+              'entities.message.placeholders.conversationId',
+            )}
+            hint={i18n(
+              'entities.message.hints.conversationId',
+            )}
             required={false}
             showCreate={!props.modal}
           />
@@ -136,8 +152,10 @@ function MessageForm(props) {
           <SelectFormItem
             name="status"
             label={i18n('entities.message.fields.status')}
-          placeholder={i18n('entities.message.placeholders.status')}
-          hint={i18n('entities.message.hints.status')}
+            placeholder={i18n(
+              'entities.message.placeholders.status',
+            )}
+            hint={i18n('entities.message.hints.status')}
             options={messageEnumerators.status.map(
               (value) => ({
                 value,

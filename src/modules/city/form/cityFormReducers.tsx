@@ -1,4 +1,4 @@
-import actions from 'src/modules/city/form/cityFormActions';
+import actions from '../../../modules/city/form/cityFormActions';
 
 const initialData = {
   initLoading: false,

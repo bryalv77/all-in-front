@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/promotions/list/promotionsListActions';
-import selectors from 'src/modules/promotions/list/promotionsListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/promotions/list/promotionsListActions';
+import selectors from '../../../modules/promotions/list/promotionsListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
-import ProductAutocompleteFormItem from 'src/view/product/autocomplete/ProductAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
+import ProductAutocompleteFormItem from '../../../view/product/autocomplete/ProductAutocompleteFormItem';
 
 const schema = yup.object().shape({
   code: yupFilterSchemas.string(
@@ -43,7 +43,7 @@ const emptyValues = {
   startDateRange: [],
   endDateRange: [],
   productId: null,
-}
+};
 
 const previewRenders = {
   code: {
@@ -55,7 +55,9 @@ const previewRenders = {
     render: filterRenders.decimalRange(),
   },
   startDateRange: {
-    label: i18n('entities.promotions.fields.startDateRange'),
+    label: i18n(
+      'entities.promotions.fields.startDateRange',
+    ),
     render: filterRenders.dateRange(),
   },
   endDateRange: {
@@ -63,10 +65,10 @@ const previewRenders = {
     render: filterRenders.dateRange(),
   },
   productId: {
-      label: i18n('entities.promotions.fields.productId'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.promotions.fields.productId'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function PromotionsListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -87,7 +89,12 @@ function PromotionsListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -127,23 +134,33 @@ function PromotionsListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="code"
-                label={i18n('entities.promotions.fields.code')}      
+                label={i18n(
+                  'entities.promotions.fields.code',
+                )}
               />
               <InputRangeFormItem
                 name="discountRange"
-                label={i18n('entities.promotions.fields.discountRange')}      
+                label={i18n(
+                  'entities.promotions.fields.discountRange',
+                )}
               />
               <DatePickerRangeFormItem
                 name="startDateRange"
-                label={i18n('entities.promotions.fields.startDateRange')}    
+                label={i18n(
+                  'entities.promotions.fields.startDateRange',
+                )}
               />
               <DatePickerRangeFormItem
                 name="endDateRange"
-                label={i18n('entities.promotions.fields.endDateRange')}    
+                label={i18n(
+                  'entities.promotions.fields.endDateRange',
+                )}
               />
-              <ProductAutocompleteFormItem  
+              <ProductAutocompleteFormItem
                 name="productId"
-                label={i18n('entities.promotions.fields.productId')}        
+                label={i18n(
+                  'entities.promotions.fields.productId',
+                )}
               />
             </div>
 

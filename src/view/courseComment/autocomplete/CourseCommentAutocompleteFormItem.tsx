@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import CourseCommentService from 'src/modules/courseComment/courseCommentService';
-import CourseCommentFormModal from 'src/view/courseComment/form/CourseCommentFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import CourseCommentService from '../../../modules/courseComment/courseCommentService';
+import CourseCommentFormModal from '../../../view/courseComment/form/CourseCommentFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/courseComment/courseCommentSelectors';
+import selectors from '../../../modules/courseComment/courseCommentSelectors';
 
 function CourseCommentAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function CourseCommentAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return CourseCommentService.listAutocomplete(value, limit);
+    return CourseCommentService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

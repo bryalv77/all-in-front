@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/postHashtag/list/postHashtagListActions';
-import selectors from 'src/modules/postHashtag/list/postHashtagListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/postHashtag/list/postHashtagListActions';
+import selectors from '../../../modules/postHashtag/list/postHashtagListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import PostsAutocompleteFormItem from 'src/view/posts/autocomplete/PostsAutocompleteFormItem';
-import HashtagAutocompleteFormItem from 'src/view/hashtag/autocomplete/HashtagAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import PostsAutocompleteFormItem from '../../../view/posts/autocomplete/PostsAutocompleteFormItem';
+import HashtagAutocompleteFormItem from '../../../view/hashtag/autocomplete/HashtagAutocompleteFormItem';
 
 const schema = yup.object().shape({
   postId: yupFilterSchemas.relationToOne(
@@ -29,18 +29,18 @@ const schema = yup.object().shape({
 const emptyValues = {
   postId: null,
   hashtagId: null,
-}
+};
 
 const previewRenders = {
   postId: {
-      label: i18n('entities.postHashtag.fields.postId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.postHashtag.fields.postId'),
+    render: filterRenders.relationToOne(),
+  },
   hashtagId: {
-      label: i18n('entities.postHashtag.fields.hashtagId'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.postHashtag.fields.hashtagId'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function PostHashtagListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +61,12 @@ function PostHashtagListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -99,13 +104,17 @@ function PostHashtagListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <PostsAutocompleteFormItem  
+              <PostsAutocompleteFormItem
                 name="postId"
-                label={i18n('entities.postHashtag.fields.postId')}        
+                label={i18n(
+                  'entities.postHashtag.fields.postId',
+                )}
               />
-              <HashtagAutocompleteFormItem  
+              <HashtagAutocompleteFormItem
                 name="hashtagId"
-                label={i18n('entities.postHashtag.fields.hashtagId')}        
+                label={i18n(
+                  'entities.postHashtag.fields.hashtagId',
+                )}
               />
             </div>
 

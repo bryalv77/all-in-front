@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/categoryCourseRelation/categoryCourseRelationSelectors';
+import selectors from '../../../modules/categoryCourseRelation/categoryCourseRelationSelectors';
 
 function CategoryCourseRelationViewItem(props) {
   const hasPermissionToRead = useSelector(

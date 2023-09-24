@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import courseTransactionSelectors from 'src/modules/courseTransaction/courseTransactionSelectors';
-import destroyActions from 'src/modules/courseTransaction/destroy/courseTransactionDestroyActions';
-import destroySelectors from 'src/modules/courseTransaction/destroy/courseTransactionDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import courseTransactionSelectors from '../../../modules/courseTransaction/courseTransactionSelectors';
+import destroyActions from '../../../modules/courseTransaction/destroy/courseTransactionDestroyActions';
+import destroySelectors from '../../../modules/courseTransaction/destroy/courseTransactionDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CourseTransactionViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

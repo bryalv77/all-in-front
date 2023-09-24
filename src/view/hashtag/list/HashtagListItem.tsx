@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/hashtag/hashtagSelectors';
+import selectors from '../../../modules/hashtag/hashtagSelectors';
 
 function HashtagListItem(props) {
   const hasPermissionToRead = useSelector(

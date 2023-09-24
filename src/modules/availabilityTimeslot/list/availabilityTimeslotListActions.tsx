@@ -1,9 +1,9 @@
-import AvailabilityTimeslotService from 'src/modules/availabilityTimeslot/availabilityTimeslotService';
-import selectors from 'src/modules/availabilityTimeslot/list/availabilityTimeslotListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/availabilityTimeslot/list/availabilityTimeslotListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import AvailabilityTimeslotService from '../../../modules/availabilityTimeslot/availabilityTimeslotService';
+import selectors from '../../../modules/availabilityTimeslot/list/availabilityTimeslotListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/availabilityTimeslot/list/availabilityTimeslotListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'AVAILABILITYTIMESLOT_LIST';
 
@@ -62,16 +62,19 @@ const availabilityTimeslotListActions = {
       });
 
       const filter = selectors.selectFilter(getState());
-      const response = await AvailabilityTimeslotService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        null,
-        null,
-      );
+      const response =
+        await AvailabilityTimeslotService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          null,
+          null,
+        );
 
       new Exporter(
         exporterFields,
-        i18n('entities.availabilityTimeslot.exporterFileName'),
+        i18n(
+          'entities.availabilityTimeslot.exporterFileName',
+        ),
       ).transformAndExportAsExcelFile(response.rows);
 
       dispatch({
@@ -86,17 +89,17 @@ const availabilityTimeslotListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: availabilityTimeslotListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: availabilityTimeslotListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(availabilityTimeslotListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        availabilityTimeslotListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +107,58 @@ const availabilityTimeslotListActions = {
       payload: sorter,
     });
 
-    dispatch(availabilityTimeslotListActions.doFetchCurrentFilter());
+    dispatch(
+      availabilityTimeslotListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(availabilityTimeslotListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: availabilityTimeslotListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await AvailabilityTimeslotService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        availabilityTimeslotListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: availabilityTimeslotListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: availabilityTimeslotListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: availabilityTimeslotListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response =
+          await AvailabilityTimeslotService.list(
+            filter,
+            selectors.selectOrderBy(getState()),
+            selectors.selectLimit(getState()),
+            selectors.selectOffset(getState()),
+          );
+
+        dispatch({
+          type: availabilityTimeslotListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: availabilityTimeslotListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default availabilityTimeslotListActions;

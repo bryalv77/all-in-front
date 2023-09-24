@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/teacher/importer/teacherImporterActions';
-import fields from 'src/modules/teacher/importer/teacherImporterFields';
-import selectors from 'src/modules/teacher/importer/teacherImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/teacher/importer/teacherImporterActions';
+import fields from '../../../modules/teacher/importer/teacherImporterFields';
+import selectors from '../../../modules/teacher/importer/teacherImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function TeacherImportPage() {
   const Importer = importerHoc(

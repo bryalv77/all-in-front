@@ -1,6 +1,6 @@
-import PromotionsService from 'src/modules/promotions/promotionsService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import PromotionsService from '../../../modules/promotions/promotionsService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'PROMOTIONS_VIEW';
 

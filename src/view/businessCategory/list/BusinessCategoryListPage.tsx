@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import BusinessCategoryListFilter from 'src/view/businessCategory/list/BusinessCategoryListFilter';
-import BusinessCategoryListTable from 'src/view/businessCategory/list/BusinessCategoryListTable';
-import BusinessCategoryListToolbar from 'src/view/businessCategory/list/BusinessCategoryListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import BusinessCategoryListFilter from '../../../view/businessCategory/list/BusinessCategoryListFilter';
+import BusinessCategoryListTable from '../../../view/businessCategory/list/BusinessCategoryListTable';
+import BusinessCategoryListToolbar from '../../../view/businessCategory/list/BusinessCategoryListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function BusinessCategoryListPage(props) {
   return (

@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import citySelectors from 'src/modules/city/citySelectors';
-import destroyActions from 'src/modules/city/destroy/cityDestroyActions';
-import destroySelectors from 'src/modules/city/destroy/cityDestroySelectors';
-import actions from 'src/modules/city/list/cityListActions';
-import selectors from 'src/modules/city/list/cityListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import citySelectors from '../../../modules/city/citySelectors';
+import destroyActions from '../../../modules/city/destroy/cityDestroyActions';
+import destroySelectors from '../../../modules/city/destroy/cityDestroySelectors';
+import actions from '../../../modules/city/list/cityListActions';
+import selectors from '../../../modules/city/list/cityListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function CityToolbar(props) {
   const [

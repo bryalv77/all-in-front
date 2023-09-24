@@ -7,25 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import orderSelectors from 'src/modules/order/orderSelectors';
-import destroyActions from 'src/modules/order/destroy/orderDestroyActions';
-import destroySelectors from 'src/modules/order/destroy/orderDestroySelectors';
-import actions from 'src/modules/order/list/orderListActions';
-import selectors from 'src/modules/order/list/orderListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import FilesListView from 'src/view/shared/table/FileListView';
-import CustomerListItem from 'src/view/customer/list/CustomerListItem';
-import DeliveryMethodListItem from 'src/view/deliveryMethod/list/DeliveryMethodListItem';
+import { i18n } from '../../../i18n';
+import orderSelectors from '../../../modules/order/orderSelectors';
+import destroyActions from '../../../modules/order/destroy/orderDestroyActions';
+import destroySelectors from '../../../modules/order/destroy/orderDestroySelectors';
+import actions from '../../../modules/order/list/orderListActions';
+import selectors from '../../../modules/order/list/orderListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import FilesListView from '../../../view/shared/table/FileListView';
+import CustomerListItem from '../../../view/customer/list/CustomerListItem';
+import DeliveryMethodListItem from '../../../view/deliveryMethod/list/DeliveryMethodListItem';
 
 function OrderListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -111,50 +109,46 @@ function OrderListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.order.fields.customer',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'status'}
-                  label={i18n(
-                    'entities.order.fields.status',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.order.fields.attachments',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'shippingPrice'}
-                  label={i18n(
-                    'entities.order.fields.shippingPrice',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'total'}
-                  label={i18n(
-                    'entities.order.fields.total',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.order.fields.deliver',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.order.fields.customer',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'status'}
+                label={i18n('entities.order.fields.status')}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.order.fields.attachments',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'shippingPrice'}
+                label={i18n(
+                  'entities.order.fields.shippingPrice',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'total'}
+                label={i18n('entities.order.fields.total')}
+                align="right"
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.order.fields.deliver',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -194,7 +188,9 @@ function OrderListTable(props) {
                     />
                   </th>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <CustomerListItem value={row.customer} />
+                    <CustomerListItem
+                      value={row.customer}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.status
@@ -208,14 +204,22 @@ function OrderListTable(props) {
                       value={row.attachments}
                     />
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.shippingPrice}
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.total}
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <DeliveryMethodListItem value={row.deliver} />
+                    <DeliveryMethodListItem
+                      value={row.deliver}
+                    />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

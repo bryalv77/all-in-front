@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/courseProgress/courseProgressSelectors';
+import selectors from '../../../modules/courseProgress/courseProgressSelectors';
 
 function CourseProgressListItem(props) {
   const hasPermissionToRead = useSelector(

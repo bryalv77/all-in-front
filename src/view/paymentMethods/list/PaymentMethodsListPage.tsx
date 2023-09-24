@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import PaymentMethodsListFilter from 'src/view/paymentMethods/list/PaymentMethodsListFilter';
-import PaymentMethodsListTable from 'src/view/paymentMethods/list/PaymentMethodsListTable';
-import PaymentMethodsListToolbar from 'src/view/paymentMethods/list/PaymentMethodsListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import PaymentMethodsListFilter from '../../../view/paymentMethods/list/PaymentMethodsListFilter';
+import PaymentMethodsListTable from '../../../view/paymentMethods/list/PaymentMethodsListTable';
+import PaymentMethodsListToolbar from '../../../view/paymentMethods/list/PaymentMethodsListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PaymentMethodsListPage(props) {
   return (

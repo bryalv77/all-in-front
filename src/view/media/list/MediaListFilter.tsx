@@ -2,21 +2,21 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/media/list/mediaListActions';
-import selectors from 'src/modules/media/list/mediaListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/media/list/mediaListActions';
+import selectors from '../../../modules/media/list/mediaListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
 
 const schema = yup.object().shape({
   metadata: yupFilterSchemas.string(
@@ -34,7 +34,7 @@ const emptyValues = {
   metadata: null,
   userId: null,
   show: null,
-}
+};
 
 const previewRenders = {
   metadata: {
@@ -49,7 +49,7 @@ const previewRenders = {
     label: i18n('entities.media.fields.show'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function MediaListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -70,7 +70,12 @@ function MediaListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -110,11 +115,13 @@ function MediaListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="metadata"
-                label={i18n('entities.media.fields.metadata')}      
+                label={i18n(
+                  'entities.media.fields.metadata',
+                )}
               />
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.media.fields.userId')}        
+                label={i18n('entities.media.fields.userId')}
               />
               <SelectFormItem
                 name="show"

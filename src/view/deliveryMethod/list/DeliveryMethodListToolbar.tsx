@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import deliveryMethodSelectors from 'src/modules/deliveryMethod/deliveryMethodSelectors';
-import destroyActions from 'src/modules/deliveryMethod/destroy/deliveryMethodDestroyActions';
-import destroySelectors from 'src/modules/deliveryMethod/destroy/deliveryMethodDestroySelectors';
-import actions from 'src/modules/deliveryMethod/list/deliveryMethodListActions';
-import selectors from 'src/modules/deliveryMethod/list/deliveryMethodListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import deliveryMethodSelectors from '../../../modules/deliveryMethod/deliveryMethodSelectors';
+import destroyActions from '../../../modules/deliveryMethod/destroy/deliveryMethodDestroyActions';
+import destroySelectors from '../../../modules/deliveryMethod/destroy/deliveryMethodDestroySelectors';
+import actions from '../../../modules/deliveryMethod/list/deliveryMethodListActions';
+import selectors from '../../../modules/deliveryMethod/list/deliveryMethodListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function DeliveryMethodToolbar(props) {
   const [

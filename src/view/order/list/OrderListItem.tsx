@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/order/orderSelectors';
+import selectors from '../../../modules/order/orderSelectors';
 
 function OrderListItem(props) {
   const hasPermissionToRead = useSelector(

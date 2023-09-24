@@ -2,11 +2,11 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
+import { i18n } from '../../../i18n';
 import {
   EXCEL_EXTENSION,
   EXCEL_TYPE,
-} from 'src/modules/shared/excel/excel';
+} from '../../../modules/shared/excel/excel';
 
 export default (selectors, actions) => {
   function ImporterForm() {

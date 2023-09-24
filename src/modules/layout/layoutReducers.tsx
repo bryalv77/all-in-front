@@ -1,6 +1,6 @@
-import actions from 'src/modules/layout/layoutActions';
-import { getLanguageCode } from 'src/i18n';
-import LayoutDarkMode from 'src/modules/layout/layoutDarkMode';
+import actions from '../../../modules/layout/layoutActions';
+import { getLanguageCode } from '../../../i18n';
+import LayoutDarkMode from '../../../modules/layout/layoutDarkMode';
 
 const initialData = {
   menuVisible: true,

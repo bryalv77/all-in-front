@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import CourseCategoryListFilter from 'src/view/courseCategory/list/CourseCategoryListFilter';
-import CourseCategoryListTable from 'src/view/courseCategory/list/CourseCategoryListTable';
-import CourseCategoryListToolbar from 'src/view/courseCategory/list/CourseCategoryListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import CourseCategoryListFilter from '../../../view/courseCategory/list/CourseCategoryListFilter';
+import CourseCategoryListTable from '../../../view/courseCategory/list/CourseCategoryListTable';
+import CourseCategoryListToolbar from '../../../view/courseCategory/list/CourseCategoryListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CourseCategoryListPage(props) {
   return (

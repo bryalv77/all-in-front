@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from 'src/view/shared/form/formErrors';
+import FormErrors from '../../../view/shared/form/formErrors';
 import DatePicker from 'react-datepicker';
 import { v4 as uuid } from 'uuid';
 
 function DatePickerRangeFormItem(props) {
   const [inputId] = useState(uuid());
-  
+
   const {
     label,
     name,
@@ -43,14 +43,16 @@ function DatePickerRangeFormItem(props) {
 
   const handleStartChanged = (value) => {
     setValue(name, [value, endValue()], {
-      shouldValidate: true, shouldDirty: true,
+      shouldValidate: true,
+      shouldDirty: true,
     });
     props.onChange && props.onChange([value, endValue()]);
   };
 
   const handleEndChanged = (value) => {
     setValue(name, [startValue(), value], {
-      shouldValidate: true, shouldDirty: true,
+      shouldValidate: true,
+      shouldDirty: true,
     });
     props.onChange && props.onChange([startValue(), value]);
   };

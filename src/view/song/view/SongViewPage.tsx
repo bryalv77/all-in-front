@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/song/view/songViewActions';
-import selectors from 'src/modules/song/view/songViewSelectors';
-import SongView from 'src/view/song/view/SongView';
-import SongViewToolbar from 'src/view/song/view/SongViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/song/view/songViewActions';
+import selectors from '../../../modules/song/view/songViewSelectors';
+import SongView from '../../../view/song/view/SongView';
+import SongViewToolbar from '../../../view/song/view/SongViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function SongPage() {
   const dispatch = useDispatch();

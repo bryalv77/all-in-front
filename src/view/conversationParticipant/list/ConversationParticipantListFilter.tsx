@@ -2,45 +2,51 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/conversationParticipant/list/conversationParticipantListActions';
-import selectors from 'src/modules/conversationParticipant/list/conversationParticipantListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/conversationParticipant/list/conversationParticipantListActions';
+import selectors from '../../../modules/conversationParticipant/list/conversationParticipantListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
-import ConversationAutocompleteFormItem from 'src/view/conversation/autocomplete/ConversationAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import UserAutocompleteFormItem from '../../../view/user/autocomplete/UserAutocompleteFormItem';
+import ConversationAutocompleteFormItem from '../../../view/conversation/autocomplete/ConversationAutocompleteFormItem';
 
 const schema = yup.object().shape({
   userId: yupFilterSchemas.relationToOne(
     i18n('entities.conversationParticipant.fields.userId'),
   ),
   conversationId: yupFilterSchemas.relationToOne(
-    i18n('entities.conversationParticipant.fields.conversationId'),
+    i18n(
+      'entities.conversationParticipant.fields.conversationId',
+    ),
   ),
 });
 
 const emptyValues = {
   userId: null,
   conversationId: null,
-}
+};
 
 const previewRenders = {
   userId: {
-    label: i18n('entities.conversationParticipant.fields.userId'),
+    label: i18n(
+      'entities.conversationParticipant.fields.userId',
+    ),
     render: filterRenders.relationToOne(),
   },
   conversationId: {
-      label: i18n('entities.conversationParticipant.fields.conversationId'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n(
+      'entities.conversationParticipant.fields.conversationId',
+    ),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function ConversationParticipantListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +67,12 @@ function ConversationParticipantListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -99,13 +110,17 @@ function ConversationParticipantListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <UserAutocompleteFormItem  
+              <UserAutocompleteFormItem
                 name="userId"
-                label={i18n('entities.conversationParticipant.fields.userId')}        
+                label={i18n(
+                  'entities.conversationParticipant.fields.userId',
+                )}
               />
-              <ConversationAutocompleteFormItem  
+              <ConversationAutocompleteFormItem
                 name="conversationId"
-                label={i18n('entities.conversationParticipant.fields.conversationId')}        
+                label={i18n(
+                  'entities.conversationParticipant.fields.conversationId',
+                )}
               />
             </div>
 

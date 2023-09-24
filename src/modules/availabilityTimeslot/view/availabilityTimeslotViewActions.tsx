@@ -1,6 +1,6 @@
-import AvailabilityTimeslotService from 'src/modules/availabilityTimeslot/availabilityTimeslotService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import AvailabilityTimeslotService from '../../../modules/availabilityTimeslot/availabilityTimeslotService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'AVAILABILITYTIMESLOT_VIEW';
 
@@ -15,7 +15,9 @@ const availabilityTimeslotViewActions = {
         type: availabilityTimeslotViewActions.FIND_STARTED,
       });
 
-      const record = await AvailabilityTimeslotService.find(id);
+      const record = await AvailabilityTimeslotService.find(
+        id,
+      );
 
       dispatch({
         type: availabilityTimeslotViewActions.FIND_SUCCESS,

@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import CourseListFilter from 'src/view/course/list/CourseListFilter';
-import CourseListTable from 'src/view/course/list/CourseListTable';
-import CourseListToolbar from 'src/view/course/list/CourseListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import CourseListFilter from '../../../view/course/list/CourseListFilter';
+import CourseListTable from '../../../view/course/list/CourseListTable';
+import CourseListToolbar from '../../../view/course/list/CourseListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CourseListPage(props) {
   return (

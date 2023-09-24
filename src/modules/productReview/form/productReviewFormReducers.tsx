@@ -1,4 +1,4 @@
-import actions from 'src/modules/productReview/form/productReviewFormActions';
+import actions from '../../../modules/productReview/form/productReviewFormActions';
 
 const initialData = {
   initLoading: false,

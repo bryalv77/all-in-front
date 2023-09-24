@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseEnrollment/importer/courseEnrollmentImporterActions';
-import fields from 'src/modules/courseEnrollment/importer/courseEnrollmentImporterFields';
-import selectors from 'src/modules/courseEnrollment/importer/courseEnrollmentImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseEnrollment/importer/courseEnrollmentImporterActions';
+import fields from '../../../modules/courseEnrollment/importer/courseEnrollmentImporterFields';
+import selectors from '../../../modules/courseEnrollment/importer/courseEnrollmentImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function CourseEnrollmentImportPage() {
   const Importer = importerHoc(
@@ -19,8 +19,15 @@ function CourseEnrollmentImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseEnrollment.menu'), '/course-enrollment'],
-          [i18n('entities.courseEnrollment.importer.title')],
+          [
+            i18n('entities.courseEnrollment.menu'),
+            '/course-enrollment',
+          ],
+          [
+            i18n(
+              'entities.courseEnrollment.importer.title',
+            ),
+          ],
         ]}
       />
 

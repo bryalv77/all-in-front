@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import operationSelectors from 'src/modules/operation/operationSelectors';
-import destroyActions from 'src/modules/operation/destroy/operationDestroyActions';
-import destroySelectors from 'src/modules/operation/destroy/operationDestroySelectors';
-import actions from 'src/modules/operation/list/operationListActions';
-import selectors from 'src/modules/operation/list/operationListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import operationSelectors from '../../../modules/operation/operationSelectors';
+import destroyActions from '../../../modules/operation/destroy/operationDestroyActions';
+import destroySelectors from '../../../modules/operation/destroy/operationDestroySelectors';
+import actions from '../../../modules/operation/list/operationListActions';
+import selectors from '../../../modules/operation/list/operationListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function OperationToolbar(props) {
   const [

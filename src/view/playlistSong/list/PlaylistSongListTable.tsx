@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import playlistSongSelectors from 'src/modules/playlistSong/playlistSongSelectors';
-import destroyActions from 'src/modules/playlistSong/destroy/playlistSongDestroyActions';
-import destroySelectors from 'src/modules/playlistSong/destroy/playlistSongDestroySelectors';
-import actions from 'src/modules/playlistSong/list/playlistSongListActions';
-import selectors from 'src/modules/playlistSong/list/playlistSongListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import PlaylistListItem from 'src/view/playlist/list/PlaylistListItem';
-import SongListItem from 'src/view/song/list/SongListItem';
+import { i18n } from '../../../i18n';
+import playlistSongSelectors from '../../../modules/playlistSong/playlistSongSelectors';
+import destroyActions from '../../../modules/playlistSong/destroy/playlistSongDestroyActions';
+import destroySelectors from '../../../modules/playlistSong/destroy/playlistSongDestroySelectors';
+import actions from '../../../modules/playlistSong/list/playlistSongListActions';
+import selectors from '../../../modules/playlistSong/list/playlistSongListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import PlaylistListItem from '../../../view/playlist/list/PlaylistListItem';
+import SongListItem from '../../../view/song/list/SongListItem';
 
 function PlaylistSongListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,26 +108,26 @@ function PlaylistSongListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.playlistSong.fields.playlistId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.playlistSong.fields.songId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'trackOrder'}
-                  label={i18n(
-                    'entities.playlistSong.fields.trackOrder',
-                  )}
-                  align="right"
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.playlistSong.fields.playlistId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.playlistSong.fields.songId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'trackOrder'}
+                label={i18n(
+                  'entities.playlistSong.fields.trackOrder',
+                )}
+                align="right"
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -169,12 +167,19 @@ function PlaylistSongListTable(props) {
                     />
                   </th>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <PlaylistListItem value={row.playlistId} />
+                    <PlaylistListItem
+                      value={row.playlistId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <SongListItem value={row.songId} />
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.trackOrder}</td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
+                    {row.trackOrder}
+                  </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"
                     align="right"

@@ -1,4 +1,4 @@
-import actions from 'src/modules/country/form/countryFormActions';
+import actions from '../../../modules/country/form/countryFormActions';
 
 const initialData = {
   initLoading: false,

@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/orderDetail/importer/orderDetailImporterActions';
-import fields from 'src/modules/orderDetail/importer/orderDetailImporterFields';
-import selectors from 'src/modules/orderDetail/importer/orderDetailImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/orderDetail/importer/orderDetailImporterActions';
+import fields from '../../../modules/orderDetail/importer/orderDetailImporterFields';
+import selectors from '../../../modules/orderDetail/importer/orderDetailImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function OrderDetailImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function OrderDetailImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.orderDetail.menu'), '/order-detail'],
+          [
+            i18n('entities.orderDetail.menu'),
+            '/order-detail',
+          ],
           [i18n('entities.orderDetail.importer.title')],
         ]}
       />

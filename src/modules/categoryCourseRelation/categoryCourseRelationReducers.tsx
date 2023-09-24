@@ -1,8 +1,8 @@
-import list from 'src/modules/categoryCourseRelation/list/categoryCourseRelationListReducers';
-import form from 'src/modules/categoryCourseRelation/form/categoryCourseRelationFormReducers';
-import view from 'src/modules/categoryCourseRelation/view/categoryCourseRelationViewReducers';
-import destroy from 'src/modules/categoryCourseRelation/destroy/categoryCourseRelationDestroyReducers';
-import importerReducer from 'src/modules/categoryCourseRelation/importer/categoryCourseRelationImporterReducers';
+import list from '../../../modules/categoryCourseRelation/list/categoryCourseRelationListReducers';
+import form from '../../../modules/categoryCourseRelation/form/categoryCourseRelationFormReducers';
+import view from '../../../modules/categoryCourseRelation/view/categoryCourseRelationViewReducers';
+import destroy from '../../../modules/categoryCourseRelation/destroy/categoryCourseRelationDestroyReducers';
+import importerReducer from '../../../modules/categoryCourseRelation/importer/categoryCourseRelationImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/like/form/likeFormActions';
-import selectors from 'src/modules/like/form/likeFormSelectors';
-import { getHistory } from 'src/modules/store';
-import LikeForm from 'src/view/like/form/LikeForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/like/form/likeFormActions';
+import selectors from '../../../modules/like/form/likeFormSelectors';
+import { getHistory } from '../../../modules/store';
+import LikeForm from '../../../view/like/form/LikeForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function LikeFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

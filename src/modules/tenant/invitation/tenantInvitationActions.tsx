@@ -1,12 +1,12 @@
-import TenantService from 'src/modules/tenant/tenantService';
-import Errors from 'src/modules/shared/error/errors';
-import Message from 'src/view/shared/message';
-import { getHistory } from 'src/modules/store';
-import { i18n } from 'src/i18n';
-import authActions from 'src/modules/auth/authActions';
-import authSelectors from 'src/modules/auth/authSelectors';
-import selectors from 'src/modules/tenant/invitation/tenantInvitationSelectors';
-import AuthInvitationToken from 'src/modules/auth/authInvitationToken';
+import TenantService from '../../../modules/tenant/tenantService';
+import Errors from '../../../modules/shared/error/errors';
+import Message from '../../../view/shared/message';
+import { getHistory } from '../../../modules/store';
+import { i18n } from '../../../i18n';
+import authActions from '../../../modules/auth/authActions';
+import authSelectors from '../../../modules/auth/authSelectors';
+import selectors from '../../../modules/tenant/invitation/tenantInvitationSelectors';
+import AuthInvitationToken from '../../../modules/auth/authInvitationToken';
 
 const prefix = 'TENANT_INVITATION';
 
@@ -26,63 +26,64 @@ const tenantInvitationActions = {
   DECLINE_SUCCESS: `${prefix}_DECLINE_SUCCESS`,
   DECLINE_ERROR: `${prefix}_DECLINE_ERROR`,
 
-  doAcceptFromAuth: (
-    token,
-    forceAcceptOtherEmail = false,
-  ) => async (dispatch, getState) => {
-    try {
-      const isLoading = selectors.selectLoading(getState());
+  doAcceptFromAuth:
+    (token, forceAcceptOtherEmail = false) =>
+    async (dispatch, getState) => {
+      try {
+        const isLoading = selectors.selectLoading(
+          getState(),
+        );
 
-      if (isLoading) {
-        return;
-      }
+        if (isLoading) {
+          return;
+        }
 
-      const isSignedIn = authSelectors.selectSignedIn(
-        getState(),
-      );
+        const isSignedIn = authSelectors.selectSignedIn(
+          getState(),
+        );
 
-      if (!isSignedIn) {
-        AuthInvitationToken.set(token);
-        getHistory().push('/auth/signup');
-        return;
-      }
+        if (!isSignedIn) {
+          AuthInvitationToken.set(token);
+          getHistory().push('/auth/signup');
+          return;
+        }
 
-      dispatch({
-        type: tenantInvitationActions.ACCEPT_FROM_AUTH_STARTED,
-      });
-
-      const tenant = await TenantService.acceptInvitation(
-        token,
-        forceAcceptOtherEmail,
-      );
-
-      await dispatch(authActions.doSelectTenant(tenant));
-
-      dispatch({
-        type: tenantInvitationActions.ACCEPT_FROM_AUTH_SUCCESS,
-      });
-    } catch (error) {
-      if (Errors.errorCode(error) === 404) {
-        getHistory().push('/');
-        return;
-      }
-
-      if (Errors.errorCode(error) === 400) {
         dispatch({
-          type: tenantInvitationActions.ACCEPT_FROM_AUTH_WARNING,
-          payload: Errors.selectMessage(error),
+          type: tenantInvitationActions.ACCEPT_FROM_AUTH_STARTED,
         });
 
-        return;
-      }
+        const tenant = await TenantService.acceptInvitation(
+          token,
+          forceAcceptOtherEmail,
+        );
 
-      Errors.handle(error);
-      dispatch({
-        type: tenantInvitationActions.ACCEPT_FROM_AUTH_ERROR,
-      });
-      getHistory().push('/');
-    }
-  },
+        await dispatch(authActions.doSelectTenant(tenant));
+
+        dispatch({
+          type: tenantInvitationActions.ACCEPT_FROM_AUTH_SUCCESS,
+        });
+      } catch (error) {
+        if (Errors.errorCode(error) === 404) {
+          getHistory().push('/');
+          return;
+        }
+
+        if (Errors.errorCode(error) === 400) {
+          dispatch({
+            type: tenantInvitationActions.ACCEPT_FROM_AUTH_WARNING,
+            payload: Errors.selectMessage(error),
+          });
+
+          return;
+        }
+
+        Errors.handle(error);
+        dispatch({
+          type: tenantInvitationActions.ACCEPT_FROM_AUTH_ERROR,
+        });
+        getHistory().push('/');
+      }
+    },
 
   doAccept: (token) => async (dispatch) => {
     try {

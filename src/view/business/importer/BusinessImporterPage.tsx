@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/business/importer/businessImporterActions';
-import fields from 'src/modules/business/importer/businessImporterFields';
-import selectors from 'src/modules/business/importer/businessImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/business/importer/businessImporterActions';
+import fields from '../../../modules/business/importer/businessImporterFields';
+import selectors from '../../../modules/business/importer/businessImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function BusinessImportPage() {
   const Importer = importerHoc(

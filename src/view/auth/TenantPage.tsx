@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/auth/authActions';
-import selectors from 'src/modules/auth/authSelectors';
-import TenantNewForm from 'src/view/auth/TenantNewForm';
-import TenantSelectForm from 'src/view/auth/TenantSelectForm';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/auth/authActions';
+import selectors from '../../../modules/auth/authSelectors';
+import TenantNewForm from '../../../view/auth/TenantNewForm';
+import TenantSelectForm from '../../../view/auth/TenantSelectForm';
 
 function TenantPage() {
   const [view, setView] = useState('form');

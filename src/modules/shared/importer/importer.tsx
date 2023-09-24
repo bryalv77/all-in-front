@@ -1,7 +1,7 @@
 import XLSX from 'xlsx';
-import { i18n } from 'src/i18n';
-import ImporterSchema from 'src/modules/shared/importer/importerSchema';
-import { Excel } from 'src/modules/shared/excel/excel';
+import { i18n } from '../../../i18n';
+import ImporterSchema from '../../../modules/shared/importer/importerSchema';
+import { Excel } from '../../../modules/shared/excel/excel';
 
 export default class Importer {
   schema: ImporterSchema;

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Avatar from 'src/view/shared/Avatar';
+import Avatar from '../../../view/shared/Avatar';
 
 function ImagesListView(props) {
   const valueAsArray = () => {

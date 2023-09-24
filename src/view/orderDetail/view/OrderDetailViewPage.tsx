@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/orderDetail/view/orderDetailViewActions';
-import selectors from 'src/modules/orderDetail/view/orderDetailViewSelectors';
-import OrderDetailView from 'src/view/orderDetail/view/OrderDetailView';
-import OrderDetailViewToolbar from 'src/view/orderDetail/view/OrderDetailViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/orderDetail/view/orderDetailViewActions';
+import selectors from '../../../modules/orderDetail/view/orderDetailViewSelectors';
+import OrderDetailView from '../../../view/orderDetail/view/OrderDetailView';
+import OrderDetailViewToolbar from '../../../view/orderDetail/view/OrderDetailViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function OrderDetailPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function OrderDetailPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.orderDetail.menu'), '/order-detail'],
+          [
+            i18n('entities.orderDetail.menu'),
+            '/order-detail',
+          ],
           [i18n('entities.orderDetail.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function OrderDetailPage() {
 
         <OrderDetailViewToolbar match={match} />
 
-        <OrderDetailView loading={loading} record={record} />
+        <OrderDetailView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/taskList/importer/taskListImporterActions';
-import fields from 'src/modules/taskList/importer/taskListImporterFields';
-import selectors from 'src/modules/taskList/importer/taskListImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/taskList/importer/taskListImporterActions';
+import fields from '../../../modules/taskList/importer/taskListImporterFields';
+import selectors from '../../../modules/taskList/importer/taskListImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function TaskListImportPage() {
   const Importer = importerHoc(

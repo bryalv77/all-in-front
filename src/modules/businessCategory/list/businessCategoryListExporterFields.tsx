@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -17,21 +17,29 @@ export default [
   },
   {
     name: 'parentBusinessType',
-    label: i18n('entities.businessCategory.fields.parentBusinessType'),
+    label: i18n(
+      'entities.businessCategory.fields.parentBusinessType',
+    ),
     render: exporterRenders.relationToOne(),
   },
   {
     name: 'description',
-    label: i18n('entities.businessCategory.fields.description'),
+    label: i18n(
+      'entities.businessCategory.fields.description',
+    ),
   },
   {
     name: 'createdAt',
-    label: i18n('entities.businessCategory.fields.createdAt'),
+    label: i18n(
+      'entities.businessCategory.fields.createdAt',
+    ),
     render: exporterRenders.datetime(),
   },
   {
     name: 'updatedAt',
-    label: i18n('entities.businessCategory.fields.updatedAt'),
+    label: i18n(
+      'entities.businessCategory.fields.updatedAt',
+    ),
     render: exporterRenders.datetime(),
   },
 ];

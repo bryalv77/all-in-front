@@ -1,4 +1,4 @@
-import actions from 'src/modules/appointment/destroy/appointmentDestroyActions';
+import actions from '../../../modules/appointment/destroy/appointmentDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

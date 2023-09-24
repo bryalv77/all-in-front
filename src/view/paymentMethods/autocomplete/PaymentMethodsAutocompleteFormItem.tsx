@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import PaymentMethodsService from 'src/modules/paymentMethods/paymentMethodsService';
-import PaymentMethodsFormModal from 'src/view/paymentMethods/form/PaymentMethodsFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import PaymentMethodsService from '../../../modules/paymentMethods/paymentMethodsService';
+import PaymentMethodsFormModal from '../../../view/paymentMethods/form/PaymentMethodsFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/paymentMethods/paymentMethodsSelectors';
+import selectors from '../../../modules/paymentMethods/paymentMethodsSelectors';
 
 function PaymentMethodsAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function PaymentMethodsAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return PaymentMethodsService.listAutocomplete(value, limit);
+    return PaymentMethodsService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

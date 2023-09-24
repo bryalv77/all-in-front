@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/operation/operationSelectors';
+import selectors from '../../../modules/operation/operationSelectors';
 
 function OperationListItem(props) {
   const hasPermissionToRead = useSelector(

@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import conversationEnumerators from 'src/modules/conversation/conversationEnumerators';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import conversationEnumerators from '../../../modules/conversation/conversationEnumerators';
 
 export default [
   {
@@ -8,7 +9,7 @@ export default [
     schema: schemas.enumerator(
       i18n('entities.conversation.fields.type'),
       {
-        "options": conversationEnumerators.type
+        options: conversationEnumerators.type,
       },
     ),
   },

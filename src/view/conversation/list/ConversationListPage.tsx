@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import ConversationListFilter from 'src/view/conversation/list/ConversationListFilter';
-import ConversationListTable from 'src/view/conversation/list/ConversationListTable';
-import ConversationListToolbar from 'src/view/conversation/list/ConversationListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import ConversationListFilter from '../../../view/conversation/list/ConversationListFilter';
+import ConversationListTable from '../../../view/conversation/list/ConversationListTable';
+import ConversationListToolbar from '../../../view/conversation/list/ConversationListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ConversationListPage(props) {
   return (

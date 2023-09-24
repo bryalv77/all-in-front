@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import lessonSelectors from 'src/modules/lesson/lessonSelectors';
-import destroyActions from 'src/modules/lesson/destroy/lessonDestroyActions';
-import destroySelectors from 'src/modules/lesson/destroy/lessonDestroySelectors';
-import actions from 'src/modules/lesson/list/lessonListActions';
-import selectors from 'src/modules/lesson/list/lessonListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import FilesListView from 'src/view/shared/table/FileListView';
-import CourseListItem from 'src/view/course/list/CourseListItem';
+import { i18n } from '../../../i18n';
+import lessonSelectors from '../../../modules/lesson/lessonSelectors';
+import destroyActions from '../../../modules/lesson/destroy/lessonDestroyActions';
+import destroySelectors from '../../../modules/lesson/destroy/lessonDestroySelectors';
+import actions from '../../../modules/lesson/list/lessonListActions';
+import selectors from '../../../modules/lesson/list/lessonListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import FilesListView from '../../../view/shared/table/FileListView';
+import CourseListItem from '../../../view/course/list/CourseListItem';
 
 function LessonListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,62 +108,58 @@ function LessonListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'title'}
-                  label={i18n(
-                    'entities.lesson.fields.title',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.lesson.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'externalUrl'}
-                  label={i18n(
-                    'entities.lesson.fields.externalUrl',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.lesson.fields.media',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'hoursDuration'}
-                  label={i18n(
-                    'entities.lesson.fields.hoursDuration',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.lesson.fields.courseId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'active'}
-                  label={i18n(
-                    'entities.lesson.fields.active',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'title'}
+                label={i18n('entities.lesson.fields.title')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.lesson.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'externalUrl'}
+                label={i18n(
+                  'entities.lesson.fields.externalUrl',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n('entities.lesson.fields.media')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'hoursDuration'}
+                label={i18n(
+                  'entities.lesson.fields.hoursDuration',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.lesson.fields.courseId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'active'}
+                label={i18n(
+                  'entities.lesson.fields.active',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -204,15 +198,22 @@ function LessonListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.title}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.description}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.externalUrl}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <FilesListView
-                      value={row.media}
-                    />
+                    {row.title}
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.description}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.externalUrl}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <FilesListView value={row.media} />
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.hoursDuration}
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">

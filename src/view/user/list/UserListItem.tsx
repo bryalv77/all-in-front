@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/user/userSelectors';
+import selectors from '../../../modules/user/userSelectors';
 
 function UserListItem(props) {
   const hasPermissionToRead = useSelector(

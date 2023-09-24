@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import OperationListFilter from 'src/view/operation/list/OperationListFilter';
-import OperationListTable from 'src/view/operation/list/OperationListTable';
-import OperationListToolbar from 'src/view/operation/list/OperationListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import OperationListFilter from '../../../view/operation/list/OperationListFilter';
+import OperationListTable from '../../../view/operation/list/OperationListTable';
+import OperationListToolbar from '../../../view/operation/list/OperationListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function OperationListPage(props) {
   return (

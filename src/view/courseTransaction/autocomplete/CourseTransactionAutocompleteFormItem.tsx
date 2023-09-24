@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import CourseTransactionService from 'src/modules/courseTransaction/courseTransactionService';
-import CourseTransactionFormModal from 'src/view/courseTransaction/form/CourseTransactionFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import CourseTransactionService from '../../../modules/courseTransaction/courseTransactionService';
+import CourseTransactionFormModal from '../../../view/courseTransaction/form/CourseTransactionFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/courseTransaction/courseTransactionSelectors';
+import selectors from '../../../modules/courseTransaction/courseTransactionSelectors';
 
 function CourseTransactionAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function CourseTransactionAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return CourseTransactionService.listAutocomplete(value, limit);
+    return CourseTransactionService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

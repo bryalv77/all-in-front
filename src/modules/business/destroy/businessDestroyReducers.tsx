@@ -1,4 +1,4 @@
-import actions from 'src/modules/business/destroy/businessDestroyActions';
+import actions from '../../../modules/business/destroy/businessDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

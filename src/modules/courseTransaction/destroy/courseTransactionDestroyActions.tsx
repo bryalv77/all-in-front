@@ -1,9 +1,9 @@
-import listActions from 'src/modules/courseTransaction/list/courseTransactionListActions';
-import CourseTransactionService from 'src/modules/courseTransaction/courseTransactionService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/courseTransaction/list/courseTransactionListActions';
+import CourseTransactionService from '../../../modules/courseTransaction/courseTransactionService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'COURSETRANSACTION_DESTROY';
 
@@ -64,7 +64,9 @@ const courseTransactionDestroyActions = {
       }
 
       Message.success(
-        i18n('entities.courseTransaction.destroyAll.success'),
+        i18n(
+          'entities.courseTransaction.destroyAll.success',
+        ),
       );
 
       getHistory().push('/course-transaction');

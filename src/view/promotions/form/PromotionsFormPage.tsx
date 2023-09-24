@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/promotions/form/promotionsFormActions';
-import selectors from 'src/modules/promotions/form/promotionsFormSelectors';
-import { getHistory } from 'src/modules/store';
-import PromotionsForm from 'src/view/promotions/form/PromotionsForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/promotions/form/promotionsFormActions';
+import selectors from '../../../modules/promotions/form/promotionsFormSelectors';
+import { getHistory } from '../../../modules/store';
+import PromotionsForm from '../../../view/promotions/form/PromotionsForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function PromotionsFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -64,7 +64,9 @@ function PromotionsFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/promotions')}
+            onCancel={() =>
+              getHistory().push('/promotions')
+            }
           />
         )}
       </div>

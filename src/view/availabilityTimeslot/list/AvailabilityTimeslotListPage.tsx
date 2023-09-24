@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import AvailabilityTimeslotListFilter from 'src/view/availabilityTimeslot/list/AvailabilityTimeslotListFilter';
-import AvailabilityTimeslotListTable from 'src/view/availabilityTimeslot/list/AvailabilityTimeslotListTable';
-import AvailabilityTimeslotListToolbar from 'src/view/availabilityTimeslot/list/AvailabilityTimeslotListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import AvailabilityTimeslotListFilter from '../../../view/availabilityTimeslot/list/AvailabilityTimeslotListFilter';
+import AvailabilityTimeslotListTable from '../../../view/availabilityTimeslot/list/AvailabilityTimeslotListTable';
+import AvailabilityTimeslotListToolbar from '../../../view/availabilityTimeslot/list/AvailabilityTimeslotListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function AvailabilityTimeslotListPage(props) {
   return (

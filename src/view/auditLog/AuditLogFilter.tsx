@@ -9,15 +9,15 @@ import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/auditLog/auditLogActions';
-import selectors from 'src/modules/auditLog/auditLogSelectors';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TagsFormItem from 'src/view/shared/form/items/TagsFormItem';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/auditLog/auditLogActions';
+import selectors from '../../../modules/auditLog/auditLogSelectors';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TagsFormItem from '../../../view/shared/form/items/TagsFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({

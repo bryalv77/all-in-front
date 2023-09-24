@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/businessCategory/view/businessCategoryViewActions';
-import selectors from 'src/modules/businessCategory/view/businessCategoryViewSelectors';
-import BusinessCategoryView from 'src/view/businessCategory/view/BusinessCategoryView';
-import BusinessCategoryViewToolbar from 'src/view/businessCategory/view/BusinessCategoryViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/businessCategory/view/businessCategoryViewActions';
+import selectors from '../../../modules/businessCategory/view/businessCategoryViewSelectors';
+import BusinessCategoryView from '../../../view/businessCategory/view/BusinessCategoryView';
+import BusinessCategoryViewToolbar from '../../../view/businessCategory/view/BusinessCategoryViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function BusinessCategoryPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function BusinessCategoryPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.businessCategory.menu'), '/business-category'],
+          [
+            i18n('entities.businessCategory.menu'),
+            '/business-category',
+          ],
           [i18n('entities.businessCategory.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function BusinessCategoryPage() {
 
         <BusinessCategoryViewToolbar match={match} />
 
-        <BusinessCategoryView loading={loading} record={record} />
+        <BusinessCategoryView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

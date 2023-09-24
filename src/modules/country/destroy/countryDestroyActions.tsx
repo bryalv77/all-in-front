@@ -1,9 +1,9 @@
-import listActions from 'src/modules/country/list/countryListActions';
-import CountryService from 'src/modules/country/countryService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/country/list/countryListActions';
+import CountryService from '../../../modules/country/countryService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'COUNTRY_DESTROY';
 

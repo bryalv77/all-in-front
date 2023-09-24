@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -17,7 +17,9 @@ export default [
   },
   {
     name: 'parentCategory',
-    label: i18n('entities.courseCategory.fields.parentCategory'),
+    label: i18n(
+      'entities.courseCategory.fields.parentCategory',
+    ),
     render: exporterRenders.relationToOne(),
   },
   {

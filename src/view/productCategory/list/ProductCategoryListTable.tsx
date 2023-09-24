@@ -7,24 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import productCategorySelectors from 'src/modules/productCategory/productCategorySelectors';
-import destroyActions from 'src/modules/productCategory/destroy/productCategoryDestroyActions';
-import destroySelectors from 'src/modules/productCategory/destroy/productCategoryDestroySelectors';
-import actions from 'src/modules/productCategory/list/productCategoryListActions';
-import selectors from 'src/modules/productCategory/list/productCategoryListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
-import ProductCategoryListItem from 'src/view/productCategory/list/ProductCategoryListItem';
+import { i18n } from '../../../i18n';
+import productCategorySelectors from '../../../modules/productCategory/productCategorySelectors';
+import destroyActions from '../../../modules/productCategory/destroy/productCategoryDestroyActions';
+import destroySelectors from '../../../modules/productCategory/destroy/productCategoryDestroySelectors';
+import actions from '../../../modules/productCategory/list/productCategoryListActions';
+import selectors from '../../../modules/productCategory/list/productCategoryListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
+import ProductCategoryListItem from '../../../view/productCategory/list/ProductCategoryListItem';
 
 function ProductCategoryListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -110,25 +108,25 @@ function ProductCategoryListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.productCategory.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.productCategory.fields.parentCategory',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.productCategory.fields.photo',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n(
+                  'entities.productCategory.fields.name',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.productCategory.fields.parentCategory',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.productCategory.fields.photo',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -167,9 +165,13 @@ function ProductCategoryListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <ProductCategoryListItem value={row.parentCategory} />
+                    {row.name}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <ProductCategoryListItem
+                      value={row.parentCategory}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <ImagesListView value={row.photo} />

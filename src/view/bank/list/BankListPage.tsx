@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import BankListFilter from 'src/view/bank/list/BankListFilter';
-import BankListTable from 'src/view/bank/list/BankListTable';
-import BankListToolbar from 'src/view/bank/list/BankListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import BankListFilter from '../../../view/bank/list/BankListFilter';
+import BankListTable from '../../../view/bank/list/BankListTable';
+import BankListToolbar from '../../../view/bank/list/BankListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function BankListPage(props) {
   return (

@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import PostsAutocompleteFormItem from 'src/view/posts/autocomplete/PostsAutocompleteFormItem';
-import HashtagAutocompleteFormItem from 'src/view/hashtag/autocomplete/HashtagAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import PostsAutocompleteFormItem from '../../../view/posts/autocomplete/PostsAutocompleteFormItem';
+import HashtagAutocompleteFormItem from '../../../view/hashtag/autocomplete/HashtagAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -56,21 +56,31 @@ function PostHashtagForm(props) {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="w-full sm:w-md md:w-md lg:w-md">
-          <PostsAutocompleteFormItem  
+          <PostsAutocompleteFormItem
             name="postId"
-            label={i18n('entities.postHashtag.fields.postId')}
-          placeholder={i18n('entities.postHashtag.placeholders.postId')}
-          hint={i18n('entities.postHashtag.hints.postId')}
+            label={i18n(
+              'entities.postHashtag.fields.postId',
+            )}
+            placeholder={i18n(
+              'entities.postHashtag.placeholders.postId',
+            )}
+            hint={i18n('entities.postHashtag.hints.postId')}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <HashtagAutocompleteFormItem  
+          <HashtagAutocompleteFormItem
             name="hashtagId"
-            label={i18n('entities.postHashtag.fields.hashtagId')}
-          placeholder={i18n('entities.postHashtag.placeholders.hashtagId')}
-          hint={i18n('entities.postHashtag.hints.hashtagId')}
+            label={i18n(
+              'entities.postHashtag.fields.hashtagId',
+            )}
+            placeholder={i18n(
+              'entities.postHashtag.placeholders.hashtagId',
+            )}
+            hint={i18n(
+              'entities.postHashtag.hints.hashtagId',
+            )}
             required={false}
             showCreate={!props.modal}
           />

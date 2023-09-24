@@ -1,8 +1,8 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import TenantListFilter from 'src/view/tenant/list/TenantListFilter';
-import TenantListTable from 'src/view/tenant/list/TenantListTable';
-import TenantListToolbar from 'src/view/tenant/list/TenantListToolbar';
+import { i18n } from '../../../i18n';
+import TenantListFilter from '../../../view/tenant/list/TenantListFilter';
+import TenantListTable from '../../../view/tenant/list/TenantListTable';
+import TenantListToolbar from '../../../view/tenant/list/TenantListToolbar';
 
 function TenantListPage(props) {
   return (

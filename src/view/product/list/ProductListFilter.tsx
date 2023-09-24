@@ -2,24 +2,24 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/product/list/productListActions';
-import selectors from 'src/modules/product/list/productListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/product/list/productListActions';
+import selectors from '../../../modules/product/list/productListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import InputNumberRangeFormItem from 'src/view/shared/form/items/InputNumberRangeFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import ProductCategoryAutocompleteFormItem from 'src/view/productCategory/autocomplete/ProductCategoryAutocompleteFormItem';
-import BrandAutocompleteFormItem from 'src/view/brand/autocomplete/BrandAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import InputNumberRangeFormItem from '../../../view/shared/form/items/InputNumberRangeFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import ProductCategoryAutocompleteFormItem from '../../../view/productCategory/autocomplete/ProductCategoryAutocompleteFormItem';
+import BrandAutocompleteFormItem from '../../../view/brand/autocomplete/BrandAutocompleteFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -49,7 +49,7 @@ const emptyValues = {
   stockRange: [],
   brandId: null,
   active: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -61,22 +61,22 @@ const previewRenders = {
     render: filterRenders.decimalRange(2),
   },
   category: {
-      label: i18n('entities.product.fields.category'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.product.fields.category'),
+    render: filterRenders.relationToOne(),
+  },
   stockRange: {
     label: i18n('entities.product.fields.stockRange'),
     render: filterRenders.range(),
   },
   brandId: {
-      label: i18n('entities.product.fields.brandId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.product.fields.brandId'),
+    render: filterRenders.relationToOne(),
+  },
   active: {
     label: i18n('entities.product.fields.active'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function ProductListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -97,7 +97,12 @@ function ProductListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -137,27 +142,37 @@ function ProductListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.product.fields.name')}      
+                label={i18n('entities.product.fields.name')}
               />
               <InputRangeFormItem
                 name="unitPriceRange"
-                label={i18n('entities.product.fields.unitPriceRange')}      
+                label={i18n(
+                  'entities.product.fields.unitPriceRange',
+                )}
               />
-              <ProductCategoryAutocompleteFormItem  
+              <ProductCategoryAutocompleteFormItem
                 name="category"
-                label={i18n('entities.product.fields.category')}        
+                label={i18n(
+                  'entities.product.fields.category',
+                )}
               />
               <InputNumberRangeFormItem
                 name="stockRange"
-                label={i18n('entities.product.fields.stockRange')}      
+                label={i18n(
+                  'entities.product.fields.stockRange',
+                )}
               />
-              <BrandAutocompleteFormItem  
+              <BrandAutocompleteFormItem
                 name="brandId"
-                label={i18n('entities.product.fields.brandId')}        
+                label={i18n(
+                  'entities.product.fields.brandId',
+                )}
               />
               <SelectFormItem
                 name="active"
-                label={i18n('entities.product.fields.active')}
+                label={i18n(
+                  'entities.product.fields.active',
+                )}
                 options={[
                   {
                     value: true,

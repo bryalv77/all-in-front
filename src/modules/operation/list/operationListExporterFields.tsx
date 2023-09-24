@@ -1,5 +1,5 @@
-import { i18n } from 'src/i18n';
-import exporterRenders from 'src/modules/shared/exporter/exporterRenders';
+import { i18n } from '../../../i18n';
+import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
 
 export default [
   {
@@ -24,7 +24,9 @@ export default [
   },
   {
     name: 'userDescription',
-    label: i18n('entities.operation.fields.userDescription'),
+    label: i18n(
+      'entities.operation.fields.userDescription',
+    ),
   },
   {
     name: 'quantity',
@@ -45,7 +47,9 @@ export default [
   },
   {
     name: 'cleanUserDescription',
-    label: i18n('entities.operation.fields.cleanUserDescription'),
+    label: i18n(
+      'entities.operation.fields.cleanUserDescription',
+    ),
   },
   {
     name: 'primaryDisplay',
@@ -53,7 +57,9 @@ export default [
   },
   {
     name: 'secondaryDisplay',
-    label: i18n('entities.operation.fields.secondaryDisplay'),
+    label: i18n(
+      'entities.operation.fields.secondaryDisplay',
+    ),
   },
   {
     name: 'categoryId',

@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import AddressForm from 'src/view/address/form/AddressForm';
-import AddressService from 'src/modules/address/addressService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import AddressForm from '../../../view/address/form/AddressForm';
+import AddressService from '../../../modules/address/addressService';
 
 function AddressFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

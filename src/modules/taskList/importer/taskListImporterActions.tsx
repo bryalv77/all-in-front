@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/taskList/importer/taskListImporterSelectors';
-import TaskListService from 'src/modules/taskList/taskListService';
-import fields from 'src/modules/taskList/importer/taskListImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/taskList/importer/taskListImporterSelectors';
+import TaskListService from '../../../modules/taskList/taskListService';
+import fields from '../../../modules/taskList/importer/taskListImporterFields';
+import { i18n } from '../../../i18n';
 
 const taskListImporterActions = importerActions(
   'TASKLIST_IMPORTER',

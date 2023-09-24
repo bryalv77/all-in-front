@@ -7,23 +7,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import countrySelectors from 'src/modules/country/countrySelectors';
-import destroyActions from 'src/modules/country/destroy/countryDestroyActions';
-import destroySelectors from 'src/modules/country/destroy/countryDestroySelectors';
-import actions from 'src/modules/country/list/countryListActions';
-import selectors from 'src/modules/country/list/countryListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-
+import { i18n } from '../../../i18n';
+import countrySelectors from '../../../modules/country/countrySelectors';
+import destroyActions from '../../../modules/country/destroy/countryDestroyActions';
+import destroySelectors from '../../../modules/country/destroy/countryDestroySelectors';
+import actions from '../../../modules/country/list/countryListActions';
+import selectors from '../../../modules/country/list/countryListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
 
 function CountryListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,15 +106,13 @@ function CountryListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.country.fields.name',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n('entities.country.fields.name')}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -156,7 +151,9 @@ function CountryListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"
                     align="right"

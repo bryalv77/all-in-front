@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import FilesViewItem from 'src/view/shared/view/FilesViewItem';
-import CustomerViewItem from 'src/view/customer/view/CustomerViewItem';
-import DeliveryMethodViewItem from 'src/view/deliveryMethod/view/DeliveryMethodViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import FilesViewItem from '../../../view/shared/view/FilesViewItem';
+import CustomerViewItem from '../../../view/customer/view/CustomerViewItem';
+import DeliveryMethodViewItem from '../../../view/deliveryMethod/view/DeliveryMethodViewItem';
 
 function OrderView(props) {
   const { record, loading } = props;
@@ -31,9 +31,7 @@ function OrderView(props) {
       />
 
       <FilesViewItem
-        label={i18n(
-          'entities.order.fields.attachments',
-        )}
+        label={i18n('entities.order.fields.attachments')}
         value={record.attachments}
       />
 

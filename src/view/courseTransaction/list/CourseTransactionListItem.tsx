@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/courseTransaction/courseTransactionSelectors';
+import selectors from '../../../modules/courseTransaction/courseTransactionSelectors';
 
 function CourseTransactionListItem(props) {
   const hasPermissionToRead = useSelector(

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import OrderDetailService from 'src/modules/orderDetail/orderDetailService';
-import OrderDetailFormModal from 'src/view/orderDetail/form/OrderDetailFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import OrderDetailService from '../../../modules/orderDetail/orderDetailService';
+import OrderDetailFormModal from '../../../view/orderDetail/form/OrderDetailFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/orderDetail/orderDetailSelectors';
+import selectors from '../../../modules/orderDetail/orderDetailSelectors';
 
 function OrderDetailAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function OrderDetailAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return OrderDetailService.listAutocomplete(value, limit);
+    return OrderDetailService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

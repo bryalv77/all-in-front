@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/productCategory/list/productCategoryListActions';
-import selectors from 'src/modules/productCategory/list/productCategoryListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/productCategory/list/productCategoryListActions';
+import selectors from '../../../modules/productCategory/list/productCategoryListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import ProductCategoryAutocompleteFormItem from 'src/view/productCategory/autocomplete/ProductCategoryAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import ProductCategoryAutocompleteFormItem from '../../../view/productCategory/autocomplete/ProductCategoryAutocompleteFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
 const emptyValues = {
   name: null,
   parentCategory: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -37,10 +37,12 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   parentCategory: {
-      label: i18n('entities.productCategory.fields.parentCategory'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n(
+      'entities.productCategory.fields.parentCategory',
+    ),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function ProductCategoryListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +63,12 @@ function ProductCategoryListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -101,11 +108,15 @@ function ProductCategoryListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.productCategory.fields.name')}      
+                label={i18n(
+                  'entities.productCategory.fields.name',
+                )}
               />
-              <ProductCategoryAutocompleteFormItem  
+              <ProductCategoryAutocompleteFormItem
                 name="parentCategory"
-                label={i18n('entities.productCategory.fields.parentCategory')}        
+                label={i18n(
+                  'entities.productCategory.fields.parentCategory',
+                )}
               />
             </div>
 

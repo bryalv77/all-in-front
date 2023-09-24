@@ -1,8 +1,8 @@
-import list from 'src/modules/category/list/categoryListReducers';
-import form from 'src/modules/category/form/categoryFormReducers';
-import view from 'src/modules/category/view/categoryViewReducers';
-import destroy from 'src/modules/category/destroy/categoryDestroyReducers';
-import importerReducer from 'src/modules/category/importer/categoryImporterReducers';
+import list from '../../../modules/category/list/categoryListReducers';
+import form from '../../../modules/category/form/categoryFormReducers';
+import view from '../../../modules/category/view/categoryViewReducers';
+import destroy from '../../../modules/category/destroy/categoryDestroyReducers';
+import importerReducer from '../../../modules/category/importer/categoryImporterReducers';
 import { combineReducers } from 'redux';
 
 export default combineReducers({

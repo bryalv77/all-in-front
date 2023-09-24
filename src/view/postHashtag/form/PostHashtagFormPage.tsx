@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/postHashtag/form/postHashtagFormActions';
-import selectors from 'src/modules/postHashtag/form/postHashtagFormSelectors';
-import { getHistory } from 'src/modules/store';
-import PostHashtagForm from 'src/view/postHashtag/form/PostHashtagForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/postHashtag/form/postHashtagFormActions';
+import selectors from '../../../modules/postHashtag/form/postHashtagFormSelectors';
+import { getHistory } from '../../../modules/store';
+import PostHashtagForm from '../../../view/postHashtag/form/PostHashtagForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function PostHashtagFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function PostHashtagFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.postHashtag.menu'), '/post-hashtag'],
+          [
+            i18n('entities.postHashtag.menu'),
+            '/post-hashtag',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function PostHashtagFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/post-hashtag')}
+            onCancel={() =>
+              getHistory().push('/post-hashtag')
+            }
           />
         )}
       </div>

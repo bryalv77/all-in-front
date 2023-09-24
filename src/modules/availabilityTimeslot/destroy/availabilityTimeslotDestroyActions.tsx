@@ -1,9 +1,9 @@
-import listActions from 'src/modules/availabilityTimeslot/list/availabilityTimeslotListActions';
-import AvailabilityTimeslotService from 'src/modules/availabilityTimeslot/availabilityTimeslotService';
-import Errors from 'src/modules/shared/error/errors';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import Message from 'src/view/shared/message';
+import listActions from '../../../modules/availabilityTimeslot/list/availabilityTimeslotListActions';
+import AvailabilityTimeslotService from '../../../modules/availabilityTimeslot/availabilityTimeslotService';
+import Errors from '../../../modules/shared/error/errors';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import Message from '../../../view/shared/message';
 
 const prefix = 'AVAILABILITYTIMESLOT_DESTROY';
 
@@ -29,7 +29,9 @@ const availabilityTimeslotDestroyActions = {
       });
 
       Message.success(
-        i18n('entities.availabilityTimeslot.destroy.success'),
+        i18n(
+          'entities.availabilityTimeslot.destroy.success',
+        ),
       );
 
       dispatch(listActions.doFetchCurrentFilter());
@@ -64,7 +66,9 @@ const availabilityTimeslotDestroyActions = {
       }
 
       Message.success(
-        i18n('entities.availabilityTimeslot.destroyAll.success'),
+        i18n(
+          'entities.availabilityTimeslot.destroyAll.success',
+        ),
       );
 
       getHistory().push('/availability-timeslot');

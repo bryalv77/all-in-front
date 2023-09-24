@@ -1,4 +1,4 @@
-import actions from 'src/modules/posts/view/postsViewActions';
+import actions from '../../../modules/posts/view/postsViewActions';
 
 const initialData = {
   loading: false,

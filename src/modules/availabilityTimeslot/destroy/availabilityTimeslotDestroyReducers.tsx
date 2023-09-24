@@ -1,4 +1,4 @@
-import actions from 'src/modules/availabilityTimeslot/destroy/availabilityTimeslotDestroyActions';
+import actions from '../../../modules/availabilityTimeslot/destroy/availabilityTimeslotDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

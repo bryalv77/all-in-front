@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/productReview/list/productReviewListActions';
-import selectors from 'src/modules/productReview/list/productReviewListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/productReview/list/productReviewListActions';
+import selectors from '../../../modules/productReview/list/productReviewListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import ProductAutocompleteFormItem from 'src/view/product/autocomplete/ProductAutocompleteFormItem';
-import CustomerAutocompleteFormItem from 'src/view/customer/autocomplete/CustomerAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import ProductAutocompleteFormItem from '../../../view/product/autocomplete/ProductAutocompleteFormItem';
+import CustomerAutocompleteFormItem from '../../../view/customer/autocomplete/CustomerAutocompleteFormItem';
 
 const schema = yup.object().shape({
   comment: yupFilterSchemas.string(
@@ -39,7 +39,7 @@ const emptyValues = {
   productId: null,
   customerId: null,
   ratingRange: [],
-}
+};
 
 const previewRenders = {
   comment: {
@@ -47,18 +47,20 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   productId: {
-      label: i18n('entities.productReview.fields.productId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.productReview.fields.productId'),
+    render: filterRenders.relationToOne(),
+  },
   customerId: {
-      label: i18n('entities.productReview.fields.customerId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.productReview.fields.customerId'),
+    render: filterRenders.relationToOne(),
+  },
   ratingRange: {
-    label: i18n('entities.productReview.fields.ratingRange'),
+    label: i18n(
+      'entities.productReview.fields.ratingRange',
+    ),
     render: filterRenders.decimalRange(),
   },
-}
+};
 
 function ProductReviewListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -79,7 +81,12 @@ function ProductReviewListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -119,19 +126,27 @@ function ProductReviewListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="comment"
-                label={i18n('entities.productReview.fields.comment')}      
+                label={i18n(
+                  'entities.productReview.fields.comment',
+                )}
               />
-              <ProductAutocompleteFormItem  
+              <ProductAutocompleteFormItem
                 name="productId"
-                label={i18n('entities.productReview.fields.productId')}        
+                label={i18n(
+                  'entities.productReview.fields.productId',
+                )}
               />
-              <CustomerAutocompleteFormItem  
+              <CustomerAutocompleteFormItem
                 name="customerId"
-                label={i18n('entities.productReview.fields.customerId')}        
+                label={i18n(
+                  'entities.productReview.fields.customerId',
+                )}
               />
               <InputRangeFormItem
                 name="ratingRange"
-                label={i18n('entities.productReview.fields.ratingRange')}      
+                label={i18n(
+                  'entities.productReview.fields.ratingRange',
+                )}
               />
             </div>
 

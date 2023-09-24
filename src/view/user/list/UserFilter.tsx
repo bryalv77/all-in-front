@@ -7,15 +7,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
-import actions from 'src/modules/user/list/userListActions';
-import selectors from 'src/modules/user/list/userListSelectors';
-import userEnumerators from 'src/modules/user/userEnumerators';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
+import { i18n } from '../../../i18n';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
+import actions from '../../../modules/user/list/userListActions';
+import selectors from '../../../modules/user/list/userListSelectors';
+import userEnumerators from '../../../modules/user/userEnumerators';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({

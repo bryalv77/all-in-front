@@ -7,25 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import courseProgressSelectors from 'src/modules/courseProgress/courseProgressSelectors';
-import destroyActions from 'src/modules/courseProgress/destroy/courseProgressDestroyActions';
-import destroySelectors from 'src/modules/courseProgress/destroy/courseProgressDestroySelectors';
-import actions from 'src/modules/courseProgress/list/courseProgressListActions';
-import selectors from 'src/modules/courseProgress/list/courseProgressListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import StudentListItem from 'src/view/student/list/StudentListItem';
-import CourseListItem from 'src/view/course/list/CourseListItem';
-import LessonListItem from 'src/view/lesson/list/LessonListItem';
+import { i18n } from '../../../i18n';
+import courseProgressSelectors from '../../../modules/courseProgress/courseProgressSelectors';
+import destroyActions from '../../../modules/courseProgress/destroy/courseProgressDestroyActions';
+import destroySelectors from '../../../modules/courseProgress/destroy/courseProgressDestroySelectors';
+import actions from '../../../modules/courseProgress/list/courseProgressListActions';
+import selectors from '../../../modules/courseProgress/list/courseProgressListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import StudentListItem from '../../../view/student/list/StudentListItem';
+import CourseListItem from '../../../view/course/list/CourseListItem';
+import LessonListItem from '../../../view/lesson/list/LessonListItem';
 
 function CourseProgressListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -111,31 +109,31 @@ function CourseProgressListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseProgress.fields.studentId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseProgress.fields.courseId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'progressPercentage'}
-                  label={i18n(
-                    'entities.courseProgress.fields.progressPercentage',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseProgress.fields.currentLesson',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseProgress.fields.studentId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseProgress.fields.courseId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'progressPercentage'}
+                label={i18n(
+                  'entities.courseProgress.fields.progressPercentage',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseProgress.fields.currentLesson',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -175,16 +173,23 @@ function CourseProgressListTable(props) {
                     />
                   </th>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <StudentListItem value={row.studentId} />
+                    <StudentListItem
+                      value={row.studentId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <CourseListItem value={row.courseId} />
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.progressPercentage}
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <LessonListItem value={row.currentLesson} />
+                    <LessonListItem
+                      value={row.currentLesson}
+                    />
                   </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"

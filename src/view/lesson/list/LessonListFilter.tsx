@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/lesson/list/lessonListActions';
-import selectors from 'src/modules/lesson/list/lessonListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/lesson/list/lessonListActions';
+import selectors from '../../../modules/lesson/list/lessonListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
 
 const schema = yup.object().shape({
   title: yupFilterSchemas.string(
@@ -47,7 +47,7 @@ const emptyValues = {
   hoursDurationRange: [],
   courseId: null,
   active: null,
-}
+};
 
 const previewRenders = {
   title: {
@@ -63,18 +63,20 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   hoursDurationRange: {
-    label: i18n('entities.lesson.fields.hoursDurationRange'),
+    label: i18n(
+      'entities.lesson.fields.hoursDurationRange',
+    ),
     render: filterRenders.decimalRange(),
   },
   courseId: {
-      label: i18n('entities.lesson.fields.courseId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.lesson.fields.courseId'),
+    render: filterRenders.relationToOne(),
+  },
   active: {
     label: i18n('entities.lesson.fields.active'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function LessonListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -95,7 +97,12 @@ function LessonListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -135,27 +142,37 @@ function LessonListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="title"
-                label={i18n('entities.lesson.fields.title')}      
+                label={i18n('entities.lesson.fields.title')}
               />
               <InputFormItem
                 name="description"
-                label={i18n('entities.lesson.fields.description')}      
+                label={i18n(
+                  'entities.lesson.fields.description',
+                )}
               />
               <InputFormItem
                 name="externalUrl"
-                label={i18n('entities.lesson.fields.externalUrl')}      
+                label={i18n(
+                  'entities.lesson.fields.externalUrl',
+                )}
               />
               <InputRangeFormItem
                 name="hoursDurationRange"
-                label={i18n('entities.lesson.fields.hoursDurationRange')}      
+                label={i18n(
+                  'entities.lesson.fields.hoursDurationRange',
+                )}
               />
-              <CourseAutocompleteFormItem  
+              <CourseAutocompleteFormItem
                 name="courseId"
-                label={i18n('entities.lesson.fields.courseId')}        
+                label={i18n(
+                  'entities.lesson.fields.courseId',
+                )}
               />
               <SelectFormItem
                 name="active"
-                label={i18n('entities.lesson.fields.active')}
+                label={i18n(
+                  'entities.lesson.fields.active',
+                )}
                 options={[
                   {
                     value: true,

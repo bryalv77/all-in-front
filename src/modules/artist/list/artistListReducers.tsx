@@ -1,4 +1,4 @@
-import actions from 'src/modules/artist/list/artistListActions';
+import actions from '../../../modules/artist/list/artistListActions';
 
 const INITIAL_PAGE_SIZE = 10;
 
@@ -85,7 +85,7 @@ export default (state = initialData, { type, payload }) => {
       loading: true,
       selectedKeys: [],
       filter: payload ? payload.filter : {},
-rawFilter: payload ? payload.rawFilter : {},
+      rawFilter: payload ? payload.rawFilter : {},
       pagination:
         payload && payload.keepPagination
           ? state.pagination

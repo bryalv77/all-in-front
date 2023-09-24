@@ -1,4 +1,4 @@
-import actions from 'src/modules/bank/form/bankFormActions';
+import actions from '../../../modules/bank/form/bankFormActions';
 
 const initialData = {
   initLoading: false,

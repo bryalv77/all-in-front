@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
-import { getHistory } from 'src/modules/store';
-import actions from 'src/modules/user/form/userFormActions';
-import selectors from 'src/modules/user/form/userFormSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import UserNewForm from 'src/view/user/new/UserNewForm';
+import { i18n } from '../../../i18n';
+import { getHistory } from '../../../modules/store';
+import actions from '../../../modules/user/form/userFormActions';
+import selectors from '../../../modules/user/form/userFormSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import UserNewForm from '../../../view/user/new/UserNewForm';
 
 function UserNewPage(props) {
   const dispatch = useDispatch();

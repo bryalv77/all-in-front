@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ImagesUploader from 'src/view/shared/uploaders/ImagesUploader';
+import ImagesUploader from '../../../view/shared/uploaders/ImagesUploader';
 
 function ImagesViewItem(props) {
   const valueAsArray = () => {

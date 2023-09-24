@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/artist/view/artistViewActions';
-import selectors from 'src/modules/artist/view/artistViewSelectors';
-import ArtistView from 'src/view/artist/view/ArtistView';
-import ArtistViewToolbar from 'src/view/artist/view/ArtistViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/artist/view/artistViewActions';
+import selectors from '../../../modules/artist/view/artistViewSelectors';
+import ArtistView from '../../../view/artist/view/ArtistView';
+import ArtistViewToolbar from '../../../view/artist/view/ArtistViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ArtistPage() {
   const dispatch = useDispatch();

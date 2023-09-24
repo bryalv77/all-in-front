@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/conversation/view/conversationViewActions';
-import selectors from 'src/modules/conversation/view/conversationViewSelectors';
-import ConversationView from 'src/view/conversation/view/ConversationView';
-import ConversationViewToolbar from 'src/view/conversation/view/ConversationViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/conversation/view/conversationViewActions';
+import selectors from '../../../modules/conversation/view/conversationViewSelectors';
+import ConversationView from '../../../view/conversation/view/ConversationView';
+import ConversationViewToolbar from '../../../view/conversation/view/ConversationViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function ConversationPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function ConversationPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.conversation.menu'), '/conversation'],
+          [
+            i18n('entities.conversation.menu'),
+            '/conversation',
+          ],
           [i18n('entities.conversation.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function ConversationPage() {
 
         <ConversationViewToolbar match={match} />
 
-        <ConversationView loading={loading} record={record} />
+        <ConversationView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

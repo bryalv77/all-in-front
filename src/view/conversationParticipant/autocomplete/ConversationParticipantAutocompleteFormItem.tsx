@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import ConversationParticipantService from 'src/modules/conversationParticipant/conversationParticipantService';
-import ConversationParticipantFormModal from 'src/view/conversationParticipant/form/ConversationParticipantFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import ConversationParticipantService from '../../../modules/conversationParticipant/conversationParticipantService';
+import ConversationParticipantFormModal from '../../../view/conversationParticipant/form/ConversationParticipantFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/conversationParticipant/conversationParticipantSelectors';
+import selectors from '../../../modules/conversationParticipant/conversationParticipantSelectors';
 
-function ConversationParticipantAutocompleteFormItem(props) {
+function ConversationParticipantAutocompleteFormItem(
+  props,
+) {
   const { setValue, getValues } = useFormContext();
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -27,19 +29,26 @@ function ConversationParticipantAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return ConversationParticipantService.listAutocomplete(value, limit);
+    return ConversationParticipantService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

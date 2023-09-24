@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import moment from 'moment';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import moment from 'moment';
 
 export default [
   {
@@ -36,7 +37,9 @@ export default [
   },
   {
     name: 'userDescription',
-    label: i18n('entities.operation.fields.userDescription'),
+    label: i18n(
+      'entities.operation.fields.userDescription',
+    ),
     schema: schemas.string(
       i18n('entities.operation.fields.userDescription'),
       {},
@@ -57,7 +60,10 @@ export default [
       i18n('entities.operation.fields.valueDate'),
       {},
     ),
-   render: (value) => value && value instanceof Date ? moment(value).format('YYYY-MM-DD') : value,
+    render: (value) =>
+      value && value instanceof Date
+        ? moment(value).format('YYYY-MM-DD')
+        : value,
   },
   {
     name: 'operationDate',
@@ -66,7 +72,10 @@ export default [
       i18n('entities.operation.fields.operationDate'),
       {},
     ),
-   render: (value) => value && value instanceof Date ? moment(value).format('YYYY-MM-DD') : value,
+    render: (value) =>
+      value && value instanceof Date
+        ? moment(value).format('YYYY-MM-DD')
+        : value,
   },
   {
     name: 'cleanNote',
@@ -78,9 +87,13 @@ export default [
   },
   {
     name: 'cleanUserDescription',
-    label: i18n('entities.operation.fields.cleanUserDescription'),
+    label: i18n(
+      'entities.operation.fields.cleanUserDescription',
+    ),
     schema: schemas.string(
-      i18n('entities.operation.fields.cleanUserDescription'),
+      i18n(
+        'entities.operation.fields.cleanUserDescription',
+      ),
       {},
     ),
   },
@@ -94,7 +107,9 @@ export default [
   },
   {
     name: 'secondaryDisplay',
-    label: i18n('entities.operation.fields.secondaryDisplay'),
+    label: i18n(
+      'entities.operation.fields.secondaryDisplay',
+    ),
     schema: schemas.string(
       i18n('entities.operation.fields.secondaryDisplay'),
       {},

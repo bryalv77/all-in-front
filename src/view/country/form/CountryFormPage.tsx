@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/country/form/countryFormActions';
-import selectors from 'src/modules/country/form/countryFormSelectors';
-import { getHistory } from 'src/modules/store';
-import CountryForm from 'src/view/country/form/CountryForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/country/form/countryFormActions';
+import selectors from '../../../modules/country/form/countryFormSelectors';
+import { getHistory } from '../../../modules/store';
+import CountryForm from '../../../view/country/form/CountryForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function CountryFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

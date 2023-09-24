@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import tagsSelectors from 'src/modules/tags/tagsSelectors';
-import destroyActions from 'src/modules/tags/destroy/tagsDestroyActions';
-import destroySelectors from 'src/modules/tags/destroy/tagsDestroySelectors';
-import actions from 'src/modules/tags/list/tagsListActions';
-import selectors from 'src/modules/tags/list/tagsListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import tagsSelectors from '../../../modules/tags/tagsSelectors';
+import destroyActions from '../../../modules/tags/destroy/tagsDestroyActions';
+import destroySelectors from '../../../modules/tags/destroy/tagsDestroySelectors';
+import actions from '../../../modules/tags/list/tagsListActions';
+import selectors from '../../../modules/tags/list/tagsListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function TagsToolbar(props) {
   const [

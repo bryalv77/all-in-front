@@ -1,7 +1,7 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
 
 function PaymentMethodsView(props) {
   const { record, loading } = props;
@@ -18,12 +18,16 @@ function PaymentMethodsView(props) {
       />
 
       <TextViewItem
-        label={i18n('entities.paymentMethods.fields.additionalInfo')}
+        label={i18n(
+          'entities.paymentMethods.fields.additionalInfo',
+        )}
         value={record.additionalInfo}
       />
 
       <TextViewItem
-        label={i18n('entities.paymentMethods.fields.active')}
+        label={i18n(
+          'entities.paymentMethods.fields.active',
+        )}
         value={
           record.active
             ? i18n('common.yes')

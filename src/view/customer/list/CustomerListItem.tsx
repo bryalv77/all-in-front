@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/customer/customerSelectors';
+import selectors from '../../../modules/customer/customerSelectors';
 
 function CustomerListItem(props) {
   const hasPermissionToRead = useSelector(

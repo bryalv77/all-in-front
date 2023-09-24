@@ -7,25 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import productSelectors from 'src/modules/product/productSelectors';
-import destroyActions from 'src/modules/product/destroy/productDestroyActions';
-import destroySelectors from 'src/modules/product/destroy/productDestroySelectors';
-import actions from 'src/modules/product/list/productListActions';
-import selectors from 'src/modules/product/list/productListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import ImagesListView from 'src/view/shared/table/ImagesListView';
-import ProductCategoryListItem from 'src/view/productCategory/list/ProductCategoryListItem';
-import BrandListItem from 'src/view/brand/list/BrandListItem';
+import { i18n } from '../../../i18n';
+import productSelectors from '../../../modules/product/productSelectors';
+import destroyActions from '../../../modules/product/destroy/productDestroyActions';
+import destroySelectors from '../../../modules/product/destroy/productDestroySelectors';
+import actions from '../../../modules/product/list/productListActions';
+import selectors from '../../../modules/product/list/productListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import ImagesListView from '../../../view/shared/table/ImagesListView';
+import ProductCategoryListItem from '../../../view/productCategory/list/ProductCategoryListItem';
+import BrandListItem from '../../../view/brand/list/BrandListItem';
 
 function ProductListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -111,59 +109,57 @@ function ProductListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'name'}
-                  label={i18n(
-                    'entities.product.fields.name',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'unitPrice'}
-                  label={i18n(
-                    'entities.product.fields.unitPrice',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.product.fields.photos',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.product.fields.category',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'stock'}
-                  label={i18n(
-                    'entities.product.fields.stock',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.product.fields.brandId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'active'}
-                  label={i18n(
-                    'entities.product.fields.active',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'name'}
+                label={i18n('entities.product.fields.name')}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'unitPrice'}
+                label={i18n(
+                  'entities.product.fields.unitPrice',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.product.fields.photos',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.product.fields.category',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'stock'}
+                label={i18n(
+                  'entities.product.fields.stock',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.product.fields.brandId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'active'}
+                label={i18n(
+                  'entities.product.fields.active',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -202,8 +198,13 @@ function ProductListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.name}</td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.name}
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.unitPrice || row.unitPrice === 0
                       ? Number(row.unitPrice).toFixed(2)
                       : row.unitPrice}
@@ -212,9 +213,16 @@ function ProductListTable(props) {
                     <ImagesListView value={row.photos} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <ProductCategoryListItem value={row.category} />
+                    <ProductCategoryListItem
+                      value={row.category}
+                    />
                   </td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.stock}</td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
+                    {row.stock}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <BrandListItem value={row.brandId} />
                   </td>

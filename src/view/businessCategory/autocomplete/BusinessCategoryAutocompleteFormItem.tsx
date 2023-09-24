@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import BusinessCategoryService from 'src/modules/businessCategory/businessCategoryService';
-import BusinessCategoryFormModal from 'src/view/businessCategory/form/BusinessCategoryFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import BusinessCategoryService from '../../../modules/businessCategory/businessCategoryService';
+import BusinessCategoryFormModal from '../../../view/businessCategory/form/BusinessCategoryFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/businessCategory/businessCategorySelectors';
+import selectors from '../../../modules/businessCategory/businessCategorySelectors';
 
 function BusinessCategoryAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function BusinessCategoryAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return BusinessCategoryService.listAutocomplete(value, limit);
+    return BusinessCategoryService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

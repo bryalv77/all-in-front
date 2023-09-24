@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import PromotionsListFilter from 'src/view/promotions/list/PromotionsListFilter';
-import PromotionsListTable from 'src/view/promotions/list/PromotionsListTable';
-import PromotionsListToolbar from 'src/view/promotions/list/PromotionsListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import PromotionsListFilter from '../../../view/promotions/list/PromotionsListFilter';
+import PromotionsListTable from '../../../view/promotions/list/PromotionsListTable';
+import PromotionsListToolbar from '../../../view/promotions/list/PromotionsListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PromotionsListPage(props) {
   return (

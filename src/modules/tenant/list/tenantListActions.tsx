@@ -1,6 +1,6 @@
-import TenantService from 'src/modules/tenant/tenantService';
-import selectors from 'src/modules/tenant/list/tenantListSelectors';
-import Errors from 'src/modules/shared/error/errors';
+import TenantService from '../../../modules/tenant/tenantService';
+import selectors from '../../../modules/tenant/list/tenantListSelectors';
+import Errors from '../../../modules/shared/error/errors';
 
 const prefix = 'TENANT_LIST';
 
@@ -44,17 +44,15 @@ const tenantListActions = {
     dispatch(tenantListActions.doFetch());
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: tenantListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: tenantListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(tenantListActions.doFetchCurrentFilter());
-  },
+      dispatch(tenantListActions.doFetchCurrentFilter());
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -65,47 +63,48 @@ const tenantListActions = {
     dispatch(tenantListActions.doFetchCurrentFilter());
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(tenantListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: tenantListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await TenantService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        tenantListActions.doFetch(filter, rawFilter, true),
+      );
+    },
 
-      dispatch({
-        type: tenantListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: tenantListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: tenantListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await TenantService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: tenantListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: tenantListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default tenantListActions;

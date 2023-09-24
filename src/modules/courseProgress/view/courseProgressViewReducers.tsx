@@ -1,4 +1,4 @@
-import actions from 'src/modules/courseProgress/view/courseProgressViewActions';
+import actions from '../../../modules/courseProgress/view/courseProgressViewActions';
 
 const initialData = {
   loading: false,

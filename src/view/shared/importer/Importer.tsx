@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import importerFormHoc from 'src/view/shared/importer/ImporterForm';
-import importerListHoc from 'src/view/shared/importer/ImporterList';
-import importerStatusHoc from 'src/view/shared/importer/ImporterStatus';
-import importerToolbarHoc from 'src/view/shared/importer/ImporterToolbar';
+import importerFormHoc from '../../../view/shared/importer/ImporterForm';
+import importerListHoc from '../../../view/shared/importer/ImporterList';
+import importerStatusHoc from '../../../view/shared/importer/ImporterStatus';
+import importerToolbarHoc from '../../../view/shared/importer/ImporterToolbar';
 
 export default (
   selectors,

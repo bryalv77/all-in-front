@@ -7,18 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import teacherSelectors from 'src/modules/teacher/teacherSelectors';
-import destroyActions from 'src/modules/teacher/destroy/teacherDestroyActions';
-import destroySelectors from 'src/modules/teacher/destroy/teacherDestroySelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import teacherSelectors from '../../../modules/teacher/teacherSelectors';
+import destroyActions from '../../../modules/teacher/destroy/teacherDestroyActions';
+import destroySelectors from '../../../modules/teacher/destroy/teacherDestroySelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function TeacherViewToolbar(props) {
-  const [
-    destroyConfirmVisible,
-    setDestroyConfirmVisible,
-  ] = useState(false);
+  const [destroyConfirmVisible, setDestroyConfirmVisible] =
+    useState(false);
 
   const dispatch = useDispatch();
 

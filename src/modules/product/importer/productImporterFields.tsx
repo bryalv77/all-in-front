@@ -1,5 +1,5 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
 
 export default [
   {
@@ -8,9 +8,9 @@ export default [
     schema: schemas.string(
       i18n('entities.product.fields.name'),
       {
-        "required": true,
-        "min": 2,
-        "max": 255
+        required: true,
+        min: 2,
+        max: 255,
       },
     ),
   },
@@ -20,7 +20,7 @@ export default [
     schema: schemas.string(
       i18n('entities.product.fields.description'),
       {
-        "max": 21845
+        max: 21845,
       },
     ),
   },
@@ -30,10 +30,10 @@ export default [
     schema: schemas.decimal(
       i18n('entities.product.fields.unitPrice'),
       {
-        "required": true,
-        "scale": 2,
-        "min": 0.01,
-        "max": 99999
+        required: true,
+        scale: 2,
+        min: 0.01,
+        max: 99999,
       },
     ),
   },
@@ -43,7 +43,7 @@ export default [
     schema: schemas.images(
       i18n('entities.product.fields.photos'),
       {
-        "max": 3
+        max: 3,
       },
     ),
   },

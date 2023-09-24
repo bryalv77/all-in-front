@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseComment/importer/courseCommentImporterActions';
-import fields from 'src/modules/courseComment/importer/courseCommentImporterFields';
-import selectors from 'src/modules/courseComment/importer/courseCommentImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseComment/importer/courseCommentImporterActions';
+import fields from '../../../modules/courseComment/importer/courseCommentImporterFields';
+import selectors from '../../../modules/courseComment/importer/courseCommentImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function CourseCommentImportPage() {
   const Importer = importerHoc(
@@ -19,7 +19,10 @@ function CourseCommentImportPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseComment.menu'), '/course-comment'],
+          [
+            i18n('entities.courseComment.menu'),
+            '/course-comment',
+          ],
           [i18n('entities.courseComment.importer.title')],
         ]}
       />

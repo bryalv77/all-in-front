@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/brand/form/brandFormActions';
-import selectors from 'src/modules/brand/form/brandFormSelectors';
-import { getHistory } from 'src/modules/store';
-import BrandForm from 'src/view/brand/form/BrandForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/brand/form/brandFormActions';
+import selectors from '../../../modules/brand/form/brandFormSelectors';
+import { getHistory } from '../../../modules/store';
+import BrandForm from '../../../view/brand/form/BrandForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function BrandFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

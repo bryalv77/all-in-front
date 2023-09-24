@@ -1,4 +1,4 @@
-import actions from 'src/modules/appointment/form/appointmentFormActions';
+import actions from '../../../modules/appointment/form/appointmentFormActions';
 
 const initialData = {
   initLoading: false,

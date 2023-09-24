@@ -1,8 +1,8 @@
-import importerActions from 'src/modules/shared/importer/importerActions';
-import selectors from 'src/modules/promotions/importer/promotionsImporterSelectors';
-import PromotionsService from 'src/modules/promotions/promotionsService';
-import fields from 'src/modules/promotions/importer/promotionsImporterFields';
-import { i18n } from 'src/i18n';
+import importerActions from '../../../modules/shared/importer/importerActions';
+import selectors from '../../../modules/promotions/importer/promotionsImporterSelectors';
+import PromotionsService from '../../../modules/promotions/promotionsService';
+import fields from '../../../modules/promotions/importer/promotionsImporterFields';
+import { i18n } from '../../../i18n';
 
 const promotionsImporterActions = importerActions(
   'PROMOTIONS_IMPORTER',

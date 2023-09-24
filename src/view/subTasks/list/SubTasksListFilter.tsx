@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/subTasks/list/subTasksListActions';
-import selectors from 'src/modules/subTasks/list/subTasksListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/subTasks/list/subTasksListActions';
+import selectors from '../../../modules/subTasks/list/subTasksListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import subTasksEnumerators from 'src/modules/subTasks/subTasksEnumerators';
-import TasksAutocompleteFormItem from 'src/view/tasks/autocomplete/TasksAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import subTasksEnumerators from '../../../modules/subTasks/subTasksEnumerators';
+import TasksAutocompleteFormItem from '../../../view/tasks/autocomplete/TasksAutocompleteFormItem';
 
 const schema = yup.object().shape({
   description: yupFilterSchemas.string(
@@ -35,7 +35,7 @@ const emptyValues = {
   description: null,
   status: null,
   taskId: null,
-}
+};
 
 const previewRenders = {
   description: {
@@ -44,13 +44,15 @@ const previewRenders = {
   },
   status: {
     label: i18n('entities.subTasks.fields.status'),
-    render: filterRenders.enumerator('entities.subTasks.enumerators.status',),
+    render: filterRenders.enumerator(
+      'entities.subTasks.enumerators.status',
+    ),
   },
   taskId: {
-      label: i18n('entities.subTasks.fields.taskId'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.subTasks.fields.taskId'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function SubTasksListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -71,7 +73,12 @@ function SubTasksListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -111,23 +118,29 @@ function SubTasksListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="description"
-                label={i18n('entities.subTasks.fields.description')}      
+                label={i18n(
+                  'entities.subTasks.fields.description',
+                )}
               />
               <SelectFormItem
-                  name="status"
-                  label={i18n('entities.subTasks.fields.status')}
-                  options={subTasksEnumerators.status.map(
-                    (value) => ({
-                      value,
-                      label: i18n(
-                        `entities.subTasks.enumerators.status.${value}`,
-                      ),
-                    }),
-                  )}
-                />
-              <TasksAutocompleteFormItem  
+                name="status"
+                label={i18n(
+                  'entities.subTasks.fields.status',
+                )}
+                options={subTasksEnumerators.status.map(
+                  (value) => ({
+                    value,
+                    label: i18n(
+                      `entities.subTasks.enumerators.status.${value}`,
+                    ),
+                  }),
+                )}
+              />
+              <TasksAutocompleteFormItem
                 name="taskId"
-                label={i18n('entities.subTasks.fields.taskId')}        
+                label={i18n(
+                  'entities.subTasks.fields.taskId',
+                )}
               />
             </div>
 

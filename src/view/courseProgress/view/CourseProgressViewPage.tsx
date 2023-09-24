@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseProgress/view/courseProgressViewActions';
-import selectors from 'src/modules/courseProgress/view/courseProgressViewSelectors';
-import CourseProgressView from 'src/view/courseProgress/view/CourseProgressView';
-import CourseProgressViewToolbar from 'src/view/courseProgress/view/CourseProgressViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseProgress/view/courseProgressViewActions';
+import selectors from '../../../modules/courseProgress/view/courseProgressViewSelectors';
+import CourseProgressView from '../../../view/courseProgress/view/CourseProgressView';
+import CourseProgressViewToolbar from '../../../view/courseProgress/view/CourseProgressViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CourseProgressPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function CourseProgressPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseProgress.menu'), '/course-progress'],
+          [
+            i18n('entities.courseProgress.menu'),
+            '/course-progress',
+          ],
           [i18n('entities.courseProgress.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function CourseProgressPage() {
 
         <CourseProgressViewToolbar match={match} />
 
-        <CourseProgressView loading={loading} record={record} />
+        <CourseProgressView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

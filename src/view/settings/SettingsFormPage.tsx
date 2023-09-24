@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/settings/settingsActions';
-import selectors from 'src/modules/settings/settingsSelectors';
-import { getHistory } from 'src/modules/store';
-import SettingsForm from 'src/view/settings/SettingsForm';
-import SettingsFormToolbar from 'src/view/settings/SettingsFormToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/settings/settingsActions';
+import selectors from '../../../modules/settings/settingsSelectors';
+import { getHistory } from '../../../modules/store';
+import SettingsForm from '../../../view/settings/SettingsForm';
+import SettingsFormToolbar from '../../../view/settings/SettingsFormToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 import Spinner from '../shared/Spinner';
 
 const SettingsFormPage = (props) => {

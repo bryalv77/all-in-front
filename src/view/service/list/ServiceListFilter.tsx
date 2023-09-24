@@ -2,22 +2,22 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/service/list/serviceListActions';
-import selectors from 'src/modules/service/list/serviceListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/service/list/serviceListActions';
+import selectors from '../../../modules/service/list/serviceListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import BusinessAutocompleteFormItem from 'src/view/business/autocomplete/BusinessAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import BusinessAutocompleteFormItem from '../../../view/business/autocomplete/BusinessAutocompleteFormItem';
 
 const schema = yup.object().shape({
   name: yupFilterSchemas.string(
@@ -47,7 +47,7 @@ const emptyValues = {
   priceRange: [],
   businessId: null,
   active: null,
-}
+};
 
 const previewRenders = {
   name: {
@@ -59,7 +59,9 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   hoursDurationRange: {
-    label: i18n('entities.service.fields.hoursDurationRange'),
+    label: i18n(
+      'entities.service.fields.hoursDurationRange',
+    ),
     render: filterRenders.decimalRange(),
   },
   priceRange: {
@@ -67,14 +69,14 @@ const previewRenders = {
     render: filterRenders.decimalRange(),
   },
   businessId: {
-      label: i18n('entities.service.fields.businessId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n('entities.service.fields.businessId'),
+    render: filterRenders.relationToOne(),
+  },
   active: {
     label: i18n('entities.service.fields.active'),
     render: filterRenders.boolean(),
   },
-}
+};
 
 function ServiceListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -95,7 +97,12 @@ function ServiceListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -135,27 +142,37 @@ function ServiceListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="name"
-                label={i18n('entities.service.fields.name')}      
+                label={i18n('entities.service.fields.name')}
               />
               <InputFormItem
                 name="description"
-                label={i18n('entities.service.fields.description')}      
+                label={i18n(
+                  'entities.service.fields.description',
+                )}
               />
               <InputRangeFormItem
                 name="hoursDurationRange"
-                label={i18n('entities.service.fields.hoursDurationRange')}      
+                label={i18n(
+                  'entities.service.fields.hoursDurationRange',
+                )}
               />
               <InputRangeFormItem
                 name="priceRange"
-                label={i18n('entities.service.fields.priceRange')}      
+                label={i18n(
+                  'entities.service.fields.priceRange',
+                )}
               />
-              <BusinessAutocompleteFormItem  
+              <BusinessAutocompleteFormItem
                 name="businessId"
-                label={i18n('entities.service.fields.businessId')}        
+                label={i18n(
+                  'entities.service.fields.businessId',
+                )}
               />
               <SelectFormItem
                 name="active"
-                label={i18n('entities.service.fields.active')}
+                label={i18n(
+                  'entities.service.fields.active',
+                )}
                 options={[
                   {
                     value: true,

@@ -1,4 +1,4 @@
-import actions from 'src/modules/paymentMethods/view/paymentMethodsViewActions';
+import actions from '../../../modules/paymentMethods/view/paymentMethodsViewActions';
 
 const initialData = {
   loading: false,

@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import Spinner from 'src/view/shared/Spinner';
-import TextViewItem from 'src/view/shared/view/TextViewItem';
-import ImagesViewItem from 'src/view/shared/view/ImagesViewItem';
-import ProductCategoryViewItem from 'src/view/productCategory/view/ProductCategoryViewItem';
-import BrandViewItem from 'src/view/brand/view/BrandViewItem';
+import { i18n } from '../../../i18n';
+import Spinner from '../../../view/shared/Spinner';
+import TextViewItem from '../../../view/shared/view/TextViewItem';
+import ImagesViewItem from '../../../view/shared/view/ImagesViewItem';
+import ProductCategoryViewItem from '../../../view/productCategory/view/ProductCategoryViewItem';
+import BrandViewItem from '../../../view/brand/view/BrandViewItem';
 
 function ProductView(props) {
   const { record, loading } = props;
@@ -25,10 +25,12 @@ function ProductView(props) {
         value={record.description}
       />
 
-      {record.unitPrice != null && <TextViewItem
-        label={i18n('entities.product.fields.unitPrice')}
-        value={Number(record.unitPrice).toFixed(2)}
-      />}
+      {record.unitPrice != null && (
+        <TextViewItem
+          label={i18n('entities.product.fields.unitPrice')}
+          value={Number(record.unitPrice).toFixed(2)}
+        />
+      )}
 
       <ImagesViewItem
         label={i18n('entities.product.fields.photos')}

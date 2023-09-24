@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import CountryListFilter from 'src/view/country/list/CountryListFilter';
-import CountryListTable from 'src/view/country/list/CountryListTable';
-import CountryListToolbar from 'src/view/country/list/CountryListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import CountryListFilter from '../../../view/country/list/CountryListFilter';
+import CountryListTable from '../../../view/country/list/CountryListTable';
+import CountryListToolbar from '../../../view/country/list/CountryListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CountryListPage(props) {
   return (

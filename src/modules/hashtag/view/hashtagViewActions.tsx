@@ -1,6 +1,6 @@
-import HashtagService from 'src/modules/hashtag/hashtagService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import HashtagService from '../../../modules/hashtag/hashtagService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'HASHTAG_VIEW';
 

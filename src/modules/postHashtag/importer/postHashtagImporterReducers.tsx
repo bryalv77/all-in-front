@@ -1,4 +1,4 @@
-import importerReducers from 'src/modules/shared/importer/importerReducers';
-import actions from 'src/modules/postHashtag/importer/postHashtagImporterActions';
+import importerReducers from '../../../modules/shared/importer/importerReducers';
+import actions from '../../../modules/postHashtag/importer/postHashtagImporterActions';
 
 export default importerReducers(actions);

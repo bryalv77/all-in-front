@@ -2,20 +2,20 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/hashtag/list/hashtagListActions';
-import selectors from 'src/modules/hashtag/list/hashtagListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/hashtag/list/hashtagListActions';
+import selectors from '../../../modules/hashtag/list/hashtagListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputNumberRangeFormItem from 'src/view/shared/form/items/InputNumberRangeFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputNumberRangeFormItem from '../../../view/shared/form/items/InputNumberRangeFormItem';
 
 const schema = yup.object().shape({
   hashtagText: yupFilterSchemas.string(
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
 const emptyValues = {
   hashtagText: null,
   usageCountRange: [],
-}
+};
 
 const previewRenders = {
   hashtagText: {
@@ -40,7 +40,7 @@ const previewRenders = {
     label: i18n('entities.hashtag.fields.usageCountRange'),
     render: filterRenders.range(),
   },
-}
+};
 
 function HashtagListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -61,7 +61,12 @@ function HashtagListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -101,11 +106,15 @@ function HashtagListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputFormItem
                 name="hashtagText"
-                label={i18n('entities.hashtag.fields.hashtagText')}      
+                label={i18n(
+                  'entities.hashtag.fields.hashtagText',
+                )}
               />
               <InputNumberRangeFormItem
                 name="usageCountRange"
-                label={i18n('entities.hashtag.fields.usageCountRange')}      
+                label={i18n(
+                  'entities.hashtag.fields.usageCountRange',
+                )}
               />
             </div>
 

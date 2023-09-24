@@ -7,26 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import operationSelectors from 'src/modules/operation/operationSelectors';
-import destroyActions from 'src/modules/operation/destroy/operationDestroyActions';
-import destroySelectors from 'src/modules/operation/destroy/operationDestroySelectors';
-import actions from 'src/modules/operation/list/operationListActions';
-import selectors from 'src/modules/operation/list/operationListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
-import FilesListView from 'src/view/shared/table/FileListView';
-import CategoryListItem from 'src/view/category/list/CategoryListItem';
-import BankListItem from 'src/view/bank/list/BankListItem';
+import { i18n } from '../../../i18n';
+import operationSelectors from '../../../modules/operation/operationSelectors';
+import destroyActions from '../../../modules/operation/destroy/operationDestroyActions';
+import destroySelectors from '../../../modules/operation/destroy/operationDestroySelectors';
+import actions from '../../../modules/operation/list/operationListActions';
+import selectors from '../../../modules/operation/list/operationListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
+import FilesListView from '../../../view/shared/table/FileListView';
+import CategoryListItem from '../../../view/category/list/CategoryListItem';
+import BankListItem from '../../../view/bank/list/BankListItem';
 
 function OperationListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -112,135 +110,135 @@ function OperationListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'fintonicId'}
-                  label={i18n(
-                    'entities.operation.fields.fintonicId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.operation.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'reference'}
-                  label={i18n(
-                    'entities.operation.fields.reference',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'note'}
-                  label={i18n(
-                    'entities.operation.fields.note',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'userDescription'}
-                  label={i18n(
-                    'entities.operation.fields.userDescription',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'quantity'}
-                  label={i18n(
-                    'entities.operation.fields.quantity',
-                  )}
-                  align="right"
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'valueDate'}
-                  label={i18n(
-                    'entities.operation.fields.valueDate',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'operationDate'}
-                  label={i18n(
-                    'entities.operation.fields.operationDate',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'cleanNote'}
-                  label={i18n(
-                    'entities.operation.fields.cleanNote',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'cleanUserDescription'}
-                  label={i18n(
-                    'entities.operation.fields.cleanUserDescription',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'primaryDisplay'}
-                  label={i18n(
-                    'entities.operation.fields.primaryDisplay',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'secondaryDisplay'}
-                  label={i18n(
-                    'entities.operation.fields.secondaryDisplay',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.operation.fields.categoryId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.operation.fields.bankId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.operation.fields.receipt',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.operation.fields.userId',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'fintonicId'}
+                label={i18n(
+                  'entities.operation.fields.fintonicId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.operation.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'reference'}
+                label={i18n(
+                  'entities.operation.fields.reference',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'note'}
+                label={i18n(
+                  'entities.operation.fields.note',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'userDescription'}
+                label={i18n(
+                  'entities.operation.fields.userDescription',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'quantity'}
+                label={i18n(
+                  'entities.operation.fields.quantity',
+                )}
+                align="right"
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'valueDate'}
+                label={i18n(
+                  'entities.operation.fields.valueDate',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'operationDate'}
+                label={i18n(
+                  'entities.operation.fields.operationDate',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'cleanNote'}
+                label={i18n(
+                  'entities.operation.fields.cleanNote',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'cleanUserDescription'}
+                label={i18n(
+                  'entities.operation.fields.cleanUserDescription',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'primaryDisplay'}
+                label={i18n(
+                  'entities.operation.fields.primaryDisplay',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'secondaryDisplay'}
+                label={i18n(
+                  'entities.operation.fields.secondaryDisplay',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.operation.fields.categoryId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.operation.fields.bankId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.operation.fields.receipt',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.operation.fields.userId',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -279,30 +277,55 @@ function OperationListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.fintonicId}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.description}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.reference}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.note}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.userDescription}</td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.fintonicId}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.description}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.reference}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.note}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.userDescription}
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
                     {row.quantity}
                   </td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.valueDate}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.operationDate}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.cleanNote}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.cleanUserDescription}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.primaryDisplay}</td>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.secondaryDisplay}</td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <CategoryListItem value={row.categoryId} />
+                    {row.valueDate}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.operationDate}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.cleanNote}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.cleanUserDescription}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.primaryDisplay}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.secondaryDisplay}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    <CategoryListItem
+                      value={row.categoryId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <BankListItem value={row.bankId} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <FilesListView
-                      value={row.receipt}
-                    />
+                    <FilesListView value={row.receipt} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <UserListItem value={row.userId} />

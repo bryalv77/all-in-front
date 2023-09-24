@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import tasksEnumerators from 'src/modules/tasks/tasksEnumerators';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import tasksEnumerators from '../../../modules/tasks/tasksEnumerators';
 import moment from 'moment';
-import DatePickerFormItem from 'src/view/shared/form/items/DatePickerFormItem';
-import TaskListAutocompleteFormItem from 'src/view/taskList/autocomplete/TaskListAutocompleteFormItem';
+import DatePickerFormItem from '../../../view/shared/form/items/DatePickerFormItem';
+import TaskListAutocompleteFormItem from '../../../view/taskList/autocomplete/TaskListAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
   status: yupFormSchemas.enumerator(
     i18n('entities.tasks.fields.status'),
     {
-      "options": tasksEnumerators.status
+      options: tasksEnumerators.status,
     },
   ),
   taskList: yupFormSchemas.relationToOne(
@@ -46,7 +46,9 @@ function TasksForm(props) {
 
     return {
       description: record.description,
-      dueDate: record.dueDate ? moment(record.dueDate, 'YYYY-MM-DD').toDate() : null,
+      dueDate: record.dueDate
+        ? moment(record.dueDate, 'YYYY-MM-DD').toDate()
+        : null,
       status: record.status,
       taskList: record.taskList,
     };
@@ -74,19 +76,25 @@ function TasksForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.tasks.fields.description')}
-          placeholder={i18n('entities.tasks.placeholders.description')}
-          hint={i18n('entities.tasks.hints.description')}  
+            label={i18n(
+              'entities.tasks.fields.description',
+            )}
+            placeholder={i18n(
+              'entities.tasks.placeholders.description',
+            )}
+            hint={i18n('entities.tasks.hints.description')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <DatePickerFormItem
             name="dueDate"
             label={i18n('entities.tasks.fields.dueDate')}
-          placeholder={i18n('entities.tasks.placeholders.dueDate')}
-          hint={i18n('entities.tasks.hints.dueDate')}
+            placeholder={i18n(
+              'entities.tasks.placeholders.dueDate',
+            )}
+            hint={i18n('entities.tasks.hints.dueDate')}
             required={false}
           />
         </div>
@@ -94,8 +102,10 @@ function TasksForm(props) {
           <SelectFormItem
             name="status"
             label={i18n('entities.tasks.fields.status')}
-          placeholder={i18n('entities.tasks.placeholders.status')}
-          hint={i18n('entities.tasks.hints.status')}
+            placeholder={i18n(
+              'entities.tasks.placeholders.status',
+            )}
+            hint={i18n('entities.tasks.hints.status')}
             options={tasksEnumerators.status.map(
               (value) => ({
                 value,
@@ -108,11 +118,13 @@ function TasksForm(props) {
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <TaskListAutocompleteFormItem  
+          <TaskListAutocompleteFormItem
             name="taskList"
             label={i18n('entities.tasks.fields.taskList')}
-          placeholder={i18n('entities.tasks.placeholders.taskList')}
-          hint={i18n('entities.tasks.hints.taskList')}
+            placeholder={i18n(
+              'entities.tasks.placeholders.taskList',
+            )}
+            hint={i18n('entities.tasks.hints.taskList')}
             required={false}
             showCreate={!props.modal}
           />

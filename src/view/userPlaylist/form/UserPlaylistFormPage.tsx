@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/userPlaylist/form/userPlaylistFormActions';
-import selectors from 'src/modules/userPlaylist/form/userPlaylistFormSelectors';
-import { getHistory } from 'src/modules/store';
-import UserPlaylistForm from 'src/view/userPlaylist/form/UserPlaylistForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/userPlaylist/form/userPlaylistFormActions';
+import selectors from '../../../modules/userPlaylist/form/userPlaylistFormSelectors';
+import { getHistory } from '../../../modules/store';
+import UserPlaylistForm from '../../../view/userPlaylist/form/UserPlaylistForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function UserPlaylistFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function UserPlaylistFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.userPlaylist.menu'), '/user-playlist'],
+          [
+            i18n('entities.userPlaylist.menu'),
+            '/user-playlist',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function UserPlaylistFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/user-playlist')}
+            onCancel={() =>
+              getHistory().push('/user-playlist')
+            }
           />
         )}
       </div>

@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import playlistSongSelectors from 'src/modules/playlistSong/playlistSongSelectors';
-import destroyActions from 'src/modules/playlistSong/destroy/playlistSongDestroyActions';
-import destroySelectors from 'src/modules/playlistSong/destroy/playlistSongDestroySelectors';
-import actions from 'src/modules/playlistSong/list/playlistSongListActions';
-import selectors from 'src/modules/playlistSong/list/playlistSongListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import playlistSongSelectors from '../../../modules/playlistSong/playlistSongSelectors';
+import destroyActions from '../../../modules/playlistSong/destroy/playlistSongDestroyActions';
+import destroySelectors from '../../../modules/playlistSong/destroy/playlistSongDestroySelectors';
+import actions from '../../../modules/playlistSong/list/playlistSongListActions';
+import selectors from '../../../modules/playlistSong/list/playlistSongListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function PlaylistSongToolbar(props) {
   const [

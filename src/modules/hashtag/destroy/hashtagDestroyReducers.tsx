@@ -1,4 +1,4 @@
-import actions from 'src/modules/hashtag/destroy/hashtagDestroyActions';
+import actions from '../../../modules/hashtag/destroy/hashtagDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

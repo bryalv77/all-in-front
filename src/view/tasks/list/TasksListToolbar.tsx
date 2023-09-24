@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import tasksSelectors from 'src/modules/tasks/tasksSelectors';
-import destroyActions from 'src/modules/tasks/destroy/tasksDestroyActions';
-import destroySelectors from 'src/modules/tasks/destroy/tasksDestroySelectors';
-import actions from 'src/modules/tasks/list/tasksListActions';
-import selectors from 'src/modules/tasks/list/tasksListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import tasksSelectors from '../../../modules/tasks/tasksSelectors';
+import destroyActions from '../../../modules/tasks/destroy/tasksDestroyActions';
+import destroySelectors from '../../../modules/tasks/destroy/tasksDestroySelectors';
+import actions from '../../../modules/tasks/list/tasksListActions';
+import selectors from '../../../modules/tasks/list/tasksListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function TasksToolbar(props) {
   const [

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import UserPlaylistService from 'src/modules/userPlaylist/userPlaylistService';
-import UserPlaylistFormModal from 'src/view/userPlaylist/form/UserPlaylistFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import UserPlaylistService from '../../../modules/userPlaylist/userPlaylistService';
+import UserPlaylistFormModal from '../../../view/userPlaylist/form/UserPlaylistFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/userPlaylist/userPlaylistSelectors';
+import selectors from '../../../modules/userPlaylist/userPlaylistSelectors';
 
 function UserPlaylistAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function UserPlaylistAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return UserPlaylistService.listAutocomplete(value, limit);
+    return UserPlaylistService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

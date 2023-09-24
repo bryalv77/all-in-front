@@ -1,9 +1,9 @@
-import PostHashtagService from 'src/modules/postHashtag/postHashtagService';
-import selectors from 'src/modules/postHashtag/list/postHashtagListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/postHashtag/list/postHashtagListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import PostHashtagService from '../../../modules/postHashtag/postHashtagService';
+import selectors from '../../../modules/postHashtag/list/postHashtagListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/postHashtag/list/postHashtagListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'POSTHASHTAG_LIST';
 
@@ -86,17 +86,17 @@ const postHashtagListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: postHashtagListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: postHashtagListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(postHashtagListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        postHashtagListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -107,47 +107,52 @@ const postHashtagListActions = {
     dispatch(postHashtagListActions.doFetchCurrentFilter());
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(postHashtagListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: postHashtagListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await PostHashtagService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        postHashtagListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: postHashtagListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: postHashtagListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: postHashtagListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await PostHashtagService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: postHashtagListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: postHashtagListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default postHashtagListActions;

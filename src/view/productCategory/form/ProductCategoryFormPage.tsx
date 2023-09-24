@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/productCategory/form/productCategoryFormActions';
-import selectors from 'src/modules/productCategory/form/productCategoryFormSelectors';
-import { getHistory } from 'src/modules/store';
-import ProductCategoryForm from 'src/view/productCategory/form/ProductCategoryForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/productCategory/form/productCategoryFormActions';
+import selectors from '../../../modules/productCategory/form/productCategoryFormSelectors';
+import { getHistory } from '../../../modules/store';
+import ProductCategoryForm from '../../../view/productCategory/form/ProductCategoryForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function ProductCategoryFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function ProductCategoryFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.productCategory.menu'), '/product-category'],
+          [
+            i18n('entities.productCategory.menu'),
+            '/product-category',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function ProductCategoryFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/product-category')}
+            onCancel={() =>
+              getHistory().push('/product-category')
+            }
           />
         )}
       </div>

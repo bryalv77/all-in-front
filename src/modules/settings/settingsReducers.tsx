@@ -1,4 +1,4 @@
-import actions from 'src/modules/settings/settingsActions';
+import actions from '../../../modules/settings/settingsActions';
 
 const initialData = {
   initLoading: false,

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/album/form/albumFormActions';
-import selectors from 'src/modules/album/form/albumFormSelectors';
-import { getHistory } from 'src/modules/store';
-import AlbumForm from 'src/view/album/form/AlbumForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/album/form/albumFormActions';
+import selectors from '../../../modules/album/form/albumFormSelectors';
+import { getHistory } from '../../../modules/store';
+import AlbumForm from '../../../view/album/form/AlbumForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function AlbumFormPage(props) {
   const [dispatched, setDispatched] = useState(false);

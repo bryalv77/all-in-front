@@ -1,5 +1,6 @@
-import schemas from 'src/modules/shared/yup/yupImporterSchemas';
-import { i18n } from 'src/i18n';import customerEnumerators from 'src/modules/customer/customerEnumerators';
+import schemas from '../../../modules/shared/yup/yupImporterSchemas';
+import { i18n } from '../../../i18n';
+import customerEnumerators from '../../../modules/customer/customerEnumerators';
 import moment from 'moment';
 
 export default [
@@ -9,9 +10,9 @@ export default [
     schema: schemas.string(
       i18n('entities.customer.fields.name'),
       {
-        "required": true,
-        "min": 2,
-        "max": 255
+        required: true,
+        min: 2,
+        max: 255,
       },
     ),
   },
@@ -22,7 +23,10 @@ export default [
       i18n('entities.customer.fields.birthdate'),
       {},
     ),
-   render: (value) => value && value instanceof Date ? moment(value).format('YYYY-MM-DD') : value,
+    render: (value) =>
+      value && value instanceof Date
+        ? moment(value).format('YYYY-MM-DD')
+        : value,
   },
   {
     name: 'gender',
@@ -30,7 +34,7 @@ export default [
     schema: schemas.enumerator(
       i18n('entities.customer.fields.gender'),
       {
-        "options": customerEnumerators.gender
+        options: customerEnumerators.gender,
       },
     ),
   },

@@ -1,6 +1,6 @@
-import CourseCategoryService from 'src/modules/courseCategory/courseCategoryService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import CourseCategoryService from '../../../modules/courseCategory/courseCategoryService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'COURSECATEGORY_VIEW';
 

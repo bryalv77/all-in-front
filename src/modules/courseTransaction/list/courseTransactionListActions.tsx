@@ -1,9 +1,9 @@
-import CourseTransactionService from 'src/modules/courseTransaction/courseTransactionService';
-import selectors from 'src/modules/courseTransaction/list/courseTransactionListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/courseTransaction/list/courseTransactionListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import CourseTransactionService from '../../../modules/courseTransaction/courseTransactionService';
+import selectors from '../../../modules/courseTransaction/list/courseTransactionListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/courseTransaction/list/courseTransactionListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'COURSETRANSACTION_LIST';
 
@@ -86,17 +86,17 @@ const courseTransactionListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: courseTransactionListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: courseTransactionListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(courseTransactionListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        courseTransactionListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +104,58 @@ const courseTransactionListActions = {
       payload: sorter,
     });
 
-    dispatch(courseTransactionListActions.doFetchCurrentFilter());
+    dispatch(
+      courseTransactionListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(courseTransactionListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: courseTransactionListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await CourseTransactionService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        courseTransactionListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: courseTransactionListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: courseTransactionListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: courseTransactionListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response =
+          await CourseTransactionService.list(
+            filter,
+            selectors.selectOrderBy(getState()),
+            selectors.selectLimit(getState()),
+            selectors.selectOffset(getState()),
+          );
+
+        dispatch({
+          type: courseTransactionListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: courseTransactionListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default courseTransactionListActions;

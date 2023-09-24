@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import DeliveryMethodService from 'src/modules/deliveryMethod/deliveryMethodService';
-import DeliveryMethodFormModal from 'src/view/deliveryMethod/form/DeliveryMethodFormModal';
-import AutocompleteInMemoryFormItem from 'src/view/shared/form/items/AutocompleteInMemoryFormItem';
+import DeliveryMethodService from '../../../modules/deliveryMethod/deliveryMethodService';
+import DeliveryMethodFormModal from '../../../view/deliveryMethod/form/DeliveryMethodFormModal';
+import AutocompleteInMemoryFormItem from '../../../view/shared/form/items/AutocompleteInMemoryFormItem';
 import { useFormContext } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/deliveryMethod/deliveryMethodSelectors';
+import selectors from '../../../modules/deliveryMethod/deliveryMethodSelectors';
 
 function DeliveryMethodAutocompleteFormItem(props) {
   const { setValue, getValues } = useFormContext();
@@ -27,19 +27,26 @@ function DeliveryMethodAutocompleteFormItem(props) {
     const { name, mode } = props;
 
     if (mode && mode === 'multiple') {
-      setValue(name, [
-        ...(getValues()[name] || []),
-        record,
-      ], {shouldValidate: true, shouldDirty: true});
+      setValue(
+        name,
+        [...(getValues()[name] || []), record],
+        { shouldValidate: true, shouldDirty: true },
+      );
     } else {
-      setValue(name, record, {shouldValidate: true, shouldDirty: true});
+      setValue(name, record, {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
     }
 
     doCloseModal();
   };
 
   const fetchFn = (value, limit) => {
-    return DeliveryMethodService.listAutocomplete(value, limit);
+    return DeliveryMethodService.listAutocomplete(
+      value,
+      limit,
+    );
   };
 
   const mapper = {

@@ -73,9 +73,7 @@ async function initEs() {
   registerLocale('es', language.dateFns);
   setDefaultLocale('es');
 
-  language.dictionary = (
-    await import('src/i18n/es')
-  ).default;
+  language.dictionary = (await import('./es')).default;
 
   moment.locale('es', momentLocale);
 
@@ -100,9 +98,7 @@ async function initPtBr() {
   registerLocale('pt-BR', language.dateFns);
   setDefaultLocale('pt-BR');
 
-  language.dictionary = (
-    await import('src/i18n/pt-BR')
-  ).default;
+  language.dictionary = (await import('./pt-BR')).default;
 
   moment.locale('pt-BR', momentLocale);
 
@@ -116,9 +112,7 @@ async function initPtBr() {
 async function initEn() {
   const language = languages['en'];
 
-  language.dictionary = (
-    await import('src/i18n/en')
-  ).default;
+  language.dictionary = (await import('./en')).default;
 
   if (language.dictionary.validation) {
     setYupLocale(language.dictionary.validation);
@@ -137,14 +131,14 @@ function format(message, args) {
   }
 
   try {
-    return message.replace(/{(\d+)}/g, function (
-      match,
-      number,
-    ) {
-      return typeof args[number] != 'undefined'
-        ? args[number]
-        : match;
-    });
+    return message.replace(
+      /{(\d+)}/g,
+      function (match, number) {
+        return typeof args[number] != 'undefined'
+          ? args[number]
+          : match;
+      },
+    );
   } catch (error) {
     console.error(message, error);
     throw error;

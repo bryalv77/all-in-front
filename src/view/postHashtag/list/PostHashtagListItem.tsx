@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/postHashtag/postHashtagSelectors';
+import selectors from '../../../modules/postHashtag/postHashtagSelectors';
 
 function PostHashtagListItem(props) {
   const hasPermissionToRead = useSelector(

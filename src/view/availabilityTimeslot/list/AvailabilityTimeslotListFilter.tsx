@@ -2,38 +2,46 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/availabilityTimeslot/list/availabilityTimeslotListActions';
-import selectors from 'src/modules/availabilityTimeslot/list/availabilityTimeslotListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/availabilityTimeslot/list/availabilityTimeslotListActions';
+import selectors from '../../../modules/availabilityTimeslot/list/availabilityTimeslotListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import InputNumberRangeFormItem from 'src/view/shared/form/items/InputNumberRangeFormItem';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
-import BusinessAutocompleteFormItem from 'src/view/business/autocomplete/BusinessAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import InputNumberRangeFormItem from '../../../view/shared/form/items/InputNumberRangeFormItem';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
+import BusinessAutocompleteFormItem from '../../../view/business/autocomplete/BusinessAutocompleteFormItem';
 
 const schema = yup.object().shape({
   businessId: yupFilterSchemas.relationToOne(
     i18n('entities.availabilityTimeslot.fields.businessId'),
   ),
   dayOfTheWeek: yupFilterSchemas.string(
-    i18n('entities.availabilityTimeslot.fields.dayOfTheWeek'),
+    i18n(
+      'entities.availabilityTimeslot.fields.dayOfTheWeek',
+    ),
   ),
   startTimeRange: yupFilterSchemas.datetimeRange(
-    i18n('entities.availabilityTimeslot.fields.startTimeRange'),
+    i18n(
+      'entities.availabilityTimeslot.fields.startTimeRange',
+    ),
   ),
   endTimeRange: yupFilterSchemas.datetimeRange(
-    i18n('entities.availabilityTimeslot.fields.endTimeRange'),
+    i18n(
+      'entities.availabilityTimeslot.fields.endTimeRange',
+    ),
   ),
   capacityRange: yupFilterSchemas.integerRange(
-    i18n('entities.availabilityTimeslot.fields.capacityRange'),
+    i18n(
+      'entities.availabilityTimeslot.fields.capacityRange',
+    ),
   ),
 });
 
@@ -43,30 +51,40 @@ const emptyValues = {
   startTimeRange: [],
   endTimeRange: [],
   capacityRange: [],
-}
+};
 
 const previewRenders = {
   businessId: {
-      label: i18n('entities.availabilityTimeslot.fields.businessId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n(
+      'entities.availabilityTimeslot.fields.businessId',
+    ),
+    render: filterRenders.relationToOne(),
+  },
   dayOfTheWeek: {
-    label: i18n('entities.availabilityTimeslot.fields.dayOfTheWeek'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.dayOfTheWeek',
+    ),
     render: filterRenders.generic(),
   },
   startTimeRange: {
-    label: i18n('entities.availabilityTimeslot.fields.startTimeRange'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.startTimeRange',
+    ),
     render: filterRenders.datetimeRange(),
   },
   endTimeRange: {
-    label: i18n('entities.availabilityTimeslot.fields.endTimeRange'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.endTimeRange',
+    ),
     render: filterRenders.datetimeRange(),
   },
   capacityRange: {
-    label: i18n('entities.availabilityTimeslot.fields.capacityRange'),
+    label: i18n(
+      'entities.availabilityTimeslot.fields.capacityRange',
+    ),
     render: filterRenders.range(),
   },
-}
+};
 
 function AvailabilityTimeslotListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -87,7 +105,12 @@ function AvailabilityTimeslotListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -125,27 +148,37 @@ function AvailabilityTimeslotListFilter(props) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-              <BusinessAutocompleteFormItem  
+              <BusinessAutocompleteFormItem
                 name="businessId"
-                label={i18n('entities.availabilityTimeslot.fields.businessId')}        
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.businessId',
+                )}
               />
               <InputFormItem
                 name="dayOfTheWeek"
-                label={i18n('entities.availabilityTimeslot.fields.dayOfTheWeek')}      
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.dayOfTheWeek',
+                )}
               />
               <DatePickerRangeFormItem
                 name="startTimeRange"
-                label={i18n('entities.availabilityTimeslot.fields.startTimeRange')}    
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.startTimeRange',
+                )}
                 showTimeInput
               />
               <DatePickerRangeFormItem
                 name="endTimeRange"
-                label={i18n('entities.availabilityTimeslot.fields.endTimeRange')}    
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.endTimeRange',
+                )}
                 showTimeInput
               />
               <InputNumberRangeFormItem
                 name="capacityRange"
-                label={i18n('entities.availabilityTimeslot.fields.capacityRange')}      
+                label={i18n(
+                  'entities.availabilityTimeslot.fields.capacityRange',
+                )}
               />
             </div>
 

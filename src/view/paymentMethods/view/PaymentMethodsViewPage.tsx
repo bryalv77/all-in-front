@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/paymentMethods/view/paymentMethodsViewActions';
-import selectors from 'src/modules/paymentMethods/view/paymentMethodsViewSelectors';
-import PaymentMethodsView from 'src/view/paymentMethods/view/PaymentMethodsView';
-import PaymentMethodsViewToolbar from 'src/view/paymentMethods/view/PaymentMethodsViewToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/paymentMethods/view/paymentMethodsViewActions';
+import selectors from '../../../modules/paymentMethods/view/paymentMethodsViewSelectors';
+import PaymentMethodsView from '../../../view/paymentMethods/view/PaymentMethodsView';
+import PaymentMethodsViewToolbar from '../../../view/paymentMethods/view/PaymentMethodsViewToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function PaymentMethodsPage() {
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function PaymentMethodsPage() {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.paymentMethods.menu'), '/payment-methods'],
+          [
+            i18n('entities.paymentMethods.menu'),
+            '/payment-methods',
+          ],
           [i18n('entities.paymentMethods.view.title')],
         ]}
       />
@@ -36,7 +39,10 @@ function PaymentMethodsPage() {
 
         <PaymentMethodsViewToolbar match={match} />
 
-        <PaymentMethodsView loading={loading} record={record} />
+        <PaymentMethodsView
+          loading={loading}
+          record={record}
+        />
       </div>
     </>
   );

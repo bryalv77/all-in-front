@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import StudentForm from 'src/view/student/form/StudentForm';
-import StudentService from 'src/modules/student/studentService';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import StudentForm from '../../../view/student/form/StudentForm';
+import StudentService from '../../../modules/student/studentService';
 
 function StudentFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

@@ -1,6 +1,6 @@
-import BusinessCategoryService from 'src/modules/businessCategory/businessCategoryService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import BusinessCategoryService from '../../../modules/businessCategory/businessCategoryService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'BUSINESSCATEGORY_VIEW';
 

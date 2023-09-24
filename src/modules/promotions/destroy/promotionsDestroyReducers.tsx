@@ -1,4 +1,4 @@
-import actions from 'src/modules/promotions/destroy/promotionsDestroyActions';
+import actions from '../../../modules/promotions/destroy/promotionsDestroyActions';
 
 const initialData = {
   loading: false,
@@ -49,4 +49,3 @@ export default (state = initialData, { type, payload }) => {
 
   return state;
 };
-

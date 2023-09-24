@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseProgress/form/courseProgressFormActions';
-import selectors from 'src/modules/courseProgress/form/courseProgressFormSelectors';
-import { getHistory } from 'src/modules/store';
-import CourseProgressForm from 'src/view/courseProgress/form/CourseProgressForm';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import Spinner from 'src/view/shared/Spinner';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseProgress/form/courseProgressFormActions';
+import selectors from '../../../modules/courseProgress/form/courseProgressFormSelectors';
+import { getHistory } from '../../../modules/store';
+import CourseProgressForm from '../../../view/courseProgress/form/CourseProgressForm';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import Spinner from '../../../view/shared/Spinner';
 
 function CourseProgressFormPage(props) {
   const [dispatched, setDispatched] = useState(false);
@@ -45,7 +45,10 @@ function CourseProgressFormPage(props) {
       <Breadcrumb
         items={[
           [i18n('dashboard.menu'), '/'],
-          [i18n('entities.courseProgress.menu'), '/course-progress'],
+          [
+            i18n('entities.courseProgress.menu'),
+            '/course-progress',
+          ],
           [title],
         ]}
       />
@@ -64,7 +67,9 @@ function CourseProgressFormPage(props) {
             record={record}
             isEditing={isEditing}
             onSubmit={doSubmit}
-            onCancel={() => getHistory().push('/course-progress')}
+            onCancel={() =>
+              getHistory().push('/course-progress')
+            }
           />
         )}
       </div>

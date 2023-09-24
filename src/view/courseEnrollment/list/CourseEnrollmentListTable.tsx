@@ -7,25 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import courseEnrollmentSelectors from 'src/modules/courseEnrollment/courseEnrollmentSelectors';
-import destroyActions from 'src/modules/courseEnrollment/destroy/courseEnrollmentDestroyActions';
-import destroySelectors from 'src/modules/courseEnrollment/destroy/courseEnrollmentDestroySelectors';
-import actions from 'src/modules/courseEnrollment/list/courseEnrollmentListActions';
-import selectors from 'src/modules/courseEnrollment/list/courseEnrollmentListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
+import { i18n } from '../../../i18n';
+import courseEnrollmentSelectors from '../../../modules/courseEnrollment/courseEnrollmentSelectors';
+import destroyActions from '../../../modules/courseEnrollment/destroy/courseEnrollmentDestroyActions';
+import destroySelectors from '../../../modules/courseEnrollment/destroy/courseEnrollmentDestroySelectors';
+import actions from '../../../modules/courseEnrollment/list/courseEnrollmentListActions';
+import selectors from '../../../modules/courseEnrollment/list/courseEnrollmentListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
 import moment from 'moment';
-import CourseListItem from 'src/view/course/list/CourseListItem';
-import StudentListItem from 'src/view/student/list/StudentListItem';
+import CourseListItem from '../../../view/course/list/CourseListItem';
+import StudentListItem from '../../../view/student/list/StudentListItem';
 
 function CourseEnrollmentListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -111,25 +109,25 @@ function CourseEnrollmentListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseEnrollment.fields.courseId',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.courseEnrollment.fields.studentId',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'enrollmentDate'}
-                  label={i18n(
-                    'entities.courseEnrollment.fields.enrollmentDate',
-                  )}
-                />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseEnrollment.fields.courseId',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.courseEnrollment.fields.studentId',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'enrollmentDate'}
+                label={i18n(
+                  'entities.courseEnrollment.fields.enrollmentDate',
+                )}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -172,7 +170,9 @@ function CourseEnrollmentListTable(props) {
                     <CourseListItem value={row.courseId} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <StudentListItem value={row.studentId} />
+                    <StudentListItem
+                      value={row.studentId}
+                    />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.enrollmentDate

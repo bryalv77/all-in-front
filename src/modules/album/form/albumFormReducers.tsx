@@ -1,4 +1,4 @@
-import actions from 'src/modules/album/form/albumFormActions';
+import actions from '../../../modules/album/form/albumFormActions';
 
 const initialData = {
   initLoading: false,

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/message/messageSelectors';
+import selectors from '../../../modules/message/messageSelectors';
 
 function MessageListItem(props) {
   const hasPermissionToRead = useSelector(

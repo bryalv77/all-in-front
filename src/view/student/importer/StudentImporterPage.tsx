@@ -1,10 +1,10 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/student/importer/studentImporterActions';
-import fields from 'src/modules/student/importer/studentImporterFields';
-import selectors from 'src/modules/student/importer/studentImporterSelectors';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
-import importerHoc from 'src/view/shared/importer/Importer';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/student/importer/studentImporterActions';
+import fields from '../../../modules/student/importer/studentImporterFields';
+import selectors from '../../../modules/student/importer/studentImporterSelectors';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
+import importerHoc from '../../../view/shared/importer/Importer';
 
 function StudentImportPage() {
   const Importer = importerHoc(

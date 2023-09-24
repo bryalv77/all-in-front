@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import OrderDetailListFilter from 'src/view/orderDetail/list/OrderDetailListFilter';
-import OrderDetailListTable from 'src/view/orderDetail/list/OrderDetailListTable';
-import OrderDetailListToolbar from 'src/view/orderDetail/list/OrderDetailListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import OrderDetailListFilter from '../../../view/orderDetail/list/OrderDetailListFilter';
+import OrderDetailListTable from '../../../view/orderDetail/list/OrderDetailListTable';
+import OrderDetailListToolbar from '../../../view/orderDetail/list/OrderDetailListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function OrderDetailListPage(props) {
   return (

@@ -1,6 +1,6 @@
-import CountryService from 'src/modules/country/countryService';
-import Errors from 'src/modules/shared/error/errors';
-import { getHistory } from 'src/modules/store';
+import CountryService from '../../../modules/country/countryService';
+import Errors from '../../../modules/shared/error/errors';
+import { getHistory } from '../../../modules/store';
 
 const prefix = 'COUNTRY_VIEW';
 

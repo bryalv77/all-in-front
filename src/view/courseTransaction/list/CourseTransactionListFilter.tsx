@@ -2,29 +2,31 @@ import {
   faSearch,
   faUndo,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';    
-import { i18n } from 'src/i18n';
-import actions from 'src/modules/courseTransaction/list/courseTransactionListActions';
-import selectors from 'src/modules/courseTransaction/list/courseTransactionListSelectors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { i18n } from '../../../i18n';
+import actions from '../../../modules/courseTransaction/list/courseTransactionListActions';
+import selectors from '../../../modules/courseTransaction/list/courseTransactionListSelectors';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm, FormProvider } from 'react-hook-form';
-import yupFilterSchemas from 'src/modules/shared/yup/yupFilterSchemas';
+import yupFilterSchemas from '../../../modules/shared/yup/yupFilterSchemas';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FilterPreview from 'src/view/shared/filter/FilterPreview';
-import filterRenders from 'src/modules/shared/filter/filterRenders';
-import InputRangeFormItem from 'src/view/shared/form/items/InputRangeFormItem';
-import DatePickerRangeFormItem from 'src/view/shared/form/items/DatePickerRangeFormItem';
-import CourseAutocompleteFormItem from 'src/view/course/autocomplete/CourseAutocompleteFormItem';
-import StudentAutocompleteFormItem from 'src/view/student/autocomplete/StudentAutocompleteFormItem';
+import FilterPreview from '../../../view/shared/filter/FilterPreview';
+import filterRenders from '../../../modules/shared/filter/filterRenders';
+import InputRangeFormItem from '../../../view/shared/form/items/InputRangeFormItem';
+import DatePickerRangeFormItem from '../../../view/shared/form/items/DatePickerRangeFormItem';
+import CourseAutocompleteFormItem from '../../../view/course/autocomplete/CourseAutocompleteFormItem';
+import StudentAutocompleteFormItem from '../../../view/student/autocomplete/StudentAutocompleteFormItem';
 
 const schema = yup.object().shape({
   amountRange: yupFilterSchemas.decimalRange(
     i18n('entities.courseTransaction.fields.amountRange'),
   ),
   transactionDateRange: yupFilterSchemas.datetimeRange(
-    i18n('entities.courseTransaction.fields.transactionDateRange'),
+    i18n(
+      'entities.courseTransaction.fields.transactionDateRange',
+    ),
   ),
   courseId: yupFilterSchemas.relationToOne(
     i18n('entities.courseTransaction.fields.courseId'),
@@ -39,26 +41,34 @@ const emptyValues = {
   transactionDateRange: [],
   courseId: null,
   studentId: null,
-}
+};
 
 const previewRenders = {
   amountRange: {
-    label: i18n('entities.courseTransaction.fields.amountRange'),
+    label: i18n(
+      'entities.courseTransaction.fields.amountRange',
+    ),
     render: filterRenders.decimalRange(),
   },
   transactionDateRange: {
-    label: i18n('entities.courseTransaction.fields.transactionDateRange'),
+    label: i18n(
+      'entities.courseTransaction.fields.transactionDateRange',
+    ),
     render: filterRenders.datetimeRange(),
   },
   courseId: {
-      label: i18n('entities.courseTransaction.fields.courseId'),
-      render: filterRenders.relationToOne(),
-    },
+    label: i18n(
+      'entities.courseTransaction.fields.courseId',
+    ),
+    render: filterRenders.relationToOne(),
+  },
   studentId: {
-      label: i18n('entities.courseTransaction.fields.studentId'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n(
+      'entities.courseTransaction.fields.studentId',
+    ),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function CourseTransactionListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -79,7 +89,12 @@ function CourseTransactionListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -119,20 +134,28 @@ function CourseTransactionListFilter(props) {
             <div className="pl-4 pr-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
               <InputRangeFormItem
                 name="amountRange"
-                label={i18n('entities.courseTransaction.fields.amountRange')}      
+                label={i18n(
+                  'entities.courseTransaction.fields.amountRange',
+                )}
               />
               <DatePickerRangeFormItem
                 name="transactionDateRange"
-                label={i18n('entities.courseTransaction.fields.transactionDateRange')}    
+                label={i18n(
+                  'entities.courseTransaction.fields.transactionDateRange',
+                )}
                 showTimeInput
               />
-              <CourseAutocompleteFormItem  
+              <CourseAutocompleteFormItem
                 name="courseId"
-                label={i18n('entities.courseTransaction.fields.courseId')}        
+                label={i18n(
+                  'entities.courseTransaction.fields.courseId',
+                )}
               />
-              <StudentAutocompleteFormItem  
+              <StudentAutocompleteFormItem
                 name="studentId"
-                label={i18n('entities.courseTransaction.fields.studentId')}        
+                label={i18n(
+                  'entities.courseTransaction.fields.studentId',
+                )}
               />
             </div>
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/service/serviceSelectors';
+import selectors from '../../../modules/service/serviceSelectors';
 
 function ServiceListItem(props) {
   const hasPermissionToRead = useSelector(

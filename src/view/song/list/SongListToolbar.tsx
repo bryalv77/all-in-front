@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import songSelectors from 'src/modules/song/songSelectors';
-import destroyActions from 'src/modules/song/destroy/songDestroyActions';
-import destroySelectors from 'src/modules/song/destroy/songDestroySelectors';
-import actions from 'src/modules/song/list/songListActions';
-import selectors from 'src/modules/song/list/songListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import songSelectors from '../../../modules/song/songSelectors';
+import destroyActions from '../../../modules/song/destroy/songDestroyActions';
+import destroySelectors from '../../../modules/song/destroy/songDestroySelectors';
+import actions from '../../../modules/song/list/songListActions';
+import selectors from '../../../modules/song/list/songListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function SongToolbar(props) {
   const [

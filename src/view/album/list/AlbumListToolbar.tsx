@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import albumSelectors from 'src/modules/album/albumSelectors';
-import destroyActions from 'src/modules/album/destroy/albumDestroyActions';
-import destroySelectors from 'src/modules/album/destroy/albumDestroySelectors';
-import actions from 'src/modules/album/list/albumListActions';
-import selectors from 'src/modules/album/list/albumListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import albumSelectors from '../../../modules/album/albumSelectors';
+import destroyActions from '../../../modules/album/destroy/albumDestroyActions';
+import destroySelectors from '../../../modules/album/destroy/albumDestroySelectors';
+import actions from '../../../modules/album/list/albumListActions';
+import selectors from '../../../modules/album/list/albumListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function AlbumToolbar(props) {
   const [

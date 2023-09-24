@@ -7,23 +7,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import hashtagSelectors from 'src/modules/hashtag/hashtagSelectors';
-import destroyActions from 'src/modules/hashtag/destroy/hashtagDestroyActions';
-import destroySelectors from 'src/modules/hashtag/destroy/hashtagDestroySelectors';
-import actions from 'src/modules/hashtag/list/hashtagListActions';
-import selectors from 'src/modules/hashtag/list/hashtagListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-
+import { i18n } from '../../../i18n';
+import hashtagSelectors from '../../../modules/hashtag/hashtagSelectors';
+import destroyActions from '../../../modules/hashtag/destroy/hashtagDestroyActions';
+import destroySelectors from '../../../modules/hashtag/destroy/hashtagDestroySelectors';
+import actions from '../../../modules/hashtag/list/hashtagListActions';
+import selectors from '../../../modules/hashtag/list/hashtagListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
 
 function HashtagListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -109,25 +106,25 @@ function HashtagListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'hashtagText'}
-                  label={i18n(
-                    'entities.hashtag.fields.hashtagText',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'usageCount'}
-                  label={i18n(
-                    'entities.hashtag.fields.usageCount',
-                  )}
-                  align="right"
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'hashtagText'}
+                label={i18n(
+                  'entities.hashtag.fields.hashtagText',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'usageCount'}
+                label={i18n(
+                  'entities.hashtag.fields.usageCount',
+                )}
+                align="right"
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -166,8 +163,15 @@ function HashtagListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.hashtagText}</td>
-                  <td align="right" className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.usageCount}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.hashtagText}
+                  </td>
+                  <td
+                    align="right"
+                    className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
+                  >
+                    {row.usageCount}
+                  </td>
                   <td
                     className="w-56 whitespace-nowrap border-b px-5 py-5 border-gray-200 dark:border-gray-800"
                     align="right"

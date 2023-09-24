@@ -7,25 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { i18n } from 'src/i18n';
-import postsSelectors from 'src/modules/posts/postsSelectors';
-import destroyActions from 'src/modules/posts/destroy/postsDestroyActions';
-import destroySelectors from 'src/modules/posts/destroy/postsDestroySelectors';
-import actions from 'src/modules/posts/list/postsListActions';
-import selectors from 'src/modules/posts/list/postsListSelectors';
-import TableColumnHeader from 'src/view/shared/table/TableColumnHeader';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
-import Spinner from 'src/view/shared/Spinner';
-import Pagination from 'src/view/shared/table/Pagination';
-import UserListItem from 'src/view/user/list/UserListItem';
+import { i18n } from '../../../i18n';
+import postsSelectors from '../../../modules/posts/postsSelectors';
+import destroyActions from '../../../modules/posts/destroy/postsDestroyActions';
+import destroySelectors from '../../../modules/posts/destroy/postsDestroySelectors';
+import actions from '../../../modules/posts/list/postsListActions';
+import selectors from '../../../modules/posts/list/postsListSelectors';
+import TableColumnHeader from '../../../view/shared/table/TableColumnHeader';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
+import Spinner from '../../../view/shared/Spinner';
+import Pagination from '../../../view/shared/table/Pagination';
+import UserListItem from '../../../view/user/list/UserListItem';
 import moment from 'moment';
-import FilesListView from 'src/view/shared/table/FileListView';
+import FilesListView from '../../../view/shared/table/FileListView';
 
 function PostsListTable(props) {
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
   const dispatch = useDispatch();
 
   const findLoading = useSelector(selectors.selectLoading);
@@ -111,34 +109,30 @@ function PostsListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'content'}
-                  label={i18n(
-                    'entities.posts.fields.content',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'postDate'}
-                  label={i18n(
-                    'entities.posts.fields.postDate',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.posts.fields.media',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.posts.fields.userId',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'content'}
+                label={i18n(
+                  'entities.posts.fields.content',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'postDate'}
+                label={i18n(
+                  'entities.posts.fields.postDate',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n('entities.posts.fields.media')}
+              />
+              <TableColumnHeader
+                label={i18n('entities.posts.fields.userId')}
+              />
               <TableColumnHeader />
             </tr>
           </thead>
@@ -177,7 +171,9 @@ function PostsListTable(props) {
                       }
                     />
                   </th>
-                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">{row.content}</td>
+                  <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
+                    {row.content}
+                  </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     {row.postDate
                       ? moment(row.postDate).format(
@@ -186,9 +182,7 @@ function PostsListTable(props) {
                       : null}
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
-                    <FilesListView
-                      value={row.media}
-                    />
+                    <FilesListView value={row.media} />
                   </td>
                   <td className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm">
                     <UserListItem value={row.userId} />

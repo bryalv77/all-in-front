@@ -1,9 +1,9 @@
-import ProductCategoryService from 'src/modules/productCategory/productCategoryService';
-import selectors from 'src/modules/productCategory/list/productCategoryListSelectors';
-import { i18n } from 'src/i18n';
-import exporterFields from 'src/modules/productCategory/list/productCategoryListExporterFields';
-import Errors from 'src/modules/shared/error/errors';
-import Exporter from 'src/modules/shared/exporter/exporter';
+import ProductCategoryService from '../../../modules/productCategory/productCategoryService';
+import selectors from '../../../modules/productCategory/list/productCategoryListSelectors';
+import { i18n } from '../../../i18n';
+import exporterFields from '../../../modules/productCategory/list/productCategoryListExporterFields';
+import Errors from '../../../modules/shared/error/errors';
+import Exporter from '../../../modules/shared/exporter/exporter';
 
 const prefix = 'PRODUCTCATEGORY_LIST';
 
@@ -86,17 +86,17 @@ const productCategoryListActions = {
     }
   },
 
-  doChangePagination: (pagination) => async (
-    dispatch,
-    getState,
-  ) => {
-    dispatch({
-      type: productCategoryListActions.PAGINATION_CHANGED,
-      payload: pagination,
-    });
+  doChangePagination:
+    (pagination) => async (dispatch, getState) => {
+      dispatch({
+        type: productCategoryListActions.PAGINATION_CHANGED,
+        payload: pagination,
+      });
 
-    dispatch(productCategoryListActions.doFetchCurrentFilter());
-  },
+      dispatch(
+        productCategoryListActions.doFetchCurrentFilter(),
+      );
+    },
 
   doChangeSort: (sorter) => async (dispatch, getState) => {
     dispatch({
@@ -104,50 +104,57 @@ const productCategoryListActions = {
       payload: sorter,
     });
 
-    dispatch(productCategoryListActions.doFetchCurrentFilter());
+    dispatch(
+      productCategoryListActions.doFetchCurrentFilter(),
+    );
   },
 
-  doFetchCurrentFilter: () => async (
-    dispatch,
-    getState,
-  ) => {
-    const filter = selectors.selectFilter(getState());
-    const rawFilter = selectors.selectRawFilter(getState());
-    dispatch(productCategoryListActions.doFetch(filter, rawFilter, true));
-  },
-
-  doFetch: (filter?, rawFilter?, keepPagination = false) => async (
-    dispatch,
-    getState,
-  ) => {
-    try {
-      dispatch({
-        type: productCategoryListActions.FETCH_STARTED,
-        payload: { filter, rawFilter, keepPagination },
-      });
-
-      const response = await ProductCategoryService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        selectors.selectLimit(getState()),
-        selectors.selectOffset(getState()),
+  doFetchCurrentFilter:
+    () => async (dispatch, getState) => {
+      const filter = selectors.selectFilter(getState());
+      const rawFilter = selectors.selectRawFilter(
+        getState(),
       );
+      dispatch(
+        productCategoryListActions.doFetch(
+          filter,
+          rawFilter,
+          true,
+        ),
+      );
+    },
 
-      dispatch({
-        type: productCategoryListActions.FETCH_SUCCESS,
-        payload: {
-          rows: response.rows,
-          count: response.count,
-        },
-      });
-    } catch (error) {
-      Errors.handle(error);
+  doFetch:
+    (filter?, rawFilter?, keepPagination = false) =>
+    async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: productCategoryListActions.FETCH_STARTED,
+          payload: { filter, rawFilter, keepPagination },
+        });
 
-      dispatch({
-        type: productCategoryListActions.FETCH_ERROR,
-      });
-    }
-  },
+        const response = await ProductCategoryService.list(
+          filter,
+          selectors.selectOrderBy(getState()),
+          selectors.selectLimit(getState()),
+          selectors.selectOffset(getState()),
+        );
+
+        dispatch({
+          type: productCategoryListActions.FETCH_SUCCESS,
+          payload: {
+            rows: response.rows,
+            count: response.count,
+          },
+        });
+      } catch (error) {
+        Errors.handle(error);
+
+        dispatch({
+          type: productCategoryListActions.FETCH_ERROR,
+        });
+      }
+    },
 };
 
 export default productCategoryListActions;

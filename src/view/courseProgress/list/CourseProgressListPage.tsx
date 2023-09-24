@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from 'src/i18n';
-import CourseProgressListFilter from 'src/view/courseProgress/list/CourseProgressListFilter';
-import CourseProgressListTable from 'src/view/courseProgress/list/CourseProgressListTable';
-import CourseProgressListToolbar from 'src/view/courseProgress/list/CourseProgressListToolbar';
-import Breadcrumb from 'src/view/shared/Breadcrumb';
+import { i18n } from '../../../i18n';
+import CourseProgressListFilter from '../../../view/courseProgress/list/CourseProgressListFilter';
+import CourseProgressListTable from '../../../view/courseProgress/list/CourseProgressListTable';
+import CourseProgressListToolbar from '../../../view/courseProgress/list/CourseProgressListToolbar';
+import Breadcrumb from '../../../view/shared/Breadcrumb';
 
 function CourseProgressListPage(props) {
   return (

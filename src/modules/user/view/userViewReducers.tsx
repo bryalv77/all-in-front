@@ -1,4 +1,4 @@
-import actions from 'src/modules/user/view/userViewActions';
+import actions from '../../../modules/user/view/userViewActions';
 
 const initialData = {
   loading: false,

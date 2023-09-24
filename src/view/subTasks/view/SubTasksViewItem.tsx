@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import selectors from 'src/modules/subTasks/subTasksSelectors';
+import selectors from '../../../modules/subTasks/subTasksSelectors';
 
 function SubTasksViewItem(props) {
   const hasPermissionToRead = useSelector(

@@ -1,4 +1,4 @@
-import actions from 'src/modules/category/form/categoryFormActions';
+import actions from '../../../modules/category/form/categoryFormActions';
 
 const initialData = {
   initLoading: false,

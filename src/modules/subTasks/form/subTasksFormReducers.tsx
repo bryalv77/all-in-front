@@ -1,4 +1,4 @@
-import actions from 'src/modules/subTasks/form/subTasksFormActions';
+import actions from '../../../modules/subTasks/form/subTasksFormActions';
 
 const initialData = {
   initLoading: false,

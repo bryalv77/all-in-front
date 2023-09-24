@@ -2,10 +2,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { i18n } from 'src/i18n';
-import Errors from 'src/modules/shared/error/errors';
-import UserService from 'src/modules/user/userService';
-import UserNewForm from 'src/view/user/new/UserNewForm';
+import { i18n } from '../../../i18n';
+import Errors from '../../../modules/shared/error/errors';
+import UserService from '../../../modules/user/userService';
+import UserNewForm from '../../../view/user/new/UserNewForm';
 
 function UserNewFormModal(props) {
   const [saveLoading, setSaveLoading] = useState(false);

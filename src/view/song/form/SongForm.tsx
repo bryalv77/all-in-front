@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import InputFormItem from 'src/view/shared/form/items/InputFormItem';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import Storage from 'src/security/storage';
-import FilesFormItem from 'src/view/shared/form/items/FilesFormItem';
-import ArtistAutocompleteFormItem from 'src/view/artist/autocomplete/ArtistAutocompleteFormItem';
-import AlbumAutocompleteFormItem from 'src/view/album/autocomplete/AlbumAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import InputFormItem from '../../../view/shared/form/items/InputFormItem';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import Storage from '../../../security/storage';
+import FilesFormItem from '../../../view/shared/form/items/FilesFormItem';
+import ArtistAutocompleteFormItem from '../../../view/artist/autocomplete/ArtistAutocompleteFormItem';
+import AlbumAutocompleteFormItem from '../../../view/album/autocomplete/AlbumAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -88,28 +88,34 @@ function SongForm(props) {
           <InputFormItem
             name="title"
             label={i18n('entities.song.fields.title')}
-          placeholder={i18n('entities.song.placeholders.title')}
-          hint={i18n('entities.song.hints.title')}
+            placeholder={i18n(
+              'entities.song.placeholders.title',
+            )}
+            hint={i18n('entities.song.hints.title')}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <ArtistAutocompleteFormItem  
+          <ArtistAutocompleteFormItem
             name="artistId"
             label={i18n('entities.song.fields.artistId')}
-          placeholder={i18n('entities.song.placeholders.artistId')}
-          hint={i18n('entities.song.hints.artistId')}
+            placeholder={i18n(
+              'entities.song.placeholders.artistId',
+            )}
+            hint={i18n('entities.song.hints.artistId')}
             required={false}
             showCreate={!props.modal}
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <AlbumAutocompleteFormItem  
+          <AlbumAutocompleteFormItem
             name="albumId"
             label={i18n('entities.song.fields.albumId')}
-          placeholder={i18n('entities.song.placeholders.albumId')}
-          hint={i18n('entities.song.hints.albumId')}
+            placeholder={i18n(
+              'entities.song.placeholders.albumId',
+            )}
+            hint={i18n('entities.song.hints.albumId')}
             required={false}
             showCreate={!props.modal}
           />
@@ -118,8 +124,10 @@ function SongForm(props) {
           <InputFormItem
             name="duration"
             label={i18n('entities.song.fields.duration')}
-          placeholder={i18n('entities.song.placeholders.duration')}
-          hint={i18n('entities.song.hints.duration')}
+            placeholder={i18n(
+              'entities.song.placeholders.duration',
+            )}
+            hint={i18n('entities.song.hints.duration')}
             required={false}
           />
         </div>
@@ -134,8 +142,10 @@ function SongForm(props) {
           <TextAreaFormItem
             name="externalUrl"
             label={i18n('entities.song.fields.externalUrl')}
-          placeholder={i18n('entities.song.placeholders.externalUrl')}
-          hint={i18n('entities.song.hints.externalUrl')}  
+            placeholder={i18n(
+              'entities.song.placeholders.externalUrl',
+            )}
+            hint={i18n('entities.song.hints.externalUrl')}
             required={false}
           />
         </div>
@@ -147,7 +157,7 @@ function SongForm(props) {
             storage={Storage.values.songMedia}
             max={undefined}
             formats={undefined}
-          hint={i18n('entities.song.hints.media')}
+            hint={i18n('entities.song.hints.media')}
           />
         </div>
 

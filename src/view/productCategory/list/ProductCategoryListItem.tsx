@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/productCategory/productCategorySelectors';
+import selectors from '../../../modules/productCategory/productCategorySelectors';
 
 function ProductCategoryListItem(props) {
   const hasPermissionToRead = useSelector(

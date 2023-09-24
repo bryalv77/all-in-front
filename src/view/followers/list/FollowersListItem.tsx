@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import selectors from 'src/modules/followers/followersSelectors';
+import selectors from '../../../modules/followers/followersSelectors';
 
 function FollowersListItem(props) {
   const hasPermissionToRead = useSelector(

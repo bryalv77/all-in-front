@@ -12,14 +12,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { i18n } from 'src/i18n';
-import auditLogSelectors from 'src/modules/auditLog/auditLogSelectors';
-import orderSelectors from 'src/modules/order/orderSelectors';
-import destroyActions from 'src/modules/order/destroy/orderDestroyActions';
-import destroySelectors from 'src/modules/order/destroy/orderDestroySelectors';
-import actions from 'src/modules/order/list/orderListActions';
-import selectors from 'src/modules/order/list/orderListSelectors';
-import ConfirmModal from 'src/view/shared/modals/ConfirmModal';
+import { i18n } from '../../../i18n';
+import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
+import orderSelectors from '../../../modules/order/orderSelectors';
+import destroyActions from '../../../modules/order/destroy/orderDestroyActions';
+import destroySelectors from '../../../modules/order/destroy/orderDestroySelectors';
+import actions from '../../../modules/order/list/orderListActions';
+import selectors from '../../../modules/order/list/orderListSelectors';
+import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
 function OrderToolbar(props) {
   const [

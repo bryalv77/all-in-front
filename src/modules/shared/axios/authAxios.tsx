@@ -1,7 +1,7 @@
-import { AuthToken } from 'src/modules/auth/authToken';
+import { AuthToken } from '../../../modules/auth/authToken';
 import Axios from 'axios';
-import config from 'src/config';
-import { getLanguageCode } from 'src/i18n';
+import config from '../../../config';
+import { getLanguageCode } from '../../../i18n';
 import Qs from 'qs';
 import moment from 'moment';
 
