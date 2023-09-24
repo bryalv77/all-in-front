@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
-import authSelectors from '../../../modules/auth/authSelectors';
-import PermissionChecker from '../../../modules/auth/permissionChecker';
-import Permissions from '../../../security/permissions';
-import Plans from '../../../security/plans';
+import authSelectors from '../../modules/auth/authSelectors';
+import PermissionChecker from '../../modules/auth/permissionChecker';
+import Permissions from '../../security/permissions';
+import Plans from '../../security/plans';
 
 const selectRaw = (state) => state.plan;
 

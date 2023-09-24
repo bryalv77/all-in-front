@@ -1,5 +1,5 @@
-import { i18n } from '../../../i18n';
-import exporterRenders from '../../../modules/shared/exporter/exporterRenders';
+import { i18n } from '../../i18n';
+import exporterRenders from '../../modules/shared/exporter/exporterRenders';
 
 export default [
   {

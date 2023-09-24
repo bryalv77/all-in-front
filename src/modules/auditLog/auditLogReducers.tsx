@@ -1,4 +1,4 @@
-import actions from '../../../modules/auditLog/auditLogActions';
+import actions from '../../modules/auditLog/auditLogActions';
 
 const INITIAL_PAGE_SIZE = 10;
 

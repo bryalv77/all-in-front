@@ -1,6 +1,6 @@
-import Roles from '../../../security/roles';
-import Plans from '../../../security/plans';
-import Storage from '../../../security/storage';
+import Roles from '../security/roles';
+import Plans from '../security/plans';
+import Storage from '../security/storage';
 
 const storage = Storage.values;
 const roles = Roles.values;

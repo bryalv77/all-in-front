@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import authSelectors from '../../../modules/auth/authSelectors';
-import PermissionChecker from '../../../modules/auth/permissionChecker';
-import Permissions from '../../../security/permissions';
+import authSelectors from '../../modules/auth/authSelectors';
+import PermissionChecker from '../../modules/auth/permissionChecker';
+import Permissions from '../../security/permissions';
 
 const selectPermissionToRead = createSelector(
   [

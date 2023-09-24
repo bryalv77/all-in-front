@@ -1,5 +1,5 @@
-import actions from '../../../modules/auth/authActions';
-import AuthCurrentTenant from '../../../modules/auth/authCurrentTenant';
+import actions from '../../modules/auth/authActions';
+import AuthCurrentTenant from '../../modules/auth/authCurrentTenant';
 
 const initialData = {
   currentUser: null,

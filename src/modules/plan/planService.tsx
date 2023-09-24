@@ -1,5 +1,5 @@
-import authAxios from '../../../modules/shared/axios/authAxios';
-import AuthCurrentTenant from '../../../modules/auth/authCurrentTenant';
+import authAxios from '../../modules/shared/axios/authAxios';
+import AuthCurrentTenant from '../../modules/auth/authCurrentTenant';
 
 export default class PlanService {
   static async fetchCheckoutSessionId(plan) {

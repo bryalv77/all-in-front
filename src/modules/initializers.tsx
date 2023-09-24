@@ -1,3 +1,3 @@
-import authInitializer from '../../../modules/auth/authInitializer';
+import authInitializer from '../modules/auth/authInitializer';
 
 export default [authInitializer];

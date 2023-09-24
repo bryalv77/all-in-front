@@ -1,9 +1,9 @@
-import AuditLogService from '../../../modules/auditLog/auditLogService';
-import selectors from '../../../modules/auditLog/auditLogSelectors';
-import exporterFields from '../../../modules/auditLog/auditLogExporterFields';
-import { i18n } from '../../../i18n';
-import Errors from '../../../modules/shared/error/errors';
-import Exporter from '../../../modules/shared/exporter/exporter';
+import AuditLogService from '../../modules/auditLog/auditLogService';
+import selectors from '../../modules/auditLog/auditLogSelectors';
+import exporterFields from '../../modules/auditLog/auditLogExporterFields';
+import { i18n } from '../../i18n';
+import Errors from '../../modules/shared/error/errors';
+import Exporter from '../../modules/shared/exporter/exporter';
 
 const prefix = 'AUDIT_LOG';
 

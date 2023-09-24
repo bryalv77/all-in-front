@@ -1,5 +1,5 @@
-import config from '../../../config';
-import Errors from '../../../modules/shared/error/errors';
+import config from '../../config';
+import Errors from '../../modules/shared/error/errors';
 import PlanService from './planService';
 
 const prefix = 'PLAN';

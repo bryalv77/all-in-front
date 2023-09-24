@@ -1,13 +1,13 @@
 import React from 'react';
-import { i18n } from '../../../i18n';
-import DashboardBarChart from '../../../view/dashboard/DashboardBarChart';
-import DashboardDoughnutChart from '../../../view/dashboard/DashboardDoughnutChart';
-import DashboardHorizontalBarChart from '../../../view/dashboard/DashboardHorizontalBarChart';
-import DashboardLineChart from '../../../view/dashboard/DashboardLineChart';
-import DashboardMixChartOne from '../../../view/dashboard/DashboardMixChartOne';
-import DashboardMixChartTwo from '../../../view/dashboard/DashboardMixChartTwo';
-import DashboardPolarChart from '../../../view/dashboard/DashboardPolarChart';
-import DashboardRadarChart from '../../../view/dashboard/DashboardRadarChart';
+import { i18n } from '../../i18n';
+import DashboardBarChart from '../../view/dashboard/DashboardBarChart';
+import DashboardDoughnutChart from '../../view/dashboard/DashboardDoughnutChart';
+import DashboardHorizontalBarChart from '../../view/dashboard/DashboardHorizontalBarChart';
+import DashboardLineChart from '../../view/dashboard/DashboardLineChart';
+import DashboardMixChartOne from '../../view/dashboard/DashboardMixChartOne';
+import DashboardMixChartTwo from '../../view/dashboard/DashboardMixChartTwo';
+import DashboardPolarChart from '../../view/dashboard/DashboardPolarChart';
+import DashboardRadarChart from '../../view/dashboard/DashboardRadarChart';
 
 const DashboardPage = (props) => {
   return (
