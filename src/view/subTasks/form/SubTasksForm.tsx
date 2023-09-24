@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { i18n } from 'src/i18n';
-import yupFormSchemas from 'src/modules/shared/yup/yupFormSchemas';
-import TextAreaFormItem from 'src/view/shared/form/items/TextAreaFormItem';
-import SelectFormItem from 'src/view/shared/form/items/SelectFormItem';
-import subTasksEnumerators from 'src/modules/subTasks/subTasksEnumerators';
-import TasksAutocompleteFormItem from 'src/view/tasks/autocomplete/TasksAutocompleteFormItem';
+import { i18n } from '../../../i18n';
+import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
+import TextAreaFormItem from '../../../view/shared/form/items/TextAreaFormItem';
+import SelectFormItem from '../../../view/shared/form/items/SelectFormItem';
+import subTasksEnumerators from '../../../modules/subTasks/subTasksEnumerators';
+import TasksAutocompleteFormItem from '../../../view/tasks/autocomplete/TasksAutocompleteFormItem';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n, i18nHtml } from '../../../i18n';
-import actions from '../../../modules/auth/authActions';
-import selectors from '../../../modules/auth/authSelectors';
+import { i18n, i18nHtml } from '../../i18n';
+import actions from '../../modules/auth/authActions';
+import selectors from '../../modules/auth/authSelectors';
 
 function EmailUnverifiedPage() {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import React from 'react';
-import { i18n } from '../../../i18n';
-import { getHistory } from '../../../modules/store';
-import PasswordChangeForm from '../../../view/auth/PasswordChangeForm';
-import Breadcrumb from '../../../view/shared/Breadcrumb';
+import { i18n } from '../../i18n';
+import { getHistory } from '../../modules/store';
+import PasswordChangeForm from '../../view/auth/PasswordChangeForm';
+import Breadcrumb from '../../view/shared/Breadcrumb';
 
 function PasswordChangeFormPage(props) {
   return (
