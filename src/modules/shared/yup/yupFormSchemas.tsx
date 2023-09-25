@@ -14,7 +14,7 @@ const yupFormSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .trim()
       .label(label);
 
@@ -44,7 +44,7 @@ const yupFormSchemas = {
 
     let yupChain = yup
       .mixed()
-      .nullable(true)
+      .nullable()
       .label(label)
       .transform((value, originalValue) => {
         if (!originalValue) {
@@ -98,7 +98,7 @@ const yupFormSchemas = {
 
     let yupChain = yup
       .array()
-      .nullable(true)
+      .nullable()
       .label(label)
       .transform((value, originalValue) => {
         if (!originalValue || !originalValue.length) {
@@ -133,7 +133,7 @@ const yupFormSchemas = {
         return ov === '' ? null : cv;
       })
       .integer()
-      .nullable(true)
+      .nullable()
       .label(label);
 
     if (config.required) {
@@ -153,7 +153,7 @@ const yupFormSchemas = {
   images(label, config?) {
     config = config || {};
 
-    let yupChain = yup.array().nullable(true).label(label);
+    let yupChain = yup.array().nullable().label(label);
 
     if (config.required || config.min) {
       yupChain = yupChain.required();
@@ -178,7 +178,7 @@ const yupFormSchemas = {
       .array()
       .compact()
       .ensure()
-      .nullable(true)
+      .nullable()
       .label(label);
 
     if (config.required || config.min) {
@@ -206,7 +206,7 @@ const yupFormSchemas = {
         return ov === '' ? null : cv;
       })
       .label(label)
-      .nullable(true)
+      .nullable()
       .oneOf([null, ...(config.options || [])]);
 
     if (config.required) {
@@ -225,7 +225,7 @@ const yupFormSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .trim()
       .label(label)
       .email();
@@ -255,7 +255,7 @@ const yupFormSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .label(label);
 
     if (config.required) {
@@ -276,7 +276,7 @@ const yupFormSchemas = {
     config = config || {};
     let yupChain = yup
       .mixed()
-      .nullable(true)
+      .nullable()
       .label(label)
       .transform((value, originalValue) =>
         value
@@ -297,7 +297,7 @@ const yupFormSchemas = {
     config = config || {};
     let yupChain = yup
       .mixed()
-      .nullable(true)
+      .nullable()
       .label(label)
       .test(
         'is-date',

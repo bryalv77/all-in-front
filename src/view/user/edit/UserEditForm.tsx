@@ -28,7 +28,7 @@ function UserEditForm(props) {
   const [initialValues] = useState(() => props.user || {});
 
   const form = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     mode: 'all',
     defaultValues: initialValues,
   });

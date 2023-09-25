@@ -71,7 +71,7 @@ function SigninPage() {
   });
 
   const form = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     mode: 'onSubmit',
     defaultValues: initialValues,
   });

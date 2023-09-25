@@ -23,7 +23,7 @@ const schema = yup.object().shape({
   status: yupFormSchemas.enumerator(
     i18n('entities.subTasks.fields.status'),
     {
-      "options": subTasksEnumerators.status
+      options: subTasksEnumerators.status,
     },
   ),
   taskId: yupFormSchemas.relationToOne(
@@ -46,7 +46,7 @@ function SubTasksForm(props) {
   });
 
   const form = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     mode: 'all',
     defaultValues: initialValues,
   });
@@ -67,19 +67,27 @@ function SubTasksForm(props) {
         <div className="w-full sm:w-md md:w-md lg:w-md">
           <TextAreaFormItem
             name="description"
-            label={i18n('entities.subTasks.fields.description')}
-          placeholder={i18n('entities.subTasks.placeholders.description')}
-          hint={i18n('entities.subTasks.hints.description')}  
+            label={i18n(
+              'entities.subTasks.fields.description',
+            )}
+            placeholder={i18n(
+              'entities.subTasks.placeholders.description',
+            )}
+            hint={i18n(
+              'entities.subTasks.hints.description',
+            )}
             required={false}
-          autoFocus
+            autoFocus
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
           <SelectFormItem
             name="status"
             label={i18n('entities.subTasks.fields.status')}
-          placeholder={i18n('entities.subTasks.placeholders.status')}
-          hint={i18n('entities.subTasks.hints.status')}
+            placeholder={i18n(
+              'entities.subTasks.placeholders.status',
+            )}
+            hint={i18n('entities.subTasks.hints.status')}
             options={subTasksEnumerators.status.map(
               (value) => ({
                 value,
@@ -92,11 +100,13 @@ function SubTasksForm(props) {
           />
         </div>
         <div className="w-full sm:w-md md:w-md lg:w-md mt-4">
-          <TasksAutocompleteFormItem  
+          <TasksAutocompleteFormItem
             name="taskId"
             label={i18n('entities.subTasks.fields.taskId')}
-          placeholder={i18n('entities.subTasks.placeholders.taskId')}
-          hint={i18n('entities.subTasks.hints.taskId')}
+            placeholder={i18n(
+              'entities.subTasks.placeholders.taskId',
+            )}
+            hint={i18n('entities.subTasks.hints.taskId')}
             required={false}
             showCreate={!props.modal}
           />

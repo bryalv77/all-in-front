@@ -171,7 +171,7 @@ function OperationListFilter(props) {
   });
 
   const form = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     defaultValues: initialValues,
     mode: 'all',
   });

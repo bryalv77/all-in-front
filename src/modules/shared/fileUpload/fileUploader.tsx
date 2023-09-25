@@ -1,4 +1,4 @@
-import * as filesize from 'filesize';
+// import filesize from 'filesize';
 import { i18n } from '../../../i18n';
 import authAxios from '../../../modules/shared/axios/authAxios';
 import { v4 as uuid } from 'uuid';
@@ -24,7 +24,8 @@ export default class FileUploader {
       throw new Error(
         i18n(
           'fileUploader.size',
-          filesize(config.storage.maxSizeInBytes),
+          // filesize(config.storage.maxSizeInBytes),
+          config.storage.maxSizeInBytes,
         ),
       );
     }

@@ -12,7 +12,7 @@ const yupFilterSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .trim()
       .label(label);
   },
@@ -45,7 +45,7 @@ const yupFilterSchemas = {
     return yupChain;
   },
   boolean(label) {
-    return yup.bool().nullable(true).label(label);
+    return yup.bool().nullable().label(label);
   },
   relationToOne(label) {
     return yup
@@ -81,7 +81,7 @@ const yupFilterSchemas = {
         return ov === '' ? null : cv;
       })
       .integer()
-      .nullable(true)
+      .nullable()
       .label(label);
   },
   integerRange(label) {
@@ -94,7 +94,7 @@ const yupFilterSchemas = {
         return ov === '' ? null : cv;
       })
       .label(label)
-      .nullable(true);
+      .nullable();
   },
   email(label) {
     return yup
@@ -102,7 +102,7 @@ const yupFilterSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .trim()
       .label(label);
   },
@@ -112,7 +112,7 @@ const yupFilterSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .label(label);
 
     return yupChain;
@@ -128,7 +128,7 @@ const yupFilterSchemas = {
           .transform((cv, ov) => {
             return ov === '' ? null : cv;
           })
-          .nullable(true)
+          .nullable()
           .label(label),
       )
       .label(label);
@@ -136,7 +136,7 @@ const yupFilterSchemas = {
   datetime(label) {
     let yupChain = yup
       .mixed()
-      .nullable(true)
+      .nullable()
       .label(label)
       .transform((value, originalValue) =>
         originalValue
@@ -155,7 +155,7 @@ const yupFilterSchemas = {
   date(label) {
     return yup
       .mixed()
-      .nullable(true)
+      .nullable()
       .label(label)
       .test(
         'is-date',
@@ -177,7 +177,7 @@ const yupFilterSchemas = {
       .of(
         yup
           .mixed()
-          .nullable(true)
+          .nullable()
           .label(label)
           .test(
             'is-date',

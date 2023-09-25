@@ -86,7 +86,7 @@ function AddressForm(props) {
   });
 
   const form = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     mode: 'all',
     defaultValues: initialValues,
   });
@@ -96,7 +96,7 @@ function AddressForm(props) {
   };
 
   const onReset = () => {
-    Object.keys(initialValues).forEach((key) => {
+    Object.keys(initialValues).forEach((key: any) => {
       form.setValue(key, initialValues[key]);
     });
   };

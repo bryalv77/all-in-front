@@ -60,7 +60,7 @@ function UserNewForm(props) {
   }));
 
   const form = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     mode: 'all',
     defaultValues: initialValues,
   });

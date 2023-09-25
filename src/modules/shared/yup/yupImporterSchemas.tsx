@@ -14,7 +14,7 @@ const yupImporterSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .trim()
       .label(label);
 
@@ -42,7 +42,7 @@ const yupImporterSchemas = {
   relationToOne(label, config?) {
     config = config || {};
 
-    let yupChain = yup.mixed().nullable(true).label(label);
+    let yupChain = yup.mixed().nullable().label(label);
 
     if (config.required) {
       yupChain = yupChain.required();
@@ -77,7 +77,7 @@ const yupImporterSchemas = {
 
     let yupChain = yup
       .array()
-      .nullable(true)
+      .nullable()
       .label(label)
       .transform((value, originalValue) => {
         if (!originalValue) {
@@ -124,7 +124,7 @@ const yupImporterSchemas = {
         return ov === '' ? null : cv;
       })
       .integer()
-      .nullable(true)
+      .nullable()
       .label(label);
 
     if (config.required) {
@@ -146,7 +146,7 @@ const yupImporterSchemas = {
 
     let yupChain = yup
       .array()
-      .nullable(true)
+      .nullable()
       .label(label)
       .transform((value, originalValue) => {
         if (!originalValue) {
@@ -190,7 +190,7 @@ const yupImporterSchemas = {
 
     let yupChain = yup
       .array()
-      .nullable(true)
+      .nullable()
       .label(label)
       .transform((value, originalValue) => {
         if (!originalValue) {
@@ -238,7 +238,7 @@ const yupImporterSchemas = {
         return ov === '' ? null : cv;
       })
       .label(label)
-      .nullable(true)
+      .nullable()
       .oneOf([null, ...(config.options || [])]);
 
     if (config.required) {
@@ -257,7 +257,7 @@ const yupImporterSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .trim()
       .label(label)
       .email();
@@ -287,7 +287,7 @@ const yupImporterSchemas = {
       .transform((cv, ov) => {
         return ov === '' ? null : cv;
       })
-      .nullable(true)
+      .nullable()
       .label(label);
 
     if (config.required) {
@@ -308,7 +308,7 @@ const yupImporterSchemas = {
     config = config || {};
     let yupChain = yup
       .mixed()
-      .nullable(true)
+      .nullable()
       .label(label)
       .test(
         'is-date',
@@ -332,7 +332,7 @@ const yupImporterSchemas = {
     config = config || {};
     let yupChain = yup
       .mixed()
-      .nullable(true)
+      .nullable()
       .label(label)
       .transform((value) => {
         if (!value) {
