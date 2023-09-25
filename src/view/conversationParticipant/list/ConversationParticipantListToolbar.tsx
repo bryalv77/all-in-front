@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../../i18n';
 import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
 import conversationParticipantSelectors from '../../../modules/conversationParticipant/conversationParticipantSelectors';
@@ -97,7 +97,7 @@ function ConversationParticipantToolbar(props) {
           data-for="conversation-participant-list-toolbar-export-tooltip"
         >
           {button}
-          <ReactTooltip id="conversation-participant-list-toolbar-export-tooltip" />
+          <Tooltip id="conversation-participant-list-toolbar-export-tooltip" />
         </span>
       );
     }
@@ -135,7 +135,7 @@ function ConversationParticipantToolbar(props) {
           data-for="conversation-participant-list-toolbar-destroy-tooltip"
         >
           {button}
-          <ReactTooltip id="conversation-participant-list-toolbar-destroy-tooltip" />
+          <Tooltip id="conversation-participant-list-toolbar-destroy-tooltip" />
         </span>
       );
     }

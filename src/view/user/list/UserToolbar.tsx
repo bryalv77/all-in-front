@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../../i18n';
 import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
 import actions from '../../../modules/user/list/userListActions';
@@ -74,7 +74,7 @@ function UserToolbar(props) {
           data-for="user-users-toolbar-export-tooltip"
         >
           {button}
-          <ReactTooltip id="user-users-toolbar-export-tooltip" />
+          <Tooltip id="user-users-toolbar-export-tooltip" />
         </span>
       );
     }
@@ -112,7 +112,7 @@ function UserToolbar(props) {
           data-for="user-users-toolbar-destroy-all-tooltip"
         >
           {button}
-          <ReactTooltip id="user-users-toolbar-destroy-all-tooltip" />
+          <Tooltip id="user-users-toolbar-destroy-all-tooltip" />
         </span>
       );
     }

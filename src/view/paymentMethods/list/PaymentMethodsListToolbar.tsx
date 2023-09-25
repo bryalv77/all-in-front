@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../../i18n';
 import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
 import paymentMethodsSelectors from '../../../modules/paymentMethods/paymentMethodsSelectors';
@@ -97,7 +97,7 @@ function PaymentMethodsToolbar(props) {
           data-for="payment-methods-list-toolbar-export-tooltip"
         >
           {button}
-          <ReactTooltip id="payment-methods-list-toolbar-export-tooltip" />
+          <Tooltip id="payment-methods-list-toolbar-export-tooltip" />
         </span>
       );
     }
@@ -135,7 +135,7 @@ function PaymentMethodsToolbar(props) {
           data-for="payment-methods-list-toolbar-destroy-tooltip"
         >
           {button}
-          <ReactTooltip id="payment-methods-list-toolbar-destroy-tooltip" />
+          <Tooltip id="payment-methods-list-toolbar-destroy-tooltip" />
         </span>
       );
     }

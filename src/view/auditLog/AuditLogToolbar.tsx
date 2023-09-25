@@ -2,7 +2,7 @@ import { faFileExcel } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../i18n';
 import actions from '../../modules/auditLog/auditLogActions';
 import selectors from '../../modules/auditLog/auditLogSelectors';
@@ -41,7 +41,7 @@ function AuditLogToolbar(props) {
           {i18n('common.export')}
         </button>
       </span>
-      <ReactTooltip id="audit-log-toolbar-export-tooltip" />
+      <Tooltip id="audit-log-toolbar-export-tooltip" />
     </div>
   );
 }

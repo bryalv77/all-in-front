@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from '../../../i18n';
-import authActions from '../../../modules/auth/authActions';
-import authSelectors from '../../../modules/auth/authSelectors';
-import layoutActions from '../../../modules/layout/layoutActions';
-import { getHistory } from '../../../modules/store';
-import I18nSelect from '../../../view/layout/I18nSelect';
-import Avatar from '../../../view/shared/Avatar';
-import config from '../../../config';
+import { i18n } from '../../i18n';
+import authActions from '../../modules/auth/authActions';
+import authSelectors from '../../modules/auth/authSelectors';
+import layoutActions from '../../modules/layout/layoutActions';
+import { getHistory } from '../../modules/store';
+import I18nSelect from '../../view/layout/I18nSelect';
+import Avatar from '../../view/shared/Avatar';
+import config from '../../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser,
@@ -19,7 +19,7 @@ import {
   faCode,
 } from '@fortawesome/free-solid-svg-icons';
 import { Menu } from '@headlessui/react';
-import layoutSelectors from '../../../modules/layout/layoutSelectors';
+import layoutSelectors from '../../modules/layout/layoutSelectors';
 
 function Header(props) {
   const dispatch = useDispatch();

@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../../i18n';
 import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
 import serviceSelectors from '../../../modules/service/serviceSelectors';
@@ -97,7 +97,7 @@ function ServiceToolbar(props) {
           data-for="service-list-toolbar-export-tooltip"
         >
           {button}
-          <ReactTooltip id="service-list-toolbar-export-tooltip" />
+          <Tooltip id="service-list-toolbar-export-tooltip" />
         </span>
       );
     }
@@ -135,7 +135,7 @@ function ServiceToolbar(props) {
           data-for="service-list-toolbar-destroy-tooltip"
         >
           {button}
-          <ReactTooltip id="service-list-toolbar-destroy-tooltip" />
+          <Tooltip id="service-list-toolbar-destroy-tooltip" />
         </span>
       );
     }

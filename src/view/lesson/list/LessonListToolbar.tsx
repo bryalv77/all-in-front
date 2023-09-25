@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../../i18n';
 import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
 import lessonSelectors from '../../../modules/lesson/lessonSelectors';
@@ -97,7 +97,7 @@ function LessonToolbar(props) {
           data-for="lesson-list-toolbar-export-tooltip"
         >
           {button}
-          <ReactTooltip id="lesson-list-toolbar-export-tooltip" />
+          <Tooltip id="lesson-list-toolbar-export-tooltip" />
         </span>
       );
     }
@@ -135,7 +135,7 @@ function LessonToolbar(props) {
           data-for="lesson-list-toolbar-destroy-tooltip"
         >
           {button}
-          <ReactTooltip id="lesson-list-toolbar-destroy-tooltip" />
+          <Tooltip id="lesson-list-toolbar-destroy-tooltip" />
         </span>
       );
     }

@@ -8,7 +8,7 @@ import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../../i18n';
 import ConfirmModal from '../../../view/shared/modals/ConfirmModal';
 
@@ -101,7 +101,7 @@ export default (
                   style={{ fontSize: '18px' }}
                   className="fas fa-info-circle"
                 />
-                <ReactTooltip id="importer-toolbar-help-tooltip" />
+                <Tooltip id="importer-toolbar-help-tooltip" />
               </span>
             )}
           </>

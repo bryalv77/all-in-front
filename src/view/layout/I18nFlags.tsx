@@ -1,6 +1,6 @@
 import React from 'react';
-import { getLanguages } from '../../../i18n';
-import actions from '../../../modules/layout/layoutActions';
+import { getLanguages } from '../../i18n';
+import actions from '../../modules/layout/layoutActions';
 
 function I18nFlags(props) {
   const doChangeLanguage = (language) => {

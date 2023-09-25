@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../../i18n';
 import auditLogSelectors from '../../../modules/auditLog/auditLogSelectors';
 import studentSelectors from '../../../modules/student/studentSelectors';
@@ -97,7 +97,7 @@ function StudentToolbar(props) {
           data-for="student-list-toolbar-export-tooltip"
         >
           {button}
-          <ReactTooltip id="student-list-toolbar-export-tooltip" />
+          <Tooltip id="student-list-toolbar-export-tooltip" />
         </span>
       );
     }
@@ -135,7 +135,7 @@ function StudentToolbar(props) {
           data-for="student-list-toolbar-destroy-tooltip"
         >
           {button}
-          <ReactTooltip id="student-list-toolbar-destroy-tooltip" />
+          <Tooltip id="student-list-toolbar-destroy-tooltip" />
         </span>
       );
     }

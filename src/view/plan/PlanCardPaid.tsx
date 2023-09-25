@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { i18n } from '../../../i18n';
 import authSelectors from '../../../modules/auth/authSelectors';
 import actions from '../../../modules/plan/planActions';
@@ -109,7 +109,7 @@ export default function PlanCardPaid(props) {
                 {i18n('plan.manage')}
               </button>
             </span>
-            <ReactTooltip
+            <Tooltip
               id={`plan-not-plan-user-${plan}-tooltip`}
             />
           </>
