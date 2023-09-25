@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
-import { i18n } from '../../../i18n';
+import { i18n } from '../../../../i18n';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from '../../../view/shared/form/formErrors';
+import FormErrors from '../../../../view/shared/form/formErrors';
 import { useSelector } from 'react-redux';
-import layoutSelectors from '../../../modules/layout/layoutSelectors';
-import selectControlStyles from '../../../view/shared/form/items/selectControlStyles';
+import layoutSelectors from '../../../../modules/layout/layoutSelectors';
+import selectControlStyles from '../../../../view/shared/form/items/selectControlStyles';
 import { v4 as uuid } from 'uuid';
 
 function SelectFormItem(props) {

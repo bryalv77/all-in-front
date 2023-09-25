@@ -8,11 +8,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from '../../../i18n';
-import actions from '../../../modules/settings/settingsActions';
-import selectors from '../../../modules/settings/settingsSelectors';
-import yupFormSchemas from '../../../modules/shared/yup/yupFormSchemas';
-import Storage from '../../../security/storage';
+import { i18n } from '../../i18n';
+import actions from '../../modules/settings/settingsActions';
+import selectors from '../../modules/settings/settingsSelectors';
+import yupFormSchemas from '../../modules/shared/yup/yupFormSchemas';
+import Storage from '../../security/storage';
 import * as yup from 'yup';
 import ImagesFormItem from '../shared/form/items/ImagesFormItem';
 

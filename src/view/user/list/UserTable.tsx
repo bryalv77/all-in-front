@@ -21,10 +21,8 @@ import UserStatusView from '../../../view/user/view/UserStatusView';
 
 function UserTable() {
   const dispatch = useDispatch();
-  const [
-    recordIdToDestroy,
-    setRecordIdToDestroy,
-  ] = useState(null);
+  const [recordIdToDestroy, setRecordIdToDestroy] =
+    useState(null);
 
   const loading = useSelector(selectors.selectLoading);
   const rows = useSelector(selectors.selectRows);
@@ -161,7 +159,7 @@ function UserTable() {
                     className="whitespace-nowrap px-5 py-5 border-b border-gray-200 dark:border-gray-800 text-sm"
                   >
                     <Avatar
-                      ../../..={
+                      src={
                         row.avatars && row.avatars.length
                           ? row.avatars[0].downloadUrl
                           : undefined

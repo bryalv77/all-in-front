@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Tooltip } from 'react-tooltip';
-import { i18n } from '../../../i18n';
-import authSelectors from '../../../modules/auth/authSelectors';
-import actions from '../../../modules/plan/planActions';
-import selectors from '../../../modules/plan/planSelectors';
-import Plans from '../../../security/plans';
+import { i18n } from '../../i18n';
+import authSelectors from '../../modules/auth/authSelectors';
+import actions from '../../modules/plan/planActions';
+import selectors from '../../modules/plan/planSelectors';
+import Plans from '../../security/plans';
 
 export default function PlanCardPaid(props) {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { HorizontalBar } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { i18n } from '../../i18n';
 
 const data = {
@@ -40,5 +40,7 @@ const options = {
 };
 
 export default function DashboardHorizontalBarChart(props) {
-  return <HorizontalBar data={data} options={options} />;
+  return (
+    <Bar indexAxis="y" data={data} options={options} />
+  );
 }

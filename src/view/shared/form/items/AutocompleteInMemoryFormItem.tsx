@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import FormErrors from '../../../view/shared/form/formErrors';
+import FormErrors from '../../../../view/shared/form/formErrors';
 import Select from 'react-select';
-import { i18n } from '../../../i18n';
+import { i18n } from '../../../../i18n';
 import { useFormContext } from 'react-hook-form';
 import _uniqBy from 'lodash/uniqBy';
 import { useSelector } from 'react-redux';
-import layoutSelectors from '../../../modules/layout/layoutSelectors';
+import layoutSelectors from '../../../../modules/layout/layoutSelectors';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import selectControlStyles from '../../../view/shared/form/items/selectControlStyles';
+import selectControlStyles from '../../../../view/shared/form/items/selectControlStyles';
 import { v4 as uuid } from 'uuid';
 function AutocompleteInMemoryFormItem(props) {
   const [inputId] = useState(uuid());

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from '../../../view/shared/form/formErrors';
+import FormErrors from '../../../../view/shared/form/formErrors';
 import DatePicker from 'react-datepicker';
 import { v4 as uuid } from 'uuid';
 

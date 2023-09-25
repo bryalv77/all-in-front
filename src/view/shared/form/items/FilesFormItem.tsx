@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import FilesUploader from '../../../view/shared/uploaders/FilesUploader';
+import FilesUploader from '../../../../view/shared/uploaders/FilesUploader';
 import { useFormContext } from 'react-hook-form';
-import FormErrors from '../../../view/shared/form/formErrors';
+import FormErrors from '../../../../view/shared/form/formErrors';
 
 function FilesFormItem(props) {
   const {

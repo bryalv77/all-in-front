@@ -1,14 +1,14 @@
-import { i18n } from '../../../i18n';
+import { i18n } from '../../../../i18n';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import FormErrors from '../../../view/shared/form/formErrors';
+import FormErrors from '../../../../view/shared/form/formErrors';
 import AsyncSelect from 'react-select/async';
 import { useFormContext } from 'react-hook-form';
-import layoutSelectors from '../../../modules/layout/layoutSelectors';
+import layoutSelectors from '../../../../modules/layout/layoutSelectors';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import selectControlStyles from '../../../view/shared/form/items/selectControlStyles';
+import selectControlStyles from '../../../../view/shared/form/items/selectControlStyles';
 import { v4 as uuid } from 'uuid';
 
 const AUTOCOMPLETE_SERVER_FETCH_SIZE = 100;

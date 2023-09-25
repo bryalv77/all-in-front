@@ -1,4 +1,4 @@
-import XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 import { i18n } from '../../../i18n';
 import ImporterSchema from '../../../modules/shared/importer/importerSchema';
 import { Excel } from '../../../modules/shared/excel/excel';

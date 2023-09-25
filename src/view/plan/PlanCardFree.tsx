@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { i18n } from '../../../i18n';
-import authSelectors from '../../../modules/auth/authSelectors';
-import Plans from '../../../security/plans';
+import { i18n } from '../../i18n';
+import authSelectors from '../../modules/auth/authSelectors';
+import Plans from '../../security/plans';
 
 export default function PlanCardFree(props) {
   const currentTenant = useSelector(

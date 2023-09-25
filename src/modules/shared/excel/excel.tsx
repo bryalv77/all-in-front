@@ -1,5 +1,5 @@
 import FileSaver from 'file-saver';
-import XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 
 export const EXCEL_TYPE =
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';

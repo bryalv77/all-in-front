@@ -1,9 +1,9 @@
 import React from 'react';
-import { i18n } from '../../../i18n';
-import Plans from '../../../security/plans';
-import PlanCardFree from '../../../view/plan/PlanCardFree';
-import PlanCardPaid from '../../../view/plan/PlanCardPaid';
-import Breadcrumb from '../../../view/shared/Breadcrumb';
+import { i18n } from '../../i18n';
+import Plans from '../../security/plans';
+import PlanCardFree from '../../view/plan/PlanCardFree';
+import PlanCardPaid from '../../view/plan/PlanCardPaid';
+import Breadcrumb from '../../view/shared/Breadcrumb';
 
 function PlanPage(props) {
   return (
