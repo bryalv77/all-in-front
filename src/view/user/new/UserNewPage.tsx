@@ -15,11 +15,11 @@ function UserNewPage(props) {
   );
 
   useEffect(() => {
-    dispatch(actions.doInit());
+    dispatch(actions.doInit() as any);
   }, [dispatch]);
 
   const doSubmit = (id, data) => {
-    dispatch(actions.doAdd(data));
+    dispatch(actions.doAdd(data) as any);
   };
 
   return (

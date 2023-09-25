@@ -66,7 +66,7 @@ function TenantNewForm(props) {
   );
 
   const onSubmit = (values) => {
-    dispatch(actions.doCreate(values));
+    dispatch(actions.doCreate(values) as any);
   };
 
   return (

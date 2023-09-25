@@ -35,12 +35,12 @@ function AuditLogTable(props) {
       actions.doChangeSort({
         field,
         order,
-      }),
+      }) as any,
     );
   };
 
   const doChangePagination = (pagination) => {
-    dispatch(actions.doChangePagination(pagination));
+    dispatch(actions.doChangePagination(pagination) as any);
   };
 
   const loading = useSelector(selectors.selectLoading);

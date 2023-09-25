@@ -16,7 +16,7 @@ function UserViewPage(props) {
   const user = useSelector(selectors.selectUser);
 
   useEffect(() => {
-    dispatch(actions.doFind(match.params.id));
+    dispatch(actions.doFind(match.params.id) as any);
   }, [dispatch, match.params.id]);
 
   return (

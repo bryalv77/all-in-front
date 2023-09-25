@@ -72,27 +72,27 @@ function CategoryListFilter(props) {
       actions.doFetch(
         schema.cast(initialValues),
         rawFilter,
-      ),
+      ) as any,
     );
     // eslint-disable-next-line
   }, [dispatch]);
 
   const onSubmit = (values) => {
     const rawValues = form.getValues();
-    dispatch(actions.doFetch(values, rawValues));
+    dispatch(actions.doFetch(values, rawValues) as any);
     setExpanded(false);
   };
 
   const onRemove = (key) => {
-    form.setValue(key, emptyValues[key]);
+    form.setValue(key as any, emptyValues[key]);
     return form.handleSubmit(onSubmit)();
   };
 
   const onReset = () => {
     Object.keys(emptyValues).forEach((key) => {
-      form.setValue(key, emptyValues[key]);
+      form.setValue(key as any, emptyValues[key]);
     });
-    dispatch(actions.doReset());
+    dispatch(actions.doReset() as any);
     setExpanded(false);
   };
 

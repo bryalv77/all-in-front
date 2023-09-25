@@ -48,7 +48,7 @@ function SigninPage() {
   const logoUrl = useSelector(selectors.selectLogoUrl);
 
   useEffect(() => {
-    dispatch(actions.doClearErrorMessage());
+    dispatch(actions.doClearErrorMessage() as any);
   }, [dispatch]);
 
   useEffect(() => {
@@ -82,7 +82,7 @@ function SigninPage() {
         email,
         password,
         rememberMe,
-      ),
+      ) as any,
     );
   };
 
@@ -139,7 +139,7 @@ function SigninPage() {
                     type="checkbox"
                     id={'rememberMe'}
                     name={'rememberMe'}
-                    ref={form.register}
+                    ref={form.register as any}
                   />
 
                   <label

@@ -38,7 +38,9 @@ function ForgotPasswordPage() {
   });
 
   const onSubmit = async ({ email }) => {
-    await dispatch(actions.doSendPasswordResetEmail(email));
+    await dispatch(
+      actions.doSendPasswordResetEmail(email) as any,
+    );
     Object.keys(initialValues).forEach((key: any) => {
       form.setValue(key, initialValues[key]);
     });

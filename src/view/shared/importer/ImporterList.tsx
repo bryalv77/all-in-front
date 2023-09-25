@@ -50,7 +50,9 @@ export default (selectors, actions, fields) => {
     };
 
     const doChangePagination = (pagination) => {
-      dispatch(actions.doChangePagination(pagination));
+      dispatch(
+        actions.doChangePagination(pagination) as any,
+      );
     };
 
     return (

@@ -26,7 +26,7 @@ function UserEditPage(props) {
   const match = useRouteMatch();
 
   useEffect(() => {
-    dispatch(actions.doInit(match.params.id));
+    dispatch(actions.doInit(match.params.id) as any);
     setDispatched(true);
   }, [dispatch, match.params.id]);
 

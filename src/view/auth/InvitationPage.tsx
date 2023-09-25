@@ -30,17 +30,22 @@ function InviationPage() {
   const token = queryString.parse(location.search).token;
 
   useEffect(() => {
-    dispatch(invitationActions.doAcceptFromAuth(token));
+    dispatch(
+      invitationActions.doAcceptFromAuth(token) as any,
+    );
   }, [dispatch, token]);
 
   const doAcceptWithWrongEmail = () => {
     dispatch(
-      invitationActions.doAcceptFromAuth(token, true),
+      invitationActions.doAcceptFromAuth(
+        token,
+        true,
+      ) as any,
     );
   };
 
   const doSignout = async () => {
-    await dispatch(authActions.doSignout());
+    await dispatch(authActions.doSignout() as any);
     getHistory().push('/');
   };
 

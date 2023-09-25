@@ -46,7 +46,9 @@ function PasswordResetPage() {
   );
 
   const onSubmit = async ({ password }) => {
-    dispatch(actions.doResetPassword(token, password));
+    dispatch(
+      actions.doResetPassword(token, password) as any,
+    );
   };
 
   return (

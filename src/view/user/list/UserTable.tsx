@@ -46,7 +46,7 @@ function UserTable() {
 
   const doDestroy = (id) => {
     setRecordIdToDestroy(null);
-    dispatch(actions.doDestroy(id));
+    dispatch(actions.doDestroy(id) as any);
   };
 
   const doChangeSort = (field) => {
@@ -59,20 +59,20 @@ function UserTable() {
       actions.doChangeSort({
         field,
         order,
-      }),
+      }) as any,
     );
   };
 
   const doChangePagination = (pagination) => {
-    dispatch(actions.doChangePagination(pagination));
+    dispatch(actions.doChangePagination(pagination) as any);
   };
 
   const doToggleAllSelected = () => {
-    dispatch(actions.doToggleAllSelected());
+    dispatch(actions.doToggleAllSelected() as any);
   };
 
   const doToggleOneSelected = (id) => {
-    dispatch(actions.doToggleOneSelected(id));
+    dispatch(actions.doToggleOneSelected(id) as any);
   };
 
   return (

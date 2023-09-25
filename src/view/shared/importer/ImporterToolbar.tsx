@@ -54,7 +54,7 @@ export default (
     const doReset = () => {
       doCloseDiscardConfirmModal();
       doCloseResetConfirmModal();
-      dispatch(actions.doReset());
+      dispatch(actions.doReset() as any);
     };
 
     const doPause = () => {

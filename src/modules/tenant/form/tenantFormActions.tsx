@@ -58,7 +58,9 @@ const tenantFormActions = {
       });
 
       const tenant = await TenantService.create(values);
-      await dispatch(authActions.doSelectTenant(tenant));
+      await dispatch(
+        authActions.doSelectTenant(tenant) as any,
+      );
 
       dispatch({
         type: tenantFormActions.CREATE_SUCCESS,
@@ -85,7 +87,9 @@ const tenantFormActions = {
       });
 
       Message.success(i18n('tenant.update.success'));
-      await dispatch(authActions.doSelectTenant(tenant));
+      await dispatch(
+        authActions.doSelectTenant(tenant) as any,
+      );
     } catch (error) {
       Errors.handle(error);
 

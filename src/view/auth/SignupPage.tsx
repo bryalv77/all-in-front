@@ -43,7 +43,7 @@ function SignupPage() {
   const logoUrl = useSelector(selectors.selectLogoUrl);
 
   useEffect(() => {
-    dispatch(actions.doClearErrorMessage());
+    dispatch(actions.doClearErrorMessage() as any);
   }, [dispatch]);
 
   const [initialValues] = useState({
@@ -59,7 +59,10 @@ function SignupPage() {
 
   const onSubmit = ({ email, password }) => {
     dispatch(
-      actions.doRegisterEmailAndPassword(email, password),
+      actions.doRegisterEmailAndPassword(
+        email,
+        password,
+      ) as any,
     );
   };
 

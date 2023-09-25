@@ -74,12 +74,12 @@ function ProfileFormPage(props) {
   });
 
   const onSubmit = (values) => {
-    dispatch(actions.doUpdateProfile(values));
+    dispatch(actions.doUpdateProfile(values) as any);
   };
 
   const onReset = () => {
     Object.keys(initialValues).forEach((key) => {
-      form.setValue(key, initialValues[key]);
+      form.setValue(key as any, initialValues[key]);
     });
   };
 

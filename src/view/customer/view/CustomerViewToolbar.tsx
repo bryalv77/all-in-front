@@ -45,7 +45,7 @@ function CustomerViewToolbar(props) {
 
   const doDestroy = () => {
     doCloseDestroyConfirmModal();
-    dispatch(destroyActions.doDestroy(id));
+    dispatch(destroyActions.doDestroy(id) as any);
   };
 
   return (

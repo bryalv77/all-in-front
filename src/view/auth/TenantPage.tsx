@@ -24,7 +24,7 @@ function TenantPage() {
   }, [invitedTenants]);
 
   const doSignout = () => {
-    dispatch(actions.doSignout());
+    dispatch(actions.doSignout() as any);
   };
 
   const doToggleView = () => {

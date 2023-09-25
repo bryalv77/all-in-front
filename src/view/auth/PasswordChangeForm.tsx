@@ -62,7 +62,7 @@ function PasswordChangeFormPage(props) {
       actions.doChangePassword(
         values.oldPassword,
         values.newPassword,
-      ),
+      ) as any,
     );
   };
 

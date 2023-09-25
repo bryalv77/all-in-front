@@ -16,7 +16,7 @@ function AuditLogToolbar(props) {
   const dispatch = useDispatch();
 
   const doExport = () => {
-    dispatch(actions.doExport());
+    dispatch(actions.doExport() as any);
   };
 
   const disabled = !hasRows || loading || exportLoading;

@@ -57,7 +57,9 @@ const tenantInvitationActions = {
           forceAcceptOtherEmail,
         );
 
-        await dispatch(authActions.doSelectTenant(tenant));
+        await dispatch(
+          authActions.doSelectTenant(tenant) as any,
+        );
 
         dispatch({
           type: tenantInvitationActions.ACCEPT_FROM_AUTH_SUCCESS,
@@ -94,7 +96,9 @@ const tenantInvitationActions = {
       const tenant = await TenantService.acceptInvitation(
         token,
       );
-      await dispatch(authActions.doSelectTenant(tenant));
+      await dispatch(
+        authActions.doSelectTenant(tenant) as any,
+      );
 
       dispatch({
         type: tenantInvitationActions.ACCEPT_SUCCESS,

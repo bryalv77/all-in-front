@@ -71,26 +71,26 @@ function CourseProgressListTable(props) {
       actions.doChangeSort({
         field,
         order,
-      }),
+      }) as any,
     );
   };
 
   const doChangePagination = (pagination) => {
-    dispatch(actions.doChangePagination(pagination));
+    dispatch(actions.doChangePagination(pagination) as any);
   };
 
   const doDestroy = (id) => {
     doCloseDestroyConfirmModal();
 
-    dispatch(destroyActions.doDestroy(id));
+    dispatch(destroyActions.doDestroy(id) as any);
   };
 
   const doToggleAllSelected = () => {
-    dispatch(actions.doToggleAllSelected());
+    dispatch(actions.doToggleAllSelected() as any);
   };
 
   const doToggleOneSelected = (id) => {
-    dispatch(actions.doToggleOneSelected(id));
+    dispatch(actions.doToggleOneSelected(id) as any);
   };
 
   return (

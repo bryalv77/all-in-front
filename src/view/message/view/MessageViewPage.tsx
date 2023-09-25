@@ -16,7 +16,7 @@ function MessagePage() {
   const record = useSelector(selectors.selectRecord);
 
   useEffect(() => {
-    dispatch(actions.doFind(match.params.id));
+    dispatch(actions.doFind(match.params.id) as any);
   }, [dispatch, match.params.id]);
 
   return (

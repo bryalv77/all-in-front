@@ -41,11 +41,11 @@ function UserToolbar(props) {
   );
 
   const doExport = () => {
-    dispatch(actions.doExport());
+    dispatch(actions.doExport() as any);
   };
 
   const doDestroyAllSelected = () => {
-    dispatch(actions.doDestroyAllSelected());
+    dispatch(actions.doDestroyAllSelected() as any);
   };
 
   const renderExportButton = () => {

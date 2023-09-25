@@ -27,11 +27,11 @@ function VerifyEmailPage() {
   );
 
   useEffect(() => {
-    dispatch(actions.doVerifyEmail(token));
+    dispatch(actions.doVerifyEmail(token) as any);
   }, [dispatch, token]);
 
   const doSignout = async () => {
-    await dispatch(actions.doSignout());
+    await dispatch(actions.doSignout() as any);
     getHistory().push('/');
   };
 

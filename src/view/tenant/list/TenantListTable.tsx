@@ -77,30 +77,30 @@ function TenantListTable() {
       actions.doChangeSort({
         field,
         order,
-      }),
+      }) as any,
     );
   };
 
   const doSelectTenant = (tenant) => {
-    dispatch(authActions.doSelectTenant(tenant));
+    dispatch(authActions.doSelectTenant(tenant) as any);
   };
 
   const doChangePagination = (pagination) => {
-    dispatch(actions.doChangePagination(pagination));
+    dispatch(actions.doChangePagination(pagination) as any);
   };
 
   const doDestroy = (id) => {
     setRecordIdToDestroy(null);
-    dispatch(destroyActions.doDestroy(id));
+    dispatch(destroyActions.doDestroy(id) as any);
   };
 
   const doDeclineInvitation = (token) => {
     setInvitationTokenToDeclineInvitation(null);
-    dispatch(invitationActions.doDecline(token));
+    dispatch(invitationActions.doDecline(token) as any);
   };
 
   const doAcceptInvitation = (token) => {
-    dispatch(invitationActions.doAccept(token));
+    dispatch(invitationActions.doAccept(token) as any);
   };
 
   return (

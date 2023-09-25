@@ -45,7 +45,7 @@ function TenantSelectForm(props) {
     dispatch(
       actions.doAccept(
         tenantUserInvitation.invitationToken,
-      ),
+      ) as any,
     );
   };
 

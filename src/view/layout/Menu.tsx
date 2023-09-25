@@ -31,7 +31,7 @@ function Menu(props) {
 
   const doToggleMenuIfSmall = () => {
     if (window.innerWidth < 640) {
-      dispatch(layoutActions.doToggleMenu());
+      dispatch(layoutActions.doToggleMenu() as any);
     }
   };
 
@@ -43,8 +43,8 @@ function Menu(props) {
   useLayoutEffect(() => {
     const toggleMenuOnResize = () => {
       window.innerWidth < 640
-        ? dispatch(actions.doHideMenu())
-        : dispatch(actions.doShowMenu());
+        ? dispatch(actions.doHideMenu() as any)
+        : dispatch(actions.doShowMenu() as any);
     };
 
     toggleMenuOnResize();

@@ -62,13 +62,15 @@ function CourseProgressToolbar(props) {
   };
 
   const doExport = () => {
-    dispatch(actions.doExport());
+    dispatch(actions.doExport() as any);
   };
 
   const doDestroyAllSelected = () => {
     doCloseDestroyAllConfirmModal();
 
-    dispatch(destroyActions.doDestroyAll(selectedKeys));
+    dispatch(
+      destroyActions.doDestroyAll(selectedKeys) as any,
+    );
   };
 
   const renderExportButton = () => {

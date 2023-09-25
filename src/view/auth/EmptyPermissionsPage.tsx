@@ -13,7 +13,7 @@ function EmptyPermissionsPage() {
   const logoUrl = useSelector(selectors.selectLogoUrl);
 
   const doSignout = () => {
-    dispatch(actions.doSignout());
+    dispatch(actions.doSignout() as any);
   };
 
   return (

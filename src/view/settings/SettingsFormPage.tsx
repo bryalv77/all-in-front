@@ -19,7 +19,7 @@ const SettingsFormPage = (props) => {
   const settings = useSelector(selectors.selectSettings);
 
   useEffect(() => {
-    dispatch(actions.doInit());
+    dispatch(actions.doInit() as any);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

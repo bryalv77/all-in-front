@@ -28,15 +28,15 @@ function ProductReviewFormPage(props) {
     : i18n('entities.productReview.new.title');
 
   useEffect(() => {
-    dispatch(actions.doInit(match.params.id));
+    dispatch(actions.doInit(match.params.id) as any);
     setDispatched(true);
   }, [dispatch, match.params.id]);
 
   const doSubmit = (id, data) => {
     if (isEditing) {
-      dispatch(actions.doUpdate(id, data));
+      dispatch(actions.doUpdate(id, data) as any);
     } else {
-      dispatch(actions.doCreate(data));
+      dispatch(actions.doCreate(data) as any);
     }
   };
 

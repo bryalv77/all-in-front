@@ -25,7 +25,7 @@ function Header(props) {
   const dispatch = useDispatch();
 
   const doToggleMenu = () => {
-    dispatch(layoutActions.doToggleMenu());
+    dispatch(layoutActions.doToggleMenu() as any);
   };
 
   const darkMode = useSelector(
@@ -43,7 +43,7 @@ function Header(props) {
   );
 
   const doSignout = () => {
-    dispatch(authActions.doSignout());
+    dispatch(authActions.doSignout() as any);
   };
 
   const doNavigateToProfile = () => {
@@ -84,7 +84,7 @@ function Header(props) {
                       dispatch(
                         layoutActions.doDarkModeChange(
                           event.target.checked,
-                        ),
+                        ) as any,
                       )
                     }
                     className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"

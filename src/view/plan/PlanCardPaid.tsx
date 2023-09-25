@@ -34,11 +34,11 @@ export default function PlanCardPaid(props) {
     : 'none';
 
   const doCheckout = () => {
-    dispatch(actions.doCheckout(plan));
+    dispatch(actions.doCheckout(plan) as any);
   };
 
   const doPortal = () => {
-    dispatch(actions.doPortal());
+    dispatch(actions.doPortal() as any);
   };
 
   return (
