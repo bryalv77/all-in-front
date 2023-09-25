@@ -68,7 +68,7 @@ function PasswordChangeFormPage(props) {
 
   const onReset = () => {
     Object.keys(initialValues).forEach((key: any) => {
-      form.setValue(key, initialValues[key]);
+      form.setValue(key as any, initialValues[key]);
     });
   };
 

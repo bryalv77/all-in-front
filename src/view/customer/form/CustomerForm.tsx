@@ -70,7 +70,7 @@ function CustomerForm(props) {
 
   const onReset = () => {
     Object.keys(initialValues).forEach((key) => {
-      form.setValue(key, initialValues[key]);
+      form.setValue(key as any, initialValues[key]);
     });
   };
 

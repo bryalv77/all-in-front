@@ -76,13 +76,13 @@ function ArtistListFilter(props) {
   };
 
   const onRemove = (key) => {
-    form.setValue(key, emptyValues[key]);
+    form.setValue(key as any, emptyValues[key]);
     return form.handleSubmit(onSubmit)();
   };
 
   const onReset = () => {
     Object.keys(emptyValues).forEach((key) => {
-      form.setValue(key, emptyValues[key]);
+      form.setValue(key as any, emptyValues[key]);
     });
     dispatch(actions.doReset() as any);
     setExpanded(false);

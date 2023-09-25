@@ -6,7 +6,7 @@ function TenantListFilter(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actions.doFetch());
+    dispatch(actions.doFetch() as any);
   }, [dispatch]);
 
   return null;
