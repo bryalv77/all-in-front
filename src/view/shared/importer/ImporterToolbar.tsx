@@ -106,35 +106,36 @@ export default (
             )}
           </>
         )}
-
-        {showImport && (
-          <button
-            onClick={doImport}
-            className="mb-2 mr-2 text-sm disabled:opacity-50 disabled:cursor-default px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
-            type="button"
-          >
-            <FontAwesomeIcon
-              className="mr-2"
-              icon={faSave}
-            />
-            {i18n('common.import')}
-          </button>
-        )}
-
-        {showPause && (
-          <button
-            type="button"
-            className="mb-2 mr-2 text-sm disabled:opacity-50 disabled:cursor-default px-4 py-2 tracking-wide dark:border-gray-800 dark:bg-gray-800 dark:hover:bg-gray-600 dark:text-white text-gray-700 border border-gray-300 transition-colors duration-200 transform bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-            onClick={doPause}
-          >
-            <FontAwesomeIcon
-              className="mr-2"
-              icon={faPause}
-            />
-            {i18n('common.pause')}
-          </button>
-        )}
-
+        <>
+          {showImport && (
+            <button
+              onClick={doImport}
+              className="mb-2 mr-2 text-sm disabled:opacity-50 disabled:cursor-default px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+              type="button"
+            >
+              <FontAwesomeIcon
+                className="mr-2"
+                icon={faSave}
+              />
+              {i18n('common.import')}
+            </button>
+          )}
+        </>
+        <>
+          {showPause && (
+            <button
+              type="button"
+              className="mb-2 mr-2 text-sm disabled:opacity-50 disabled:cursor-default px-4 py-2 tracking-wide dark:border-gray-800 dark:bg-gray-800 dark:hover:bg-gray-600 dark:text-white text-gray-700 border border-gray-300 transition-colors duration-200 transform bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+              onClick={doPause}
+            >
+              <FontAwesomeIcon
+                className="mr-2"
+                icon={faPause}
+              />
+              {i18n('common.pause')}
+            </button>
+          )}
+        </>
         {showNew && (
           <button
             className="mb-2 mr-2 text-sm disabled:opacity-50 disabled:cursor-default px-4 py-2 tracking-wide dark:border-gray-800 dark:bg-gray-800 dark:hover:bg-gray-600 dark:text-white text-gray-700 border border-gray-300 transition-colors duration-200 transform bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
@@ -148,21 +149,21 @@ export default (
             {i18n('common.new')}
           </button>
         )}
-
-        {showDiscard && (
-          <button
-            type="button"
-            className="mb-2 mr-2 text-sm disabled:opacity-50 disabled:cursor-default px-4 py-2 tracking-wide dark:border-gray-800 dark:bg-gray-800 dark:hover:bg-gray-600 dark:text-white text-gray-700 border border-gray-300 transition-colors duration-200 transform bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-            onClick={doOpenDiscardConfirmModal}
-          >
-            <FontAwesomeIcon
-              className="mr-2"
-              icon={faTrashAlt}
-            />
-            {i18n('common.discard')}
-          </button>
-        )}
-
+        <>
+          {showDiscard && (
+            <button
+              type="button"
+              className="mb-2 mr-2 text-sm disabled:opacity-50 disabled:cursor-default px-4 py-2 tracking-wide dark:border-gray-800 dark:bg-gray-800 dark:hover:bg-gray-600 dark:text-white text-gray-700 border border-gray-300 transition-colors duration-200 transform bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+              onClick={doOpenDiscardConfirmModal}
+            >
+              <FontAwesomeIcon
+                className="mr-2"
+                icon={faTrashAlt}
+              />
+              {i18n('common.discard')}
+            </button>
+          )}
+        </>
         {discardConfirmVisible && (
           <ConfirmModal
             title={i18n('importer.list.discardConfirm')}

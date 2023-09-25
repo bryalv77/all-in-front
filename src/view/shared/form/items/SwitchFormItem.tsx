@@ -49,7 +49,7 @@ function SwitchFormItem(props) {
             type="checkbox"
             id={inputId}
             name={name}
-            ref={register}
+            ref={register as any}
             onChange={(event) => {
               props.onChange &&
                 props.onChange(event.target.checked);

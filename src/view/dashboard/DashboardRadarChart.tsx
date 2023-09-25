@@ -36,12 +36,8 @@ const data = {
   ],
 };
 
-const options = {
-  scale: {
-    display: false,
-  },
-};
+const options = {};
 
-export default function DashboardRadarChart(props) {
+export default function DashboardRadarChart() {
   return <Radar data={data} options={options} />;
 }

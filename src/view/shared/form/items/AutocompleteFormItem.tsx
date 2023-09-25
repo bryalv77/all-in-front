@@ -16,13 +16,15 @@ const AUTOCOMPLETE_SERVER_FETCH_SIZE = 100;
 function AutocompleteFormItem(props) {
   const [inputId] = useState(uuid());
 
+  const formContext = useFormContext();
+  console.log('formContext: ', formContext);
   const {
     errors,
     watch,
     setValue,
     register,
     formState: { touched, isSubmitted },
-  } = useFormContext();
+  } = formContext;
 
   const {
     label,
@@ -39,7 +41,7 @@ function AutocompleteFormItem(props) {
   } = props;
 
   useEffect(() => {
-    register({ name });
+    register({ name: name.toString() });
   }, [register, name]);
 
   const isDarkMode = useSelector(

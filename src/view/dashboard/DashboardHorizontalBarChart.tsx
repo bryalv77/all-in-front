@@ -25,22 +25,24 @@ const data = {
 };
 
 const options = {
-  scales: {
-    xAxes: [
-      {
-        display: true,
-      },
-    ],
-    yAxes: [
-      {
-        display: false,
-      },
-    ],
+  indexAxis: 'y' as const,
+  elements: {
+    bar: {
+      borderWidth: 2,
+    },
+  },
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'right' as const,
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Horizontal Bar Chart',
+    },
   },
 };
 
 export default function DashboardHorizontalBarChart(props) {
-  return (
-    <Bar indexAxis="y" data={data} options={options} />
-  );
+  return <Bar data={data} options={options} />;
 }

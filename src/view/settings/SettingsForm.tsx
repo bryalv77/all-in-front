@@ -51,7 +51,7 @@ function SettingsForm(props) {
   });
 
   const onSubmit = (values) => {
-    dispatch(actions.doSave(values));
+    dispatch(actions.doSave(values) as any);
   };
 
   const onReset = () => {

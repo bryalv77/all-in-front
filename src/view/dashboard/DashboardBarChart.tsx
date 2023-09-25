@@ -24,20 +24,11 @@ const data = {
 };
 
 const options = {
-  legend: {
-    display: true,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      },
-    ],
-    yAxes: [
-      {
-        display: true,
-      },
-    ],
+  responsive: true,
+  plugins: {
+    legend: {
+      display: true,
+    },
   },
 };
 

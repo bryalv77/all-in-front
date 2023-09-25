@@ -53,7 +53,7 @@ export function InputNumberFormItem(props) {
           id={inputId}
           name={name}
           type={type}
-          ref={register}
+          ref={register as any}
           onChange={(event) => {
             props.onChange &&
               props.onChange(event.target.value);

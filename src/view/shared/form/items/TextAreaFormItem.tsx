@@ -50,7 +50,7 @@ function TextAreaFormItem(props) {
         <textarea
           id={inputId}
           name={name}
-          ref={register}
+          ref={register as any}
           onChange={(event) => {
             props.onChange &&
               props.onChange(event.target.value);
