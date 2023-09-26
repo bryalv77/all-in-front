@@ -26,7 +26,8 @@ const tenantMode = 'multi';
  * Plan payments configuration.
  */
 const isPlanEnabled = true;
-const stripePublishableKey = '';
+const stripePublishableKey =
+  'pk_test_51NuPKuInU8XBH4eAMULux5H97RDW85XKEHiml3aK2S0wQUyC62aUToKnwMC5YiKoyTvUWpwIxDw4UW5f6hGZGvly00lwEsmeDS';
 
 export default {
   frontendUrl,
@@ -34,5 +35,5 @@ export default {
   apiDocumentationUrl,
   tenantMode,
   isPlanEnabled,
-  stripePublishableKey
+  stripePublishableKey,
 };
