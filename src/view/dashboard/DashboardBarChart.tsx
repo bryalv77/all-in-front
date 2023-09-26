@@ -1,4 +1,5 @@
 import React from 'react';
+import 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 import { i18n } from '../../i18n';
 
