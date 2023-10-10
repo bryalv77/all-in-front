@@ -48,28 +48,40 @@ const yupFilterSchemas = {
     return yup.bool().nullable().label(label);
   },
   relationToOne(label) {
-    return yup
-      .mixed()
-      .label(label)
-      .transform((value, originalValue) => {
-        if (!originalValue) {
-          return null;
-        }
+    try {
+      return yup
+        .mixed()
+        .nullable()
+        .label(label)
+        .transform((value, originalValue) => {
+          if (!originalValue) {
+            return null;
+          }
 
-        return originalValue.id;
-      });
+          return originalValue.id;
+        });
+    } catch (error) {
+      console.log('error: ', error);
+      return yup.mixed().nullable().label(label);
+    }
   },
   relationToMany(label) {
-    return yup
-      .mixed()
-      .label(label)
-      .transform((value, originalValue) => {
-        if (!originalValue || !originalValue.length) {
-          return [];
-        }
+    try {
+      return yup
+        .mixed()
+        .nullable()
+        .label(label)
+        .transform((value, originalValue) => {
+          if (!originalValue || !originalValue.length) {
+            return [];
+          }
 
-        return originalValue.map((item) => item.id);
-      });
+          return originalValue.map((item) => item.id);
+        });
+    } catch (error) {
+      console.log('error: ', error);
+      return yup.mixed().nullable().label(label);
+    }
   },
   json(label) {
     return yup.mixed().label(label);

@@ -109,7 +109,6 @@ function CustomerListFilter(props) {
     dispatch(actions.doReset() as any);
     setExpanded(false);
   };
-
   return (
     <div className="border-gray-200 dark:border-gray-600 border rounded-md mb-2">
       <FilterPreview

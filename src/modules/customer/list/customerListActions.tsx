@@ -144,6 +144,7 @@ const customerListActions = {
           },
         });
       } catch (error) {
+        console.log('error: ', error);
         Errors.handle(error);
 
         dispatch({
