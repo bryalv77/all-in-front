@@ -73,7 +73,6 @@
       "import/no-anonymous-default-export": "off"
     }
   },
-  "homepage": "https://bryalv77.github.io/all-in-front/dashboard",
   "browserslist": [
     ">0.2%",
     "not dead",

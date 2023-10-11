@@ -1,10 +1,10 @@
 // Place the URL here with the /api suffix.
 // Ex.:`https://domain.com/api`;
-const backendUrl = `/api`;
+const backendUrl = `https://all-in-back-production.up.railway.app/api`;
 
 // SwaggerUI Documentation URL
 // Leave black if documentation should be hidden
-const apiDocumentationUrl = `/documentation`;
+const apiDocumentationUrl = `https://all-in-back-production.up.railway.app/documentation`;
 
 /**
  * Frontend URL.
