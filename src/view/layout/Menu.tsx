@@ -101,7 +101,7 @@ function Menu(props) {
           {logoUrl ? (
             <img
               src={logoUrl}
-              className="w-72 max-h-14 object-cover"
+              className="w-72 max-h-14 object-contain"
               alt={i18n('app.title')}
             />
           ) : (
