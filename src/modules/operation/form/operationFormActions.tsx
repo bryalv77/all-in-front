@@ -76,6 +76,9 @@ const operationFormActions = {
 
   doUpdate: (id, values) => async (dispatch, getState) => {
     try {
+      Message.success(
+        i18n('entities.operation.update.started'),
+      );
       dispatch({
         type: operationFormActions.UPDATE_STARTED,
       });
