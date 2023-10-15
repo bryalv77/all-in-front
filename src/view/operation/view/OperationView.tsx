@@ -16,10 +16,10 @@ function OperationView(props) {
 
   return (
     <div>
-      {/* <TextViewItem
+      <TextViewItem
         label={i18n('entities.operation.fields.fintonicId')}
         value={record.fintonicId}
-      /> */}
+      />
 
       <TextViewItem
         label={i18n(
