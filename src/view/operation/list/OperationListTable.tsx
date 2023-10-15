@@ -110,7 +110,7 @@ function OperationListTable(props) {
                   />
                 )}
               </TableColumnHeader>
-              <TableColumnHeader
+              {/* <TableColumnHeader
                 onSort={doChangeSort}
                 hasRows={hasRows}
                 sorter={sorter}
@@ -118,7 +118,7 @@ function OperationListTable(props) {
                 label={i18n(
                   'entities.operation.fields.fintonicId',
                 )}
-              />
+              /> */}
               <TableColumnHeader
                 onSort={doChangeSort}
                 hasRows={hasRows}
@@ -137,24 +137,7 @@ function OperationListTable(props) {
                   'entities.operation.fields.reference',
                 )}
               />
-              <TableColumnHeader
-                onSort={doChangeSort}
-                hasRows={hasRows}
-                sorter={sorter}
-                name={'note'}
-                label={i18n(
-                  'entities.operation.fields.note',
-                )}
-              />
-              <TableColumnHeader
-                onSort={doChangeSort}
-                hasRows={hasRows}
-                sorter={sorter}
-                name={'userDescription'}
-                label={i18n(
-                  'entities.operation.fields.userDescription',
-                )}
-              />
+
               <TableColumnHeader
                 onSort={doChangeSort}
                 hasRows={hasRows}
@@ -232,6 +215,24 @@ function OperationListTable(props) {
               <TableColumnHeader
                 label={i18n(
                   'entities.operation.fields.receipt',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'note'}
+                label={i18n(
+                  'entities.operation.fields.note',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'userDescription'}
+                label={i18n(
+                  'entities.operation.fields.userDescription',
                 )}
               />
               <TableColumnHeader

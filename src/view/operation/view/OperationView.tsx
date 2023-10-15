@@ -16,10 +16,10 @@ function OperationView(props) {
 
   return (
     <div>
-      <TextViewItem
+      {/* <TextViewItem
         label={i18n('entities.operation.fields.fintonicId')}
         value={record.fintonicId}
-      />
+      /> */}
 
       <TextViewItem
         label={i18n(
@@ -31,18 +31,6 @@ function OperationView(props) {
       <TextViewItem
         label={i18n('entities.operation.fields.reference')}
         value={record.reference}
-      />
-
-      <TextViewItem
-        label={i18n('entities.operation.fields.note')}
-        value={record.note}
-      />
-
-      <TextViewItem
-        label={i18n(
-          'entities.operation.fields.userDescription',
-        )}
-        value={record.userDescription}
       />
 
       <TextViewItem
@@ -102,7 +90,16 @@ function OperationView(props) {
         label={i18n('entities.operation.fields.receipt')}
         value={record.receipt}
       />
-
+      <TextViewItem
+        label={i18n('entities.operation.fields.note')}
+        value={record.note}
+      />
+      <TextViewItem
+        label={i18n(
+          'entities.operation.fields.userDescription',
+        )}
+        value={record.userDescription}
+      />
       <UserViewItem
         label={i18n('entities.operation.fields.userId')}
         value={record.userId}
